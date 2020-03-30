@@ -1,0 +1,37 @@
+\documentclass[11pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{xparse} 
+\usepackage{float}
+\usepackage{caption}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+  
+\lhead{Usability Evaluation Study 1: Inspection} 
+\rhead{Clementi, Premi, Siciliano} 
+\renewcommand{\headrulewidth}{0.4pt}
+
+\renewcommand{\labelitemii}{$\star$}
+ 
+\graphicspath{ {chapters/resources/images} } 
+\newwrite\outputstream
+
+\input{commands.tex}
+
+
+\begin{document}
+\input{title.tex}
+
+\tableofcontents
+
+\input{chapters/Abstract.tex}
+\input{chapters/InspectionMethod.tex}
+\input{chapters/AgreedScores.tex}
+\input{chapters/AggregatedResults.tex}
+\input{chapters/Conclusions.tex}
+\input{chapters/Annex.tex}
+\immediate\closeout\outputstream
+
+\end{document}

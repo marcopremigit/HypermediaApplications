@@ -1,3 +1,16 @@
+window.onload = () => {
+    Breadcrumbs.loadCrumbs([
+        {
+            page: "homepage.html",
+            title: "Home"
+        },
+        {
+            page: "contattaci.html",
+            title: "Contattaci"
+        }
+    ]);
+}
+
 function sendEmail() {
 	Email.send({
 	Host: "smtp.gmail.com",

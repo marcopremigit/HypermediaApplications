@@ -38,6 +38,17 @@ form input::placeholder{
 form textarea::placeholder{
     text-align: center;
 }
+
+hr{
+    width: 85%;
+    border-top: solid .1rem #737373ab;
+    margin-top: 2.5rem;
+}
+
+#contact-links li a{
+    color: black;
+}
+
 /* Image banner classes */
 /* Main div classes */
 

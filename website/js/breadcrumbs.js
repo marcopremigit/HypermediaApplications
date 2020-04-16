@@ -8,10 +8,11 @@
         </nav>
     4. add this to the js of your page:
         window.onload = () => {
-            Breadcrumbs.loadCrumbs([
+            Breadcrumbs.loadCrumbs([{
                 page: pageToNavigateTo,
                 title: titleToShowInCrumb
-            ]);
+
+            }]);
         }
     
     NB: If something doesn't work, call your friendly neighborhood Fabs

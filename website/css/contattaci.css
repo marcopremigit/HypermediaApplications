@@ -1,24 +1,32 @@
-html,body{
-    height: 100%;
+html{
+    min-height: 100%;
+    position: relative;
 }
 
 /* Header classes */
 .header{
     top: 0;
-    height: 5em;
 }
 
 .main-bg-color{
     background-color: #8A0000;
 }
 
+.navbar.nav{
+    padding-bottom: .2rem;
+}
+
 .nav-link{
     color: #FFBE0A !important;
 }
 
+.nav-item{
+    padding-bottom: .2rem;
+}
+
 .nav-link:hover{
     border: solid #FFBE0A;
-    border-width: 0em 0em .2em;
+    border-width: 0em 0em .2rem;
 }
 /* Header classes */
 
@@ -43,26 +51,6 @@ html,body{
 /* Footer classes */
 .footer{
     bottom: 0;
-    height: 5em;
-}
-
-.footer-container{
-    padding-top: .5em;
-    padding-bottom: .5em;
-}
-
-.footer-container a{
-    color: #FFBE0A;
-    text-decoration: none;
-    font-size: x-large;
-}
-
-.footer-container a:link{
-    color: #FFBE0A;
-}
-
-.footer-container a:hover{
-    border: solid;
-    border-width: 0em 0em .2em;
+    width: 100%;
 }
 /* Footer classes */

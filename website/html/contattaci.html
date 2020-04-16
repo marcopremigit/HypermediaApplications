@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="../resources/bootstrap-4.4.1-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/contattaci.css">
+        <link rel="stylesheet" href="../css/breadcrumbs.css">
         <title>Ripe4U - Contattaci</title>
     </head>
     <body>
@@ -47,29 +48,46 @@
         <div class="row">
           <div class="col"> <!-- Main column -->
             
-            <form id="contact-form" class="col-lg">
-              <div class="form-row">
-                <div class="col-sm-6 mx-auto p-2">
-                  <input id="email" type="text" class="form-control" placeholder="La tua email">
-                </div>
+            <nav aria-label="breadcrumb">
+              <ol id="breadcrumbs" class="breadcrumb"></ol>
+            </nav>
+
+            <nav>
+              <div class="nav nav-tabs" id="contactTabs" role="tablist">
+                <a class="nav-item nav-link active" id="nav-contacts-tab" data-toggle="tab" href="#nav-contacts" role="tab" aria-controls="nav-contacts" aria-selected="true">I nostri contatti</a>
+                <a class="nav-item nav-link" id="nav-form-tab" data-toggle="tab" href="#nav-form" role="tab" aria-controls="nav-form" aria-selected="false">Scrivici</a>
               </div>
-              <div class="form-row">
-                <div class="col-sm-8 mx-auto p-2">
-                  <input id="subject" type="text" class="form-control" placeholder="Oggetto della mail">
-                </div>
+            </nav>
+            <div class="tab-content" id="contactTabsContent">
+              <div class="tab-pane show active" id="nav-contacts" role="tabpanel" aria-labelledby="nav-contacts-tab">
+
               </div>
-              <div class="form-row">
-                <div class="col p-2">
-                  <textarea type="text" id="message" name="message" rows="10" class="form-control md-textarea" placeholder="Il tuo messaggio"></textarea>
-                </div>
+              <div class="tab-pane" id="nav-form" role="tabpanel" aria-labelledby="nav-form-tab">
+                <form id="contact-form" class="col-lg">
+                  <div class="form-row">
+                    <div class="col-sm-6 mx-auto p-2">
+                      <input id="email" type="text" class="form-control" placeholder="La tua email">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-sm-8 mx-auto p-2">
+                      <input id="subject" type="text" class="form-control" placeholder="Oggetto della mail">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col p-2">
+                      <textarea type="text" id="message" name="message" rows="10" class="form-control md-textarea" placeholder="Il tuo messaggio"></textarea>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col p-2 text-center">
+                      <button type="submit" class="btn btn-primary btn-lg" onclick="validateForm()">Invia</button>
+                    </div>
+                  </div>
+                </form>
+                <div class="status"></div>
               </div>
-              <div class="form-row">
-                <div class="col p-2 text-center">
-                  <button type="submit" class="btn btn-primary btn-lg" onclick="validateForm()">Invia</button>
-                </div>
-              </div>
-            </form>
-            <div class="status"></div>
+            </div>
 
           </div> <!-- Main column -->
         </div>
@@ -98,6 +116,7 @@
       <!-- Optional Javascript -->
       <script src = "../resources/utils/smtp.js"></script>
       <script src = "../js/contattaci.js"></script>
+      <script src = "../js/breadcrumbs.js"></script>
       <!-- jQuery first, then Popper.js and then Bootstrap JS -->
       <script src="../resources/bootstrap-4.4.1-dist/js/jquery-3.4.1.slim.min.js"></script>
       <script src="../resources/bootstrap-4.4.1-dist/js/popper.min.js"></script>

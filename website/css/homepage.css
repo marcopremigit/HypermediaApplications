@@ -25,6 +25,7 @@ html{
 }
 
 .nav-link:hover{
+    display: inline;
     border: solid #FFBE0A;
     border-width: 0em 0em .2rem;
 }

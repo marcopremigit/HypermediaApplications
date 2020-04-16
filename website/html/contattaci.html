@@ -41,70 +41,37 @@
           </nav>
         </div>
       </header>
+
       <!-- Main div -->
       <div class="container pt-3">
         <div class="row">
-          <div class="column"> <!-- Main column -->
-          <!--Section: Contact v.2-->
-<section class="mb-4">
-    <div class="row">
-
-        <!--Grid column-->
-        <div class="col-md-9 mb-md-0 mb-5">
-            <form id="contact-form">
-
-                <!--Grid row-->
-                <div class="row">
-                    <!--Grid column-->
-                    <div class="col-md-6">
-                        <div class="md-form mb-0">
-                            <input type="text" id="email" name="email" class="form-control">
-                            <label for="email" class="">La tua email</label>
-                        </div>
-                    </div>
-                    <!--Grid column-->
+          <div class="col"> <!-- Main column -->
+            
+            <form id="contact-form" class="col-lg">
+              <div class="form-row">
+                <div class="col-sm-6 mx-auto p-2">
+                  <input id="email" type="text" class="form-control" placeholder="La tua email">
                 </div>
-                <!--Grid row-->
-
-                <!--Grid row-->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="md-form mb-0">
-                            <input type="text" id="subject" name="subject" class="form-control">
-                            <label for="subject" class="">Oggetto della tua email</label>
-                        </div>
-                    </div>
+              </div>
+              <div class="form-row">
+                <div class="col-sm-8 mx-auto p-2">
+                  <input id="subject" type="text" class="form-control" placeholder="Oggetto della mail">
                 </div>
-                <!--Grid row-->
-
-                <!--Grid row-->
-                <div class="row">
-
-                    <!--Grid column-->
-                    <div class="col-md-12">
-
-                        <div class="md-form">
-                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
-                            <label for="message">Il tuo messaggio</label>
-                        </div>
-
-                    </div>
+              </div>
+              <div class="form-row">
+                <div class="col p-2">
+                  <textarea type="text" id="message" name="message" rows="10" class="form-control md-textarea" placeholder="Il tuo messaggio"></textarea>
                 </div>
-                <!--Grid row-->
-
+              </div>
+              <div class="form-row">
+                <div class="col p-2 text-center">
+                  <button type="submit" class="btn btn-primary btn-lg" onclick="validateForm()">Invia</button>
+                </div>
+              </div>
             </form>
-
-            <div class="text-center text-md-left">
-                <a class="btn btn-primary" onclick="validateForm()">Invia</a>
-            </div>
             <div class="status"></div>
-        </div>
-        <!--Grid column-->
-        </div>
 
-    </section>
-
-      </div> <!-- Main column -->
+          </div> <!-- Main column -->
         </div>
       </div>
       <!-- Main div -->

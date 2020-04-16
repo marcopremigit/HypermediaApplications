@@ -31,19 +31,12 @@ html{
 /* Header classes */
 
 /* Main div classes */
-.main-div{
-    top: 5em;
-    left: 7.5%;
-    bottom: 5em;
-    width: 85%;
-    align-content: center;
+form input::placeholder{
+    text-align: center;
 }
 
-/* Image banner classes */
-.text-img-container{ 
-    bottom: 1em;
-    background-color: #B4FBB2;
-    opacity: .77;
+form textarea::placeholder{
+    text-align: center;
 }
 /* Image banner classes */
 /* Main div classes */

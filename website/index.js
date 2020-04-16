@@ -1,3 +1,3 @@
 window.onload = () => {
-    location.replace("html/homepage.html")
+    location.replace("html/homepage.html");
 }

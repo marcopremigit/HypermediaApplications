@@ -28,6 +28,14 @@ html{
     border: solid #FFBE0A;
     border-width: 0em 0em .2rem;
 }
+
+.navbar-toggler{
+    border-color: rgba(0, 0, 0, 0) !important;
+}
+
+.fa-caret-down{
+    color:#FFBE0A
+}
 /* Header classes */
 
 /* Main div classes */

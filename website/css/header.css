@@ -1,0 +1,30 @@
+html{
+    min-height: 100%;
+    position: relative;
+}
+
+.header{
+    top: 0;
+}
+
+.main-bg-color{
+    background-color: #8A0000;
+}
+
+.navbar.nav{
+    padding-bottom: .2rem;
+}
+
+.nav-link{
+    color: #FFBE0A !important;
+}
+
+.nav-item{
+    padding-bottom: .2rem;
+}
+
+.nav-link:hover{
+    display: inline;
+    border: solid #FFBE0A;
+    border-width: 0em 0em .2rem;
+}

@@ -94,27 +94,41 @@
               </div>
               <div class="tab-pane" id="nav-form" role="tabpanel" aria-labelledby="nav-form-tab">
                 <hr/>
-                <form id="contact-form" class="col-lg">
+                <div class="alert alert-success" id="alert-success" role="alert" style ="display: none;" >
+                  <h4 class="alert-heading">Perfetto!</h4>
+                  <p>La tua email è stata inviata correttamente!</p>
+                  <button class="btn btn-primary" onclick="writeAnotherEmail()">Invia un'altra email</button>
+                </div>
+                <div class="alert alert-danger" id="alert-danger" role="alert" style ="display: none;">
+                  <h4 class="alert-heading">Attenzione!</h4>
+                  <p>C'è stato un problema con l'invio della email, riprova!</p>
+                </div>
+                <form id="contact-form" class="needs-validation" action="javascript:void(0);" novalidate>
                   <div class="form-row">
                     <div class="col-sm-6 mx-auto p-2">
-                      <input id="email" type="text" class="form-control" placeholder="La tua email">
+                      <input type="email" class="form-control" id="email" placeholder="email" required>
+                      <div class="invalid-feedback">
+                        Il campo email non è corretto!
+                      </div>
                     </div>
                   </div>
                   <div class="form-row">
                     <div class="col-sm-8 mx-auto p-2">
-                      <input id="subject" type="text" class="form-control" placeholder="Oggetto della mail">
+                      <input type="text" class="form-control" id="subject" placeholder="Oggetto" required>
+                      <div class="invalid-feedback">
+                        Il campo oggetto non può essere vuoto!
+                      </div>
                     </div>
                   </div>
                   <div class="form-row">
                     <div class="col p-2">
-                      <textarea type="text" id="message" name="message" rows="10" class="form-control md-textarea" placeholder="Il tuo messaggio"></textarea>
+                      <textarea type="text" id="message" name="message" rows="5" class="form-control md-textarea" placeholder="Il tuo messaggio" required></textarea>
+                      <div class="invalid-feedback">
+                        Il campo messaggio non può essere vuoto!
+                      </div>
                     </div>
                   </div>
-                  <div class="form-row">
-                    <div class="col p-2 text-center">
-                      <button type="submit" class="btn btn-primary btn-lg" onclick="validateForm()">Invia</button>
-                    </div>
-                  </div>
+                  <button class="btn btn-primary" type="submit">Invia</button>
                 </form>
                 <div class="status"></div>
               </div>

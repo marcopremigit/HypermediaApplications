@@ -9,7 +9,23 @@ window.onload = () => {
             title: "Contattaci"
         }
     ]);
+    let form = document.getElementById("contact-form");
+
+    form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }else{
+            //here calls function to send email
+            //if email sent correctly spawns different messages
+            document.getElementById("contact-form").style.display="none";
+            document.getElementById("alert-success").style.display="block";
+        }
+        form.classList.add('was-validated');
+    }, false); 
+    
 }
+
 
 function sendEmail() {
 	Email.send({
@@ -25,36 +41,13 @@ function sendEmail() {
 	);
 }
 
-function foo(){
-    let value = document.getElementById('contact-form');
-    
-    console.log(value.querySelector("#email").value);
+function writeAnotherEmail(){
+    document.getElementById("subject").value='';
+    document.getElementById("message").value='';
+    document.getElementById("alert-success").style.display="none";
+    document.getElementById("contact-form").style.display="block";
+
 }
 
-function validateForm() {
-    let value = document.getElementById('contact-form');
-    var email =  value.querySelector("#email").value;
-    var subject = value.querySelector("#subject").value;
-    var message = value.querySelector("#message").value;
-    if (email == "") {
-        alert("Il campo email non può essere vuoto!")
-        return false;
-    } else {
-        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        if(!re.test(email)){
-            alert("Il formato della mail è invalido!")
-            return false;
-        }
-    }
-    if(subject == ""){
-        alert("Il campo oggeto non può essere vuoto!")
-        return false;
-    }
-    if(message ==""){
-        alert("Il campo messaggio non può essere vuoto!")
-        return false;
-    }
 
-    //call sendEmail if all fields are correct
-   
-  }
+

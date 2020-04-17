@@ -16,10 +16,7 @@ window.onload = () => {
             event.preventDefault();
             event.stopPropagation();
         }else{
-            //here calls function to send email
-            //if email sent correctly spawns different messages
-            document.getElementById("contact-form").style.display="none";
-            document.getElementById("alert-success").style.display="block";
+            sendEmail()
         }
         form.classList.add('was-validated');
     }, false); 
@@ -28,16 +25,27 @@ window.onload = () => {
 
 
 function sendEmail() {
+    let value = document.getElementById('contact-form'); 
+    var email =  value.querySelector("#email").value; 
+    var subject = value.querySelector("#subject").value; 
+    var message = value.querySelector("#message").value; 
 	Email.send({
 	Host: "smtp.gmail.com",
-	Username : "<sender’s email address>",
-	Password : "<email password>",
-	To : '<recipient’s email address>',
-	From : "<sender’s email address>",
-	Subject : "<email subject>",
-	Body : "<email body>",
-	}).then(
-		message => alert("mail sent successfully")
+	Username : "ripe4u4@gmail.com",
+	Password : "ripe4hypermedia",
+	To : 'ripe4u4@gmail.com',
+	From : email,
+	Subject : subject,
+	Body : message,
+	}).then(m => {
+        document.getElementById("contact-form").style.display="none";
+        document.getElementById("alert-success").style.display="block";
+       
+    }, e => {
+        document.getElementById("contact-form").style.display="none";
+        document.getElementById("alert-danger").style.display="block";
+    } 
+		
 	);
 }
 

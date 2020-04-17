@@ -39,7 +39,9 @@ function initMap(){
         center: center
     });
 
+    //create markers
     let markers = locations.map(c => {
+        //TODO: rewrite infowindow.content
         let infoWindow = new google.maps.InfoWindow({
             content: c.name
         });
@@ -55,6 +57,7 @@ function initMap(){
         return marker;
     });
 
+    //create clusters
     let markerCluster = new MarkerClusterer(
         map, 
         markers, 

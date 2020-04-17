@@ -33,10 +33,7 @@ class Card {
     this.BS.card.appendChild( this.BS.info );
     this.BS.container.appendChild( this.BS.card );
 
-    
-
-
-    this.BS.container.className = 'col-md-3';
+    this.BS.container.className = 'col-4 mb-3';
     this.BS.card.className      = 'card';
     this.BS.image.className     = 'card-img-top';
     this.BS.title.className     = 'card-title';

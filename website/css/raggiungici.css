@@ -38,10 +38,16 @@ html{
 /* Header classes */
 
 /* Main div classes */
-
-form input::placeholder{
+#map{
+    height: 20em;
+    display: block;
 }
 
+@media only screen and (max-width: 768px){
+    #map{
+        height: 10em;
+    }
+}
 /* Main div classes */
 
 /* Footer classes */

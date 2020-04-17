@@ -37,15 +37,17 @@ function sendEmail() {
 	From : email,
 	Subject : subject,
 	Body : message,
-	}).then(m => {
-        document.getElementById("contact-form").style.display="none";
-        document.getElementById("alert-success").style.display="block";
+    }).then(m => {
+        if(m==="OK"){
+            document.getElementById("contact-form").style.display="none";
+            document.getElementById("alert-success").style.display="block";   
+        }else{
+            document.getElementById("contact-form").style.display="none";
+            document.getElementById("alert-danger").style.display="block";
+        }
+        
        
-    }, e => {
-        document.getElementById("contact-form").style.display="none";
-        document.getElementById("alert-danger").style.display="block";
-    } 
-		
+    }		
 	);
 }
 

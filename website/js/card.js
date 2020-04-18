@@ -40,9 +40,9 @@ class Card {
       this.BS.container.appendChild(this.BS.card);
   
       this.BS.container.className = 'col-4 mb-3';
-      this.BS.card.className      = 'card';
+      this.BS.card.className      = 'card h-100';
       this.BS.image.className     = 'card-img-top';
-      this.BS.title.className     = 'card-title';
+      this.BS.title.className     = 'card-title text-center align-middle';
     }
   
     add ( name, image, page_link){

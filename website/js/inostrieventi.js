@@ -11,6 +11,19 @@ window.onload = () => {
     ]);
 }   
 
+const CardSpace = document.getElementById('card-space');
+let myCard = new Card( CardSpace );
+myCard.add('Vacanza studio Londra','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Vacanza studio Roma','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Vacanza studio Bangkok','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Vacanza studio Stoccolma','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Vacanza studio La fessa di mammt','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Vacanza studio La fessa di mammt','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Vacanza studio La fessa di mammt','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Vacanza studio La fessa di mammt','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Vacanza studio La fessa di mammt','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Vacanza studio La fessa di mammt','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+
 function initMap(){
     //TODO: this has to be replaced with database query information extraction
     let locations = [

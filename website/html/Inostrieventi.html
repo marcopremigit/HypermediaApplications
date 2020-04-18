@@ -9,7 +9,6 @@
         <link rel="stylesheet" href="../css/breadcrumbs.css">
         <link rel="stylesheet" href="../css/inostrieventi.css">
         <link rel="stylesheet" href="../css/header.css">
-        <link rel="stylesheet" href="../css/footer.css">
         <title>Ripe4U - Eventi</title>
     </head>
     <body>
@@ -63,6 +62,14 @@
             <div class="row">
                 <div id="map"></div>
             </div>
+            <div class="row pt-4">
+              <div class="col-9">
+                <div id="card-space" class="row"></div>
+              </div>
+              <div class="col-3">
+
+              </div>
+            </div>
             
           </div> <!-- Main column -->
         </div>
@@ -70,20 +77,22 @@
       <!-- Main div -->
 
       <!-- Footer-->
-      <footer class="position-absolute main-bg-color footer">
-        <nav class="navbar navbar-expand-lg navbar-light">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item p-2">
-              <a class="h4 font-weight-light nav-link text-center" href="contattaci.html">Contattaci</a>
-            </li>
-            <li class="nav-item p-2">
-              <a class="h4 font-weight-light nav-link text-center" href="raggiungici.html">Raggiungici</a>
-            </li>
-            <li class="nav-item p-2">
-              <a class="h4 font-weight-light nav-link text-center" href="#">Lavora con noi</a>
-            </li>
-          </ul>
-        </nav>
+
+      <footer class="footer w-100 main-bg-color">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item p-2">
+                <a class="h4 font-weight-light nav-link text-center" href="contattaci.html">Contattaci</a>
+              </li>
+              <li class="nav-item p-2">
+                <a class="h4 font-weight-light nav-link text-center" href="raggiungici.html">Raggiungici</a>
+              </li>
+              <li class="nav-item p-2">
+                <a class="h4 font-weight-light nav-link text-center" href="#">Lavora con noi</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </footer>
       <!-- Footer-->
 
@@ -91,6 +100,7 @@
       <!-- Optional Javascript -->
       <script src = "../resources/markerclustererplus/dist/markerclustererplus.min.js"></script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPLY7Gso7zCSQlnf6_FL3F6DOR38lqcAY&callback=initMap" async defer></script>
+      <script src = "../js/card.js"></script>
       <script src = "../js/inostrieventi.js"></script>
       <script src = "../js/breadcrumbs.js"></script>
       <!-- jQuery first, then Popper.js and then Bootstrap JS -->

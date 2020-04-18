@@ -1,0 +1,7 @@
+#v-pills-tab .nav-link{
+    color: #000000 !important;
+}
+
+#v-pills-tab .active{
+    background-color: #FFBE0A !important;
+}

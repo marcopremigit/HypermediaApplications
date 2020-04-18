@@ -5,3 +5,9 @@
 #v-pills-tab .active{
     background-color: #FFBE0A !important;
 }
+
+
+.list-group {
+    list-style: decimal inside;
+}
+

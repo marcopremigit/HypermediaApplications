@@ -6,8 +6,8 @@ class Shuffler {
             filterMode: Shuffle.FilterMode.ANY,
             group: Shuffle.ALL_ITEMS
         }); 
-        this.shuffle.layout();
         this._activeFilters = [];
+        this.shuffle.filter(this._activeFilters);
         //add category filter only if needed
         if(categories!==null) {
             Array.from(document.getElementsByClassName("dropdown-item"))
@@ -25,10 +25,14 @@ class Shuffler {
      */
     _handleSearchKeyup(evt) {
         let searchText = evt.target.value.toLowerCase();
+        if(searchText === '') {
+            this.shuffle.filter(this._activeFilters);
+            return;
+        }
         this.shuffle.filter((element, shuffle) => {
             if(shuffle.group !== Shuffle.ALL_ITEMS){
                 let groups = JSON.parse(element.getAttribute("data-groups"));
-                let isElementInCurrentGroup = groups.indexOf(shuffle.group) !== -1;
+                let isElementInCurrentGroup = this._activeFilters.some(e => groups.indexOf(e) !== -1);
                 if(!isElementInCurrentGroup) return false;
             }
             return element.querySelector('.card-title').textContent.toLowerCase().trim().indexOf(searchText) !== -1;
@@ -51,6 +55,7 @@ class Shuffler {
 
         button.classList.toggle('active');
         if(this._activeFilters.isEmpty) this.shuffle.group = Shuffle.ALL_ITEMS;
+        else this.shuffle.group = this._activeFilters.toString();
 
         // Filter elements
         this.shuffle.filter(this._activeFilters);

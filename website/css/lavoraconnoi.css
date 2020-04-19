@@ -1,0 +1,80 @@
+html{
+    min-height: 100%;
+    position: relative;
+}
+
+/* Header classes */
+.header{
+    top: 0;
+}
+
+.main-bg-color{
+    background-color: #8A0000;
+}
+
+.navbar.nav{
+    padding-bottom: .2rem;
+}
+
+.nav-link{
+    color: #FFBE0A !important;
+}
+
+.nav-item{
+    padding-bottom: .2rem;
+}
+
+.nav-link:hover{
+    border: solid #FFBE0A;
+    border-width: 0em 0em .2rem;
+}
+
+.navbar-toggler{
+    border-color: rgba(0, 0, 0, 0) !important;
+}
+
+.fa-caret-down{
+    color:#FFBE0A
+}
+/* Header classes */
+
+/* Main div classes */
+form input::placeholder{
+    text-align: center;
+}
+
+form textarea::placeholder{
+    text-align: center;
+}
+
+hr{
+    width: 85%;
+    border-top: solid .1rem #737373ab;
+    margin-top: 2.5rem;
+}
+
+#contact-links li a{
+    color: black;
+}
+
+.col:has(#card-space){
+    padding-right: 0;
+    padding-left: 0;
+
+}
+
+/* Image banner classes */
+/* Main div classes */
+
+/*Card default padding*/
+.card{
+    padding: 0;
+    justify-content: space-around !important;
+}
+
+/* Footer classes */
+.footer{
+    bottom: 0;
+    width: 100%;
+}
+/* Footer classes */

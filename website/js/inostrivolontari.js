@@ -1,21 +1,5 @@
-function search(){
-    let searchVal = document.getElementById("searchBox").value;
-    let res = events.filter(e => {
-        return e.title.toLowerCase().includes(searchVal.toLowerCase());
-    }, []);
-    console.log(res);
-    // let shuffleInstance = new window.Shuffle(document.getElementById('card-space'), {
-    //     itemSelector: '.card',
-    //     sizer: '.card'
-    // });
-
-    // shuffleInstance.filter(searchVal);
-}
-
-
 class Shuffler {
     constructor(element) {
-        // ! something is wrong here !
         this.shuffle = new window.Shuffle(element, {
             itemSelector: '.card',
             sizer: element.querySelector('.sizer'),
@@ -47,9 +31,15 @@ window.onload = () => {
             title: "I nostri volontari"
         }
     ]);
-    setTimeout(() => {
-        window.demo = new Shuffler(document.querySelector('#card-space'));
-    }, 1000);
+  
+    window.demo = new Shuffler(document.querySelector('#card-space'));
+    
+    Array.from(document.getElementsByClassName("invisible")).map(e => {
+        e.classList.remove("invisible");
+    });
+
+    document.getElementsByClassName("spinner-border")[0].classList.add("invisible");
+    
 }   
 
 //TODO: this has to be replaced with database query information extraction

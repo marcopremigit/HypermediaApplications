@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="../css/inostrieventi.css">
         <link rel="stylesheet" href="../css/header.css">
         <link rel="stylesheet" href="../css/footer.css">
+        <link rel="stylesheet" href="../css/card.css">
         <title>Ripe4U - I nostri eventi</title>
     </head>
     <body class="d-flex flex-column min-vh-100">
@@ -62,48 +63,48 @@
                 <h2 class = "my-2 text-warning">I nostri eventi</h2>
                 </div>    
             </div> 
-            <hr/>    
-            <!-- Spinner -->
-            <div class = "row d-flex justify-content-center">
-              <div class="spinner-border text-warning" role="status">
-                <span class="sr-only">Loading...</span>
-              </div>
-            </div> 
-            <!-- Spinner -->
-            <!-- Map -->
-            <div class="row">
-              <div id="map"></div>
-            </div>
-            <!-- Map -->
-            <div class="row pt-4">
-              <div class="col-9">
-                <!-- Card deck -->
-                <div id="card-space" class="card-deck three-col">
-                  <div class="col-4 sizer px-0"></div>
+            <hr/> 
+            <div class="invisible">   
+              <!-- Spinner -->
+              <div class = "row d-flex justify-content-center">
+                <div class="spinner-border text-warning" role="status">
+                  <span class="sr-only">Loading...</span>
                 </div>
-                <!-- Card deck -->
+              </div> 
+              <!-- Spinner -->
+              <!-- Map -->
+              <div class="row">
+                <div id="map"></div>
               </div>
-              <div class="col-3">
-                <!-- Filters -->
-                <div class="row">
-                  <form class="form-inline" action="javascript:void(0);"> 
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></div>
+              <!-- Map -->
+              <div class="row pt-4">
+                <div class="col-9">
+                  <!-- Card deck -->
+                  <div id="card-space" class="card-deck three-col"></div>
+                  <!-- Card deck -->
+                </div>
+                <div class="col-3">
+                  <!-- Filters -->
+                  <div class="row">
+                    <form class="form-inline" action="javascript:void(0);"> 
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></div>
+                        </div>
+                        <input id="searchBox" class="form-control" type="search" placeholder="Cerca" aria-label="Cerca"> 
                       </div>
-                      <input id="searchBox" class="form-control" type="search" placeholder="Cerca" aria-label="Cerca"> 
-                    </div>
-                  </form> 
-                </div>
-                <div class="row">
-                  <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Filtra per categorie
-                    </button>
-                    <div id="categoryDropdown" class="dropdown-menu" aria-labelledby="categoryDropdown"></div>
+                    </form> 
                   </div>
+                  <div class="row">
+                    <div class="dropdown">
+                      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Filtra per categorie
+                      </button>
+                      <div id="categoryDropdown" class="dropdown-menu" aria-labelledby="categoryDropdown"></div>
+                    </div>
+                  </div>
+                  <!-- Filters -->
                 </div>
-                <!-- Filters -->
               </div>
             </div>
           </div> <!-- Main column -->

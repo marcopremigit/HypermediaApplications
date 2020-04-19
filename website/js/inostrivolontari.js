@@ -43,8 +43,8 @@ window.onload = () => {
             title: "Home"
         },
         {
-            page: "inostrieventi.html",
-            title: "I nostri eventi"
+            page: "inostrivolontari.html",
+            title: "I nostri volontari"
         }
     ]);
     setTimeout(() => {

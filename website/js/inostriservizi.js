@@ -9,6 +9,7 @@ window.onload = () => {
           title: "I nostri servizi"
       }
   ]);
+  
 }
 
 //In inostriservizi.html we have <div id="card-space" class="row"> </div> --> the row where che cards are inserted

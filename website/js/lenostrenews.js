@@ -1,76 +1,37 @@
-class Shuffler {
-    constructor(element) {
-        this.shuffle = new window.Shuffle(element, {
-            itemSelector: '.card',
-            sizer: element.querySelector('.sizer'),
-            filterMode: Shuffle.FilterMode.ANY
-        }); 
-        document.getElementById('searchBox').addEventListener('keyup', this._handleSearchKeyup.bind(this));
-    }
-  
-    // /**
-    //  * Filter the shuffle instance by items with a title that matches the search input.
-    //  * @param {Event} evt Event object.
-    //  */
-    _handleSearchKeyup(evt) {
-        const searchText = evt.target.value.toLowerCase();
-        this.shuffle.filter(element => {
-            return element.querySelector('.card-title').textContent.toLowerCase().trim().indexOf(searchText) !== -1;
-        });
-    }
+function loadServices(){
+    //TODO: this has to be replaced with database query information extraction
+    return [
+        {title: 'Vacanza studio Londra', img: 'https://source.unsplash.com/random/1920x1080', link: 'https://source.unsplash.com/random/1920x1080', category: ["Vacanza studio"], lat: 45.468868, lng: 9.206720},
+        {title: 'Cena di Natale', img: 'https://source.unsplash.com/random/1920x1080', link: 'https://source.unsplash.com/random/1920x1080', category: ["Cena", "Vattelapesca"], lat: 45.4507775, lng: 9.1709264},
+        {title: 'Colletta Natalizia', img: 'https://source.unsplash.com/random/1920x1080', link: 'https://source.unsplash.com/random/1920x1080', category: ["Colletta"], lat: 45.4513128, lng: 9.1734067},
+        {title: 'Vacanza studio Catania', img: 'https://source.unsplash.com/random/1920x1080', link: 'https://source.unsplash.com/random/1920x1080', category: ["Vacanza studio"], lat: 45.4502473, lng: 9.1752055},
+        {title: 'Colletta alimentare', img: 'https://source.unsplash.com/random/1920x1080', link: 'https://source.unsplash.com/random/1920x1080', category: ["Colletta"], lat: 45.453261, lng: 9.179347},
+        {title: 'Colletta pasquale', img: 'https://source.unsplash.com/random/1920x1080', link: 'https://source.unsplash.com/random/1920x1080', category: ["Colletta"], lat: 45.486604, lng: 9.186649},
+        {title: 'Vacanza studio Trapani', img: 'https://source.unsplash.com/random/1920x1080', link: 'https://source.unsplash.com/random/1920x1080', category: ["Vacanza studio"], lat: 45.483227, lng: 9.188763},
+    ];
 }
 
 window.onload = () => {
     Breadcrumbs.loadCrumbs([
         {
-            page: "../index.html",
+            page: "homepage.html",
             title: "Home"
         },
         {
-            page: "lenostrenews.html",
-            title: "Le nostre news"
+            page: "inostriservizi.html",
+            title: "I nostri servizi"
         }
     ]);
   
-    window.demo = new Shuffler(document.querySelector('#card-space'));
+    //Query to database
+    let services = loadServices();
     
-    Array.from(document.getElementsByClassName("invisible")).map(e => {
-        e.classList.remove("invisible");
-    });
-    document.getElementsByClassName("spinner-border")[0].classList.add("invisible");
-    
-}   
+    //Cards and filters handling
+    loadCardsAndFilters(services, true);
 
-//TODO: this has to be replaced with database query information extraction
-const CardSpace = document.getElementById('card-space');
-let myCard = new Card( CardSpace );
-myCard.add('Emergenza Coronavirus','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Colletta alimentare','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Riunione Giugno','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Consulto psicologico','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Amici ambiente','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Lezioni online','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Emergenza Coronavirus','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Colletta alimentare','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Riunione Giugno','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Consulto psicologico','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Amici ambiente','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Lezioni online','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Emergenza Coronavirus','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Colletta alimentare','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Riunione Giugno','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Consulto psicologico','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Amici ambiente','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Lezioni online','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Emergenza Coronavirus','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Colletta alimentare','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Riunione Giugno','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Consulto psicologico','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Amici ambiente','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Lezioni online','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Emergenza Coronavirus','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Colletta alimentare','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Riunione Giugno','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Consulto psicologico','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Amici ambiente','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Lezioni online','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+    //Shuffler handling
+    window.demo = new Shuffler(document.querySelector('#card-space'), services.map(e => e.category));
+    
+    //Spinner handling
+    Spinner.letThemComeBack();
+}

@@ -1,46 +1,38 @@
-class Shuffler {
-    constructor(element) {
-        this.shuffle = new window.Shuffle(element, {
-            itemSelector: '.card',
-            sizer: element.querySelector('.sizer'),
-            filterMode: Shuffle.FilterMode.ANY
-        }); 
-        document.getElementById('searchBox').addEventListener('keyup', this._handleSearchKeyup.bind(this));
-    }
-  
-    // /**
-    //  * Filter the shuffle instance by items with a title that matches the search input.
-    //  * @param {Event} evt Event object.
-    //  */
-    _handleSearchKeyup(evt) {
-        const searchText = evt.target.value.toLowerCase();
-        this.shuffle.filter(element => {
-            return element.querySelector('.card-title').textContent.toLowerCase().trim().indexOf(searchText) !== -1;
-        });
-    }
+function loadVolunteers(){
+    //TODO: this has to be replaced with database query information extraction
+    return [
+        {title: 'Vacanza studio Londra', img: 'https://source.unsplash.com/random/1920x1080', link: 'https://source.unsplash.com/random/1920x1080', category: ["Vacanza studio"], lat: 45.468868, lng: 9.206720},
+        {title: 'Cena di Natale', img: 'https://source.unsplash.com/random/1920x1080', link: 'https://source.unsplash.com/random/1920x1080', category: ["Cena", "Vattelapesca"], lat: 45.4507775, lng: 9.1709264},
+        {title: 'Colletta Natalizia', img: 'https://source.unsplash.com/random/1920x1080', link: 'https://source.unsplash.com/random/1920x1080', category: ["Colletta"], lat: 45.4513128, lng: 9.1734067},
+        {title: 'Vacanza studio Catania', img: 'https://source.unsplash.com/random/1920x1080', link: 'https://source.unsplash.com/random/1920x1080', category: ["Vacanza studio"], lat: 45.4502473, lng: 9.1752055},
+        {title: 'Colletta alimentare', img: 'https://source.unsplash.com/random/1920x1080', link: 'https://source.unsplash.com/random/1920x1080', category: ["Colletta"], lat: 45.453261, lng: 9.179347},
+        {title: 'Colletta pasquale', img: 'https://source.unsplash.com/random/1920x1080', link: 'https://source.unsplash.com/random/1920x1080', category: ["Colletta"], lat: 45.486604, lng: 9.186649},
+        {title: 'Vacanza studio Trapani', img: 'https://source.unsplash.com/random/1920x1080', link: 'https://source.unsplash.com/random/1920x1080', category: ["Vacanza studio"], lat: 45.483227, lng: 9.188763},
+    ];
 }
 
 window.onload = () => {
+    //Breadcrumbs handling
     Breadcrumbs.loadCrumbs([
         {
             page: "../index.html",
             title: "Home"
         },
         {
-            page: "inostrivolontari.html",
+            page: "inostrieventi.html",
             title: "I nostri volontari"
         }
     ]);
-  
-    window.demo = new Shuffler(document.querySelector('#card-space'));
-}   
 
-//TODO: this has to be replaced with database query information extraction
-const CardSpace = document.getElementById('card-space');
-let myCard = new Card( CardSpace );
-myCard.add('Gianfranco','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Piero','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Garibaldi','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Vittorio Emanuele','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Austro Ungarico','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
-myCard.add('Pipino il breve','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+    //Query to database
+    let volunteers = loadVolunteers();
+
+    //Cards and filters handling
+    loadCardsAndFilters(volunteers, true);
+    
+    //Shuffler handling
+    window.demo = new Shuffler(document.querySelector('#card-space'), volunteers.map(e => e.category));
+    
+    //Spinner handling
+    Spinner.letThemComeBack();
+}   

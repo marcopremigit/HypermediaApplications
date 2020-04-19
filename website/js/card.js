@@ -53,5 +53,28 @@ class Card {
       this.BS.card.setAttribute('data-groups', `["${categories.join('","')}"]`);
       let newNode = this.BS.card.cloneNode(true);
       this.hmi_ref.appendChild(newNode);
+    } 
+
+}
+
+function loadCardsAndFilters(elements, categoryFilter){
+    let myCard = new Card(document.getElementById('card-space') );
+    
+    // add element cards
+    elements.map(e => myCard.add(e.title, e.img, e.link, e.category));
+    
+    // add category filter only if needed
+    if(categoryFilter){
+        let dropdown = document.getElementById("categoryDropdown");
+        //create a new set of unique values from an array of the categories
+        [...new Set(elements.map(e => e.category).flat())]
+        .map(e => {
+            let b = document.createElement("button");
+            b.className = "dropdown-item";
+            b.type = "button";
+            b.setAttribute("data-group", e);
+            b.innerText = e;
+            dropdown.appendChild(b);
+        });
     }
-  }
+}

@@ -1,6 +1,8 @@
 let Spinner = {
     letThemComeBack(){
-        Array.from(document.getElementsByClassName("invisible")).map(e => {
+        let elements = document.getElementsByClassName("invisible");
+        if(elements === null || elements === undefined) return; 
+        Array.from(elements).map(e => {
             e.classList.remove("invisible");
         });
         document.getElementsByClassName("spinner-border")[0].classList.add("invisible");  

@@ -37,7 +37,6 @@ window.onload = () => {
     Array.from(document.getElementsByClassName("invisible")).map(e => {
         e.classList.remove("invisible");
     });
-
     document.getElementsByClassName("spinner-border")[0].classList.add("invisible");
     
 }   
@@ -45,6 +44,30 @@ window.onload = () => {
 //TODO: this has to be replaced with database query information extraction
 const CardSpace = document.getElementById('card-space');
 let myCard = new Card( CardSpace );
+myCard.add('Emergenza Coronavirus','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Colletta alimentare','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Riunione Giugno','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Consulto psicologico','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Amici ambiente','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Lezioni online','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Emergenza Coronavirus','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Colletta alimentare','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Riunione Giugno','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Consulto psicologico','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Amici ambiente','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Lezioni online','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Emergenza Coronavirus','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Colletta alimentare','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Riunione Giugno','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Consulto psicologico','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Amici ambiente','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Lezioni online','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Emergenza Coronavirus','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Colletta alimentare','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Riunione Giugno','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Consulto psicologico','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Amici ambiente','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
+myCard.add('Lezioni online','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
 myCard.add('Emergenza Coronavirus','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
 myCard.add('Colletta alimentare','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
 myCard.add('Riunione Giugno','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );

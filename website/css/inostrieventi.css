@@ -3,3 +3,21 @@
     width: 100%;
     display: block;
 }
+
+.card-deck {
+    @media (min-width: 768px) {
+      &.three-col {
+        .card {
+          flex-basis: calc(50% - 30px);
+        }
+      }
+    }
+    
+}
+.card {
+    flex-basis: 100%;
+}
+
+.card-title{
+    min-height: 2.3em;
+}

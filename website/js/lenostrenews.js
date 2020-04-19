@@ -1,4 +1,4 @@
-function loadServices(){
+function loadNews(){
     //TODO: this has to be replaced with database query information extraction
     return [
         {title: 'Vacanza studio Londra', img: 'https://source.unsplash.com/random/1920x1080', link: 'https://source.unsplash.com/random/1920x1080', category: ["Vacanza studio"], lat: 45.468868, lng: 9.206720},
@@ -18,19 +18,19 @@ window.onload = () => {
             title: "Home"
         },
         {
-            page: "inostriservizi.html",
-            title: "I nostri servizi"
+            page: "lenostrenews.html",
+            title: "Le nostre news"
         }
     ]);
   
     //Query to database
-    let services = loadServices();
+    let news = loadNews();
     
     //Cards and filters handling
-    loadCardsAndFilters(services, true);
+    loadCardsAndFilters(news, true);
 
     //Shuffler handling
-    window.demo = new Shuffler(document.querySelector('#card-space'), services.map(e => e.category));
+    window.demo = new Shuffler(document.querySelector('#card-space'), news.map(e => e.category));
     
     //Spinner handling
     Spinner.letThemComeBack();

@@ -33,13 +33,6 @@ window.onload = () => {
     ]);
   
     window.demo = new Shuffler(document.querySelector('#card-space'));
-    
-    Array.from(document.getElementsByClassName("invisible")).map(e => {
-        e.classList.remove("invisible");
-    });
-
-    document.getElementsByClassName("spinner-border")[0].classList.add("invisible");
-    
 }   
 
 //TODO: this has to be replaced with database query information extraction

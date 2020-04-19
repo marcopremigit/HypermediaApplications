@@ -40,24 +40,18 @@ class Card {
       
       // this.BS.container.className = 'col-4 mb-3';
       this.BS.card.className      = 'card mb-3 col-3 invisible';
-      this.BS.image.className     = 'card-img-top img-fluid';
+      this.BS.image.className     = 'card-img-top';
       this.BS.title.className     = 'card-title text-center align-middle ';
     }
   
-    add ( name, image, page_link){
+    add (name, image, page_link, categories){
       this.BS.image.src = image;
       this.BS.title.textContent = name;
       this.BS.link.href = page_link;
       this.BS.card.setAttribute('data-title', name);
-      this.BS.card.setAttribute('data-groups', name);
+      //needs to be done for the shuffling handler
+      this.BS.card.setAttribute('data-groups', `["${categories.join('","')}"]`);
       let newNode = this.BS.card.cloneNode(true);
       this.hmi_ref.appendChild(newNode);
-
-      // ? Non so se sia necessaria questa cosa tbh...
-      // if(this.hmi_ref.childNodes.length - 1 % 3 === 0) {
-      //   let div = document.createElement('div');
-      //   div.className = "w-100 d-none d-md-block d-lg-none";
-      //   this.hmi_ref.appendChild(div);
-      // }
     }
   }

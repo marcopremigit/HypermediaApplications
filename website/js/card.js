@@ -42,11 +42,12 @@ class Card {
       this.BS.title.className     = 'card-title text-center align-middle ';
     }
   
-    add (name, image, page_link, categories){
+    add (id, name, image, page_link, categories){
       this.BS.image.src = image;
       this.BS.title.textContent = name;
       this.BS.link.href = page_link;
       this.BS.card.setAttribute('data-title', name);
+      this.BS.card.setAttribute('data-id', id);
       //needs to be done for the shuffling handler
       this.BS.card.setAttribute('data-groups', `["${categories.join('","')}"]`);
       let newNode = this.BS.card.cloneNode(true);
@@ -59,7 +60,7 @@ function loadCardsAndFilters(elements, categoryFilter){
     let myCard = new Card(document.getElementById('card-space') );
     
     // add element cards
-    elements.map(e => myCard.add(e.title, e.img, e.link, e.category));
+    elements.map(e => myCard.add(e.id, e.title, e.img, e.link, e.category));
     
     // add category filter only if needed
     if(categoryFilter){

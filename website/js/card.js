@@ -42,7 +42,7 @@ class Card {
       this.BS.title.className     = 'card-title text-center align-middle ';
     }
   
-    add (name, image, page_link, categories, dataToPass){
+    add (id, name, image, page_link, categories, dataToPass){
         this.BS.image.src = image;
         this.BS.title.textContent = name;
         this.BS.link.href = `${page_link}?id=${dataToPass.id}`;
@@ -51,6 +51,7 @@ class Card {
         this.BS.card.setAttribute('data-groups', `["${categories.join('","')}"]`);
         let newNode = this.BS.card.cloneNode(true);
         this.hmi_ref.appendChild(newNode);
+      this.BS.card.setAttribute('data-id', id);
     } 
 }
 
@@ -58,7 +59,7 @@ function loadCardsAndFilters(elements, categoryFilter, link,position){
     let myCard = new Card(document.getElementById(position) );
     
     // add element cards
-    elements.map(e => myCard.add(e.title, e.img, link, e.category, e));
+    elements.map(e => myCard.add(e.id, e.title, e.img, link, e.category, e));
     
     // add category filter only if needed
     if(categoryFilter){

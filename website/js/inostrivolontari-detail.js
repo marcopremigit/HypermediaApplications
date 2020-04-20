@@ -1,5 +1,3 @@
-
-
 window.onload = () => {
     let data = loadData();
     if(data === null || data === undefined){
@@ -23,19 +21,13 @@ window.onload = () => {
     ]);
 
    //Query to database
-   let volunteers = loadVolunteers();
-
-   //Cards and filters handling
-   loadCardsAndFilters(volunteers, true,'inostrivolontari-detail.html');
-   
-   //Shuffler handling
-   window.demo = new Shuffler(document.querySelector('#card-space'), volunteers.map(e => e.category));
-   
+   let services = loadServices();
+   loadCardsAndFilters(services, false);
    //Spinner handling
    Spinner.letThemComeBack();
 }
 
-function loadVolunteers(){
+function loadServices(){
     //TODO: this has to be replaced with database query information extraction
     return [
         {id: 'ICSA', title: 'Vacanza studio Londra', img: 'https://source.unsplash.com/random/1920x1080', category: ["Vacanza studio"]},

@@ -19,7 +19,7 @@
     const CardSpace = document.getElementById('card-space');
     let myCard = new Card( CardSpace );
     myCard.add('Ripetizioni matematica','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
- */
+*/
 class Card {
     constructor(ref) {
       this.hmi_ref = ref;

@@ -27,7 +27,7 @@ window.onload = () => {
     let services = loadServices();
     
     //Cards and filters handling
-    loadCardsAndFilters(services, true);
+    loadCardsAndFilters(services, true, "", 'card-space');
 
     //Shuffler handling
     window.demo = new Shuffler(document.querySelector('#card-space'), services.map(e => e.category));

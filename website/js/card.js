@@ -54,8 +54,8 @@ class Card {
     } 
 }
 
-function loadCardsAndFilters(elements, categoryFilter, link){
-    let myCard = new Card(document.getElementById('card-space') );
+function loadCardsAndFilters(elements, categoryFilter, link,position){
+    let myCard = new Card(document.getElementById(position) );
     
     // add element cards
     elements.map(e => myCard.add(e.title, e.img, link, e.category, e));

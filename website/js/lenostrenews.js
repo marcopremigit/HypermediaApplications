@@ -27,7 +27,7 @@ window.onload = () => {
     let news = loadNews();
     
     //Cards and filters handling
-    loadCardsAndFilters(news, true);
+    loadCardsAndFilters(news, true, "", 'card-space');
 
     //Shuffler handling
     window.demo = new Shuffler(document.querySelector('#card-space'), news.map(e => e.category));

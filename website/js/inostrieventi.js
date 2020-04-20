@@ -28,7 +28,7 @@ window.onload = () => {
     let events = loadEvents();
 
     //Cards and filters handling
-    loadCardsAndFilters(events, true);
+    loadCardsAndFilters(events, true,"", 'card-space');
 
     //Google Maps API handling
     GMaps.initMap(events.map(e => {

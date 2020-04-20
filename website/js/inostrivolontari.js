@@ -28,7 +28,7 @@ window.onload = () => {
     let volunteers = loadVolunteers();
 
     //Cards and filters handling
-    loadCardsAndFilters(volunteers, true,'inostrivolontari-detail.html');
+    loadCardsAndFilters(volunteers, true,'inostrivolontari-detail.html', 'card-space');
     
     //Shuffler handling
     window.demo = new Shuffler(document.querySelector('#card-space'), volunteers.map(e => e.category));

@@ -36,9 +36,7 @@ class Card {
       this.BS.card.appendChild(this.BS.link);
       this.BS.link.appendChild(this.BS.image);
       this.BS.card.appendChild(this.BS.title);
-      // this.BS.container.appendChild(this.BS.card);
       
-      // this.BS.container.className = 'col-4 mb-3';
       this.BS.card.className      = 'card mb-3 col-3 invisible';
       this.BS.image.className     = 'card-img-top';
       this.BS.title.className     = 'card-title text-center align-middle ';

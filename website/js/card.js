@@ -42,15 +42,15 @@ class Card {
       this.BS.title.className     = 'card-title text-center align-middle ';
     }
   
-    add (name, image, page_link, categories){
-      this.BS.image.src = image;
-      this.BS.title.textContent = name;
-      this.BS.link.href = page_link;
-      this.BS.card.setAttribute('data-title', name);
-      this.BS.card.setAttribute('onclick', "foo()");
-      this.BS.card.setAttribute('data-groups', `["${categories.join('","')}"]`);
-      let newNode = this.BS.card.cloneNode(true);
-      this.hmi_ref.appendChild(newNode);
+    add (name, image, page_link, categories, dataToPass){
+        this.BS.image.src = image;
+        this.BS.title.textContent = name;
+        this.BS.link.href = `${page_link}?id=${dataToPass.id}`;
+        localStorage.setItem(dataToPass.id, JSON.stringify(dataToPass));
+        this.BS.card.setAttribute('data-title', name);
+        this.BS.card.setAttribute('data-groups', `["${categories.join('","')}"]`);
+        let newNode = this.BS.card.cloneNode(true);
+        this.hmi_ref.appendChild(newNode);
     } 
 }
 
@@ -58,7 +58,7 @@ function loadCardsAndFilters(elements, categoryFilter, link){
     let myCard = new Card(document.getElementById('card-space') );
     
     // add element cards
-    elements.map(e => myCard.add(e.title, e.img, link, e.category));
+    elements.map(e => myCard.add(e.title, e.img, link, e.category, e));
     
     // add category filter only if needed
     if(categoryFilter){
@@ -75,10 +75,3 @@ function loadCardsAndFilters(elements, categoryFilter, link){
         });
     }
 }
-
-
-function foo(){
-    var myData = "ciao vediamo se questa cosa funziona";
-    localStorage.setItem('objectToPass', myData);
-}
-

@@ -5,6 +5,43 @@ window.onload = () => {
     if(data === null || data === undefined){
         //TODO: something went wrong
     }
+    //Breadcrumbs handling
+    Breadcrumbs.loadCrumbs([
+        {
+            page: "../index.html",
+            title: "Home"
+        },
+        {
+            page: "inostrivolontari.html",
+            title: "I nostri volontari"
+        },
+        {
+            //TODO: mettere in title il nome del volontario
+            page: "inostrivolontari-detail.html",
+            title: "Volontario"
+        }
+    ]);
+
+   //Query to database
+   let volunteers = loadVolunteers();
+
+   //Cards and filters handling
+   loadCardsAndFilters(volunteers, true,'inostrivolontari-detail.html');
+   
+   //Shuffler handling
+   window.demo = new Shuffler(document.querySelector('#card-space'), volunteers.map(e => e.category));
+   
+   //Spinner handling
+   Spinner.letThemComeBack();
+}
+
+function loadVolunteers(){
+    //TODO: this has to be replaced with database query information extraction
+    return [
+        {id: 'ICSA', title: 'Vacanza studio Londra', img: 'https://source.unsplash.com/random/1920x1080', category: ["Vacanza studio"]},
+        {id: 'csaicas', title: 'Cena di Natale', img: 'https://source.unsplash.com/random/1920x1080', category: ["Cena", "Vattelapesca"]},
+        {id: 'csaiodsa', title: 'Colletta Natalizia', img: 'https://source.unsplash.com/random/1920x1080', category: ["Colletta"]},
+    ];
 }
 
 function loadData(){

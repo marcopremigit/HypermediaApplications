@@ -51,7 +51,7 @@ class Card {
         this.BS.card.setAttribute('data-groups', `["${categories.join('","')}"]`);
         let newNode = this.BS.card.cloneNode(true);
         this.hmi_ref.appendChild(newNode);
-      this.BS.card.setAttribute('data-id', id);
+        this.BS.card.setAttribute('data-id', id);
     } 
 }
 
@@ -60,7 +60,7 @@ function loadCardsAndFilters(elements, categoryFilter, link,position){
     
     // add element cards
     elements.map(e => myCard.add(e.id, e.title, e.img, link, e.category, e));
-    
+
     // add category filter only if needed
     if(categoryFilter){
         let dropdown = document.getElementById("categoryDropdown");

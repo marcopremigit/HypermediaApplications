@@ -17,8 +17,13 @@ class Shuffler {
         }
         //add basic search filter
         document.getElementById('searchBox').addEventListener('keyup', this._handleSearchKeyup.bind(this));
-        let _map = document.getElementById('map');
-        this._mapExists = map !== null || map !== undefined;
+        try{
+            let _map = document.getElementById('map');
+            this._mapExists = map !== null || map !== undefined;
+        } 
+        catch(err){
+            this._mapExists = false
+        }
     }
 
     /**

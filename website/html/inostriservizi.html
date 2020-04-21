@@ -5,13 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="../resources/bootstrap-4.4.1-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../resources/font-awesome-4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../css/inostriservizi.css">
         <link rel="stylesheet" href="../css/breadcrumbs.css">
         <link rel="stylesheet" href="../css/header.css">
-        <link rel="stylesheet" href="../css/footer.css">
-        <title>Ripe4U - Contattaci</title>
+        <link rel="stylesheet" href="../css/card.css">
+        <title>Ripe4U - Servizi</title>
     </head>
-    <body>
+    <body class="d-flex flex-column min-vh-100">
+      <div class="wrapper flex-grow-1">
       <header>
         <div class="main-bg-color header">
           <nav class="navbar navbar-expand-lg navbar-light">
@@ -29,10 +29,10 @@
                   <a class="nav-link" href="chisiamo.html">Chi siamo</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Le nostre news</a>
+                  <a class="nav-link" href="lenostrenews.html">Le nostre news</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">I nostri volontari</a>
+                  <a class="nav-link" href="inostrivolontari.html">I nostri volontari</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="inostrieventi.html">I nostri eventi</a>
@@ -50,7 +50,6 @@
       <div class="container pt-3">
         <div class="row">
           <div class="col"> <!-- Main column -->
-            
             <nav aria-label="breadcrumb">
               <ol id="breadcrumbs" class="breadcrumb"></ol>
             </nav>
@@ -59,29 +58,51 @@
                 <h2 class = "my-2 text-warning">I nostri servizi</h2>
                 </div>    
             </div>     
-            <div class = "row">
-                <div class ="col-9">
-                    <div id="card-space" class="row"> </div>
+            <hr/>
+            <div class="invisible">
+              <!-- Spinner -->
+              <div class = "row d-flex justify-content-center">
+                <div class="spinner-border text-warning" role="status">
+                  <span class="sr-only">Loading...</span>
                 </div>
-                <div class ="col-3">
-                    <nav class="navbar navbar-light bg-light"> 
-                        <form class="form-inline"> 
-                        <input class="form-control mr-sm-2" type="search" placeholder="Cerca" aria-label="Search"> 
-                        <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Cerca</button> 
-                        </form> 
-                    </nav> 
-                </div>
-            </div>    
-            
-               
-            
+              </div> 
+              <!-- Spinner -->
+              <div class = "row">
+                  <div class ="col-9">
+                    <div id="card-space" class="card-deck three-col"></div>
+                  </div>
+                  <div class ="col-3">
+                    <!-- Filters -->
+                    <div class="row">
+                      <form class="form-inline" action="javascript:void(0);"> 
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></div>
+                          </div>
+                          <input id="searchBox" class="form-control" type="search" placeholder="Cerca" aria-label="Cerca"> 
+                        </div>
+                      </form> 
+                    </div>
+                    <div class="row">
+                      <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Filtra per categorie
+                        </button>
+                        <div id="categoryDropdown" class="dropdown-menu" aria-labelledby="categoryDropdown"></div>
+                      </div>
+                    </div>
+                    <!-- Filters -->
+                  </div>
+              </div>    
+            </div>
           </div> <!-- Main column -->
         </div>
       </div>
+    </div>
       <!-- Main div -->
 
       <!-- Footer-->
-      <footer class="position-absolute main-bg-color footer">
+      <footer class="footer w-100 main-bg-color">
         <nav class="navbar navbar-expand-lg navbar-light">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item p-2">
@@ -95,15 +116,18 @@
             </li>
           </ul>
         </nav>
-      </footer>
+      </div>
+    </footer>
       <!-- Footer-->
 
 
       <!-- Optional Javascript -->
-      <script src = "../resources/utils/smtp.js"></script>
+      <script src = "../resources/shufflejs/shuffle.min.js"></script>
       <script src = "../js/card.js"></script>
-      <script src = "../js/inostriservizi.js"></script>
+      <script src = "../js/shuffler.js"></script>
       <script src = "../js/breadcrumbs.js"></script>
+      <script src = "../js/spinner.js"></script>
+      <script src = "../js/inostriservizi.js"></script>
       
       <!-- jQuery first, then Popper.js and then Bootstrap JS -->
       <script src="../resources/bootstrap-4.4.1-dist/js/jquery-3.4.1.slim.min.js"></script>

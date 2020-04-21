@@ -3,8 +3,14 @@ html{
     position: relative;
 }
 
+body {
+    min-height: 100%;
+    min-width: 100%;
+}
+
 .header{
     top: 0;
+    
 }
 
 .main-bg-color{

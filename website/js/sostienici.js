@@ -1,12 +1,12 @@
 window.onload = () => {
     Breadcrumbs.loadCrumbs([
-    {
-        page: "../index.html",
-        title: "Home"
-    },
-    {   
-        page:"sostienici.html",
-        tittle:"Sostienici"
-    }
-]);
-}
+        {
+            page: "homepage.html",
+            title: "Home"
+        },
+        {
+            page: "sostienici.html",
+            title: "Sostienici"
+        }
+    ]);
+  }

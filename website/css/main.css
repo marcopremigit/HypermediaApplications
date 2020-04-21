@@ -54,6 +54,15 @@ hr{
     width: 11.4em;
 }
 
+.card-img-top{
+    transition: transform 1s ease;
+    transform-style: preserve-3d;
+}
+
+.card-img-top:hover{
+    transform: rotateY(360deg);
+}
+
 .card-title{
     min-height: 2.3em;
 }
@@ -112,4 +121,3 @@ img:hover{
         height: 10em;
     }
 }
-  

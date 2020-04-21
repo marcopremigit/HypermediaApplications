@@ -1,8 +1,9 @@
+let volunteer = null;
+let volunteers = null;
 window.onload = () => {
-    let data = loadData();
-    if(data === null || data === undefined){
-        //TODO: something went wrong
-    }
+    volunteers = JSON.parse(sessionStorage.getItem('volunteers'));
+    loadVolunteer(window.location.href.split('id=')[1]);
+    
     //Breadcrumbs handling
     Breadcrumbs.loadCrumbs([
         {
@@ -16,17 +17,13 @@ window.onload = () => {
         {
             //TODO: mettere in title il nome del volontario
             page: "inostrivolontari-detail.html",
-            title: "Volontario"
+            title: volunteer.title
         }
     ]);
 
-   //Query to database
-   let services = loadServices();
-   loadCardsAndFilters(services, false,"", 'card-space-services');
-   let events = loadEvents();
-   loadCardsAndFilters(events, false,"", 'card-space-events');
-   //Spinner handling
-   Spinner.letThemComeBack();
+    
+    //Spinner handling
+    Spinner.letThemComeBack();
 }
 
 function loadServices(){
@@ -47,9 +44,34 @@ function loadEvents(){
     ];
 }
 
-function loadData(){
-    let id = window.location.href.split('id=')[1];
-    let dataToReturn = JSON.parse(localStorage.getItem(id));
-    localStorage.clear(); // Clear the localStorage
-    return dataToReturn;
+function loadNextElement(goRight){
+    let elementsOrder = sessionStorage.getItem('elementsOrder').split(',');
+    let indexOfVolunteer = elementsOrder.indexOf(volunteer.id);
+    let nextId = elementsOrder[(indexOfVolunteer + 1*(goRight ? 1 : -1)) % elementsOrder.length];
+    loadVolunteer(nextId);
+}
+
+function fillElements(){
+    document.getElementById('volunteerName').innerText = volunteer.title;
+    document.getElementById('whoami').innerHTML = volunteer.description;
+    document.getElementById('mycareer').innerHTML = volunteer.description;
+    document.getElementById('mycontacts').innerHTML = volunteer.description;
+    
+    document.getElementById('servicesTitle').innerHTML = `I servizi di ${volunteer.title}`;
+    document.getElementById('eventsTitle').innerHTML = `I prossimi eventi di ${volunteer.title}`;
+}
+
+function loadVolunteer(id){
+    volunteer = volunteers[id];
+    
+    if(volunteer === null || volunteer === undefined){
+        //TODO: something went wrong
+    }
+    fillElements();
+
+    //Query to database
+    let services = loadServices();
+    loadCardsAndFilters(services, false,"", 'card-space-services');
+    let events = loadEvents();
+    loadCardsAndFilters(events, false,"", 'card-space-events');
 }

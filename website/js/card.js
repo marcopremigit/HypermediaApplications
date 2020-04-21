@@ -46,7 +46,8 @@ class Card {
         this.BS.image.src = image;
         this.BS.title.textContent = name;
         this.BS.link.href = `${page_link}?id=${dataToPass.id}`;
-        localStorage.setItem(dataToPass.id, JSON.stringify(dataToPass));
+        //maybe not needed
+        // sessionStorage.setItem(dataToPass.id, JSON.stringify(dataToPass));
         this.BS.card.setAttribute('data-title', name);
         this.BS.card.setAttribute('data-groups', `["${categories.join('","')}"]`);
         let newNode = this.BS.card.cloneNode(true);
@@ -55,9 +56,8 @@ class Card {
     } 
 }
 
-function loadCardsAndFilters(elements, categoryFilter, link,position){
-    let myCard = new Card(document.getElementById(position) );
-    
+function loadCardsAndFilters(elements, categoryFilter, link, position){
+    let myCard = new Card(document.getElementById(position));
     // add element cards
     elements.map(e => myCard.add(e.id, e.title, e.img, link, e.category, e));
 
@@ -75,4 +75,9 @@ function loadCardsAndFilters(elements, categoryFilter, link,position){
             dropdown.appendChild(b);
         });
     }
+}
+
+function saveInStorage(key, element, clearStorage = false){
+    if(clearStorage) sessionStorage.clear();
+    sessionStorage.setItem(key, Array.isArray(element) ? element : JSON.stringify(element));
 }

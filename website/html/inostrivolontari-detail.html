@@ -56,23 +56,23 @@
             </nav>
             <div class="row">
                 <div class="mt-1 border col-12 align-middle text-center border-warning shadow-lg p-3 mb-5 bg-white rounded">
-                <h2 class = "my-2 text-warning">Giancarla Rossa</h2>
+                <h2 id="volunteerName" class = "my-2 text-warning"></h2>
                 </div>    
             </div>
             <!-- quello con la foto --> 
             <div class="row">
-              <div class="col-1 align-left text-left">
-                <a href="">
+              <div class="col-1">
+                <button class="align-middle" onclick="loadNextElement(false)">
                   <i class="fa fa-arrow-circle-left" style="font-size:48px;color: #ffc107"></i>
-                </a>
+                </button>
               </div>
               <div class="col-10 align-middle text-center">
                 <img class="rounded-circle z-depth-2" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg">
               </div>
-              <div class="col-1 align-right text-right">
-                <a href="">
+              <div class="col-1">
+                <button class="align-middle" onclick="loadNextElement(true)">
                 <i class="fa fa-arrow-circle-right" style="font-size:48px;color: #ffc107"></i>
-                </a>
+                </button>
               </div>
             </div>
             <!-- quella con descriizione/servizi/eventi --> 
@@ -83,25 +83,25 @@
                   <h3>Chi sono?</h3>
                 </div>
                 <div class="row">
-                  Ciao sono piero
+                  <p id="whoami"></p>
                 </div>
                 <div class="row-12 align-middle text-center">
                   <h3>La mia carriera</h3>
                 </div>
                 <div class="row">
-                  Ciao sono piero
+                  <p id="mycareer"></p>
                 </div>
                 <div class="row-12 align-middle text-center">
                   <h3>I miei contatti</h3>
                 </div>
                 <div class="row">
-                  Ciao sono piero
+                  <p id="mycontacts"></p>
                 </div>
                 </div>
                 <!-- quella di destra --> 
                 <div class="col">
                   <div class="row-12 align-middle text-center">
-                    <h3>I servizi di Giancarla</h3>
+                    <h3 id="servicesTitle"></h3>
                     <!-- Spinner -->
                     <div class = "row d-flex justify-content-center">
                       <div class="spinner-border text-warning" role="status">
@@ -114,7 +114,7 @@
                     <div id="card-space-services" class="card-deck three-col"></div>
                   </div>
                   <div class="row-12 align-middle text-center">
-                    <h3>I prossimi eventi di Giancarla</h3>
+                    <h3 id="eventsTitle"></h3>
                   </div> 
                   <div class="row">
                     <div id="card-space-events" class="card-deck three-col"></div>

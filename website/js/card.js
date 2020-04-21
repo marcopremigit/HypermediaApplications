@@ -21,7 +21,7 @@
     myCard.add('Ripetizioni matematica','https://source.unsplash.com/random/1920x1080','https://source.unsplash.com/random/1920x1080' );
 */
 class Card {
-    constructor(ref) {
+    constructor(ref, col4=false) {
       this.hmi_ref = ref;
   
       // Bootstap : container type
@@ -37,7 +37,7 @@ class Card {
       this.BS.link.appendChild(this.BS.image);
       this.BS.card.appendChild(this.BS.title);
       
-      this.BS.card.className      = 'card mb-3 col-3 invisible';
+      this.BS.card.className      = `card mb-3 ${col4 ? `col-4` : `col-3`} invisible`;
       this.BS.image.className     = 'card-img-top';
       this.BS.title.className     = 'card-title text-center align-middle ';
     }
@@ -56,8 +56,8 @@ class Card {
     } 
 }
 
-function loadCardsAndFilters(elements, categoryFilter, link, position){
-    let myCard = new Card(document.getElementById(position));
+function loadCardsAndFilters(elements, categoryFilter, link, position, col4){
+    let myCard = new Card(document.getElementById(position, col4));
     // add element cards
     elements.map(e => myCard.add(e.id, e.title, e.img, link, e.category, e));
 

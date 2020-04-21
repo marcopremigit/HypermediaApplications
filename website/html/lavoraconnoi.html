@@ -7,72 +7,75 @@
         <link rel="stylesheet" href="../resources/font-awesome-4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="../css/lavoraconnoi.css">
         <link rel="stylesheet" href="../css/breadcrumbs.css">
-        <link rel="stylesheet" href="../css/footer.css">
         <link rel="stylesheet" href="../css/header.css">
         <title>Ripe4U - Lavora con noi</title>
     </head>
-    <body>
-      <header>
-        <div class="main-bg-color header">
-          <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="../index.html"><h1 style="color: #FFBE0A;">Ripe4U</h1></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <i class="fa fa-caret-down fa-lg" aria-hidden="true"></i>
-            </button>
-          
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="inostriservizi.html">I nostri servizi</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="chisiamo.html">Chi siamo</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="lenostrenews.html">Le nostre news</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="inostrivolontari.html">I nostri volontari</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="inostrieventi.html">I nostri eventi</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="sostienici.html">Sostienici</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        </div>
-      </header>
-
-      <!-- Main div -->
-      <div class="container pt-3">
-        <div class="row">
-          <div class="col"> <!-- Main column -->
-           <nav aria-label="breadcrumb">
-                <ol id="breadcrumbs" class="breadcrumb"></ol>
+    <body class="d-flex flex-column min-vh-100">
+      <div class="wrapper flex-grow-1">
+        <header>
+          <div class="main-bg-color header">
+            <nav class="navbar navbar-expand-lg navbar-light">
+              <a class="navbar-brand" href="../index.html"><h1 style="color: #FFBE0A;">Ripe4U</h1></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-caret-down fa-lg" aria-hidden="true"></i>
+              </button>
+            
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="inostriservizi.html">I nostri servizi</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="chisiamo.html">Chi siamo</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="lenostrenews.html">Le nostre news</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="inostrivolontari.html">I nostri volontari</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="inostrieventi.html">I nostri eventi</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="sostienici.html">Sostienici</a>
+                  </li>
+                </ul>
+              </div>
             </nav>
+          </div>
+        </header>
 
-            <div class="row">
-                <div class="mt-1 border col-12 align-middle text-center border-warning shadow-lg p-3 mb-5 bg-white rounded">
-                    <h2 class = "my-2 text-warning">Lavora con noi</h2>
-                </div>    
-            </div>
+        <!-- Main div -->
+        <div class="container pt-3">
+          <div class="row">
+            <div class="col"> <!-- Main column -->
+            <nav aria-label="breadcrumb">
+                  <ol id="breadcrumbs" class="breadcrumb"></ol>
+              </nav>
 
-            <div class="row">
-                <div class ="col-margin">
-                    <div id="card-space" class="row"> </div>
-                </div>
-            </div>
+              <div class="row">
+                  <div class="mt-1 border col-12 align-middle text-center border-warning shadow-lg p-3 mb-5 bg-white rounded">
+                      <h2 class = "my-2 text-warning">Lavora con noi</h2>
+                  </div>    
+              </div>
 
-          </div> <!-- Main column -->
+              <hr/>
+
+              <div class="row">
+                  <div class ="col">
+                      <div id="card-space" class="row"> </div>
+                  </div>
+              </div>
+
+            </div> <!-- Main column -->
+          </div>
         </div>
+        <!-- Main div -->
       </div>
-      <!-- Main div -->
 
       <!-- Footer-->
-      <footer class="position-absolute main-bg-color footer">
+      <footer class="footer w-100 main-bg-color">
         <nav class="navbar navbar-expand-lg navbar-light">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item p-2">
@@ -86,13 +89,15 @@
             </li>
           </ul>
         </nav>
-      </footer>
-      <!-- Footer-->
+      </div>
+    </footer>
+    <!-- Footer-->
 
 
       <!-- Optional Javascript -->
       <script src="../js/card.js"></script>
       <script src = "../js/lavoraconnoi.js"></script>
+      <script src = "../js/spinner.js"></script>
       <script src = "../js/breadcrumbs.js"></script>
       <!-- jQuery first, then Popper.js and then Bootstrap JS -->
       <script src="../resources/bootstrap-4.4.1-dist/js/jquery-3.4.1.slim.min.js"></script>

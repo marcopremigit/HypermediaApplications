@@ -3,23 +3,6 @@ let volunteers = null;
 window.onload = () => {
     volunteers = JSON.parse(sessionStorage.getItem('volunteers'));
     loadVolunteer(window.location.href.split('id=')[1]);
-    
-    //Breadcrumbs handling
-    Breadcrumbs.loadCrumbs([
-        {
-            page: "../index.html",
-            title: "Home"
-        },
-        {
-            page: "inostrivolontari.html",
-            title: "I nostri volontari"
-        },
-        {
-            //TODO: mettere in title il nome del volontario
-            page: "inostrivolontari-detail.html",
-            title: volunteer.title
-        }
-    ]);
 }
 
 function loadServices(){
@@ -63,6 +46,24 @@ function loadVolunteer(id){
     if(volunteer === null || volunteer === undefined){
         //TODO: something went wrong
     }
+    
+    //Breadcrumbs handling
+    Breadcrumbs.loadCrumbs([
+        {
+            page: "../index.html",
+            title: "Home"
+        },
+        {
+            page: "inostrivolontari.html",
+            title: "I nostri volontari"
+        },
+        {
+            //TODO: mettere in title il nome del volontario
+            page: "inostrivolontari-detail.html",
+            title: volunteer.title
+        }
+    ]);
+
     fillElements();
 
     //Query to database

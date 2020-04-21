@@ -22,6 +22,11 @@ let Breadcrumbs = {
     loadCrumbs : function(crumbs){
         let crumbsDiv = document.getElementById("breadcrumbs");
         if(crumbsDiv === undefined || crumbsDiv === null) return;
+        let child = crumbsDiv.lastChild;
+        while (child) { 
+            crumbsDiv.removeChild(child); 
+            child = crumbsDiv.lastElementChild; 
+        } 
         crumbs.map((e, i) => crumbsDiv.appendChild(createCrumb(e, i === crumbs.length-1)));
     }
 };

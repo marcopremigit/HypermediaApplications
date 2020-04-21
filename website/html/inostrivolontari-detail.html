@@ -78,7 +78,14 @@
             <!-- quella con descriizione/servizi/eventi --> 
             <div class="row">
                <!-- quella di sinistra --> 
-                <div class="col-5">
+               <div class="col-5 invisible">
+                <!-- Services Spinner -->
+                <div class = "row d-flex justify-content-center">
+                  <div class="spinner-border text-warning" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                </div> 
+                <!-- Services Spinner -->
                 <div class="row-12 align-middle text-center">
                   <h3>Chi sono?</h3>
                 </div>
@@ -102,21 +109,28 @@
                 <div class="col">
                   <div class="row-12 align-middle text-center">
                     <h3 id="servicesTitle"></h3>
-                    <!-- Spinner -->
+                  </div> 
+                  <div class="row invisible">
+                    <!-- Services Spinner -->
                     <div class = "row d-flex justify-content-center">
                       <div class="spinner-border text-warning" role="status">
                         <span class="sr-only">Loading...</span>
                       </div>
                     </div> 
-                    <!-- Spinner -->
-                  </div> 
-                  <div class="row">
+                    <!-- Services Spinner -->
                     <div id="card-space-services" class="card-deck three-col"></div>
                   </div>
                   <div class="row-12 align-middle text-center">
                     <h3 id="eventsTitle"></h3>
                   </div> 
-                  <div class="row">
+                  <div class="row invisible">
+                    <!-- Events Spinner -->
+                    <div class = "row d-flex justify-content-center">
+                      <div class="spinner-border text-warning" role="status">
+                        <span class="sr-only">Loading...</span>
+                      </div>
+                    </div> 
+                    <!-- Events Spinner -->
                     <div id="card-space-events" class="card-deck three-col"></div>
                   </div>
                 </div>

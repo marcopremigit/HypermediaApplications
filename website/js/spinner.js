@@ -5,6 +5,9 @@ let Spinner = {
         Array.from(elements).map(e => {
             e.classList.remove("invisible");
         });
-        document.getElementsByClassName("spinner-border")[0].classList.add("invisible");  
+        Array.from(document.getElementsByClassName("spinner-border")).map(s => {
+            console.log('spinner 1')
+            s.classList.add("invisible")
+        });  
     }
 };

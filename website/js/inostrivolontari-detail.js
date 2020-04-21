@@ -20,10 +20,6 @@ window.onload = () => {
             title: volunteer.title
         }
     ]);
-
-    
-    //Spinner handling
-    Spinner.letThemComeBack();
 }
 
 function loadServices(){
@@ -74,4 +70,7 @@ function loadVolunteer(id){
     loadCardsAndFilters(services, false,"", 'card-space-services');
     let events = loadEvents();
     loadCardsAndFilters(events, false,"", 'card-space-events');
+
+    //Spinner handling
+    Spinner.letThemComeBack();
 }

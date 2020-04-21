@@ -67,6 +67,8 @@ function loadVolunteer(id){
 
     //Query to database
     let services = loadServices();
+    removeAllCards('card-space-services');
+    removeAllCards('card-space-events');
     loadCardsAndFilters(services, false,"", 'card-space-services');
     let events = loadEvents();
     loadCardsAndFilters(events, false,"", 'card-space-events');

@@ -77,6 +77,15 @@ function loadCardsAndFilters(elements, categoryFilter, link, position){
     }
 }
 
+function removeAllCards(idPosition){
+    let element = document.getElementById(idPosition);
+    let child = element.lastElementChild;  
+    while (child) { 
+        element.removeChild(child); 
+        child = element.lastElementChild; 
+    } 
+}
+
 function saveInStorage(key, element, clearStorage = false){
     if(clearStorage) sessionStorage.clear();
     sessionStorage.setItem(key, Array.isArray(element) ? element : JSON.stringify(element));

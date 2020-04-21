@@ -1,7 +1,0 @@
-.breadcrumb{
-    background-color: transparent;
-}
-
-.breadcrumb-item + .breadcrumb-item::before {
-    content: ">";
-}

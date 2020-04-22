@@ -1,8 +1,8 @@
 window.onload =() =>{
     Breadcrumbs.loadCrumbs([
         {
-        page: "homepage.html",
-        title: "Homepage"
+        page: "../index.html",
+        title: "Home"
         },
         {
         page: "raggiungici.html",

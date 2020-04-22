@@ -101,14 +101,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     background-color: #B4FBB2;
 }
 
-img{
-    transition: transform .5s ease;
-}
 
-img:hover{
-    opacity: .8;
-    transform: scale(1.1);
-}
 
 #map{
     height: 20em;

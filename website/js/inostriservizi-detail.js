@@ -43,7 +43,6 @@ function fillElements(){
 
 function loadService(id){
     service = services[id];
-    
     if(service === null || service === undefined){
 
         //TODO: something went wrong
@@ -66,15 +65,29 @@ function loadService(id){
         }
     ]);
 
+
     fillElements();
 
     //Query to database
     removeAllCards('card-space-events');
     removeAllCards('card-space-volunteers');
     let events = loadEvents();
-    loadCardsAndFilters(events, false,"", 'card-space-events');
+    loadCardsAndFilters(events, false,"inostrieventi-detail.html", 'card-space-events');
+    let eventsJSON = {};
+    events.map(e=>{
+        eventsJSON[e.id] = e;
+    })
+    saveInStorage('events',eventsJSON, true);
+    saveInStorage('elementsOrder', events.map(v => v.id));
+
     let volunteers = loadVolunteers();
     loadCardsAndFilters(volunteers,false,"inostrivolontari-detail.html",'card-space-volunteers')
+    let volunteersJSON = {};
+    volunteers.map(e=>{
+        volunteersJSON[e.id] = e;
+    })
+    saveInStorage('volunteers',volunteersJSON, true);
+    saveInStorage('elementsOrder', volunteers.map(v => v.id));
 
     //Spinner handling
     Spinner.letThemComeBack();

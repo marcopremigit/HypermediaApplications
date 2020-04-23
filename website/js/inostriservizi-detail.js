@@ -42,9 +42,15 @@ function fillElements(){
 }
 
 function loadService(id){
-    service = services[id];
+    try {
+        service = services[id];
+    } catch (error) {
+        //TODO: per ora ho messo un redirect, ma bisogna aggiungere una funzione che 
+        //peschi dal server il servizio associato a quell'id
+        window.location.replace("inostriservizi.html");
+    }
+   
     if(service === null || service === undefined){
-
         //TODO: something went wrong
     }
     

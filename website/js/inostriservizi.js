@@ -32,7 +32,7 @@ window.onload = () => {
     services.map(e => {
         servicesJSON[e.id] = e;
     })
-    saveInStorage('services', servicesJSON, true);
+    saveInStorage('services', servicesJSON);
     saveInStorage('elementsOrder', services.map(v => v.id));
 
     //Shuffler handling

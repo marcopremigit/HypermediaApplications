@@ -42,14 +42,7 @@ function fillElements(){
 }
 
 function loadService(id){
-    try {
-        service = services[id];
-    } catch (error) {
-        //TODO: per ora ho messo un redirect, ma bisogna aggiungere una funzione che 
-        //peschi dal server il servizio associato a quell'id
-        window.location.replace("inostriservizi.html");
-    }
-   
+    service = services[id];
     if(service === null || service === undefined){
         //TODO: something went wrong
     }
@@ -83,7 +76,7 @@ function loadService(id){
     events.map(e=>{
         eventsJSON[e.id] = e;
     })
-    saveInStorage('events',eventsJSON, true);
+    saveInStorage('events',eventsJSON);
     saveInStorage('elementsOrder', events.map(v => v.id));
 
     let volunteers = loadVolunteers();
@@ -92,7 +85,7 @@ function loadService(id){
     volunteers.map(e=>{
         volunteersJSON[e.id] = e;
     })
-    saveInStorage('volunteers',volunteersJSON, true);
+    saveInStorage('volunteers',volunteersJSON);
     saveInStorage('elementsOrder', volunteers.map(v => v.id));
 
     //Spinner handling

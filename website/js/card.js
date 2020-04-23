@@ -86,7 +86,6 @@ function removeAllCards(idPosition){
     } 
 }
 
-function saveInStorage(key, element, clearStorage = false){
-    if(clearStorage) sessionStorage.clear();
+function saveInStorage(key, element){
     sessionStorage.setItem(key, Array.isArray(element) ? element : JSON.stringify(element));
 }

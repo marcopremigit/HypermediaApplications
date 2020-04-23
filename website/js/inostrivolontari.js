@@ -33,7 +33,7 @@ window.onload = () => {
     volunteers.map(e => {
         volunteersJSON[e.id] = e;
     })
-    saveInStorage('volunteers', volunteersJSON, true);
+    saveInStorage('volunteers', volunteersJSON);
     saveInStorage('elementsOrder', volunteers.map(v => v.id));
     
     //Shuffler handling

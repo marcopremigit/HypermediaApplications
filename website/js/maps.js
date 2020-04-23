@@ -1,6 +1,5 @@
 let map = null;
 let markers = [];
-let markerCluster = null;
 let GMaps = {
     initMap: locations => {
         
@@ -28,16 +27,6 @@ let GMaps = {
     
             return marker;
         });
-    
-        //create clusters
-        markerCluster = new MarkerClusterer(
-            map, 
-            markers, 
-            {
-                imagePath: '../resources/images/google_markers/m',
-                ignoreHidden: true
-            },
-        );
     },
 
     //TODO: could be improved, not perfect but it does the trick
@@ -59,7 +48,6 @@ let GMaps = {
 
         _calcCenter(visibileMarkers);
         _calcBounds(visibileMarkers);
-        markerCluster.repaint();
     }
 };
 

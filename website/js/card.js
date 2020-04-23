@@ -56,7 +56,7 @@ class Card {
     } 
 }
 
-function loadCardsAndFilters(elements, categoryFilter, link, position, col4){
+function loadCardsAndFilters(elements, categoryFilter, link, position, col4 = false){
     let myCard = new Card(document.getElementById(position, col4));
     // add element cards
     elements.map(e => myCard.add(e.id, e.title, e.img, link, e.category, e));

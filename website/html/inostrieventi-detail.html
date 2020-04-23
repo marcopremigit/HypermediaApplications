@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="../resources/bootstrap-4.4.1-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../resources/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/inostrieventi-detail.css">
+        <title>Ripe4U - I nostri eventi</title>
+    </head>
+    <body class="d-flex flex-column min-vh-100">
+      <div class="wrapper flex-grow-1">
+      <header>
+        <div class="main-bg-color header">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="../index.html"><h1 style="color: #FFBE0A;">Ripe4U</h1></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="fa fa-caret-down fa-lg" aria-hidden="true"></i>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="inostriservizi.html">I nostri servizi</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="chisiamo.html">Chi siamo</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="lenostrenews.html">Le nostre news</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="inostrivolontari.html">I nostri volontari</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="inostrieventi.html">I nostri eventi</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="sostienici.html">Sostienici</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Main div -->
+      <div class="container pt-3">
+        <div class="row">
+          <div class="col"> <!-- Main column -->
+            <nav aria-label="breadcrumb">
+              <ol id="breadcrumbs" class="breadcrumb"></ol>
+            </nav>
+            <div class="row">
+                <div class="mt-1 border col-12 align-middle text-center border-warning shadow-lg p-3 mb-5 bg-white rounded">
+                <h2 id="eventName" class = "my-2 text-warning"></h2>
+                </div>    
+            </div>
+            <!-- quello con la foto --> 
+            <div class="row my-5">
+              <div class="col-1 my-auto">
+                <button class="align-middle" onclick="loadNextElement(false)">
+                  <i class="fa fa-arrow-circle-left" style="font-size:48px;color: #ffc107"></i>
+                </button>
+              </div>
+              <div class="col-10 align-middle text-center">
+                <img class="rounded-circle z-depth-2" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg">
+              </div>
+              <div class="col-1 my-auto">
+                <button class="align-middle" onclick="loadNextElement(true)">
+                <i class="fa fa-arrow-circle-right" style="font-size:48px;color: #ffc107"></i>
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-7">
+                <div class="row align-middle text-center">
+                  <div class="col">
+                    <h3 class="mx-auto">Descrizione dell'evento</h3>
+                    <p id="eventDescription" class="mx-auto"></p>
+                  </div>
+                </div>
+                <div class="row align-middle text-center">
+                  <div class="col">
+                    <div class="row my-5">
+                      <h3 class="mx-auto">Dove e quando si terrà l'evento?</h3>
+                    </div>
+                    <div class="row my-5">
+                      <div class="col h-100 my-auto">
+                        <div class="row">
+                          <dt class="col-6 text-left">Data d'inizio</dt>
+                          <dd id="eventStarts" class="col-5 text-right mr-4"></dd>
+                          <dt class="col-6 text-left">Data di fine</dt>
+                          <dd id="eventEnds" class="col-5 text-right mr-4"></dd>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="row">
+                          <div id="map"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row my-5">
+                      <div class="col">
+                        <h3 class="mx-auto my-4">Contatta il responsabile dell'evento</h3>
+                        <div id="responsibleCard" class="card mb-3">
+                          <a id="responsibleLink"><img id="responsibleImg" class="card-img-top rounded-circle"></a>
+                          <h4 id="responsibleName" class="card-title text-center align-middle "></h4>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <h3 class="mx-auto my-4">Partecipa all'evento!</h3>
+                        <div class="row">
+                          <dt class="col-7 my-4">Posti disponibili:</dt>
+                          <dd class="col my-4"><p id="availableSpots"></p></dd>
+                        </div>
+                        <div class="row justify-content-center">
+                          <form class="justify-content-center col-12" action="javascript:void(0);">
+                              <input type="email" class="form-control my-2" id="participationEmail" aria-describedby="emailHelp" placeholder="Inserisci la tua email">
+                              <button type="submit" class="btn btn-primary my-2" onclick="sendEventParticipation()">Submit</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="row justify-content-center">
+                  <h3 class="mx-auto">I servizi che troverai all'evento</h3>
+                </div>
+                <div id="card-space-services" class="card-deck mt-3"></div>
+              </div>
+            </div>
+          </div> <!-- Main column -->
+        </div>
+      </div>
+      <!-- Main div -->
+
+      <!-- Footer-->
+      <footer class="footer w-100 main-bg-color">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item p-2">
+                <a class="h4 font-weight-light nav-link text-center" href="contattaci.html">Contattaci</a>
+              </li>
+              <li class="nav-item p-2">
+                <a class="h4 font-weight-light nav-link text-center" href="raggiungici.html">Raggiungici</a>
+              </li>
+              <li class="nav-item p-2">
+                <a class="h4 font-weight-light nav-link text-center" href="lavoraconnoi.html">Lavora con noi</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </footer>   
+      <!-- Footer-->
+
+
+      <!-- Optional Javascript -->
+      <script src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAPLY7Gso7zCSQlnf6_FL3F6DOR38lqcAY"></script>
+      <script src = "../js/maps.js"></script>
+      <script src = "../js/breadcrumbs.js"></script>
+      <script src = "../js/spinner.js"></script>
+      <script src = "../js/inostrieventi-detail.js"></script>
+      <script src = "../js/card.js"></script>
+      <!-- jQuery first, then Popper.js and then Bootstrap JS -->
+      <script src="../resources/bootstrap-4.4.1-dist/js/jquery-3.4.1.slim.min.js"></script>
+      <script src="../resources/bootstrap-4.4.1-dist/js/popper.min.js"></script>
+      <script src="../resources/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+    </body>
+</html>

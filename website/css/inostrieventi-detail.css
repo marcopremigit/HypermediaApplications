@@ -1,0 +1,17 @@
+.card{
+    min-width: 13.2em;
+    margin-right: 9px !important;
+}
+
+.card a img{
+    overflow: hidden;
+}
+
+#responsibleImg{
+    height: 9em !important;
+    width: 10em !important;
+}
+
+#responsibleCard{
+    border: 0;
+}

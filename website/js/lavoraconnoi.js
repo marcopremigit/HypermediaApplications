@@ -1,4 +1,4 @@
-window.onload = () => {
+$(document).ready(() => {
     Breadcrumbs.loadCrumbs([
         {
             page: "../index.html",
@@ -14,11 +14,11 @@ window.onload = () => {
     let positions = loadOpenPositions();
 
     //Cards and filters handling
-    loadCardsAndFilters(positions, false,"", 'card-space', true);
+    loadCardsAndFilters(positions, false,"", '#jobs-card-space', 'col-3');
 
     //Spinner handling
     Spinner.letThemComeBack();
-}
+});
 
 function loadOpenPositions(){
     //TODO: this has to be replaced with database query information extraction

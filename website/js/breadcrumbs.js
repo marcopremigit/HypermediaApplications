@@ -4,7 +4,6 @@ let Breadcrumbs = {
         if(crumbsDiv === undefined || crumbsDiv === null) return;
         crumbsDiv.empty();
         crumbs.map( (c,i) => crumbsDiv.append(createCrumb(c, i === crumbs.length - 1)));
-        // crumbsDiv.html(crumbs.map((e, i) => createCrumb(e, i === crumbs.length-1)).join(''));
     }
 };
 

@@ -1,9 +1,9 @@
 let event = null;
 let events = null;
-window.onload = () => {
+$(document).ready(() => {
     events = JSON.parse(sessionStorage.getItem('events'));
     loadEvent(window.location.href.split('id=')[1]);
-}
+});
 
 function loadEvent(id){
     event = events[id];
@@ -31,8 +31,8 @@ function loadEvent(id){
     fillElements();
 
     let services = loadServices();
-    removeAllCards('card-space-services');
-    loadCardsAndFilters(services, false,"inostriservizi-detail.html", 'card-space-services', false);
+    removeAllCards('services-card-space');
+    loadCardsAndFilters(services, false,'inostriservizi-detail.html', '#services-card-space', 'col-3');
     let servicesJSON = {};
     services.map(s=>{
         servicesJSON[s.id] = s;

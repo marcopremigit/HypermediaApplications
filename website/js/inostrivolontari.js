@@ -21,7 +21,7 @@ $(document).ready(() => {
         volunteersJSON[e.id] = e;
     })
     saveInStorage('volunteers', volunteersJSON);
-    saveInStorage('elementsOrder', volunteers.map(v => v.id));
+    saveInStorage('volunteersElementsOrder', volunteers.map(v => v.id));
     
     //Shuffler handling
     new Shuffler('#volunteers-card-space', volunteers.map(v => v.category));

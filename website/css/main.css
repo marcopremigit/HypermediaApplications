@@ -116,6 +116,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     color: white;
 }
 
+a{
+    color: #0000FF;
+}
 @media only screen and (max-width: 768px){
     #map{
         height: 10em;

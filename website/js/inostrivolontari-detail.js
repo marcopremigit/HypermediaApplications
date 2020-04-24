@@ -1,9 +1,9 @@
 let volunteer = null;
 let volunteers = null;
-window.onload = () => {
+$(document).ready(() => {
     volunteers = JSON.parse(sessionStorage.getItem('volunteers'));
     loadVolunteer(window.location.href.split('id=')[1]);
-}
+});
 
 function loadServices(){
     //TODO: this has to be replaced with database query information extraction

@@ -1,4 +1,4 @@
-window.onload = () => {
+$(document).ready(() => {
     Breadcrumbs.loadCrumbs([
         {
             page: "../index.html",
@@ -9,7 +9,4 @@ window.onload = () => {
             title: "Chi siamo"
         }
     ]);
-  }
-
-
-
+});

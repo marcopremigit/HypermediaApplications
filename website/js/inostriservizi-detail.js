@@ -1,10 +1,9 @@
 let service = null;
 let services = null;
-window.onload = () => {
+$(document).ready(() => {
     services = JSON.parse(sessionStorage.getItem('services'));
     loadService(window.location.href.split('id=')[1]);
-}
-
+});
 
 function loadEvents(){
     //TODO: this has to be replaced with database query information extraction
@@ -63,7 +62,6 @@ function loadService(id){
             title: service.title
         }
     ]);
-
 
     fillElements();
 

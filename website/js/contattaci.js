@@ -1,4 +1,4 @@
-window.onload = () => {
+$(document).ready(() => {
     Breadcrumbs.loadCrumbs([
         {
             page: "../index.html",
@@ -20,9 +20,7 @@ window.onload = () => {
         }
         form.classList.add('was-validated');
     }, false); 
-    
-}
-
+});
 
 function sendEmail() {
     let value = document.getElementById('contact-form'); 
@@ -56,8 +54,4 @@ function writeAnotherEmail(){
     document.getElementById("message").value='';
     document.getElementById("alert-success").style.display="none";
     document.getElementById("contact-form").style.display="block";
-
 }
-
-
-

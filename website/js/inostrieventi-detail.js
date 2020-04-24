@@ -1,9 +1,9 @@
 let event = null;
 let events = null;
-window.onload = () => {
+$(document).ready(() => {
     events = JSON.parse(sessionStorage.getItem('events'));
     loadEvent(window.location.href.split('id=')[1]);
-}
+});
 
 function loadEvent(id){
     event = events[id];

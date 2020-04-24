@@ -101,6 +101,9 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     background-color: #B4FBB2;
 }
 
+.header-rectangle{
+    border-color: #eb6d00!important;
+}
 #map{
     height: 20em;
     width: 100%;

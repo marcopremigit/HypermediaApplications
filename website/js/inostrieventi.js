@@ -11,7 +11,7 @@ function loadEvents(){
     ];
 }
 
-window.onload = () => { 
+$(document).ready(() => { 
     //Breadcrumbs handling
     Breadcrumbs.loadCrumbs([
         {
@@ -28,11 +28,11 @@ window.onload = () => {
     let events = loadEvents();
 
     //Cards and filters handling
-    loadCardsAndFilters(events, true, 'inostrieventi-detail.html', 'card-space');
+    loadCardsAndFilters(events, true, 'inostrieventi-detail.html', '#events-card-space', 'col-3');
     let eventsJSON = {};
     events.map(e => {
         eventsJSON[e.id] = e;
-    })
+    });
     saveInStorage('events', eventsJSON, true);
     saveInStorage('eventsElementsOrder', events.map(v => v.id));
     GMaps.initMap(events.map(e => {
@@ -40,8 +40,8 @@ window.onload = () => {
     }));
 
     //Shuffler handling
-    window.demo = new Shuffler(document.querySelector('#card-space'), events.map(e => e.category));
+    new Shuffler('#events-card-space', events.map(e => e.category));
     
     //Spinner handling
     Spinner.letThemComeBack();
-}   
+});

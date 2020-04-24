@@ -20,30 +20,19 @@
 
 let Breadcrumbs = {
     loadCrumbs : function(crumbs){
-        let crumbsDiv = document.getElementById("breadcrumbs");
+        let crumbsDiv = $("#breadcrumbs");
         if(crumbsDiv === undefined || crumbsDiv === null) return;
-        let child = crumbsDiv.lastChild;
-        while (child) { 
-            crumbsDiv.removeChild(child); 
-            child = crumbsDiv.lastElementChild; 
-        } 
-        crumbs.map((e, i) => crumbsDiv.appendChild(createCrumb(e, i === crumbs.length-1)));
+        crumbsDiv.empty();
+        crumbsDiv.html(crumbs.map((e, i) => createCrumb(e, i === crumbs.length-1)).join(''));
     }
 };
 
-function createCrumb(element, last){
-    let li = document.createElement("li");
-    if(!last){
-        let a = document.createElement("a");
-        a.setAttribute("href", element.page);
-        a.textContent = element.title;
-        li.appendChild(a);
-    }
-    else{
-        li.classList.add("active");
-        li.setAttribute("aria-current", "page");
-        li.textContent = element.title;
-    }
-    li.classList.add("breadcrumb-item");
-    return li;
+function createCrumb(e, isLast){
+    return `
+    <li class="breadcrumb-item ${isLast ? 'active': ''}" ${isLast ? 'aria-current="page"' : ''}>
+        ${isLast ? '' : `<a href="${e.page}">`}
+            ${e.title}
+        ${isLast ? '' : '</a>'}
+    </li>
+    `;
 }

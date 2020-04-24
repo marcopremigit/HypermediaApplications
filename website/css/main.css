@@ -23,6 +23,9 @@ body {
 
 .nav-link{
     color: #FFBE0A !important;
+    display: inline-table;
+    border: solid #ffffff00;
+    border-width: 0em 0em .1rem;
 }
 
 .nav-item{
@@ -32,7 +35,7 @@ body {
 .nav-link:hover{
     display: inline;
     border: solid #FFBE0A;
-    border-width: 0em 0em .2rem;
+    border-width: 0em 0em .1rem;
 }
 
 .breadcrumb{
@@ -126,7 +129,7 @@ a{
     .nav-link:hover{
         display: inline-table;
         border: solid #FFBE0A;
-        border-width: 0em 0em .01rem;
+        border-width: 0em 0em .1rem;
     }
 }
 

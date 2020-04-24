@@ -1,23 +1,43 @@
 function loadCardsAndFilters(elements, addFilters, link, querySelector, colWidth, emptyPosition = false){
     let cardSpace = $(querySelector);
     if(emptyPosition) cardSpace.empty();
-    cardSpace.html(elements.map(e => `
-        <div class="card mb-3 ${colWidth} invisible" data-groups='["${e.category.join('","')}"]' data-title="${e.title}" data-id="${e.id}">
-            <a href="${link}?id=${e.id}">
-                <img src="${e.img}" class="card-img-top w-100" alt="${e.title}">
-            </a>
-            <h4 class="card-title text-center align-middle">${e.title}</h4>
-        </div>
-        `).join('')
-    );
+    elements.map(e => {
+        let card = document.createElement('div');
+        card.className = `card mb-3 invisible ${colWidth}`;
+        card.setAttribute('data-groups', `["${e.category.join('","')}"]`);
+        card.setAttribute('data-title', `${e.title}`);
+        card.setAttribute('data-id', `${e.id}`);
+        
+        let a = document.createElement('a');
+        a.href = `${link}?id=${e.id}`;
+
+        let img = document.createElement('img');
+        img.className = 'card-img-top w-100';
+        card.setAttribute('alt', `${e.title}`);
+        card.setAttribute('src', `${e.img}`);
+        
+        let h = document.createElement('h4');
+        h.className = 'card-title text-center align-middle';
+        h.innerText = `${e.title}`;
+
+        a.append(img);
+        card.append(a);
+        card.append(h);
+        cardSpace.append(card);
+    });
 
     if(addFilters){
-        $('#categoryDropdown').html(
-            [...new Set(elements.map(e => e.category).flat())]
-            .map(c => `
-                <button class="dropdown-item" type="button" data-group="${c}">${c}</button>
-            `).join('')
-        );
+        let dropdown = $('#categoryDropdown');
+        [...new Set(elements.map(e => e.category).flat())]
+        .map(c => {
+            let b = document.createElement('button');
+            b.className = 'dropdown-item';
+            b.setAttribute('type', 'button');
+            b.setAttribute('data-group', `${c}`);
+            b.innerText = c;
+            dropdown.append(b);       
+        });
+
     }
 }
 

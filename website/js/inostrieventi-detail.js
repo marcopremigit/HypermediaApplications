@@ -52,8 +52,9 @@ function loadEvent(id){
 
 function loadNextElement(goRight){
     let elementsOrder = sessionStorage.getItem('eventsElementsOrder').split(',');
-    let indexOfservice = elementsOrder.indexOf(event.id);
-    let nextId = elementsOrder[(indexOfservice + 1*(goRight ? 1 : -1)) % elementsOrder.length];
+    let indexOfEvent = elementsOrder.indexOf(event.id);
+    let length = elementsOrder.length;
+    let nextId = elementsOrder[((indexOfEvent + 1*(goRight ? 1 : -1)) % length + length) % length];
     loadEvent(nextId);
 }
 

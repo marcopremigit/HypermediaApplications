@@ -26,7 +26,8 @@ function loadEvents(){
 function loadNextElement(goRight){
     let elementsOrder = sessionStorage.getItem('elementsOrder').split(',');
     let indexOfVolunteer = elementsOrder.indexOf(volunteer.id);
-    let nextId = elementsOrder[(indexOfVolunteer + 1*(goRight ? 1 : -1)) % elementsOrder.length];
+    let length = elementsOrder.length;
+    let nextId = elementsOrder[((indexOfVolunteer + 1*(goRight ? 1 : -1)) % length + length) % length];
     loadVolunteer(nextId);
 }
 

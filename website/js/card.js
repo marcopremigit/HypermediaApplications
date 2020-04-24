@@ -3,7 +3,8 @@ function loadCardsAndFilters(elements, addFilters, link, querySelector, colWidth
     if(emptyPosition) cardSpace.empty();
     elements.map(e => {
         let card = document.createElement('div');
-        card.className = `card mb-3 invisible ${colWidth}`;
+        let tooLittle = $(window).width() < 600;
+        card.className = `card mb-3 invisible ${tooLittle ? 'col-12' :colWidth}`;
         card.setAttribute('data-groups', `["${e.category.join('","')}"]`);
         card.setAttribute('data-title', `${e.title}`);
         card.setAttribute('data-id', `${e.id}`);

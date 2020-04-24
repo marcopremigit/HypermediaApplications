@@ -1,8 +1,7 @@
 class Shuffler {
-    constructor(element, categories = null) {
-        this.shuffle = new window.Shuffle(element, {
+    constructor(idPosition, categories = null) {
+        this.shuffle = new window.Shuffle($(idPosition), {
             itemSelector: '.card',
-            sizer: element.querySelector('.sizer'),
             filterMode: Shuffle.FilterMode.ANY,
             group: Shuffle.ALL_ITEMS
         }); 
@@ -11,9 +10,7 @@ class Shuffler {
         //add category filter only if needed
         if(categories!==null) {
             Array.from(document.getElementsByClassName("dropdown-item"))
-            .map(e => {
-                e.addEventListener('click', this._handleCategoryButtonClick.bind(this));
-            });
+            .map(e => e.addEventListener('click', this._handleCategoryButtonClick.bind(this)));
         }
         //add basic search filter
         document.getElementById('searchBox').addEventListener('keyup', this._handleSearchKeyup.bind(this));

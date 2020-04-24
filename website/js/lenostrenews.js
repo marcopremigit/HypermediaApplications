@@ -32,7 +32,7 @@ window.onload = () => {
         newsJSON[e.id] = e;
     })
     saveInStorage('news', newsJSON, true);
-    saveInStorage('elementsOrder', news.map(v => v.id));
+    saveInStorage('newsElementsOrder', news.map(v => v.id));
     
     //Shuffler handling
     window.demo = new Shuffler(document.querySelector('#card-space'), news.map(e => e.category));

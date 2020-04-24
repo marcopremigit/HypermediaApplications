@@ -6,9 +6,9 @@ window.onload = () => {
 }
 
 function loadNextElement(goRight){
-    let elementsOrder = sessionStorage.getItem('elementsOrder').split(',');
-    let indexOfNews = elementsOrder.indexOf(news.id);
-    let nextId = elementsOrder[(indexOfNews + 1*(goRight ? 1 : -1)) % elementsOrder.length];
+    let newsElementsOrder = sessionStorage.getItem('newsElementsOrder').split(',');
+    let indexOfNews = newsElementsOrder.indexOf(news.id);
+    let nextId = newsElementsOrder[(indexOfNews + 1*(goRight ? 1 : -1)) % newsElementsOrder.length];
     loadNews(nextId);
 }
 

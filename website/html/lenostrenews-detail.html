@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="../resources/bootstrap-4.4.1-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../resources/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/inostrivolontari-detail.css">
+        <link rel="stylesheet" href="../css/lenostrenews.css">
+        <title>Ripe4U - Le nostre news</title>
+    </head>
+    <body class="d-flex flex-column min-vh-100">
+      <div class="wrapper flex-grow-1">
+      <header>
+        <div class="main-bg-color header">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="../index.html"><h1 style="color: #FFBE0A;">Ripe4U</h1></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="fa fa-caret-down fa-lg" aria-hidden="true"></i>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="inostriservizi.html">I nostri servizi</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="chisiamo.html">Chi siamo</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="lenostrenews.html">Le nostre news</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="inostrivolontari.html">I nostri volontari</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="inostrieventi.html">I nostri eventi</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="sostienici.html">Sostienici</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Main div -->
+      <div class="container pt-3">
+        <div class="row">
+          <div class="col"> <!-- Main column -->
+            <nav aria-label="breadcrumb">
+              <ol id="breadcrumbs" class="breadcrumb"></ol>
+            </nav>
+            <div class="row">
+                <div class="mt-1 border col-12 align-middle text-center border-warning shadow-lg p-3 mb-5 bg-white rounded">
+                <h2 id="newsName" class = "my-2 text-warning"></h2>
+                </div>    
+            </div>
+            <!-- quello con la foto --> 
+            <div class="row">
+              <div class="col-1 my-auto">
+                <button class="align-middle p_0 rounded-circle" style="color: white; background-color: white;" onclick="loadNextElement(false)">
+                  <i class="fa fa-arrow-circle-left" style="font-size:48px;color: #ffc107"></i>
+                </button>
+              </div>
+              <div class="col-10 align-middle text-center">
+                <img class="rounded-circle z-depth-2" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg">
+              </div>
+              <div class="col-1 my-auto">
+                <button class="align-middle p_0 rounded-circle" style="color: white; background-color: white;" onclick="loadNextElement(true)">
+                <i class="fa fa-arrow-circle-right" style="font-size:48px;color: #ffc107"></i>
+                </button>
+              </div>
+            </div>
+            <!-- titolo e descrizione --> 
+            <div class="row">
+                <div class="col">
+                <!-- Services Spinner -->
+                    <div class = "row d-flex justify-content-center">
+                      <div class="spinner-border text-warning" role="status">
+                        <span class="sr-only">Loading...</span>
+                      </div>
+                    </div> 
+                <!-- Services Spinner -->
+                    <div class="row d-flex justify-content-center">
+                      <h3 id="news_Name"></h3>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                      <p id="newsDescription"></p>
+                    </div>
+                </div>
+            </div>
+          </div> <!-- Main column -->
+        </div>
+      </div>
+    </div>
+      <!-- Main div -->
+
+      <!-- Footer-->
+      <footer class="footer w-100 main-bg-color">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item p-2">
+                <a class="h4 font-weight-light nav-link text-center" href="contattaci.html">Contattaci</a>
+              </li>
+              <li class="nav-item p-2">
+                <a class="h4 font-weight-light nav-link text-center" href="raggiungici.html">Raggiungici</a>
+              </li>
+              <li class="nav-item p-2">
+                <a class="h4 font-weight-light nav-link text-center" href="lavoraconnoi.html">Lavora con noi</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </footer>   
+      <!-- Footer-->
+
+      <!-- jQuery first, then Popper.js and then Bootstrap JS -->
+      <script src="../resources/bootstrap-4.4.1-dist/js/jquery-3.4.1.slim.min.js"></script>
+      <script src="../resources/bootstrap-4.4.1-dist/js/popper.min.js"></script>
+      <script src="../resources/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+      <!-- Optional Javascript -->
+      <script src = "../js/breadcrumbs.js"></script>
+      <script src = "../js/spinner.js"></script>
+      <script src = "../js/lenostrenews-detail.js"></script>
+      <script src = "../js/card.js"></script>
+    </body>
+</html>

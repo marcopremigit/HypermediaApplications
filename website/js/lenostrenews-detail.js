@@ -1,9 +1,9 @@
 let news = null;
 let news_ = null;
-window.onload = () => {
+$(document).ready(() =>  {
     news_ = JSON.parse(sessionStorage.getItem('news'));
     loadNews(window.location.href.split('id=')[1]);
-}
+});
 
 function loadNextElement(goRight){
     let newsElementsOrder = sessionStorage.getItem('newsElementsOrder').split(',');

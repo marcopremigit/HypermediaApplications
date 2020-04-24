@@ -1,4 +1,4 @@
-window.onload =() =>{
+$(document).ready(() =>  {
     Breadcrumbs.loadCrumbs([
         {
         page: "../index.html",
@@ -9,7 +9,7 @@ window.onload =() =>{
         title: "Raggiungici"
         }
     ]) 
-}
+});
 
 function initMap() {
     let coordinates = {lat: 45.468868, lng: 9.206720}

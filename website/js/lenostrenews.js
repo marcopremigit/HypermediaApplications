@@ -11,7 +11,7 @@ function loadNews(){
     ];
 }
 
-window.onload = () => {
+$(document).ready(() =>  {
     Breadcrumbs.loadCrumbs([
         {
             page: "../index.html",
@@ -39,4 +39,4 @@ window.onload = () => {
     
     //Spinner handling
     Spinner.letThemComeBack();
-}
+});

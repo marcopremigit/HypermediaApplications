@@ -13,8 +13,8 @@ function loadCardsAndFilters(elements, addFilters, link, querySelector, colWidth
 
         let img = document.createElement('img');
         img.className = 'card-img-top w-100';
-        card.setAttribute('alt', `${e.title}`);
-        card.setAttribute('src', `${e.img}`);
+        img.setAttribute('alt', `${e.title}`);
+        img.setAttribute('src', `${e.img}`);
         
         let h = document.createElement('h4');
         h.className = 'card-title text-center align-middle';

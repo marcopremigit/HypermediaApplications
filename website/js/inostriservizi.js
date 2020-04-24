@@ -20,7 +20,7 @@ $(document).ready(() => {
         servicesJSON[e.id] = e;
     })
     saveInStorage('services', servicesJSON);
-    saveInStorage('elementsOrder', services.map(v => v.id));
+    saveInStorage('servicesElementsOrder', services.map(v => v.id));
 
     //Shuffler handling
     new Shuffler('#services-card-space', services.map(s => s.category));

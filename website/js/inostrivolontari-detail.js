@@ -24,7 +24,7 @@ function loadEvents(){
 }
 
 function loadNextElement(goRight){
-    let elementsOrder = sessionStorage.getItem('elementsOrder').split(',');
+    let elementsOrder = sessionStorage.getItem('volunteersElementsOrder').split(',');
     let indexOfVolunteer = elementsOrder.indexOf(volunteer.id);
     let length = elementsOrder.length;
     let nextId = elementsOrder[((indexOfVolunteer + 1*(goRight ? 1 : -1)) % length + length) % length];
@@ -69,11 +69,24 @@ function loadVolunteer(id){
 
     //Query to database
     let services = loadServices();
-    removeAllCards('card-space-services');
-    removeAllCards('card-space-events');
-    loadCardsAndFilters(services, false,"", 'card-space-services');
+    removeAllCards('services-card-space');
+    loadCardsAndFilters(services, false, "inostriservizi-detail.html", '#services-card-space', 'col-3');
+    let servicesJSON = {};
+    services.map(e=>{
+        servicesJSON[e.id] = e;
+    })
+    saveInStorage('services',servicesJSON);
+    saveInStorage('servicesElementsOrder', services.map(v => v.id));
+    
     let events = loadEvents();
-    loadCardsAndFilters(events, false,"", 'card-space-events');
+    removeAllCards('events-card-space');
+    loadCardsAndFilters(events, false, "inostrieventi-detail.html", '#events-card-space', 'col-3');
+    let eventsJSON = {};
+    events.map(e=>{
+        eventsJSON[e.id] = e;
+    })
+    saveInStorage('events',eventsJSON);
+    saveInStorage('eventsElementsOrder', events.map(v => v.id));
 
     //Spinner handling
     Spinner.letThemComeBack();

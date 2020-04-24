@@ -57,8 +57,8 @@
             </div>         
             <nav>
               <div class="nav nav-tabs" id="contactTabs" role="tablist">
-                <a style="color: #000000!important;" class="nav-item nav-link active" id="nav-contacts-tab" data-toggle="tab" href="#nav-contacts" role="tab" aria-controls="nav-contacts" aria-selected="true">I nostri contatti</a>
-                <a style="color: #000000!important;" class="nav-item nav-link" id="nav-form-tab" data-toggle="tab" href="#nav-form" role="tab" aria-controls="nav-form" aria-selected="false">Scrivici</a>
+                <a class="nav-item nav-link mx-auto active" id="nav-contacts-tab" data-toggle="tab" href="#nav-contacts" role="tab" aria-controls="nav-contacts" aria-selected="true">I nostri contatti</a>
+                <a class="nav-item nav-link mx-auto" id="nav-form-tab" data-toggle="tab" href="#nav-form" role="tab" aria-controls="nav-form" aria-selected="false">Scrivici</a>
               </div>
             </nav>
             <div class="tab-content" id="contactTabsContent">
@@ -75,23 +75,25 @@
                     <dt class="col-sm-6 p-3">Fax</dt>
                     <dd class="col-sm-6 p-3">+39 333 333 333</dd>
                   </dl>
-                  <ul id="contact-links" class="list-inline text-center">
-                    <li class="list-inline-item">
-                      <a aria-label="Facebook" href="https://www.facebook.com/GiuseppeConte64" target="_blank" rel="noopener noreferrer"><i class="fa fa-facebook fa-5x pr-5" ></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                      <a aria-label="Twitter" href="https://twitter.com/giuseppeconteit" target="_blank" rel="noopener noreferrer"><i class="fa fa-twitter fa-5x pr-5" ></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                      <a aria-label="Youtube" href="https://www.youtube.com/palazzochigi" target="_blank" rel="noopener noreferrer"><i class="fa fa-youtube-play fa-5x pr-5" ></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                      <a aria-label="Instagram" href="https://www.instagram.com/giuseppeconte_ufficiale/?hl=sv" target="_blank" rel="noopener noreferrer"><i class="fa fa-instagram fa-5x pr-5" ></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                      <a aria-label="Github" href="https://github.com/marcopremigit/HypermediaApplications" target="_blank" rel="noopener noreferrer"><i class="fa fa-github fa-5x pr-5" ></i></a>
-                    </li>
-                  </ul>
+                  <div class="row">
+                    <ul id="contact-links" class="list-inline mx-auto">
+                      <li class="list-inline-item">
+                        <a aria-label="Facebook" href="https://www.facebook.com/GiuseppeConte64" target="_blank" rel="noopener noreferrer"><i class="fa fa-facebook fa-5x px-3"></i></a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a aria-label="Twitter" href="https://twitter.com/giuseppeconteit" target="_blank" rel="noopener noreferrer"><i class="fa fa-twitter fa-5x px-3"></i></a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a aria-label="Youtube" href="https://www.youtube.com/palazzochigi" target="_blank" rel="noopener noreferrer"><i class="fa fa-youtube-play fa-5x px-3"></i></a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a aria-label="Instagram" href="https://www.instagram.com/giuseppeconte_ufficiale/?hl=sv" target="_blank" rel="noopener noreferrer"><i class="fa fa-instagram fa-5x px-3"></i></a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a aria-label="Github" href="https://github.com/marcopremigit/HypermediaApplications" target="_blank" rel="noopener noreferrer"><i class="fa fa-github fa-5x px-3"></i></a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
               <div class="tab-pane" id="nav-form" role="tabpanel" aria-labelledby="nav-form-tab">
@@ -122,7 +124,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="form-row">
+                  <div class="form-row mx-auto">
                     <div class="col p-2">
                       <textarea type="text" id="message" name="message" rows="5" class="form-control md-textarea" placeholder="Il tuo messaggio" required aria-label="message"></textarea>
                       <div class="invalid-feedback">
@@ -130,7 +132,9 @@
                       </div>
                     </div>
                   </div>
-                  <button class="btn button" type="submit">Invia</button>
+                  <div class="form-row">
+                    <button class="btn button mx-auto w-25" type="submit">Invia</button>
+                  </div>
                 </form>
                 <div class="status"></div>
               </div>

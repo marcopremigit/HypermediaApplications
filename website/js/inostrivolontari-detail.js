@@ -74,7 +74,7 @@ function loadVolunteer(id){
     let servicesJSON = {};
     services.map(e=>{
         servicesJSON[e.id] = e;
-    })
+    });
     saveInStorage('services',servicesJSON);
     saveInStorage('servicesElementsOrder', services.map(v => v.id));
     
@@ -84,7 +84,7 @@ function loadVolunteer(id){
     let eventsJSON = {};
     events.map(e=>{
         eventsJSON[e.id] = e;
-    })
+    });
     saveInStorage('events',eventsJSON);
     saveInStorage('eventsElementsOrder', events.map(v => v.id));
 

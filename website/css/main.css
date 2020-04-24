@@ -57,6 +57,10 @@ hr{
     width: 11.4em;
 }
 
+#contactTabs a{
+    color: #000 !important;
+}
+
 .card-img-top{
     transition: transform 1s ease;
     transform-style: preserve-3d;

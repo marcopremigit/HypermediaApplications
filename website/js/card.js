@@ -48,6 +48,7 @@ class Card {
         this.BS.link.href = `${page_link}?id=${dataToPass.id}`;
         //maybe not needed
         // sessionStorage.setItem(dataToPass.id, JSON.stringify(dataToPass));
+        this.BS.image.setAttribute('alt', name);
         this.BS.card.setAttribute('data-title', name);
         this.BS.card.setAttribute('data-groups', `["${categories.join('","')}"]`);
         let newNode = this.BS.card.cloneNode(true);

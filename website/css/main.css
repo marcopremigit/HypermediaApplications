@@ -86,7 +86,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 #v-pills-tab .active{
-    background-color: #FFBE0A !important;
+    background-color: rgb(63, 61, 57) !important;
 }
 
 #v-pills-tab .active{
@@ -119,9 +119,14 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 a{
     color: #0000FF;
 }
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 991px){
     #map{
         height: 10em;
+    }
+    .nav-link:hover{
+        display: inline-table;
+        border: solid #FFBE0A;
+        border-width: 0em 0em .01rem;
     }
 }
 

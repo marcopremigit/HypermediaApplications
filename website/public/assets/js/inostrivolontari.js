@@ -15,7 +15,7 @@ $(document).ready(() => {
     let volunteers = loadVolunteers();
 
     //Cards and filters handling
-    loadCardsAndFilters(volunteers, true,'inostrivolontari-detail.html', '#volunteers-card-space', 'col-3');
+    loadCardsAndFilters(volunteers, true,'inostrivolontari-detail.html', '#volunteers-card-space');
     let volunteersJSON = {};
     volunteers.map(e => {
         volunteersJSON[e.id] = e;

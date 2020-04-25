@@ -28,7 +28,7 @@ $(document).ready(() => {
     let events = loadEvents();
 
     //Cards and filters handling
-    loadCardsAndFilters(events, true, 'inostrieventi-detail.html', '#events-card-space', 'col-3');
+    loadCardsAndFilters(events, true, 'inostrieventi-detail.html', '#events-card-space');
     let eventsJSON = {};
     events.map(e => {
         eventsJSON[e.id] = e;

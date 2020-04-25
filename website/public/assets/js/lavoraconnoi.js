@@ -14,7 +14,7 @@ $(document).ready(() => {
     let positions = loadOpenPositions();
 
     //Cards and filters handling
-    loadCardsAndFilters(positions, false,"", '#jobs-card-space', 'col-3');
+    loadCardsAndFilters(positions, false,"", '#jobs-card-space');
 
     //Spinner handling
     Spinner.letThemComeBack();

@@ -14,7 +14,7 @@ $(document).ready(() => {
     let services = loadServices();
     
     //Cards and filters handling
-    loadCardsAndFilters(services, true, 'inostriservizi-detail.html', '#services-card-space', 'col-3');
+    loadCardsAndFilters(services, true, 'inostriservizi-detail.html', '#services-card-space');
     let servicesJSON = {};
     services.map(e => {
         servicesJSON[e.id] = e;

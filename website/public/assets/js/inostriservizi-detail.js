@@ -69,7 +69,7 @@ function loadService(id){
     removeAllCards('events-card-space');
     removeAllCards('volunteers-card-space');
     let events = loadEvents();
-    loadCardsAndFilters(events, false,"inostrieventi-detail.html", '#events-card-space', 'col-3');
+    loadCardsAndFilters(events, false,"inostrieventi-detail.html", '#events-card-space');
     let eventsJSON = {};
     events.map(e=>{
         eventsJSON[e.id] = e;
@@ -78,7 +78,7 @@ function loadService(id){
     saveInStorage('eventsElementsOrder', events.map(v => v.id));
 
     let volunteers = loadVolunteers();
-    loadCardsAndFilters(volunteers, false, "inostrivolontari-detail.html", '#volunteers-card-space', 'col-3');
+    loadCardsAndFilters(volunteers, false, "inostrivolontari-detail.html", '#volunteers-card-space');
     let volunteersJSON = {};
     volunteers.map(e=>{
         volunteersJSON[e.id] = e;

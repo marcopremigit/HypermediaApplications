@@ -3,10 +3,11 @@ class Shuffler {
         this.shuffle = new window.Shuffle($(idPosition), {
             itemSelector: '.card',
             filterMode: Shuffle.FilterMode.ANY,
-            group: Shuffle.ALL_ITEMS
+            group: Shuffle.ALL_ITEMS,
+            speed: 400,
+            isCentered: true,
         }); 
         this._activeFilters = [];
-        this.shuffle.filter(this._activeFilters);
         //add category filter only if needed
         if(categories!==null) {
             Array.from(document.getElementsByClassName("dropdown-item"))
@@ -68,7 +69,6 @@ class Shuffler {
         
         if(this._mapExists) this._reloadMarkers();
     }
-    _reloadMarkers = () => {
-        GMaps.filterMarkers(document.getElementsByClassName('shuffle-item--visible'));
-    }
+
+    _reloadMarkers = () => GMaps.filterMarkers(document.getElementsByClassName('shuffle-item--visible'));
 }

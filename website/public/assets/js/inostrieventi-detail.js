@@ -32,7 +32,7 @@ function loadEvent(id){
 
     let services = loadServices();
     removeAllCards('services-card-space');
-    loadCardsAndFilters(services, false,'inostriservizi-detail.html', '#services-card-space', 'col-3');
+    loadCardsAndFilters(services, false,'inostriservizi-detail.html', '#services-card-space');
     let servicesJSON = {};
     services.map(s=>{
         servicesJSON[s.id] = s;

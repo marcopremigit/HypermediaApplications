@@ -1,10 +1,11 @@
-function loadCardsAndFilters(elements, addFilters, link, querySelector, colWidth, emptyPosition = false){
+function loadCardsAndFilters(elements, addFilters, link, querySelector, emptyPosition = false){
     let cardSpace = $(querySelector);
     if(emptyPosition) cardSpace.empty();
+    let $width = $(window).width();
+    let col = $width <= 400 ? 'col-9' : $width <= 768 ? 'col-4' : 'col-3';
     elements.map(e => {
         let card = document.createElement('div');
-        let tooLittle = $(window).width() < 600;
-        card.className = `card mb-3 invisible ${tooLittle ? 'col-12' :colWidth}`;
+        card.className = `card mb-3 invisible ${col}`;
         card.setAttribute('data-groups', `["${e.category.join('","')}"]`);
         card.setAttribute('data-title', `${e.title}`);
         card.setAttribute('data-id', `${e.id}`);
@@ -40,6 +41,16 @@ function loadCardsAndFilters(elements, addFilters, link, querySelector, colWidth
         });
 
     }
+
+    $(window).resize(()=>{
+        let $width = $(window).width();
+        Array.from($('.card')).map(c => {
+            let classes = c.className;
+            // TODO: pretty sure there's a better way to do this shit
+            c.classList.remove(classes.substring(classes.indexOf('col-'), classes.indexOf('col-') + 5));
+            c.classList.add($width <= 400 ? 'col-9' : $width <= 768 ? 'col-4' : 'col-3');
+        });
+    })
 }
 
 const removeAllCards = idPosition => $(`#${idPosition}`).empty();

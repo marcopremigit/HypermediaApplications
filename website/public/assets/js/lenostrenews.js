@@ -14,7 +14,7 @@ $(document).ready(() =>  {
     let news = loadNews();
     //Query to database
     //Cards and filters handling
-    loadCardsAndFilters(news, true,'lenostrenews-detail.html', '#news-card-space', 'col-3');
+    loadCardsAndFilters(news, true,'lenostrenews-detail.html', '#news-card-space');
     let newsJSON = {};
     news.map(e => {
         newsJSON[e.id] = e;

@@ -70,7 +70,7 @@ function loadVolunteer(id){
     //Query to database
     let services = loadServices();
     removeAllCards('services-card-space');
-    loadCardsAndFilters(services, false, "inostriservizi-detail.html", '#services-card-space', 'col-3');
+    loadCardsAndFilters(services, false, "inostriservizi-detail.html", '#services-card-space');
     let servicesJSON = {};
     services.map(e=>{
         servicesJSON[e.id] = e;
@@ -80,7 +80,7 @@ function loadVolunteer(id){
     
     let events = loadEvents();
     removeAllCards('events-card-space');
-    loadCardsAndFilters(events, false, "inostrieventi-detail.html", '#events-card-space', 'col-3');
+    loadCardsAndFilters(events, false, "inostrieventi-detail.html", '#events-card-space');
     let eventsJSON = {};
     events.map(e=>{
         eventsJSON[e.id] = e;

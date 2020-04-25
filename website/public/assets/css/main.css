@@ -10,14 +10,17 @@ body {
 
 .header{
     top: 0;
-    
 }
 
 .main-bg-color{
     background-color: #8A0000;
 }
 
-.navbar.nav{
+#headerNavbar ul{
+    font-size: x-large;
+}
+
+.navbar .nav{
     padding-bottom: .2rem;
 }
 
@@ -111,6 +114,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .header-rectangle{
     border-color: #eb6d00!important;
 }
+
 #map{
     height: 20em;
     width: 100%;

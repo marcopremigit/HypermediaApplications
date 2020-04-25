@@ -3,11 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="../resources/bootstrap-4.4.1-dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../resources/font-awesome-4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../css/main.css">
-        <link rel="stylesheet" href="../css/inostrivolontari-detail.css">
-        <title>Ripe4U - Le nostre news</title>
+        <link rel="stylesheet" href="../../other/bootstrap-4.4.1-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../other/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../assets/css/main.css">
+        <title>Ripe4U - I nostri servizi</title>
     </head>
     <body class="d-flex flex-column min-vh-100">
       <div class="wrapper flex-grow-1">
@@ -54,41 +53,57 @@
             </nav>
             <div class="row">
                 <div class="header-rectangle mt-1 border col-12 align-middle text-center border-warning shadow-lg p-3 mb-5 bg-white rounded">
-                <h2 id="newsName" class = "my-2" style="color: #eb6d00;"></h2>
+                <h2 id="serviceName" class = "my-2" style="color: #eb6d00;"></h2>
                 </div>    
             </div>
             <!-- quello con la foto --> 
             <div class="row">
-              <div class="col-1 my-auto">
+              <div class="col-1">
                 <button class="align-middle p_0 rounded-circle" style="color: white; background-color: white;" onclick="loadNextElement(false)" aria-label="previous">
                   <i class="fa fa-arrow-circle-left" style="font-size:48px;color: #ffc107"></i>
                 </button>
               </div>
               <div class="col-10 align-middle text-center">
-                <img class="rounded-circle z-depth-2" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg" alt="news">
+                <img class="rounded-circle z-depth-2" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg" alt="service">
               </div>
-              <div class="col-1 my-auto">
-                <button class="align-middle p_0 rounded-circle" style="color: white; background-color: white;" onclick="loadNextElement(true)" aria-label="next">
+              <div class="col-1">
+                <button class="align-middle p_0 rounded-circle" style="color: white; background-color: white;" onclick="loadNextElement(true)" aria-label= next>
                 <i class="fa fa-arrow-circle-right" style="font-size:48px;color: #ffc107"></i>
                 </button>
               </div>
             </div>
-            <!-- titolo e descrizione --> 
+            <!-- quella con descriizione/servizi/eventi --> 
             <div class="row">
+               <!-- quella di sinistra --> 
+               <div class="col-7 mr-3 invisible">
+                <div class="row-12 align-middle text-center">
+                  <h3>Descrizione del servizio</h3>
+                </div>
+                <div class="row">
+                  <p id="serviceDescription"></p>
+                </div>
+                <div class="row-12 align-middle text-center">
+                    <h3>Contatta i nostri volontari per il servizio</h3>
+                  </div>
+                <div class="row">
+                    <p id="volunteers-card-space" class="card-deck three-col"></p>
+                </div>
+                </div>
+                <!-- quella di destra --> 
                 <div class="col">
-                <!-- Services Spinner -->
+                  <div class="row-12 align-middle text-center">
+                    <h3 id="eventsTitle"></h3>
+                  </div> 
+                  <div class="row invisible">
+                    <!-- Events Spinner -->
                     <div class = "row d-flex justify-content-center">
-                      <div class="spinner-border" style="color: #eb6d00;" role="status">
-                        <span class="sr-only" alt="Loadings"></span>
+                      <div class="spinner-border" role="status" style="color: #eb6d00;">
+                        <span class="sr-only" alt="Loading"></span>
                       </div>
                     </div> 
-                <!-- Services Spinner -->
-                    <div class="row d-flex justify-content-center">
-                      <h3 id="news_Name"></h3>
-                    </div>
-                    <div class="row d-flex justify-content-center">
-                      <p id="newsDescription"></p>
-                    </div>
+                    <!-- Events Spinner -->
+                    <div id="events-card-space" class="card-deck two-col"></div>
+                  </div>
                 </div>
             </div>
           </div> <!-- Main column -->
@@ -116,14 +131,15 @@
       </footer>   
       <!-- Footer-->
 
+
       <!-- jQuery first, then Popper.js and then Bootstrap JS -->
-      <script src="../resources/bootstrap-4.4.1-dist/js/jquery-3.4.1.slim.min.js"></script>
-      <script src="../resources/bootstrap-4.4.1-dist/js/popper.min.js"></script>
-      <script src="../resources/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+      <script src="../../other/bootstrap-4.4.1-dist/js/jquery-3.4.1.slim.min.js"></script>
+      <script src="../../other/bootstrap-4.4.1-dist/js/popper.min.js"></script>
+      <script src="../../other/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
       <!-- Optional Javascript -->
-      <script src = "../js/breadcrumbs.js"></script>
-      <script src = "../js/spinner.js"></script>
-      <script src = "../js/lenostrenews-detail.js"></script>
-      <script src = "../js/card.js"></script>
+      <script src = "../assets/js/breadcrumbs.js"></script>
+      <script src = "../assets/js/spinner.js"></script>
+      <script src = "../assets/js/inostriservizi-detail.js"></script>
+      <script src = "../assets/js/card.js"></script>
     </body>
 </html>

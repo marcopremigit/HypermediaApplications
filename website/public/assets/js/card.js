@@ -2,7 +2,7 @@ function loadCardsAndFilters(elements, addFilters, link, querySelector, emptyPos
     let cardSpace = $(querySelector);
     if(emptyPosition) cardSpace.empty();
     let $width = $(window).width();
-    let col = $width <= 400 ? 'col-9' : $width <= 768 ? 'col-4' : 'col-3';
+    let col = $width <= 400 ? 'col-12' : $width <= 768 ? 'col-4' : 'col-3';
     elements.map(e => {
         let card = document.createElement('div');
         card.className = `card mb-3 invisible ${col}`;
@@ -29,15 +29,17 @@ function loadCardsAndFilters(elements, addFilters, link, querySelector, emptyPos
     });
 
     if(addFilters){
-        let dropdown = $('#categoryDropdown');
+        let dropdowns = $('#categoryDropdown');
         [...new Set(elements.map(e => e.category).flat())]
-        .map(c => {
-            let b = document.createElement('button');
-            b.className = 'dropdown-item';
-            b.setAttribute('type', 'button');
-            b.setAttribute('data-group', `${c}`);
-            b.innerText = c;
-            dropdown.append(b);       
+        .map(c => { 
+            Array.from(dropdowns).map( d =>{
+                let b = document.createElement('button');
+                b.className = 'dropdown-item';
+                b.setAttribute('type', 'button');
+                b.setAttribute('data-group', `${c}`);
+                b.innerText = c;
+                d.append(b);       
+            });
         });
 
     }
@@ -48,7 +50,7 @@ function loadCardsAndFilters(elements, addFilters, link, querySelector, emptyPos
             let classes = c.className;
             // TODO: pretty sure there's a better way to do this shit
             c.classList.remove(classes.substring(classes.indexOf('col-'), classes.indexOf('col-') + 5));
-            c.classList.add($width <= 400 ? 'col-9' : $width <= 768 ? 'col-4' : 'col-3');
+            c.classList.add($width <= 400 ? 'col-12' : $width <= 768 ? 'col-4' : 'col-3');
         });
     })
 }

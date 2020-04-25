@@ -5,19 +5,19 @@ class Shuffler {
             filterMode: Shuffle.FilterMode.ANY,
             group: Shuffle.ALL_ITEMS,
             speed: 400,
-            isCentered: true,
+            isCentered: false,
         }); 
         this._activeFilters = [];
         //add category filter only if needed
         if(categories!==null) {
-            Array.from(document.getElementsByClassName("dropdown-item"))
+            Array.from($('.dropdown-item'))
             .map(e => e.addEventListener('click', this._handleCategoryButtonClick.bind(this)));
         }
         //add basic search filter
-        document.getElementById('searchBox').addEventListener('keyup', this._handleSearchKeyup.bind(this));
+        Array.from($('#searchBox')).map(e => e.addEventListener('keyup', this._handleSearchKeyup.bind(this)));
         try{
             let _map = document.getElementById('map');
-            this._mapExists = map !== null || map !== undefined;
+            this._mapExists = _map !== null || _map !== undefined;
         } 
         catch(err){
             this._mapExists = false

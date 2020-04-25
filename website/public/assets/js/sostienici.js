@@ -12,9 +12,3 @@ $(document).ready(() =>  {
 });
 
 
-$(window).resize(function() {
-    var width = $(window).width();
-    if (width < 320){
-      alert('Your screen is too small');
-    }
-});

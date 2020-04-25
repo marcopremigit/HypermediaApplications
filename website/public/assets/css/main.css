@@ -135,16 +135,6 @@ a{
     pointer-events: none;
 }
 
-@media only screen and (max-width: 991px){
-    #map{
-        height: 10em;
-    }
-    .nav-link:hover{
-        display: inline-table;
-        border: solid #FFBE0A;
-        border-width: 0em 0em .1rem;
-    }
-}
 
 .p_0{
     padding: 0%;
@@ -154,3 +144,33 @@ a{
 p col{
     margin-block-start: 0;
 }
+
+.mobile{
+    display: none;
+}
+
+.desktop{
+    display: block;
+}
+
+
+@media only screen and (max-width: 768px){
+    #map{
+        height: 10em;
+    }
+    .nav-link:hover{
+        display: inline-table;
+        border: solid #FFBE0A;
+        border-width: 0em 0em .1rem;
+    }
+    
+    .mobile{
+        display: block;
+    }
+
+    .desktop{
+        display: none;
+    }
+}
+
+

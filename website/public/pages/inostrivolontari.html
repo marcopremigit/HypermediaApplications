@@ -44,10 +44,9 @@
           </div>
         </header>
 
-        <!-- Main div -->
         <div class="container pt-3">
           <div class="row">
-            <div class="col"> <!-- Main column -->
+            <div class="col">
               <nav aria-label="breadcrumb">
                 <ol id="breadcrumbs" class="breadcrumb"></ol>
               </nav>
@@ -58,22 +57,31 @@
               </div> 
               <hr/>
               <div class="invisible">
-                <!-- Spinner -->
                 <div class = "row d-flex justify-content-center">
                   <div class="spinner-border" role="status" style="color: #eb6d00;">
                     <span class="sr-only" alt="Loading"></span>
                   </div>
                 </div> 
-                <!-- Spinner -->
+                <div class="row mobile my-3 mx-auto">
+                  <form class="form-inline justify-content-around" action="javascript:void(0);"> 
+                    <div class="input-group w-100">
+                      <div class="input-group-prepend my-2 w-100">
+                        <div class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></div>
+                        <input id="searchBox" class="form-control w-100" type="search" placeholder="Cerca" aria-label="Cerca"> 
+                      </div>
+                      <div class="dropdown col-12 my-2">
+                        <button class="btn btn-primary dropdown-toggle w-100" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filtra per categorie</button>
+                        <div id="categoryDropdown" class="dropdown-menu w-100" aria-labelledby="categoryDropdown"></div>
+                      </div>
+                    </div>
+                  </form> 
+                </div>
                 <div class="invisible">
                   <div class="row pt-4">
-                    <div class="col-9">
-                      <!-- Card deck -->
+                    <div class="col">
                       <div id="volunteers-card-space" class="card-deck three-col"></div>
-                      <!-- Card deck -->
                     </div>
-                    <div class="col-3">
-                      <!-- Filters -->
+                    <div class="col-3 desktop">
                       <div class="row">
                         <form class="form-inline" action="javascript:void(0);"> 
                           <div class="input-group">
@@ -92,18 +100,15 @@
                           <div id="categoryDropdown" class="dropdown-menu" aria-labelledby="categoryDropdown"></div>
                         </div>
                       </div>
-                      <!-- Filters -->
                     </div>
                   </div>
                 </div> 
               </div>   
-            </div> <!-- Main column -->
+            </div>
           </div>
         </div>
       </div>
-      <!-- Main div -->
 
-      <!-- Footer-->
       <footer class="footer w-100 main-bg-color">
         <nav class="navbar navbar-expand-lg navbar-light">
           <ul class="navbar-nav mx-auto">
@@ -119,7 +124,6 @@
           </ul>
         </nav>
       </footer>
-      <!-- Footer-->
 
 
       <!-- jQuery first, then Popper.js and then Bootstrap JS -->

@@ -44,10 +44,9 @@
         </div>
       </header>
 
-      <!-- Main div -->
       <div class="container pt-3">
         <div class="row">
-           <div class="col"> <!-- Main column -->
+           <div class="col"> 
             <nav aria-label="breadcrumb">
               <ol id="breadcrumbs" class="breadcrumb"></ol>
             </nav>
@@ -58,42 +57,50 @@
             </div>     
             <hr/>
             <div class="invisible">
-              <!-- Spinner -->
               <div class = "row d-flex justify-content-center">
                 <div class="spinner-border" role="status" style="color: #eb6d00;">
                   <span class="sr-only" alt="Loading"></span>
                 </div>
               </div> 
-              <!-- Spinner -->
-              <div class = "row">
-                  <div class ="col-9">
-                    <div id="services-card-space" class="card-deck three-col"></div>
+              <div class="row mobile my-3 mx-auto">
+                <form class="form-inline justify-content-around" action="javascript:void(0);"> 
+                  <div class="input-group w-100">
+                    <div class="input-group-prepend my-2 w-100">
+                      <div class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></div>
+                      <input id="searchBox" class="form-control w-100" type="search" placeholder="Cerca" aria-label="Cerca"> 
+                    </div>
+                    <div class="dropdown col-12 my-2">
+                      <button class="btn btn-primary dropdown-toggle w-100" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filtra per categorie</button>
+                      <div id="categoryDropdown" class="dropdown-menu w-100" aria-labelledby="categoryDropdown"></div>
+                    </div>
                   </div>
-                  <div class ="col-3">
-                    <!-- Filters -->
-                    <div class="row">
-                      <form class="form-inline" action="javascript:void(0);"> 
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></div>
-                          </div>
-                          <input id="searchBox" class="form-control" type="search" placeholder="Cerca" aria-label="Cerca"> 
+                </form> 
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div id="services-card-space" class="card-deck three-col"></div>
+                </div>
+                <div class ="col-3 desktop">
+                  <div class="row">
+                    <form class="form-inline" action="javascript:void(0);"> 
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></div>
                         </div>
-                      </form> 
-                    </div>
-                    <div class="row">
-                      <div class="dropdown">
-                        <button class="btn btn-danger dropdown-toggle" style="background: #8A0000; border-color: #8A0000;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           Filtra per categorie 
-                        </button>
-                        <div id="categoryDropdown" class="dropdown-menu" aria-labelledby="categoryDropdown"></div>
+                        <input id="searchBox" class="form-control" type="search" placeholder="Cerca" aria-label="Cerca"> 
                       </div>
-                    </div>
-                    <!-- Filters -->
+                    </form> 
                   </div>
+                  <div class="row">
+                    <div class="dropdown">
+                      <button class="btn btn-danger dropdown-toggle" style="background: #8A0000; border-color: #8A0000;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filtra per categorie </button>
+                      <div id="categoryDropdown" class="dropdown-menu" aria-labelledby="categoryDropdown"></div>
+                    </div>
+                  </div>
+                </div>
               </div>    
             </div>
-          </div> <!-- Main column -->
+          </div>
         </div>
       </div>
     </div>

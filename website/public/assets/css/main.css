@@ -95,6 +95,19 @@ input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration { display: none; }
 
+.dropdown-menu .active{
+    background-color: #8A0000;
+}
+
+.dropdown .show{
+    border: solid .05em #000;
+    width: 100%;
+}
+
+.dropdown-toggle{
+    color: #FFFFFF !important;
+}
+
 #v-pills-tab .nav-link{
     color: #000000 !important;
 }

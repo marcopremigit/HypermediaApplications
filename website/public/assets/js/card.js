@@ -30,7 +30,6 @@ function loadCardsAndFilters(elements, addFilters, link, querySelector, emptyPos
 
     if(addFilters){
         let dropdowns = $('.dropdown-menu');
-        console.log(dropdowns);
         [...new Set(elements.map(e => e.category).flat())]
         .map(c => { 
             Array.from(dropdowns).map( d =>{

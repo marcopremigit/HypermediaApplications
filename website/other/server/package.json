@@ -1,0 +1,20 @@
+{
+  "name": "ripe4u-database-apis",
+  "version": "1.0.0",
+  "description": "Here are described all the APIs needed for the HTTP requests to the Ripe4U website developed for the Polimi Course \"Hypermedia Applications\" 19/20",
+  "main": "index.js",
+  "scripts": {
+	"prestart": "npm install",
+	"start": "node index.js"
+  },
+  "keywords": [
+    "swagger"
+  ],
+  "license": "Unlicense",
+  "private": true,
+  "dependencies": {
+    "connect": "^3.2.0",
+    "js-yaml": "^3.3.0",
+    "swagger-tools": "0.10.1"
+  }
+}

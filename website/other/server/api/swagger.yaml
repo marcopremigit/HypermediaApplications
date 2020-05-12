@@ -1,0 +1,444 @@
+---
+swagger: "2.0"
+info:
+  description: "Here are described all the APIs needed for the HTTP requests to the\
+    \ Ripe4U website developed for the Polimi Course \"Hypermedia Applications\" 19/20"
+  version: "1.0.0"
+  title: "Ripe4U Database APIs"
+host: "ripe4u.herokuapp.com"
+tags:
+- name: "Services"
+  description: "All database operations required for the services management"
+- name: "Events"
+  description: "All database operations required for the events management"
+- name: "Volunteers"
+  description: "All database operations required for the volunteers management"
+- name: "Jobs"
+  description: "All database operations required for the jobs management"
+- name: "News"
+  description: "All database operations required for the news management"
+schemes:
+- "https"
+paths:
+  /volunteers:
+    get:
+      tags:
+      - "Volunteers"
+      summary: "Returns all the volunteers in the database"
+      operationId: "volunteersGET"
+      parameters: []
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Volunteer"
+            example:
+            - id: 20
+              name: "John Wick"
+            - id: 40
+              name: "John Dorian"
+        "404":
+          description: "Entity with specified parameters not found"
+      x-swagger-router-controller: "Volunteers"
+  /volunteers/{volunteerId}:
+    get:
+      tags:
+      - "Volunteers"
+      summary: "Returns all the info bound to a volunteer by ID"
+      operationId: "volunteersVolunteerIdGET"
+      parameters:
+      - name: "volunteerId"
+        in: "path"
+        description: "The volunteer ID to query for"
+        required: true
+        type: "integer"
+        minimum: 1
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Volunteer"
+        "400":
+          description: "Illegal input for the required operation"
+        "404":
+          description: "Entity with specified parameters not found"
+      x-swagger-router-controller: "Volunteers"
+  /services:
+    get:
+      tags:
+      - "Services"
+      summary: "Returns all the services in the database"
+      operationId: "servicesGET"
+      parameters: []
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Service"
+            example:
+            - id: 10
+              name: "Save the world"
+            - id: 30
+              name: "Save the universe"
+        "404":
+          description: "Entity with specified parameters not found"
+      x-swagger-router-controller: "Services"
+  /services/{serviceId}:
+    get:
+      tags:
+      - "Services"
+      summary: "Returns all the info bound to a service by ID"
+      operationId: "servicesServiceIdGET"
+      parameters:
+      - name: "serviceId"
+        in: "path"
+        description: "The service ID to query for"
+        required: true
+        type: "integer"
+        minimum: 1
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Service"
+        "400":
+          description: "Illegal input for the required operation"
+        "404":
+          description: "Entity with specified parameters not found"
+      x-swagger-router-controller: "Services"
+  /events:
+    get:
+      tags:
+      - "Events"
+      summary: "Returns all the events in the database"
+      operationId: "eventsGET"
+      parameters: []
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Event"
+            example:
+            - id: 50
+              name: "X-mas party"
+            - id: 60
+              name: "Easter party"
+        "404":
+          description: "Entity with specified parameters not found"
+      x-swagger-router-controller: "Events"
+  /events/{eventId}:
+    get:
+      tags:
+      - "Events"
+      summary: "Returns all the info bound to a event by ID"
+      operationId: "eventsEventIdGET"
+      parameters:
+      - name: "eventId"
+        in: "path"
+        description: "The event ID to query for"
+        required: true
+        type: "integer"
+        minimum: 1
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Event"
+        "400":
+          description: "Illegal input for the required operation"
+        "404":
+          description: "Entity with specified parameters not found"
+      x-swagger-router-controller: "Events"
+  /events/bookSpot/{eventId}:
+    put:
+      tags:
+      - "Events"
+      summary: "Updates the required event by booking one spot and reducing the correct\
+        \ database value"
+      operationId: "eventsBookSpotEventIdPUT"
+      parameters:
+      - name: "eventId"
+        in: "path"
+        description: "The event ID to query for"
+        required: true
+        type: "integer"
+        minimum: 1
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            type: "integer"
+            format: "int64"
+            example: 49
+        "400":
+          description: "Illegal input for the required operation"
+        "404":
+          description: "Entity with specified parameters not found"
+      x-swagger-router-controller: "Events"
+  /jobs:
+    get:
+      tags:
+      - "Jobs"
+      summary: "Returns all the jobs in the database"
+      operationId: "jobsGET"
+      parameters: []
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Job"
+            example:
+            - id: 50
+              name: "Informatico"
+            - id: 60
+              name: "Matematico"
+        "404":
+          description: "Entity with specified parameters not found"
+      x-swagger-router-controller: "Jobs"
+  /jobs/{jobId}:
+    get:
+      tags:
+      - "Jobs"
+      summary: "Returns all the info bound to a job by ID"
+      operationId: "jobsJobIdGET"
+      parameters:
+      - name: "jobId"
+        in: "path"
+        description: "The job ID to query for"
+        required: true
+        type: "integer"
+        minimum: 1
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Job"
+        "400":
+          description: "Illegal input for the required operation"
+        "404":
+          description: "Entity with specified parameters not found"
+      x-swagger-router-controller: "Jobs"
+  /news:
+    get:
+      tags:
+      - "News"
+      summary: "Returns all the news in the database"
+      operationId: "newsGET"
+      parameters: []
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/News"
+            example:
+            - id: 50
+              name: "Covid-19!"
+            - id: 60
+              name: "Covid-20!"
+        "404":
+          description: "Entity with specified parameters not found"
+      x-swagger-router-controller: "News"
+  /news/{newsId}:
+    get:
+      tags:
+      - "News"
+      summary: "Returns all the info bound to a news by ID"
+      operationId: "newsNewsIdGET"
+      parameters:
+      - name: "newsId"
+        in: "path"
+        description: "The news ID to query for"
+        required: true
+        type: "integer"
+        minimum: 1
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/News"
+        "400":
+          description: "Illegal input for the required operation"
+        "404":
+          description: "Entity with specified parameters not found"
+      x-swagger-router-controller: "News"
+definitions:
+  Volunteer:
+    type: "object"
+    required:
+    - "id"
+    - "image"
+    - "name"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      image:
+        type: "string"
+      email:
+        type: "string"
+      phone:
+        type: "string"
+      description:
+        type: "string"
+      career:
+        type: "string"
+    example:
+      image: "image"
+      career: "career"
+      phone: "phone"
+      name: "name"
+      description: "description"
+      id: 0
+      email: "email"
+  Service:
+    type: "object"
+    required:
+    - "category"
+    - "id"
+    - "name"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      image:
+        type: "string"
+      description:
+        type: "string"
+      category:
+        type: "string"
+        enum:
+        - "Ripetizione"
+        - "Orientamento"
+    example:
+      image: "image"
+      name: "name"
+      description: "description"
+      id: 0
+      category: "Ripetizione"
+  Event:
+    type: "object"
+    required:
+    - "category"
+    - "date_end"
+    - "date_start"
+    - "id"
+    - "name"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      image:
+        type: "string"
+      description:
+        type: "string"
+      place:
+        $ref: "#/definitions/Event_place"
+      date_start:
+        type: "string"
+      date_end:
+        type: "string"
+      available_places:
+        type: "integer"
+        minimum: 0
+        exclusiveMinimum: false
+      bookable:
+        type: "boolean"
+      category:
+        type: "string"
+        enum:
+        - "Vacanza studio"
+        - "Colletta alimentare"
+    example:
+      image: "image"
+      bookable: true
+      date_start: "date_start"
+      name: "name"
+      description: "description"
+      date_end: "date_end"
+      id: 0
+      place:
+        lng: 0
+        lat: 0
+      available_places: 0
+      category: "Vacanza studio"
+  Job:
+    type: "object"
+    required:
+    - "id"
+    - "name"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      description:
+        type: "string"
+      closed:
+        type: "boolean"
+      requirements:
+        type: "string"
+    example:
+      requirements: "requirements"
+      name: "name"
+      description: "description"
+      closed: true
+      id: 0
+  News:
+    type: "object"
+    required:
+    - "id"
+    - "name"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      short_description:
+        type: "string"
+      long_description:
+        type: "string"
+      image:
+        type: "string"
+    example:
+      short_description: "short_description"
+      image: "image"
+      name: "name"
+      id: 0
+      long_description: "long_description"
+  Event_place:
+    type: "object"
+    properties:
+      lat:
+        type: "integer"
+        minimum: 0
+        exclusiveMinimum: true
+      lng:
+        type: "integer"
+        minimum: 0
+        exclusiveMinimum: true
+    example:
+      lng: 0
+      lat: 0
+responses:
+  NotFound:
+    description: "Entity with specified parameters not found"
+  IllegalInput:
+    description: "Illegal input for the required operation"

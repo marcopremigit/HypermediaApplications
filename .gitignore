@@ -1,24 +1,3 @@
-
-*.log
-
-*.toc
-
-*.ref
-
-*.fdb_latexmk
-
-*.blg
-
-*.gz
-
-*.out
-
-*.fls
-
-*.bbl
-
-*.aux
-
-UsabilityInspection/report.pdf
+UsabilityInspection/
 
 Design Document/

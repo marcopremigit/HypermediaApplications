@@ -16,6 +16,7 @@
     "connect": "^3.2.0",
     "js-yaml": "^3.3.0",
     "knex": "^0.21.1",
+    "oas3-tools": "^2.0.2",
     "serve-static": "^1.14.1",
     "swagger-tools": "^0.10.4"
   }

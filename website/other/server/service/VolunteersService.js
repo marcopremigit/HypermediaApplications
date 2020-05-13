@@ -1,5 +1,23 @@
 'use strict';
 
+let db;
+
+exports.volunteersDbSetup = function(s) {
+  db = s;
+  console.log("[Volunteers Service] - Checking if table exists...");
+  return db.schema.hasTable("volunteers")
+  .then(exists => {
+    if(!exists){
+      console.log("[Volunteers Service] - Table does not exist, I'm going to create one for you!");
+      return db.schema.createTable("volunteers", table => {
+        table.increments();
+        //TODO: create volunteers table!
+      })
+    } else {
+      console.log("[Volunteers Service] - Table exists, nothing to report.");
+    }
+  });
+}
 
 /**
  * Returns id_event if id_volunteer is inserted, or id_volunteer if id_event is inserted

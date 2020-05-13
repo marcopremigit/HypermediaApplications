@@ -1,5 +1,23 @@
 'use strict';
 
+let db;
+
+exports.eventDbSetup = function(s) {
+  db = s;
+  console.log("[Event Service] - Checking if table exists...");
+  return db.schema.hasTable("event")
+  .then(exists => {
+    if(!exists){
+      console.log("[Event Service] - Table does not exist, I'm going to create one for you!");
+      return db.schema.createTable("event", table => {
+        table.increments();
+        //TODO: create event table!
+      })
+    } else {
+      console.log("[Event Service] - Table exists, nothing to report.");
+    }
+  });
+}
 
 /**
  * Returns id_event if id_service is inserted, or id_service if id_event is inserted

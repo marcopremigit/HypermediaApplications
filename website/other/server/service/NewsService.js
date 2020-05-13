@@ -1,5 +1,23 @@
 'use strict';
 
+let db;
+
+exports.newsDbSetup = function(s) {
+  db = s;
+  console.log("[News Service] - Checking if table exists...");
+  return db.schema.hasTable("news")
+  .then(exists => {
+    if(!exists){
+      console.log("[News Service] - Table does not exist, I'm going to create one for you!");
+      return db.schema.createTable("news", table => {
+        table.increments();
+        //TODO: create news table!
+      })
+    } else {
+      console.log("[News Service] - Table exists, nothing to report.");
+    }
+  });
+}
 
 /**
  * Returns all the news in the database

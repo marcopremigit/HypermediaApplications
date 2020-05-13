@@ -1,23 +1,34 @@
 'use strict';
+let { setupDataLayer } = require('./service/DataLayer');
+let path = require('path');
+let http = require('http');
+let fs = require('fs');
+let swaggerTools = require('swagger-tools');
+let jsyaml = require('js-yaml');
 
-var path = require('path');
-var http = require('http');
 
-var oas3Tools = require('oas3-tools');
-var serverPort = process.env.PORT || 8080;
+let oas3Tools = require('oas3-tools');
+let serverPort = process.env.PORT || 8080;
+let spec = fs.readFileSync(path.join(__dirname, 'api/openapi.yaml'), 'utf8');
+let swaggerDoc = jsyaml.safeLoad(spec);
 
 // swaggerRouter configuration
-var options = {
+let options = {
     controllers: path.join(__dirname, './controllers')
 };
 
-var expressAppConfig = oas3Tools.expressAppConfig(path.join(__dirname, 'api/openapi.yaml'), options);
+let expressAppConfig = oas3Tools.expressAppConfig(path.join(__dirname, 'api/openapi.yaml'), options);
 expressAppConfig.addValidator();
-var app = expressAppConfig.getApp();
+let app = expressAppConfig.getApp();
 
-// Initialize the Swagger middleware
-http.createServer(app).listen(serverPort, function () {
-    console.log('Your server is listening on port %d (http://localhost:%d)', serverPort, serverPort);
-    console.log('Swagger-ui is available on http://localhost:%d/docs', serverPort);
+setupDataLayer()
+.then(() => {
+    http.createServer(app).listen(serverPort, function () {
+        console.log('[Server Index] - Your server is listening on port %d (http://localhost:%d)', serverPort, serverPort);
+        console.log('[Server Index] - Swagger-ui is available on http://localhost:%d/docs', serverPort);
+    });
+})
+.catch((err) => {
+    console.error("[Server Index] - I wasn't able to setup the data layer!");
+    console.error("[Server Index] - Here is the error:\n" + err);
 });
-

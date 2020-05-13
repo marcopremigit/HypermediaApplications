@@ -1,5 +1,23 @@
 'use strict';
 
+let db;
+
+exports.jobsDbSetup = function(s) {
+  db = s;
+  console.log("[Jobs Service] - Checking if table exists...");
+  return db.schema.hasTable("jobs")
+  .then(exists => {
+    if(!exists){
+      console.log("[Jobs Service] - Table does not exist, I'm going to create one for you!");
+      return db.schema.createTable("jobs", table => {
+        table.increments();
+        //TODO: create jobs table!
+      })
+    } else {
+      console.log("[Jobs Service] - Table exists, nothing to report.");
+    }
+  });
+}
 
 /**
  * Returns all the jobs in the database

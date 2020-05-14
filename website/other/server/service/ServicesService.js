@@ -11,7 +11,11 @@ exports.serviceDbSetup = function(s) {
       console.log("[Service Service] - Table does not exist, I'm going to create one for you!");
       return db.schema.createTable("service", table => {
         table.increments();
-        //TODO: create service table!
+        table.increments("id").primary();
+        table.text("image").notNullable();
+        table.string("title",50).notNullable();
+        table.string("description",300);
+        table.enum("category",["Ripetizione,Orientamento"]);
       })
     } else {
       console.log("[Service Service] - Table exists, nothing to report.");

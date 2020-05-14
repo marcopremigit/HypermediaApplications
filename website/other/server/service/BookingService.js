@@ -10,7 +10,10 @@ exports.bookingDbSetup = function(s) {
       console.log("[Booking Service] - Table does not exist, I'm going to create one for you!");
       return db.schema.createTable("booking", table => {
         table.increments();
-        //TODO: create booking table!
+        table.increments("id").primary();
+        table.text("email").notNullable();
+        table.timestamp("timestamp").defaultTo(knex.fn.now());
+        table.integer("event").notNullable();
       })
     } else {
       console.log("[Booking Service] - Table exists, nothing to report.");

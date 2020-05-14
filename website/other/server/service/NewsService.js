@@ -11,7 +11,11 @@ exports.newsDbSetup = function(s) {
       console.log("[News Service] - Table does not exist, I'm going to create one for you!");
       return db.schema.createTable("news", table => {
         table.increments();
-        //TODO: create news table!
+        table.increments("id").primary();
+        table.text("image").notNullable();
+        table.text("title").notNullable();
+        table.text("short_description");
+        table.text("long_descrition");
       })
     } else {
       console.log("[News Service] - Table exists, nothing to report.");

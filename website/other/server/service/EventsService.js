@@ -11,7 +11,17 @@ exports.eventDbSetup = function(s) {
       console.log("[Event Service] - Table does not exist, I'm going to create one for you!");
       return db.schema.createTable("event", table => {
         table.increments();
-        //TODO: create event table!
+        table.increments("id").primary();
+        table.text("image").notNullable();
+        table.text("title").notNullable();
+        table.text("description");
+        table.text("place");
+        table.boolean("bookable");
+        table.date("date_start");
+        table.date("date_end");
+        table.integer("available_places");
+        table.enum("category",
+        ["CAG","Vacanza studio","Colletta alimentare","Cena","Raccolta fondi"]);
       })
     } else {
       console.log("[Event Service] - Table exists, nothing to report.");

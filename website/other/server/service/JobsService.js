@@ -11,7 +11,11 @@ exports.jobsDbSetup = function(s) {
       console.log("[Jobs Service] - Table does not exist, I'm going to create one for you!");
       return db.schema.createTable("jobs", table => {
         table.increments();
-        //TODO: create jobs table!
+        table.increments("id").primary();
+        table.string("title",50).notNullable(); //text?
+        table.string("description",200);// text?
+        table.boolean("closed").notNullable();
+        table.string("requirements",50);// text?
       })
     } else {
       console.log("[Jobs Service] - Table exists, nothing to report.");

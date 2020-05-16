@@ -18,12 +18,17 @@ function loadCardsAndFilters(elements, addFilters, link, querySelector, emptyPos
         img.setAttribute('alt', `${e.name}`);
         img.setAttribute('src', `${e.image}`);
         
-        let h = document.createElement('h4');
-        h.className = 'card-title text-center align-middle';
-        h.innerText = `${e.name}`;
+        let h = document.createElement('div');
+        h.className = 'col-sm-12 my-auto';
+
+        let g = document.createElement('h6');
+        h.append(g);
+        g.innerText = `${e.name}`;
+
+        
 
         let s = document.createElement('div');
-        s.className = 'h-100';
+        s.className = 'row card-title text-center align-middle h-100';
         s.append(h);
 
         a.append(img);

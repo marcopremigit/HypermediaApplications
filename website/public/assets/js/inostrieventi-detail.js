@@ -22,9 +22,8 @@ function loadEvent(id){
             title: "I nostri eventi"
         },
         {
-            //TODO: mettere in title il nome dell'evento
             page: "inostrieventi-detail.html",
-            title: event.title
+            title: event.name
         }
     ]);
 
@@ -37,10 +36,11 @@ function loadEvent(id){
     services.map(s=>{
         servicesJSON[s.id] = s;
     });
+    let place = JSON.parse(event.place);
     GMaps.initMap([{
-        text: event.title,
-        lat: event.lat,
-        lng: event.lng
+        text: event.name,
+        lat: place.lat,
+        lng: place.lng
     }]);
     saveInStorage('services',servicesJSON);
     saveInStorage('servicesElementsOrder', services.map(s => s.id));
@@ -74,14 +74,17 @@ function loadServices(){
 }
 
 function fillElements(){
-    document.getElementById('eventName').innerText = event.title;
+    document.getElementById('eventName').innerText = event.name;
     document.getElementById('eventDescription').innerHTML = event.description;
-    document.getElementById('eventStarts').innerHTML = event.starts;
-    document.getElementById('eventEnds').innerHTML = event.ends;
-    document.getElementById('availableSpots').innerText = event.spots;
+    document.getElementById('eventStarts').innerHTML = formatDate(new Date(event.date_start));
+    document.getElementById('eventEnds').innerHTML = formatDate(new Date(event.date_end));
+    document.getElementById('availableSpots').innerText = event.available_places;
+    document.getElementById('detail-img').setAttribute("src", event.image);
 
     let responsible = loadResponsible();
     document.getElementById('responsibleLink').href = `inostrivolontari-detail.html?id=${responsible.id}`;
     document.getElementById('responsibleImg').src = responsible.img;
     document.getElementById('responsibleName').innerText = responsible.title;
 }
+
+let formatDate = date => `${date.getDay()}-${date.getMonth()}-${date.getUTCFullYear()}`;

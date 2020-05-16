@@ -29,15 +29,17 @@ function loadVolunteers(){
 
 function loadNextElement(goRight){
     let elementsOrder = sessionStorage.getItem('servicesElementsOrder').split(',');
-    let indexOfservice = elementsOrder.indexOf(service.id);
-    let nextId = elementsOrder[(indexOfservice + 1*(goRight ? 1 : -1)) % elementsOrder.length];
+    let indexOfservice = elementsOrder.indexOf(service.id.toString());
+    let length = elementsOrder.length;
+    let nextId = elementsOrder[((indexOfservice + 1*(goRight ? 1 : -1)) % length + length) % length];
     loadService(nextId);
 }
 
 function fillElements(){
-    document.getElementById('serviceName').innerText = service.title;
+    document.getElementById('serviceName').innerText = service.name;
     document.getElementById('serviceDescription').innerHTML = service.description;
     document.getElementById('eventsTitle').innerHTML = `Eventi collegati`;
+    document.getElementById('detail-img').setAttribute("src",service.image);
 }
 
 function loadService(id){
@@ -59,7 +61,7 @@ function loadService(id){
         {
             //TODO: mettere in title il nome del volontario
             page: "inostrivolontari-detail.html",
-            title: service.title
+            title: service.name
         }
     ]);
 

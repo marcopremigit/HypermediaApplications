@@ -6,8 +6,8 @@ function loadCardsAndFilters(elements, addFilters, link, querySelector, emptyPos
     elements.map(e => {
         let card = document.createElement('div');
         card.className = `card mb-3 invisible ${col}`;
-        card.setAttribute('data-groups', `["${e.category.join('","')}"]`);
-        card.setAttribute('data-title', `${e.title}`);
+        card.setAttribute('data-groups', `["${e.category/*.join('","')*/}"]`);
+        card.setAttribute('data-title', `${e.name}`);
         card.setAttribute('data-id', `${e.id}`);
         
         let a = document.createElement('a');
@@ -15,12 +15,12 @@ function loadCardsAndFilters(elements, addFilters, link, querySelector, emptyPos
 
         let img = document.createElement('img');
         img.className = 'card-img-top w-100';
-        img.setAttribute('alt', `${e.title}`);
+        img.setAttribute('alt', `${e.name}`);
         img.setAttribute('src', `${e.img}`);
         
         let h = document.createElement('h4');
         h.className = 'card-title text-center align-middle';
-        h.innerText = `${e.title}`;
+        h.innerText = `${e.name}`;
 
         a.append(img);
         card.append(a);

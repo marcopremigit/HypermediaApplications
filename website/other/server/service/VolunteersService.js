@@ -11,13 +11,13 @@ exports.volunteersDbSetup = function(s) {
       console.log("[Volunteers Service] - Table does not exist, I'm going to create one for you!");
       return db.schema.createTable("volunteers", table => {
         table.increments();
-        table.increments("id").primary();
+        // table.increments("id").primary();
         table.text("img").notNullable();
         table.string("name",20).notNullable();
         table.string("email",30);
         table.string("phone",10);
         table.text("description");
-        table.career("career");
+        table.text("career");
         table.enum("category",["Professore","Studente"]).notNullable();
       })
     } else {

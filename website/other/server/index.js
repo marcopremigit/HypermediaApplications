@@ -3,6 +3,7 @@ let { setupDataLayer } = require('./service/DataLayer');
 let path = require('path');
 let http = require('http');
 let fs = require('fs');
+let cors = require('cors');
 let swaggerTools = require('swagger-tools');
 let jsyaml = require('js-yaml');
 
@@ -20,6 +21,9 @@ let options = {
 let expressAppConfig = oas3Tools.expressAppConfig(path.join(__dirname, 'api/openapi.yaml'), options);
 expressAppConfig.addValidator();
 let app = expressAppConfig.getApp();
+
+//Able to use CORS ? 
+app.use(cors());
 
 setupDataLayer()
 .then(() => {

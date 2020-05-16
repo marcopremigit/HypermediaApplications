@@ -74,6 +74,7 @@ function loadServices(){
 }
 
 function fillElements(){
+    console.log((new Date(event.date_start)));
     document.getElementById('eventName').innerText = event.name;
     document.getElementById('eventDescription').innerHTML = event.description;
     document.getElementById('eventStarts').innerHTML = formatDate(new Date(event.date_start));
@@ -87,4 +88,4 @@ function fillElements(){
     document.getElementById('responsibleName').innerText = responsible.title;
 }
 
-let formatDate = date => `${date.getDay()}-${date.getMonth()}-${date.getUTCFullYear()}`;
+let formatDate = date => `${date.getDate()}-${date.getMonth() + 1}-${date.getUTCFullYear()}`;

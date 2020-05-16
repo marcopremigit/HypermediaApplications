@@ -59,31 +59,25 @@
             </div>
             <!-- quello con la foto --> 
             <div class="row">
-              <div class="col-1">
-                <button class="align-middle p_0 rounded-circle" style="color: white; background-color: white;" onclick="loadNextElement(false)" aria-label="previous">
+              <div class="col-1 ">
+                <button class="float-left align-middle border-0 p-0 rounded-circle" style="color: white; background-color: white;" onclick="loadNextElement(false)" aria-label="previous">
                   <i class="fa fa-arrow-circle-left" style="font-size:48px;color: #ffc107"></i>
                 </button>
               </div>
               <div class="col-10 align-middle text-center">
-                <img class="rounded-circle z-depth-2" id="detail-img" alt="volunteer">
+                <img class="rounded-circle z-depth-2 p-0" id="detail-img" alt="volunteer">
               </div>
               <div class="col-1">
-                <button class="align-middle p_0 rounded-circle" style="color: white; background-color: white;" onclick="loadNextElement(true)" aria-label="next">
+                <button class="float-right align-middle border-0 p-0 rounded-circle" style="color: white; background-color: white;" onclick="loadNextElement(true)" aria-label="next">
                 <i class="fa fa-arrow-circle-right" style="font-size:48px;color: #ffc107"></i>
                 </button>
               </div>
             </div>
-            <!-- quella con descriizione/servizi/eventi --> 
+            <!-- quella con descrizione/servizi/eventi --> 
             <div class="row">
                <!-- quella di sinistra --> 
-               <div class="col-5 invisible mr-3">
-                <!-- Services Spinner -->
-                <div class = "row d-flex justify-content-center">
-                  <div class="spinner-border main-text-color" role="status">
-                    <span class="sr-only" alt="Loading"></span>
-                  </div>
-                </div> 
-                <!-- Services Spinner -->
+               <div class="col invisible ml-3 mr-3">
+                
                 <div class="row-12 align-middle text-center">
                   <h3>Chi sono?</h3>
                 </div>
@@ -99,15 +93,21 @@
                 <div class="row-12 align-middle text-center">
                   <h3>I miei contatti</h3>
                 </div>
-                <div class="row">
-                  Il mio numero di telefono: <a id="phone"></a>
-                </div>
-                <div class="row">
-                  La mia email: <a id="email"></a>
-                </div>
+                <dl class="row">
+                  <dt class="col-sm">Il mio numero di telefono</dt>
+                </dl>
+                <dl class="row">
+                  <dd class="col-sm"><i class="fa fa-phone" aria-hidden="true">&nbsp;&nbsp;</i><a id="phone" class="mx-auto"></a></dd>
+                </dl>
+                <dl class="row">
+                  <dt class="col-sm">La mia email</dt>
+                </dl>
+                <dl class="row">
+                  <dd class="col-sm"><i class="fa fa-envelope" aria-hidden="true">&nbsp;&nbsp;</i><a id="email" class="mx-auto"></a></dd>
+                </dl>
                 </div>
                 <!-- quella di destra --> 
-                <div class="col">
+                <div class="col-7 mx-auto">
                   <div class="row-12 align-middle text-center">
                     <h3 id="servicesTitle"></h3>
                   </div> 
@@ -134,7 +134,7 @@
                     <!-- Events Spinner -->
                     <div id="events-card-space" class="card-deck three-col"></div>
                   </div>
-                </div>
+                </>
             </div>
           </div> <!-- Main column -->
         </div>

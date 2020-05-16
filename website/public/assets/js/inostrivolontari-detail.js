@@ -32,13 +32,15 @@ function loadNextElement(goRight){
 }
 
 function fillElements(){
-    document.getElementById('volunteerName').innerText = volunteer.title;
+    document.getElementById('volunteerName').innerText = volunteer.name;
     document.getElementById('whoami').innerHTML = volunteer.description;
-    document.getElementById('mycareer').innerHTML = volunteer.description;
-    document.getElementById('mycontacts').innerHTML = volunteer.description;
+    document.getElementById('mycareer').innerHTML = volunteer.career;
+    document.getElementById('phone').innerHTML = volunteer.phone;
+    document.getElementById('email').innerHTML = volunteer.email;
+
     
-    document.getElementById('servicesTitle').innerHTML = `I servizi di ${volunteer.title}`;
-    document.getElementById('eventsTitle').innerHTML = `I prossimi eventi di ${volunteer.title}`;
+    document.getElementById('servicesTitle').innerHTML = `I servizi di ${volunteer.name}`;
+    document.getElementById('eventsTitle').innerHTML = `I prossimi eventi di ${volunteer.name}`;
 }
 
 function loadVolunteer(id){
@@ -61,7 +63,7 @@ function loadVolunteer(id){
         {
             //TODO: mettere in title il nome del volontario
             page: "inostrivolontari-detail.html",
-            title: volunteer.title
+            title: volunteer.name
         }
     ]);
 

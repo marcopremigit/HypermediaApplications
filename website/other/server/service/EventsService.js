@@ -111,43 +111,13 @@ exports.eventsEventIdGET = function(eventId) {
  * returns List
  **/
 exports.eventsGET = function(category,limit,offset) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "image" : "image",
-  "bookable" : true,
-  "date_start" : "date_start",
-  "description" : "description",
-  "date_end" : "date_end",
-  "id" : 0,
-  "place" : {
-    "lng" : 0,
-    "lat" : 0
-  },
-  "available_places" : 0,
-  "title" : "title",
-  "category" : "Vacanza studio"
-}, {
-  "image" : "image",
-  "bookable" : true,
-  "date_start" : "date_start",
-  "description" : "description",
-  "date_end" : "date_end",
-  "id" : 0,
-  "place" : {
-    "lng" : 0,
-    "lat" : 0
-  },
-  "available_places" : 0,
-  "title" : "title",
-  "category" : "Vacanza studio"
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
+  if(!limit) limit = 10;
+  if(!offset) offset = 0;
+
+  return db('event')
+  .limit(limit)
+  .offset(offset)
+  .then(data => data);
 }
 
 

@@ -53,27 +53,13 @@ exports.event_serviceGET = function(limit,id_event,id_service) {
  * returns List
  **/
 exports.servicesGET = function(category,limit,offset) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "image" : "image",
-  "description" : "description",
-  "id" : 0,
-  "title" : "title",
-  "category" : "Ripetizione"
-}, {
-  "image" : "image",
-  "description" : "description",
-  "id" : 0,
-  "title" : "title",
-  "category" : "Ripetizione"
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
+  if(!limit) limit = 10;
+  if(!offset) offset = 0;
+
+  return db('service')
+  .limit(limit)
+  .offset(offset)
+  .then(data => data);
 }
 
 

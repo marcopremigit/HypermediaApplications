@@ -8,6 +8,7 @@ class Shuffler {
             isCentered: false,
         }); 
         this._activeFilters = [];
+        this.shuffle.filter(this._activeFilters);
         //add category filter only if needed
         if(categories!==null) {
             Array.from($('.dropdown-item'))

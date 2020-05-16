@@ -22,9 +22,13 @@ function loadCardsAndFilters(elements, addFilters, link, querySelector, emptyPos
         h.className = 'card-title text-center align-middle';
         h.innerText = `${e.name}`;
 
+        let s = document.createElement('div');
+        s.className = 'h-100';
+        s.append(h);
+
         a.append(img);
         card.append(a);
-        card.append(h);
+        card.append(s);
         cardSpace.append(card);
     });
 

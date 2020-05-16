@@ -11,7 +11,6 @@ exports.volunteersDbSetup = function(s) {
       console.log("[Volunteers Service] - Table does not exist, I'm going to create one for you!");
       return db.schema.createTable("volunteers", table => {
         table.increments();
-        // table.increments("id").primary();
         table.text("img").notNullable();
         table.string("name",20).notNullable();
         table.string("email",30);
@@ -77,43 +76,25 @@ exports.volunteer_serviceGET = function(limit,id_volunteer,id_service) {
  * returns List
  **/
 exports.volunteersGET = function(category,limit,offset) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "image" : "image",
-  "bookable" : true,
-  "date_start" : "date_start",
-  "description" : "description",
-  "date_end" : "date_end",
-  "id" : 0,
-  "place" : {
-    "lng" : 0,
-    "lat" : 0
-  },
-  "available_places" : 0,
-  "title" : "title",
-  "category" : "Vacanza studio"
-}, {
-  "image" : "image",
-  "bookable" : true,
-  "date_start" : "date_start",
-  "description" : "description",
-  "date_end" : "date_end",
-  "id" : 0,
-  "place" : {
-    "lng" : 0,
-    "lat" : 0
-  },
-  "available_places" : 0,
-  "title" : "title",
-  "category" : "Vacanza studio"
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
+
+  if(!limit) limit = 10;
+  if(!offset) offset = 0;
+
+  return db('volunteers')
+  .limit(limit)
+  .offset(offset)
+  .then(data => data);
+
+  // return new Promise(function(resolve, reject) {
+    
+
+
+  //   if (Object.keys(examples).length > 0) {
+  //     resolve(examples[Object.keys(examples)[0]]);
+  //   } else {
+  //     resolve();
+  //   }
+  // });
 }
 
 

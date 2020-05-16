@@ -25,7 +25,7 @@ function loadEvents(){
 
 function loadNextElement(goRight){
     let elementsOrder = sessionStorage.getItem('volunteersElementsOrder').split(',');
-    let indexOfVolunteer = elementsOrder.indexOf(volunteer.id);
+    let indexOfVolunteer = elementsOrder.indexOf(volunteer.id.toString());
     let length = elementsOrder.length;
     let nextId = elementsOrder[((indexOfVolunteer + 1*(goRight ? 1 : -1)) % length + length) % length];
     loadVolunteer(nextId);
@@ -37,6 +37,8 @@ function fillElements(){
     document.getElementById('mycareer').innerHTML = volunteer.career;
     document.getElementById('phone').innerHTML = volunteer.phone;
     document.getElementById('email').innerHTML = volunteer.email;
+    document.getElementById('detail-img').setAttribute("src",volunteer.img );
+
 
     
     document.getElementById('servicesTitle').innerHTML = `I servizi di ${volunteer.name}`;

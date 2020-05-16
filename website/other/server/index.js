@@ -22,7 +22,7 @@ let expressAppConfig = oas3Tools.expressAppConfig(path.join(__dirname, 'api/open
 expressAppConfig.addValidator();
 let app = expressAppConfig.getApp();
 
-//Able to use CORS ? 
+//Able to use CORS  
 app.use(cors());
 
 setupDataLayer()

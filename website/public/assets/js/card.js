@@ -16,7 +16,7 @@ function loadCardsAndFilters(elements, addFilters, link, querySelector, emptyPos
         let img = document.createElement('img');
         img.className = 'card-img-top w-100';
         img.setAttribute('alt', `${e.name}`);
-        img.setAttribute('src', `${e.img}`);
+        img.setAttribute('src', `${e.image}`);
         
         let h = document.createElement('h4');
         h.className = 'card-title text-center align-middle';

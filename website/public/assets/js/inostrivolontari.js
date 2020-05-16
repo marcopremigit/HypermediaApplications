@@ -1,5 +1,4 @@
 const DB_URL = "https://ripe4u.herokuapp.com";
-// const DB_URL = `http://localhost:8080`;
 
 $(document).ready(() => {
     //Breadcrumbs handling
@@ -36,7 +35,6 @@ $(document).ready(() => {
 }); 
 
 async function loadVolunteers(){
-    //TODO: this has to be replaced with database query information extraction
     return await $.getJSON(DB_URL + "/volunteers", (data, status) => {
         if(status === "success"){
             console.log(data);

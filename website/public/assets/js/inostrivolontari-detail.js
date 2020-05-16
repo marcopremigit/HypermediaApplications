@@ -37,7 +37,7 @@ function fillElements(){
     document.getElementById('mycareer').innerHTML = volunteer.career;
     document.getElementById('phone').innerHTML = volunteer.phone;
     document.getElementById('email').innerHTML = volunteer.email;
-    document.getElementById('detail-img').setAttribute("src",volunteer.img );
+    document.getElementById('detail-img').setAttribute("src",volunteer.image );
 
 
     

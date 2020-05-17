@@ -1,3 +1,5 @@
+const DB_URL = "https://ripe4u.herokuapp.com";
+
 $(document).ready(() => {
     Breadcrumbs.loadCrumbs([
         {
@@ -11,24 +13,30 @@ $(document).ready(() => {
     ]);
     
     //Query to database
-    let positions = loadOpenPositions();
-
-    //Cards and filters handling
-    loadCardsAndFilters(positions, false,"", '#jobs-card-space');
-
-    //Spinner handling
-    Spinner.letThemComeBack();
+    loadOpenPositions()
+    .then(jobs => {
+        //Cards and filters handling
+        loadCardsAndFilters(jobs, false,"", '#jobs-card-space');
+        let jobsJSON = {};
+        jobs.map(e => {
+            jobsJSON[e.id] = e;
+         })
+         saveInStorage('jobs', jobsJSON);
+         saveInStorage('jobsElementsOrder', jobs.map(v => v.id));
+        
+        //Spinner handling
+        Spinner.letThemComeBack();
+    });
 });
 
-function loadOpenPositions(){
-    //TODO: this has to be replaced with database query information extraction
-    return [
-        {id: 'dksnao', title: 'Vacanza studio Londra', img: 'https://source.unsplash.com/random/1920x1080', link: 'https://source.unsplash.com/random/1920x1080', category: ["Vacanza studio"], lat: 45.468868, lng: 9.206720},
-        {id: 'dksnae', title: 'Cena di Natale', img: 'https://source.unsplash.com/random/1920x1080', link: 'https://source.unsplash.com/random/1920x1080', category: ["Cena", "Vattelapesca"], lat: 45.185242, lng: 9.156010},
-        {id: 'dksnar', title: 'Colletta Natalizia', img: 'https://source.unsplash.com/random/1920x1080', link: 'https://source.unsplash.com/random/1920x1080', category: ["Colletta"], lat: 45.4513128, lng: 9.1734067},
-        {id: 'dksnar', title: 'Colletta Natalizia', img: 'https://source.unsplash.com/random/1920x1080', link: 'https://source.unsplash.com/random/1920x1080', category: ["Colletta"], lat: 45.4513128, lng: 9.1734067},
-        {id: 'dksnar', title: 'Colletta Natalizia', img: 'https://source.unsplash.com/random/1920x1080', link: 'https://source.unsplash.com/random/1920x1080', category: ["Colletta"], lat: 45.4513128, lng: 9.1734067},
-        {id: 'dksnar', title: 'Colletta Natalizia', img: 'https://source.unsplash.com/random/1920x1080', link: 'https://source.unsplash.com/random/1920x1080', category: ["Colletta"], lat: 45.4513128, lng: 9.1734067},
-    ];
+async function loadOpenPositions(){
+    return await $.getJSON(DB_URL + "/jobs", (data, status) => {
+        if(status === "success"){
+            console.log(data);
+            return data;
+        }
+        else
+            console.error(status);
+    });
 }
 

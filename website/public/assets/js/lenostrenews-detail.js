@@ -7,16 +7,17 @@ $(document).ready(() =>  {
 
 function loadNextElement(goRight){
     let newsElementsOrder = sessionStorage.getItem('newsElementsOrder').split(',');
-    let indexOfNews = newsElementsOrder.indexOf(news.id);
+    let indexOfNews = newsElementsOrder.indexOf(news.id.toString());
     indexOfNews? indexOfNews= (indexOfNews + 1*(goRight ? 1 : -1)) % newsElementsOrder.length : indexOfNews=(indexOfNews + 1*(goRight ? 1 : (newsElementsOrder.length)-1));
     let nextId = newsElementsOrder[indexOfNews];
     loadNews(nextId);
 }
 
 function fillElements(){
-    document.getElementById('newsName').innerText = news.title;
-    document.getElementById('news_Name').innerText = news.title;
-    document.getElementById('newsDescription').innerHTML = news.description;
+    document.getElementById('newsName').innerText = news.name;
+    document.getElementById('news_Name').innerText = news.name;
+    document.getElementById('newsDescription').innerHTML = news.long_description;
+    document.getElementById('detail-img').setAttribute("src",news.image);
 }
 
 function loadNews(id){
@@ -37,9 +38,9 @@ function loadNews(id){
             title: "Le nostre news"
         },
         {
-            //TODO: mettere in title il nome del volontario
+         
             page: "lenostrenews-detail.html",
-            title: news.title
+            title: news.name
         }
     ]);
 

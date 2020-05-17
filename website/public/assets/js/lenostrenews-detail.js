@@ -14,8 +14,8 @@ function loadNextElement(goRight){
 }
 
 function fillElements(){
-    document.getElementById('newsName').innerText = news.name;
-    document.getElementById('news_Name').innerText = news.name;
+    document.getElementById('newsName').innerText = news.title;
+    document.getElementById('news_Name').innerText = news.title;
     document.getElementById('newsDescription').innerHTML = news.long_description;
     document.getElementById('detail-img').setAttribute("src",news.image);
 }
@@ -40,7 +40,7 @@ function loadNews(id){
         {
          
             page: "lenostrenews-detail.html",
-            title: news.name
+            title: news.title
         }
     ]);
 

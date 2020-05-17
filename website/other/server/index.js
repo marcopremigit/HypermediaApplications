@@ -1,12 +1,11 @@
 'use strict';
-let { setupDataLayer } = require('./service/DataLayer');
-let path = require('path');
-let http = require('http');
-let fs = require('fs');
-let cors = require('cors');
-let swaggerTools = require('swagger-tools');
-let jsyaml = require('js-yaml');
-
+let { setupDataLayer }  = require('./service/DataLayer');
+let path                = require('path');
+let http                = require('http');
+let fs                  = require('fs');
+let cors                = require('cors');
+let swaggerTools        = require('swagger-tools');
+let jsyaml              = require('js-yaml');
 
 let oas3Tools = require('oas3-tools');
 let serverPort = process.env.PORT || 8080;
@@ -22,8 +21,13 @@ let expressAppConfig = oas3Tools.expressAppConfig(path.join(__dirname, 'api/open
 expressAppConfig.addValidator();
 let app = expressAppConfig.getApp();
 
+//Serve static files
+// let serve = serveStatic(__dirname + '../../public', {index: 'index.html'});
+
 //Able to use CORS  
 app.use(cors());
+
+app.use(serveStatic(__dirname + '../../public', {index: 'index.html'}));
 
 setupDataLayer()
 .then(() => {

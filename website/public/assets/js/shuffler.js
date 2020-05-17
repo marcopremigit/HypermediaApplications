@@ -5,7 +5,7 @@ class Shuffler {
             filterMode: Shuffle.FilterMode.ANY,
             group: Shuffle.ALL_ITEMS,
             speed: 400,
-            isCentered: false,
+            isCentered: $(window).width()<1400,
         }); 
         this._activeFilters = [];
         this.shuffle.filter(this._activeFilters);

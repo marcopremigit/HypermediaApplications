@@ -6,6 +6,7 @@ let fs                  = require('fs');
 let cors                = require('cors');
 let swaggerTools        = require('swagger-tools');
 let jsyaml              = require('js-yaml');
+let serveStatic         = require('serve-static');
 
 let oas3Tools = require('oas3-tools');
 let serverPort = process.env.PORT || 8080;

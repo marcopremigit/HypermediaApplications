@@ -40,7 +40,7 @@ function loadNews(id){
         {
          
             page: "lenostrenews-detail.html",
-            title: news.title
+            title: news.name
         }
     ]);
 

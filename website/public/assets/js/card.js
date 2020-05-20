@@ -2,7 +2,7 @@ function loadCardsAndFilters(elements, addFilters, link, querySelector, emptyPos
     let cardSpace = $(querySelector);
     if(emptyPosition) cardSpace.empty();
     let $width = $(window).width();
-    let col = $width <= 400 ? 'col-7' : $width <= 768 ? 'col-4' : 'col-3';
+    let col = $width <= 400 ? 'col-12' : $width <= 768 ? 'col-4' : 'col-3';
     elements.map(e => {
         let card = document.createElement('div');
         card.className = `text-center card mb-3 invisible ${col}`;

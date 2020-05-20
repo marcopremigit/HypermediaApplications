@@ -5,7 +5,8 @@
   "main": "website/other/server/index.js",
   "scripts": {
     "prestart": "npm install",
-    "start": "node website/other/server/index.js"
+    "start": "node website/other/server/index.js",
+    "heroku-postbuild": "ng build --prod"
   },
   "keywords": [
     "swagger"

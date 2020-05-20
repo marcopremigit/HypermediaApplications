@@ -28,7 +28,7 @@ let app = expressAppConfig.getApp();
 //Able to use CORS  
 app.use(cors());
 
-app.use(serveStatic(__dirname + '../../public', {index: 'index.html'}));
+app.use(serveStatic(__dirname + '/../../public', {index: 'index.html'}));
 
 setupDataLayer()
 .then(() => {

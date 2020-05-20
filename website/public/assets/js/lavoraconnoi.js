@@ -16,7 +16,7 @@ $(document).ready(() => {
     loadOpenPositions()
     .then(jobs => {
         //Cards and filters handling
-        loadCardsAndFilters(jobs, false,"", '#jobs-card-space');
+        loadCardsAndFiltersJobs(jobs, false,"", '#jobs-card-space');
         let jobsJSON = {};
         jobs.map(e => {
             jobsJSON[e.id] = e;

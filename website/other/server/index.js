@@ -22,9 +22,6 @@ let expressAppConfig = oas3Tools.expressAppConfig(path.join(__dirname, 'api/open
 expressAppConfig.addValidator();
 let app = expressAppConfig.getApp();
 
-//Serve static files
-// let serve = serveStatic(__dirname + '../../public', {index: 'index.html'});
-
 //Able to use CORS  
 app.use(cors());
 

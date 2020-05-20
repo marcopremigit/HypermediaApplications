@@ -14,8 +14,10 @@ class Shuffler {
             Array.from($('.dropdown-item'))
             .map(e => e.addEventListener('click', this._handleCategoryButtonClick.bind(this)));
         }
-        //add basic search filter
-        Array.from($('#searchBox')).map(e => e.addEventListener('keyup', this._handleSearchKeyup.bind(this)));
+        //add basic search filter on mobile
+        Array.from($('#searchBox-mobile')).map(e => e.addEventListener('keyup', this._handleSearchKeyup.bind(this)));
+        //add basic search filter on desktop
+        Array.from($('#searchBox-desktop')).map(e => e.addEventListener('keyup', this._handleSearchKeyup.bind(this)));
         try{
             let _map = document.getElementById('map');
             this._mapExists = _map !== null || _map !== undefined;

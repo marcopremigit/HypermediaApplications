@@ -23,6 +23,8 @@ $(document).ready(() =>  {
          })
          saveInStorage('news', newsJSON);
          saveInStorage('newsElementsOrder', news.map(v => v.id));
+        //Shuffler handling
+        new Shuffler('#news-card-space', null);
         
         //Spinner handling
         Spinner.letThemComeBack();

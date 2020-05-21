@@ -57,23 +57,24 @@ exports.volunteer_eventGET = function(limit,id_event,id_volunteer) {
 exports.volunteer_serviceGET = function(limit,id_volunteer,id_service) {
   if(!limit) limit = 10;
   
-  if(!id_volunteer){
-    if(!id_service) id_service=0;
-    return db('volunteerInService')
-    .where({
-      id_service: id_service
-    })
-    .limit(limit)
-    .then(data => data);
-  }else{
-    return db('volunteerInService')
-    .where({
+  return db('volunteerInService')
+  .select(id_volunteer ? 'id_service' : 'id_volunteer')
+  .where(
+    id_volunteer ? 
+    {
       id_volunteer: id_volunteer
-    })
+    }
+    : 
+    {
+      id_service: id_service
+  }) 
+  .limit(limit)
+  .then(data => {
+    return db(id_volunteer ? 'service' : 'volunteers')
+    .whereIn('id', data.map(e => (id_volunteer ? e.id_volunteer : e.id_service)))
     .limit(limit)
-    .then(data => data);
-  }
-  
+    .then(d => d);
+  }); 
 }
 
 

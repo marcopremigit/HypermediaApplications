@@ -130,36 +130,3 @@ exports.eventsGET = function(category,limit,offset) {
   .offset(offset)
   .then(data => data);
 }
-
-
-/**
- * Returns id_event if id_volunteer is inserted, or id_volunteer if id_event is inserted
- *
- * limit Integer the limit of objects to return (optional)
- * id_event Integer Event id (optional)
- * id_volunteer Integer Volunteer id (optional)
- * returns List
- **/
-exports.volunteer_eventGET = function(limit,id_event,id_volunteer) {
-  if(!limit) limit = 10;
-  
-  return db('volunteerInEvent')
-  .select(id_event ? 'id_volunteer' : 'id_event')
-  .where(
-    id_event ? 
-    {
-      id_event: id_event
-    }
-    : 
-    {
-      id_volunteer: id_volunteer
-  }) 
-  .limit(limit)
-  .then(data => {
-    return db(id_event ? 'volunteers' : 'event')
-    .whereIn('id', data.map(e => id_event ? e.id_volunteer : e.id_event))
-    .limit(limit)
-    .then(d => d);
-  }); 
-}
-

@@ -42,13 +42,3 @@ module.exports.eventsGET = function eventsGET (req, res, next, category, limit, 
       utils.writeJson(res, response);
     });
 };
-
-module.exports.volunteer_eventGET = function volunteer_eventGET (req, res, next, limit, id_event, id_volunteer) {
-  Events.volunteer_eventGET(limit, id_event, id_volunteer)
-    .then(function (response) {
-      utils.writeJson(res, response);
-    })
-    .catch(function (response) {
-      utils.writeJson(res, response);
-    });
-};

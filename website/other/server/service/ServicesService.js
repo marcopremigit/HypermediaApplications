@@ -24,27 +24,6 @@ exports.serviceDbSetup = function(s) {
 }
 
 /**
- * Returns id_event if id_service is inserted, or id_service if id_event is inserted
- *
- * limit Integer the limit of objects to return (optional)
- * id_event Integer Event id (optional)
- * id_service Integer Service id (optional)
- * returns List
- **/
-exports.event_serviceGET = function(limit,id_event,id_service) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ "", "" ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
-}
-
-
-/**
  * Returns all the services in the database
  *
  * category String the category to filter the objects by (optional)

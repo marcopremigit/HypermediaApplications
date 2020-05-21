@@ -70,17 +70,11 @@ exports.volunteer_serviceGET = function(limit,id_volunteer,id_service) {
   }) 
   .limit(limit)
   .then(data => {
-    console.log(data.map(e => id_volunteer ? e.id_volunteer : e.id_service));
+    console.log(data.map(e => id_volunteer ? e.id_service : e.id_volunteer));
     return db(id_volunteer ? 'service' : 'volunteers')
-    .whereIn('id', data.map(e => {
-      console.log(e);
-      return id_volunteer ? e.id_volunteer : e.id_service
-    }))
+    .whereIn('id', data.map(e => id_volunteer ? e.id_service : e.id_volunteer))
     .limit(limit)
-    .then(d => {
-      console.log(d);
-      return d;
-    });
+    .then(d =>d);
   }); 
 }
 

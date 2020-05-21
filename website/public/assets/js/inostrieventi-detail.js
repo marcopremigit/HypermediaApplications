@@ -49,7 +49,7 @@ function loadEvent(id){
         removeAllCards('volunteer-card-space');
         loadCardsAndFilters(volunteer, false, "inostrivolontari-detail.html", '#volunteer-card-space');
         let volunteerJSON = {};
-        volunteer.map(e=>{
+            volunteer.map(e=>{
             volunteerJSON[e.id] = e;
         });
         saveInStorage('volunteer',volunteerJSON);

@@ -143,4 +143,4 @@ function loadCardsAndFiltersJobs(elements, addFilters, link, querySelector, empt
 }
 
 const removeAllCards = idPosition => $(`#${idPosition}`).empty();
-const saveInStorage = (key, element) => sessionStorage.setItem(key, Array.isArray(element) ? element : JSON.stringify(element))
+const saveInStorage = (key, element) => localStorage.setItem(key, Array.isArray(element) ? element : JSON.stringify(element));

@@ -5,7 +5,7 @@ const DB_URL = "https://ripe4u.herokuapp.com";
 
 
 $(document).ready(() => {
-    volunteers = JSON.parse(sessionStorage.getItem('volunteers'));
+    volunteers = JSON.parse(localStorage.getItem('volunteers'));
     loadVolunteer(window.location.href.split('id=')[1]);
 });
 
@@ -28,7 +28,7 @@ function loadEvents(){
 }
 
 function loadNextElement(goRight){
-    let elementsOrder = sessionStorage.getItem('volunteersElementsOrder').split(',');
+    let elementsOrder = localStorage.getItem('volunteersElementsOrder').split(',');
     let indexOfVolunteer = elementsOrder.indexOf(volunteer.id.toString());
     let length = elementsOrder.length;
     let nextId = elementsOrder[((indexOfVolunteer + 1*(goRight ? 1 : -1)) % length + length) % length];

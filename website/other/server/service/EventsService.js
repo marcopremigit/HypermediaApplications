@@ -38,15 +38,26 @@ exports.eventDbSetup = function(s) {
  * returns List
  **/
 exports.event_serviceGET = function(limit,id_event,id_service) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ "", "" ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
+  if(!limit) limit = 10;
+  
+  return db('eventofService')
+  .select(id_service ? 'id_event' : 'id_service')
+  .where(
+    id_service ? 
+    {
+      id_service: id_service
     }
-  });
+    : 
+    {
+      id_event: id_event
+  }) 
+  .limit(limit)
+  .then(data => {
+    return db(id_event ? 'volunteers' : 'event')
+    .whereIn('id', data.map(e => id_event ? e.id_service : e.id_event))
+    .limit(limit)
+    .then(d => d);
+  }); 
 }
 
 
@@ -130,14 +141,25 @@ exports.eventsGET = function(category,limit,offset) {
  * returns List
  **/
 exports.volunteer_eventGET = function(limit,id_event,id_volunteer) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ "", "" ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
+  if(!limit) limit = 10;
+  
+  return db('eventofVolunteer')
+  .select(id_event ? 'id_volunteer' : 'id_event')
+  .where(
+    id_event ? 
+    {
+      id_event: id_event
     }
-  });
+    : 
+    {
+      id_volunteer: id_volunteer
+  }) 
+  .limit(limit)
+  .then(data => {
+    return db(id_volunteer ? 'volunteers' : 'event')
+    .whereIn('id', data.map(e => id_volunteer ? e.id_event : e.id_volunteer))
+    .limit(limit)
+    .then(d => d);
+  }); 
 }
 

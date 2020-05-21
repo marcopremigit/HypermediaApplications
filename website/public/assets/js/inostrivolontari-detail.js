@@ -1,5 +1,9 @@
 let volunteer = null;
 let volunteers = null;
+
+const DB_URL = "https://ripe4u.herokuapp.com";
+
+
 $(document).ready(() => {
     volunteers = JSON.parse(sessionStorage.getItem('volunteers'));
     loadVolunteer(window.location.href.split('id=')[1]);
@@ -94,4 +98,22 @@ function loadVolunteer(id){
 
     //Spinner handling
     Spinner.letThemComeBack();
+
+    loadVolunteerServices(id);
+}
+
+
+async function loadVolunteerServices(id_volunteer){
+    return await $.getJSON(DB_URL + "/volunteer_service",
+    {
+        id_volunteer: id_volunteer
+    },
+    (data, status) => {
+        if(status === "success"){
+            console.log(data);
+            return data;
+        }
+        else
+            console.error(status);
+    });
 }

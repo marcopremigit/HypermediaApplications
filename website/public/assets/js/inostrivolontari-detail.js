@@ -21,9 +21,9 @@ function loadServices(){
 function loadEvents(){
     //TODO: this has to be replaced with database query information extraction
     return [
-        {id: 'ICSA', title: 'Vacanza studio Londra', img: 'https://source.unsplash.com/random/1920x1080', category: ["Vacanza studio"]},
-        {id: 'csaicas', title: 'Cena di Natale', img: 'https://source.unsplash.com/random/1920x1080', category: ["Cena", "Vattelapesca"]},
-        {id: 'csaiodsa', title: 'Colletta Natalizia', img: 'https://source.unsplash.com/random/1920x1080', category: ["Colletta"]},
+        {id: 'ICSA', title: 'Vacanza studio Londra', image: 'https://source.unsplash.com/random/1920x1080', category: ["Vacanza studio"]},
+        {id: 'csaicas', title: 'Cena di Natale', image: 'https://source.unsplash.com/random/1920x1080', category: ["Cena", "Vattelapesca"]},
+        {id: 'csaiodsa', title: 'Colletta Natalizia', image: 'https://source.unsplash.com/random/1920x1080', category: ["Colletta"]},
     ];
 }
 
@@ -76,29 +76,32 @@ function loadVolunteer(id){
     fillElements();
 
     //Query to database
-    let services = loadVolunteerServices(id);
-    removeAllCards('services-card-space');
-    console.log(services);
-    loadCardsAndFilters(services, false, "inostriservizi-detail.html", '#services-card-space');
-    // let servicesJSON = {};
-    // services.map(e=>{
-    //     servicesJSON[e.id] = e;
-    // });
-    saveInStorage('services',services);
-    //saveInStorage('servicesElementsOrder', services.map(v => v.id));
-    
-    let events = loadEvents();
-    removeAllCards('events-card-space');
-    loadCardsAndFilters(events, false, "inostrieventi-detail.html", '#events-card-space');
-    let eventsJSON = {};
-    events.map(e=>{
-        eventsJSON[e.id] = e;
+    loadVolunteerServices(id)
+    .then(services => {
+        removeAllCards('services-card-space');
+        loadCardsAndFilters(services, false, "inostriservizi-detail.html", '#services-card-space');
+        let servicesJSON = {};
+             services.map(e=>{
+             servicesJSON[e.id] = e;
+        });
+        saveInStorage('services',servicesJSON);
+        saveInStorage('servicesElementsOrder', services.map(v => v.id));
+        //Spinner handling
+        Spinner.letThemComeBack();
     });
-    saveInStorage('events',eventsJSON);
-    saveInStorage('eventsElementsOrder', events.map(v => v.id));
+    
+    
+    // let events = loadEvents();
+    // removeAllCards('events-card-space');
+    // loadCardsAndFilters(events, false, "inostrieventi-detail.html", '#events-card-space');
+    // let eventsJSON = {};
+    // events.map(e=>{
+    //     eventsJSON[e.id] = e;
+    // });
+    // saveInStorage('events',eventsJSON);
+    // saveInStorage('eventsElementsOrder', events.map(v => v.id));
 
-    //Spinner handling
-    Spinner.letThemComeBack();
+    
 
     
 }

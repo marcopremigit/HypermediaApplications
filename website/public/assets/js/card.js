@@ -16,6 +16,7 @@ function loadCardsAndFilters(elements, addFilters, link, querySelector, emptyPos
         let img = document.createElement('img');
         img.className = 'card-img-top';
         img.setAttribute('alt', `${e.name}`);
+        console.log(e)
         img.setAttribute('src', `${e.image}`);
         
         let h = document.createElement('div');

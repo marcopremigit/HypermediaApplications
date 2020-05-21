@@ -97,14 +97,25 @@ exports.servicesServiceIdGET = function(serviceId) {
  * returns List
  **/
 exports.volunteer_serviceGET = function(limit,id_volunteer,id_service) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ "", "" ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
+  if(!limit) limit = 10;
+  
+  return db('volunteerInService')
+  .select(id_volunteer ? 'id_service' : 'id_volunteer')
+  .where(
+    id_volunteer ? 
+    {
+      id_volunteer: id_volunteer
     }
-  });
+    : 
+    {
+      id_service: id_service
+  }) 
+  .limit(limit)
+  .then(data => {
+    return db(id_volunteer ? 'service' : 'volunteers')
+    .whereIn('id', data.map(e => id_volunteer ? e.id_service : e.id_volunteer))
+    .limit(limit)
+    .then(d => d);
+  }); 
 }
 

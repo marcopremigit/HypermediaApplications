@@ -76,7 +76,7 @@ function loadVolunteer(id){
     fillElements();
 
     //Query to database
-    let services = loadServices();
+    let services = loadVolunteerServices(id);
     removeAllCards('services-card-space');
     loadCardsAndFilters(services, false, "inostriservizi-detail.html", '#services-card-space');
     let servicesJSON = {};
@@ -99,7 +99,7 @@ function loadVolunteer(id){
     //Spinner handling
     Spinner.letThemComeBack();
 
-    loadVolunteerServices(id);
+    
 }
 
 

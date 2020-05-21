@@ -88,34 +88,4 @@ exports.servicesServiceIdGET = function(serviceId) {
 }
 
 
-/**
- * Returns id_volunteer if id_service is inserted, or id_service if id_volunteer is inserted
- *
- * limit Integer the limit of objects to return (optional)
- * id_volunteer Integer Volunteer id (optional)
- * id_service Integer Service id (optional)
- * returns List
- **/
-exports.volunteer_serviceGET = function(limit,id_volunteer,id_service) {
-  if(!limit) limit = 10;
-  
-  return db('volunteerInService')
-  .select(id_volunteer ? 'id_service' : 'id_volunteer')
-  .where(
-    id_volunteer ? 
-    {
-      id_volunteer: id_volunteer
-    }
-    : 
-    {
-      id_service: id_service
-  }) 
-  .limit(limit)
-  .then(data => {
-    return db(id_volunteer ? 'service' : 'volunteers')
-    .whereIn('id', data.map(e => id_volunteer ? e.id_service : e.id_volunteer))
-    .limit(limit)
-    .then(d => d);
-  }); 
-}
 

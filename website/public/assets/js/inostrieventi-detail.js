@@ -123,7 +123,7 @@ let formatDate = date => `${date.getDate()}-${date.getMonth() + 1}-${date.getUTC
 // }
 
 async function loadEventsVolunteer(id_event){
-    return await $.getJSON(DB_URL + "/event_service",
+    return await $.getJSON(DB_URL + "/volunteer_event",
     {
         id_event: id_event
     },

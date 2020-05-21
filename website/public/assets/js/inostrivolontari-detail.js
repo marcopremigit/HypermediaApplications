@@ -80,12 +80,12 @@ function loadVolunteer(id){
     removeAllCards('services-card-space');
     console.log(services);
     //loadCardsAndFilters(services, false, "inostriservizi-detail.html", '#services-card-space');
-    let servicesJSON = {};
-    services.map(e=>{
-        servicesJSON[e.id] = e;
-    });
-    saveInStorage('services',servicesJSON);
-    saveInStorage('servicesElementsOrder', services.map(v => v.id));
+    // let servicesJSON = {};
+    // services.map(e=>{
+    //     servicesJSON[e.id] = e;
+    // });
+    saveInStorage('services',services);
+    //saveInStorage('servicesElementsOrder', services.map(v => v.id));
     
     let events = loadEvents();
     removeAllCards('events-card-space');

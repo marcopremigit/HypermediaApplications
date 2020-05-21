@@ -32,10 +32,27 @@ $(document).ready(() => {
         Spinner.letThemComeBack();
     });
 
+    loadVolunteerInService();
+
 }); 
 
 async function loadVolunteers(){
     return await $.getJSON(DB_URL + "/volunteers", (data, status) => {
+        if(status === "success"){
+            console.log(data);
+            return data;
+        }
+        else
+            console.error(status);
+    });
+}
+
+async function loadVolunteerInService(){
+    return await $.getJSON(DB_URL + "/volunteer_service",
+    {
+        id_volunteer: "1"
+    },
+    (data, status) => {
         if(status === "success"){
             console.log(data);
             return data;

@@ -55,15 +55,13 @@ exports.volunteer_eventGET = function(limit,id_event,id_volunteer) {
  * returns List
  **/
 exports.volunteer_serviceGET = function(limit,id_volunteer,id_service) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ "", "" ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
+  if(!limit) limit = 10;
+  if(!offset) offset = 0;
+
+  return db('volunteerInService')
+  .limit(limit)
+  .offset(offset)
+  .then(data => data);
 }
 
 

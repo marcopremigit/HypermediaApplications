@@ -54,10 +54,13 @@ exports.volunteer_eventGET = function(limit,id_event,id_volunteer) {
  * id_service Integer Service id (optional)
  * returns List
  **/
-exports.volunteer_serviceGET = function(limit,id_volunteer,id_service) {
+exports.volunteer_serviceGET = function(limit,id_v,id_s) {
   if(!limit) limit = 10;
   
   return db('volunteerInService')
+  .where({
+    id_volunteer: '1'
+  })
   .limit(limit)
   .then(data => data);
 }

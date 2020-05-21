@@ -143,7 +143,7 @@ exports.eventsGET = function(category,limit,offset) {
 exports.volunteer_eventGET = function(limit,id_event,id_volunteer) {
   if(!limit) limit = 10;
   
-  return db('eventofVolunteer')
+  return db('volunteerInEvent')
   .select(id_event ? 'id_volunteer' : 'id_event')
   .where(
     id_event ? 

@@ -1,3 +1,5 @@
+const DB_URL = "https://ripe4u.herokuapp.com";
+
 let event = null;
 let events = null;
 $(document).ready(() => {
@@ -28,19 +30,19 @@ function loadEvent(id){
     ]);
 
     fillElements();
-    loadEventsService(id)
-    .then(services =>{
-        removeAllCards('services-card-space');
-        loadCardsAndFilters(services, false, "inostriservizi-detail.html", '#services-card-space');
-        let servicesJSON = {};
-        services.map(e=>{
-            servicesJSON[e.id] = e;
-        });
-        saveInStorage('services',servicesJSON);
-        saveInStorage('servicesElementsOrder', services.map(v => v.id));
-        //Spinner handling
-        Spinner.letThemComeBack();
-    })
+    // loadEventsService(id)
+    // .then(services =>{
+    //     removeAllCards('services-card-space');
+    //     loadCardsAndFilters(services, false, "inostriservizi-detail.html", '#services-card-space');
+    //     let servicesJSON = {};
+    //     services.map(e=>{
+    //         servicesJSON[e.id] = e;
+    //     });
+    //     saveInStorage('services',servicesJSON);
+    //     saveInStorage('servicesElementsOrder', services.map(v => v.id));
+    //     //Spinner handling
+    //     Spinner.letThemComeBack();
+    // })
 
     loadEventsVolunteer(id)
     .then(volunteer =>{
@@ -105,20 +107,20 @@ function fillElements(){
 let formatDate = date => `${date.getDate()}-${date.getMonth() + 1}-${date.getUTCFullYear()}`;
 
 
-async function loadEventsService(id_event){
-    return await $.getJSON(DB_URL + "/event_service",
-    {
-        id_event: id_event
-    },
-    (data, status) => {
-        if(status === "success"){
-            console.log(data);
-            return data;
-        }
-        else
-            console.error(status);
-    });
-}
+// async function loadEventsService(id_event){
+//     return await $.getJSON(DB_URL + "/event_service",
+//     {
+//         id_event: id_event
+//     },
+//     (data, status) => {
+//         if(status === "success"){
+//             console.log(data);
+//             return data;
+//         }
+//         else
+//             console.error(status);
+//     });
+// }
 
 async function loadEventsVolunteer(id_event){
     return await $.getJSON(DB_URL + "/event_service",

@@ -74,9 +74,9 @@ function loadNextElement(goRight){
     loadEvent(nextId);
 }
 
-function loadResponsible(){
-    return {id: 'ICSA', title: 'Giancarla Rossa', description: 'Ciao, sono Giancarla Rossa', img: 'https://source.unsplash.com/random/1920x1080', category: ["Vacanza studio"]}; 
-}
+// function loadResponsible(){
+//     return {id: 'ICSA', title: 'Giancarla Rossa', description: 'Ciao, sono Giancarla Rossa', img: 'https://source.unsplash.com/random/1920x1080', category: ["Vacanza studio"]}; 
+// }
 
 function loadServices(){
     return [
@@ -98,10 +98,10 @@ function fillElements(){
     document.getElementById('availableSpots').innerText = event.available_places;
     document.getElementById('detail-img').setAttribute("src", event.image);
 
-    let responsible = loadResponsible();
-    document.getElementById('responsibleLink').href = `inostrivolontari-detail.html?id=${responsible.id}`;
-    document.getElementById('responsibleImg').src = responsible.img;
-    document.getElementById('responsibleName').innerText = responsible.title;
+    // let responsible = loadResponsible();
+    // document.getElementById('responsibleLink').href = `inostrivolontari-detail.html?id=${responsible.id}`;
+    // document.getElementById('responsibleImg').src = responsible.img;
+    // document.getElementById('responsibleName').innerText = responsible.title;
 }
 
 let formatDate = date => `${date.getDate()}-${date.getMonth() + 1}-${date.getUTCFullYear()}`;

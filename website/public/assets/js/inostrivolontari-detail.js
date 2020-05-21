@@ -78,7 +78,8 @@ function loadVolunteer(id){
     //Query to database
     let services = loadVolunteerServices(id);
     removeAllCards('services-card-space');
-    loadCardsAndFilters(services, false, "inostriservizi-detail.html", '#services-card-space');
+    console.log(services);
+    //loadCardsAndFilters(services, false, "inostriservizi-detail.html", '#services-card-space');
     let servicesJSON = {};
     services.map(e=>{
         servicesJSON[e.id] = e;

@@ -56,7 +56,6 @@ exports.volunteer_eventGET = function(limit,id_event,id_volunteer) {
  **/
 exports.volunteer_serviceGET = function(limit,id_volunteer,id_service) {
   if(!limit) limit = 10;
-  if(!offset) offset = 0;
 
   return db('volunteerInService')
   .limit(limit)

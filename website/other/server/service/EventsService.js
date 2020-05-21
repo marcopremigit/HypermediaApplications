@@ -40,7 +40,7 @@ exports.eventDbSetup = function(s) {
 exports.event_serviceGET = function(limit,id_event,id_service) {
   if(!limit) limit = 10;
   
-  return db('eventofService')
+  return db('eventsInService')
   .select(id_service ? 'id_event' : 'id_service')
   .where(
     id_service ? 
@@ -53,7 +53,7 @@ exports.event_serviceGET = function(limit,id_event,id_service) {
   }) 
   .limit(limit)
   .then(data => {
-    return db(id_event ? 'volunteers' : 'event')
+    return db(id_service ? 'event' : 'service')
     .whereIn('id', data.map(e => id_event ? e.id_service : e.id_event))
     .limit(limit)
     .then(d => d);

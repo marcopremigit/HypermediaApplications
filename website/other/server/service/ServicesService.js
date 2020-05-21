@@ -117,6 +117,6 @@ exports.volunteer_serviceGET = function(limit,id_volunteer,id_service) {
     .limit(limit)
     .then(d => d);
   }); 
-}
+
 }
 

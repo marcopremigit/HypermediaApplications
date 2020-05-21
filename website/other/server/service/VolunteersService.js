@@ -59,7 +59,6 @@ exports.volunteer_serviceGET = function(limit,id_volunteer,id_service) {
 
   return db('volunteerInService')
   .limit(limit)
-  .offset(offset)
   .then(data => data);
 }
 

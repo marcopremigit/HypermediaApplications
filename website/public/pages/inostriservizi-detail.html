@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
         <link rel="stylesheet" href="../assets/css/main.css">
+        <link rel="stylesheet" href="../assets/css/inostriservizi-detail.css">
         <title>Ripe4U - I nostri servizi</title>
     </head>
     <body class="d-flex flex-column min-vh-100">
@@ -75,44 +76,49 @@
             <!-- quella con descriizione/servizi/eventi --> 
             <div class="row">
                <!-- quella di sinistra --> 
-               <div class="col-7 mr-3 invisible">
-                <div class="row-12 align-middle text-center">
+               <div class="col mr-3 invisible">
+                <div class="row-12">
                   <h3>Descrizione del servizio</h3>
                 </div>
                 <div class="row">
-                  <p id="serviceDescription"></p>
+                  <div class=col>
+                    <p id="serviceDescription"></p>
+                  </div>
+                </div>
+                <div class="row-12">
+                    <h3>Contatta i nostri volontari per il servizio</h3>
+                  </div>
+                <div class="row">
+                    <div class="col">
+                      <p id="volunteers-card-space" class="card-deck three-col mx-auto"></p>
+                    </div>
+                </div>
                 </div>
                 <!-- quella di destra --> 
                 <div class="col">
-                  <div class="row-12 align-middle text-center">
+                  <div class="row-12">
                     <h3 id="eventsTitle"></h3>
                   </div> 
-                  <div class="row invisible">
-                    <!-- Events Spinner -->
+                  <div class="row">
+                    <div class="col">
+                      <div id="events-card-space" class="card-deck three-col"></div>
+                    </div>
+
+                  </div>
+                  <!-- <divaa class="row invisible">
+                    
                     <div class = "row d-flex justify-content-center">
                       <div class="spinner-border main-text-color" role="status">
                         <span class="sr-only" alt="Loading"></span>
                       </div>
                     </div> 
-                    <!-- Events Spinner -->
-                  </div>
+                    
+                    <div class="col">
+                      <div id="events-card-space" class="card-deck two-col"></div>
+                    </div>
+
+                  </divaa> -->
                 </div>
-            </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div id="events-card-space" class="card-deck two-col"></div>
-
-              </div>
-
-            </div>
-            <div class="row-12 align-middle text-center">
-              <h3>Contatta i nostri volontari per il servizio</h3>
-            </div>
-            <div class="row">
-              <div class="col">
-                <p id="volunteers-card-space" class="card-deck three-col"></p>
-              </div>
             </div>
           </div> <!-- Main column -->
         </div>

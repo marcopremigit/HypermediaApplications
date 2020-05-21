@@ -12,9 +12,9 @@ $(document).ready(() => {
 function loadServices(){
     //TODO: this has to be replaced with database query information extraction
     return [
-        {id: 'ICSA', title: 'Vacanza studio Londra', img: 'https://source.unsplash.com/random/1920x1080', category: ["Vacanza studio"]},
-        {id: 'csaicas', title: 'Cena di Natale', img: 'https://source.unsplash.com/random/1920x1080', category: ["Cena", "Vattelapesca"]},
-        {id: 'csaiodsa', title: 'Colletta Natalizia', img: 'https://source.unsplash.com/random/1920x1080', category: ["Colletta"]},
+        {id: 'ICSA', title: 'Vacanza studio Londra', image: 'https://source.unsplash.com/random/1920x1080', category: ["Vacanza studio"]},
+        {id: 'csaicas', title: 'Cena di Natale', image: 'https://source.unsplash.com/random/1920x1080', category: ["Cena", "Vattelapesca"]},
+        {id: 'csaiodsa', title: 'Colletta Natalizia', image: 'https://source.unsplash.com/random/1920x1080', category: ["Colletta"]},
     ];
 }
 
@@ -91,15 +91,20 @@ function loadVolunteer(id){
     });
     
     
-    // let events = loadEvents();
-    // removeAllCards('events-card-space');
-    // loadCardsAndFilters(events, false, "inostrieventi-detail.html", '#events-card-space');
-    // let eventsJSON = {};
-    // events.map(e=>{
-    //     eventsJSON[e.id] = e;
-    // });
-    // saveInStorage('events',eventsJSON);
-    // saveInStorage('eventsElementsOrder', events.map(v => v.id));
+    loadVolunteerEvents(id)
+    .then(events =>{
+        removeAllCards('events-card-space');
+        loadCardsAndFilters(events, false, "inostrieventi-detail.html", '#events-card-space');
+        let eventsJSON = {};
+        events.map(e=>{
+            eventsJSON[e.id] = e;
+        });
+        saveInStorage('events',eventsJSON);
+        saveInStorage('eventsElementsOrder', events.map(v => v.id));
+        //Spinner handling
+        Spinner.letThemComeBack();
+    })
+  
 
     
 
@@ -109,6 +114,21 @@ function loadVolunteer(id){
 
 async function loadVolunteerServices(id_volunteer){
     return await $.getJSON(DB_URL + "/volunteer_service",
+    {
+        id_volunteer: id_volunteer
+    },
+    (data, status) => {
+        if(status === "success"){
+            console.log(data);
+            return data;
+        }
+        else
+            console.error(status);
+    });
+}
+
+async function loadVolunteerEvents(id_volunteer){
+    return await $.getJSON(DB_URL + "/volunteer_event",
     {
         id_volunteer: id_volunteer
     },

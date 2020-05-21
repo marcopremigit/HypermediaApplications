@@ -34,15 +34,26 @@ exports.volunteersDbSetup = function(s) {
  * returns List
  **/
 exports.volunteer_eventGET = function(limit,id_event,id_volunteer) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ "", "" ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
+  if(!limit) limit = 10;
+  
+  return db('volunteerInEvent')
+  .select(id_volunteer ? 'id_event' : 'id_volunteer')
+  .where(
+    id_volunteer ? 
+    {
+      id_volunteer: id_volunteer
     }
-  });
+    : 
+    {
+      id_event: id_event
+  }) 
+  .limit(limit)
+  .then(data => {
+    return db(id_volunteer ? 'event' : 'volunteers')
+    .whereIn('id', data.map(e => id_volunteer ? e.id_event : e.id_volunteer))
+    .limit(limit)
+    .then(d => d);
+  }); 
 }
 
 

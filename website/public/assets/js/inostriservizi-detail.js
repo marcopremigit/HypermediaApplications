@@ -4,7 +4,7 @@ const DB_URL = "https://ripe4u.herokuapp.com";
 
 
 $(document).ready(() => {
-    services = JSON.parse(sessionStorage.getItem('services'));
+    services = JSON.parse(localStorage.getItem('services'));
     loadService(window.location.href.split('id=')[1]);
 });
 
@@ -19,7 +19,7 @@ function loadEvents(){
 
 
 function loadNextElement(goRight){
-    let elementsOrder = sessionStorage.getItem('servicesElementsOrder').split(',');
+    let elementsOrder = localStorage.getItem('servicesElementsOrder').split(',');
     let indexOfservice = elementsOrder.indexOf(service.id.toString());
     let length = elementsOrder.length;
     let nextId = elementsOrder[((indexOfservice + 1*(goRight ? 1 : -1)) % length + length) % length];

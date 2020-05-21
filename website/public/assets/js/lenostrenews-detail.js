@@ -1,12 +1,13 @@
 let news = null;
 let news_ = null;
 $(document).ready(() =>  {
-    news_ = JSON.parse(sessionStorage.getItem('news'));
+    news_ = JSON.parse(localStorage.getItem('news'));
+    console.log("NEWS: "+news_)
     loadNews(window.location.href.split('id=')[1]);
 });
 
 function loadNextElement(goRight){
-    let newsElementsOrder = sessionStorage.getItem('newsElementsOrder').split(',');
+    let newsElementsOrder = localStorage.getItem('newsElementsOrder').split(',');
     let indexOfNews = newsElementsOrder.indexOf(news.id.toString());
     indexOfNews? indexOfNews= (indexOfNews + 1*(goRight ? 1 : -1)) % newsElementsOrder.length : indexOfNews=(indexOfNews + 1*(goRight ? 1 : (newsElementsOrder.length)-1));
     let nextId = newsElementsOrder[indexOfNews];

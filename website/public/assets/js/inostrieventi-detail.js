@@ -3,7 +3,7 @@ const DB_URL = "https://ripe4u.herokuapp.com";
 let event = null;
 let events = null;
 $(document).ready(() => {
-    events = JSON.parse(sessionStorage.getItem('events'));
+    events = JSON.parse(localStorage.getItem('events'));
     loadEvent(window.location.href.split('id=')[1]);
 });
 
@@ -67,7 +67,7 @@ function loadEvent(id){
 }
 
 function loadNextElement(goRight){
-    let elementsOrder = sessionStorage.getItem('eventsElementsOrder').split(',');
+    let elementsOrder = localStorage.getItem('eventsElementsOrder').split(',');
     let indexOfEvent = elementsOrder.indexOf(event.id.toString());
     let length = elementsOrder.length;
     let nextId = elementsOrder[((indexOfEvent + 1*(goRight ? 1 : -1)) % length + length) % length];

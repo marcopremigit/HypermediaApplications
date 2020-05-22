@@ -36,7 +36,7 @@ exports.servicesGET = function(category,limit,offset) {
   if(!offset) offset = 0;
 
   return db('service')
-  .limit(limit)
+  // .limit(limit)
   .offset(offset)
   .then(data => data);
 }

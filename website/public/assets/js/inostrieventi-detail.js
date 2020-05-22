@@ -32,6 +32,11 @@ function loadEvent(id){
     fillElements();
     loadEventsService(id)
     .then(services =>{
+        if(services.length==0){
+            Array.from(document.getElementsByClassName("disappear")).map(e => e.classList.add("d-none"));
+        }else{
+            Array.from(document.getElementsByClassName("disappear")).map(e => e.classList.remove("d-none"));
+        }
         removeAllCards('services-card-space');
         loadCardsAndFilters(services, false, "inostriservizi-detail.html", '#services-card-space');
         let servicesJSON = {};

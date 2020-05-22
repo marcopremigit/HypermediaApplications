@@ -91,6 +91,11 @@ function loadVolunteer(id){
     
     loadVolunteerEvents(id)
     .then(events =>{
+        if(events.length==0){
+            Array.from(document.getElementsByClassName("disappear")).map(e => e.classList.add("d-none"));
+        }else{
+            Array.from(document.getElementsByClassName("disappear")).map(e => e.classList.remove("d-none"));
+        }
         removeAllCards('events-card-space');
         loadCardsAndFilters(events, false, "inostrieventi-detail.html", '#events-card-space');
         let eventsJSON = {};

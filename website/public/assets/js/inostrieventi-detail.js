@@ -74,34 +74,13 @@ function loadNextElement(goRight){
     loadEvent(nextId);
 }
 
-// function loadResponsible(){
-//     return {id: 'ICSA', title: 'Giancarla Rossa', description: 'Ciao, sono Giancarla Rossa', img: 'https://source.unsplash.com/random/1920x1080', category: ["Vacanza studio"]}; 
-// }
-
-function loadServices(){
-    return [
-        {id: 'ICSA', title: 'Vacanza studio Londra', img: 'https://source.unsplash.com/random/1920x1080', category: ["Vacanza studio"]},
-        {id: 'csaicas', title: 'Cena di Natale', img: 'https://source.unsplash.com/random/1920x1080', category: ["Cena", "Vattelapesca"]},
-        {id: 'csaiodsa', title: 'Colletta Natalizia', img: 'https://source.unsplash.com/random/1920x1080', category: ["Colletta"]},
-        {id: 'sdasda', title: 'Vacanza studio Londra', img: 'https://source.unsplash.com/random/1920x1080', category: ["Vacanza studio"]},
-        {id: 'csfgdsfdsaicas', title: 'Cena di Natale', img: 'https://source.unsplash.com/random/1920x1080', category: ["Cena", "Vattelapesca"]},
-        {id: 'csagsdfsiodsa', title: 'Colletta Natalizia', img: 'https://source.unsplash.com/random/1920x1080', category: ["Colletta"]},
-    ]; 
-}
-
 function fillElements(){
-    console.log((new Date(event.date_start)));
-    document.getElementById('eventName').innerText = event.name;
-    document.getElementById('eventDescription').innerHTML = event.description;
-    document.getElementById('eventStarts').innerHTML = formatDate(new Date(event.date_start));
-    document.getElementById('eventEnds').innerHTML = formatDate(new Date(event.date_end));
-    document.getElementById('availableSpots').innerText = event.available_places;
-    document.getElementById('detail-img').setAttribute("src", event.image);
-
-    // let responsible = loadResponsible();
-    // document.getElementById('responsibleLink').href = `inostrivolontari-detail.html?id=${responsible.id}`;
-    // document.getElementById('responsibleImg').src = responsible.img;
-    // document.getElementById('responsibleName').innerText = responsible.title;
+    $('#eventName').innerText = event.name;
+    $('#eventDescription').innerHTML = event.description;
+    $('#eventStarts').innerHTML = formatDate(new Date(event.date_start));
+    $('#eventEnds').innerHTML = formatDate(new Date(event.date_end));
+    $('#availableSpots').innerText = event.available_places;
+    $('#detail-img').setAttribute("src", event.image);
 }
 
 let formatDate = date => `${date.getDate()}-${date.getMonth() + 1}-${date.getUTCFullYear()}`;

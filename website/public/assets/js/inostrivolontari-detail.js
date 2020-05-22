@@ -36,17 +36,15 @@ function loadNextElement(goRight){
 }
 
 function fillElements(){
-    document.getElementById('volunteerName').innerText = volunteer.name;
-    document.getElementById('whoami').innerHTML = volunteer.description;
-    document.getElementById('mycareer').innerHTML = volunteer.career;
-    document.getElementById('phone').innerHTML = volunteer.phone;
-    document.getElementById('email').innerHTML = volunteer.email;
-    document.getElementById('detail-img').setAttribute("src",volunteer.image );
-
-
+    $('#volunteerName').innerText = volunteer.name;
+    $('#whoami').innerHTML = volunteer.description;
+    $('#mycareer').innerHTML = volunteer.career;
+    $('#phone').innerHTML = volunteer.phone;
+    $('#email').innerHTML = volunteer.email;
+    $('#detail-img').setAttribute("src",volunteer.image );
     
-    document.getElementById('servicesTitle').innerHTML = `I servizi di ${volunteer.name}`;
-    document.getElementById('eventsTitle').innerHTML = `I prossimi eventi di ${volunteer.name}`;
+    $('#servicesTitle').innerHTML = `I servizi di ${volunteer.name}`;
+    $('#eventsTitle').innerHTML = `I prossimi eventi di ${volunteer.name}`;
 }
 
 function loadVolunteer(id){

@@ -27,10 +27,10 @@ function loadNextElement(goRight){
 }
 
 function fillElements(){
-    document.getElementById('serviceName').innerText = service.name;
-    document.getElementById('serviceDescription').innerHTML = service.description;
-    document.getElementById('eventsTitle').innerHTML = `Eventi collegati`;
-    document.getElementById('detail-img').setAttribute("src",service.image);
+    $('#serviceName').innerText = service.name;
+    $('#serviceDescription').innerHTML = service.description;
+    $('#eventsTitle').innerHTML = `Eventi collegati`;
+    $('#detail-img').setAttribute("src",service.image);
 }
 
 function loadService(id){

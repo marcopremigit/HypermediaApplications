@@ -1,5 +1,5 @@
 class Shuffler {
-    constructor(idPosition, categories = null) {
+    constructor(idPosition, categories = false, dates = false) {
         this.shuffle = new window.Shuffle($(idPosition), {
             itemSelector: '.card',
             filterMode: Shuffle.FilterMode.ANY,
@@ -10,16 +10,22 @@ class Shuffler {
         this._activeFilters = [];
         this.shuffle.filter(this._activeFilters);
         //add category filter only if needed
-        if(categories!==null) {
-            Array.from($('.dropdown-item'))
+        if(categories) {
+            Array.from($('.categories').children())
             .map(e => e.addEventListener('click', this._handleCategoryButtonClick.bind(this)));
+        }
+
+        //add category filter only if needed
+        if(dates) {
+            Array.from($('.months').children())
+            .map(e => e.addEventListener('click', this._handleMonthsButtonClick.bind(this)));
         }
         //add basic search filter on mobile
         Array.from($('#searchBox-mobile')).map(e => e.addEventListener('keyup', this._handleSearchKeyup.bind(this)));
         //add basic search filter on desktop
         Array.from($('#searchBox-desktop')).map(e => e.addEventListener('keyup', this._handleSearchKeyup.bind(this)));
         try{
-            let _map = document.getElementById('map');
+            let _map = $('#map');
             this._mapExists = _map !== null || _map !== undefined;
         } 
         catch(err){
@@ -73,5 +79,30 @@ class Shuffler {
         if(this._mapExists) this._reloadMarkers();
     }
 
-    _reloadMarkers = () => GMaps.filterMarkers(document.getElementsByClassName('shuffle-item--visible'));
+    /**
+     * Filter the shuffle instance by items with a group that matches the button input.
+     * @param {Event} evt Event object.
+     */
+    _handleMonthsButtonClick(evt) {
+        let button = evt.currentTarget;
+        let month = button.getAttribute('data-month');
+        // If this button is already active, remove it from the list of filters.
+        if (button.classList.contains('active')) {
+            this._activeFilters.splice(this._activeFilters.indexOf(month), 1);
+        } else {
+            this._activeFilters.push(month);
+        }
+
+        button.classList.toggle('active');
+        if(this._activeFilters.isEmpty) this.shuffle.group = Shuffle.ALL_ITEMS;
+        else this.shuffle.group = this._activeFilters.toString();
+
+        console.log(this._activeFilters.toString());
+        // Filter elements
+        this.shuffle.filter(this._activeFilters);
+        
+        if(this._mapExists) this._reloadMarkers();
+    }
+
+    _reloadMarkers = () => GMaps.filterMarkers($('.shuffle-item--visible'));
 }

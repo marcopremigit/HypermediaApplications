@@ -15,10 +15,10 @@ function loadNextElement(goRight){
 }
 
 function fillElements(){
-    document.getElementById('newsName').innerText = news.name;
-    document.getElementById('news_Name').innerText = news.name;
-    document.getElementById('newsDescription').innerHTML = news.long_description;
-    document.getElementById('detail-img').setAttribute("src",news.image);
+    $('#newsName').innerText = news.name;
+    $('#news_Name').innerText = news.name;
+    $('#newsDescription').innerHTML = news.long_description;
+    $('#detail-img').setAttribute("src",news.image);
 }
 
 function loadNews(id){

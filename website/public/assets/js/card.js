@@ -6,17 +6,19 @@ function loadCardsAndFilters(elements, addFilters, link, querySelector, emptyPos
     elements.map(e => {
         let card = document.createElement('div');
         card.className = `text-center card mb-3 invisible ${col}`;
-        card.setAttribute('data-groups', `["${e.category/*.join('","')*/}"]`);
+        card.setAttribute('data-groups', `["${e.category}"]`);
         card.setAttribute('data-title', `${e.name}`);
         card.setAttribute('data-id', `${e.id}`);
-        
+        if(e.date_start) {
+            let data = new Date(e.date_start);
+            card.setAttribute('data-months', `["${data.getUTCFullYear()}/${(data.getMonth()+1)}"]`);
+        }
         let a = document.createElement('a');
         a.href = `${link}?id=${e.id}`;
 
         let img = document.createElement('img');
         img.className = 'card-img-top';
         img.setAttribute('alt', `${e.name}`);
-        console.log(e)
         img.setAttribute('src', `${e.image}`);
         
         let h = document.createElement('div');
@@ -37,7 +39,7 @@ function loadCardsAndFilters(elements, addFilters, link, querySelector, emptyPos
     });
 
     if(addFilters){
-        let dropdowns = $('.dropdown-menu');
+        let dropdowns = $('.categories');
         [...new Set(elements.map(e => e.category).flat())]
         .map(c => { 
             Array.from(dropdowns).map( d =>{
@@ -49,7 +51,6 @@ function loadCardsAndFilters(elements, addFilters, link, querySelector, emptyPos
                 d.append(b);       
             });
         });
-
     }
 
     $(window).resize(()=>{

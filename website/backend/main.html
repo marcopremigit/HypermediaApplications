@@ -1,0 +1,181 @@
+<h1 id="documentation-of-the-backend-part">Documentation of the Backend part</h1>
+<blockquote>
+<p>Deliverable D1</p>
+<h2 id="general-group-information">General group information</h2>
+<table>
+<thead>
+<tr>
+<th>Member n.</th>
+<th>Role</th>
+<th>First name</th>
+<th>Last Name</th>
+<th>Matricola</th>
+<th>Email address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>administrator</td>
+<td>Marco</td>
+<td>Premi</td>
+<td>10526255</td>
+<td>marco.premi@mail.polimi.it</td>
+</tr>
+<tr>
+<td>2</td>
+<td>member</td>
+<td>Fabrizio</td>
+<td>Siciliano</td>
+<td>10522031</td>
+<td>fabrizio.siciliano@mail.polimi.it</td>
+</tr>
+<tr>
+<td>3</td>
+<td>member</td>
+<td>Davide</td>
+<td>Clementi</td>
+<td>10457819</td>
+<td>davide2.clementi@mail.polimi.it</td>
+</tr>
+</tbody>
+</table>
+<h2 id="links-to-other-deliverables">Links to other deliverables</h2>
+<ul>
+<li>Deliverable D0: the web application is accessible at <a href="https://ripe4u.herokuapp.com/">this
+address</a>.</li>
+<li>Deliverable D2: the YAML or JSON file containing the specification
+of the app API can be found at <a href="https://example.com/backend/spec.yaml">this
+address</a>.</li>
+<li>Deliverable D3: the SwaggerUI page of the same API is available at
+<a href="https://example.com/backend/swaggerui">this address</a>.</li>
+<li>Deliverable D4: the source code of D0 is available as a zip file at
+<a href="https://example.com/backend/app.zip">this address</a>.</li>
+<li>Deliverable D5: the address of the online source control repository
+is available <a href="https://github.com/marcopremigit/HypermediaApplications">this address</a>. We hereby
+declare that this is a private repository and, upon request, we will
+give access to the instructors.<h2 id="specification">Specification</h2>
+<h3 id="web-architecture">Web Architecture</h3>
+Describe here, with a diagram, the components of your web application
+and how they interact. Highlight which parts belong to the application
+layer, data layer or presentation layer. How did you ensure that HTML is
+not rendered server side?
+Nello sviluppo del nostro sito abbiamo deciso di considerare alcune pagine che non necessitano dell&#39; interazione con il data base
+(data layer) ma che risiedono soltanto all&#39; interno dell&#39; application e presentation layer, in quanto le informazioni che vi sono contenute
+saranno soggette a poche modifiche nel tempo e non richiedono perciò un caricamento da database.
+Queste pagine sono:
+HomePage
+Chi Siamo
+Raggiungici
+Sostienici
+Contattaci
+Le informazioni relative invece alle pagine che necessitano un caricamento di informazioni
+sono state salvate all&#39; interno del Database (data layer). Le informazioni contenute in queste pagine possono infatti
+cambiare e dover essere aggiornate nel tempo, in quanto possono aggiungersi o cancellarsi o dare una nuova versione di alcuni contenuti.
+Le pagine che appartengono all&#39;application e presentation layer ma che necessitano di un&#39; interazione con il data layer sono:
+Le nostre News
+I nostri volontari (con l&#39;aggiunta delle pagine dettagliate dei volontari singoli)
+I nostri eventi (con l&#39; aggiunta delle pagine dettagliate dei singoli eventi)
+I nostri servizi (con l&#39; aggiunta delle pagine dettagliate dei singoli servizi)
+Lavora con noi<h3 id="api">API</h3>
+<h4 id="rest-compliance">REST compliance</h4>
+Describe here to what extent did you follow REST principles and what are
+the reasons for which you might have decided to diverge. Note, you must
+not describe the whole API here, just the design decisions.
+Durante lo svilluppo del sito ci siamo rifatti ai principi dell&#39; architectura client-server. 
+Abbiamo cercato infatti di separare gli elemnti client che non richiedono collegamenti diretti con il database
+dal server che invece si interfaccia con il database.<h4 id="openapi-resource-models">OpenAPI Resource models</h4>
+Describe here synthetically, which models you have introduced for
+resources.
+Nella nostra applicazione abbiamo cercato di rifarci al Richardson maturity model. Di questo modello abbiamo applicato il
+livello 2, in quanto questo ci permetti di definire le GET come delle operazioni sicure che non producono alcun cambiamento
+significativo nello stato della sessione. Questo permetti quindi di effettuare diverse volte tale operazione e ottenere ogni volontari
+lo stesso risultato.<h3 id="data-model">Data model</h3>
+Describe with an ER diagram the model used in the data layer of your web
+application. How these map to the OpenAPI data model?
+All&#39;interno del data layer, durante la creazione delle tabelle, abbiamo cercato di rimanere coerenti con l&#39; ER rappresentato
+all&#39; interno del documento di design, cercando anche di rispettare i nomi assegnati.
+A ciascuna di queste pagine è stata associata una tabella a Database:
+Lavora con noi (nell&#39; ER viene indicato con Open Position e all&#39; interno del DB come jobs)
+Le nostre News (nell&#39; ER viene indicato con News e all&#39; interno del DB come news)
+I nostri volontari (nell&#39; ER viene indicato con Volunteer e all&#39; interno del DB come voluteers)
+I nostri eventi (nell&#39; ER viene indicato con News e all&#39; interno del DB come news)
+I nostri servizi (nell&#39; ER viene indicato con Service e all&#39; interno del DB come service)
+Le tabelle ponte rappresentate a livello di logical Design , utilizzate per rappresentare le associazioni 0:N,
+e nell&#39;ER come relazioni, sono state rispettate a livello di Database. Con l&#39; unica differenza che abbiamo deciso di dividere 
+Volunteer_Assigned_To in due tabelle che sono volunteerInEvent e volunteerInService.
+Il mapping con le OpenApi è stato fatto rispettando le tabelle e gli attributi contenuti al loro interno, rispettandone quanto
+più possibile anche la nomenclatura. Assegnando quindi a ciascuna tabella del database una corrispondenza con il relativo 
+component chiamato con il medesimo nome. Le tabelle ponte sono associate soltanto <h2 id="implementation">Implementation</h2>
+<h3 id="tools-used">Tools used</h3>
+Describe here which tools, languages and frameworks did you use for the
+backend of the application.
+Per l&#39; implementazione del codice lato backend dell&#39; applicazione abbiamo utilizzato VisualStudio Code come per la parte legata al front-end,
+per la gestione del DB abbiamo utilizzato come piattaforma cloud Heroku. Per la gestione del database abbiamo utilizzato pgAdmin. 
+Per quanto riguarda la generazione del server e la creazione delle API abbiamo utilizzato l&#39; editor di swagger OAS 3.0.<h3 id="discussion">Discussion</h3>
+Describe here:</li>
+<li>How did you make sure your web application adheres to the provided
+OpenAPI specification? Which method did you use to test all APIs
+endpoints against the expected response?
+Il test delle OpenAPI l&#39; abbiamo fatto tramite l&#39; utilizzo diretto dell&#39; URL, verificando che le risposte caricate, a seguito delle
+query, siano coerenti con quanto scritto sul documento yaml, verificando cioè che i dati caricati siano gli stessi.</li>
+<li>Why do you think your web application adheres to common practices to
+partition a REST-based web application (static assets vs.
+application data)
+La nostra applicazione web rispetta le pratiche comuni relative alla partizione del sito e alla conseguente suddivisione delle
+pagine che fanno riferimento ad uno static assets e altre che basano la loro logica sull&#39;application data, al cui interno bisogna considerare
+la suddivisione in openAPI gateway, controller e service. L&#39; applicazione considera infatti i dati relativi ad alcune pagine soggetti
+a variazione nel tempo e di conseguenza l&#39; utilizzo di un&#39; application server risulta essere necessario per poter interfacciarsi e interrogare
+il database. Nel restante caso i dati che non necessitano di query specifiche a database sono stati considerati come static assets.
+Abbiamo considerato opportuna ed efficace questa soluzione per rendere più performante il caricamento delle pagine.</li>
+<li>Describe synthetically why and how did you manage session state,
+what are the state change triggering actions (e.g., POST to login
+etc..).
+Nella nostra applicazione non abbiamo ritenuto strettamente necessario l&#39; utilizzo di una sezione di login in quanto tutti
+i contatti vengono esposti nel sito e una sezione dedicata all&#39; autenticazione dell&#39; utente l&#39; abbiamo considerata poco coerente
+con il sito che siamo andati a sviluppare. Le API che sono state implementate sono delle GET da Database che hanno
+lo scopo di creare dei modelli per le funzioni, implementate successivamente da backend, per caricare le informazioni 
+contenute all&#39; interno DB. La POST relativa alla prenotazione di un evento specifico è stata pensata a livello di specifiche ma non è
+stata poi di fatto implementata lato backend.</li>
+<li>Which technology did you use (relational or a no-SQL database) for
+managing the data model?
+La tipologia di database utilizzata nello sviluppo del sito è postgress, un object-relational database. Le struttura utillizata per 
+il salvataggio dei dati sono infatti delle tabelle in cui la prima riga è rappresentata dagli attributi relativi alle informazioni
+dei singoli oggetti.<h2 id="other-information">Other information</h2>
+<h3 id="task-assignment">Task assignment</h3>
+Describe here how development tasks have been subdivided among members
+of the group, e.g.:</li>
+<li>Foo worked on front end (80%) and OpenAPI Spec (20% of the time)</li>
+<li>Bar worked on ....
+Nella suddivisione del lavoro per lo sviluppo del sito abbiamo cercato di organizzarci per lavorare insieme per la maggior parte
+del tempo, cercando di dividere il lavoro affinchè tutti abbiano potuto contribuire alle parti più importanti del progetto e abbiano 
+avuto la possibilità di imparare i passaggi implementativi più importanti.<h3 id="analysis-of-existing-api">Analysis of existing API</h3>
+Describe here the research of (full or part of) existing APIs that are similar
+in objectives and scope to the one implemented, that have possibly guided
+implementation choices (these should not be necessarily OpenAPI
+implementations). Toy APIs (such as the Swagger&#39;s Pet Store) or the example
+shown during lectures are not a valid response.
+Use TWO or more items of the form:
+We took (full/partial) inspiration from API <XYZ>(link) for the part of the
+API that manages <ABC> because of <REASON>.
+Or
+For the part of the API that manages <ABC> we considered/studied <XYZ>(link)
+because of <REASON> but wasn&#39;t completely fitting to our purpose because of
+<REASON>.
+Per quanto riguarda lo sviluppo delle API non abbiamo ritenuto necessario prendere come riferimento delle API già esistenti.
+Le openAPI sviluppate sono state sviluppate semplicemente consultando la documentazione disponibile su swagger. In quanto le
+API necessarie per il nostro sito sono solo delle semplici chiamate a Database per ottenere come risposta i dati contenuti,
+non vi è infatti alcuna necessità per il client di aggiornare/inserire delle informazioni a DataBase. Per quanto riguarda invece
+l&#39;implementazione delle query da database, implementate a partire dalle funzioni già generate dal documento Yaml e contenute all&#39;
+interno della cartella Service, abbiamo utilizzato la documentazione contenuta all&#39; interno di knex.js.<h3 id="learning-outcome">Learning outcome</h3>
+What was the most important thing all the members have learned while
+developing this part of the project, what questions remained unanswered,
+how you will use what you&#39;ve learned in your everyday life?
+Examples:</li>
+<li>Foo learned to write SQL queries and Javascript but wanted to know
+more about caching, he&#39;s probably going to create his own startup
+with what she has learned</li>
+<li>Bar learned how to deploy on a cloud platform, he would have liked
+to know more about promises for asynchronous code..</li>
+</ul>
+</blockquote>

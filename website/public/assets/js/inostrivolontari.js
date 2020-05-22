@@ -38,7 +38,6 @@ $(document).ready(() => {
 async function loadVolunteers(){
     return await $.getJSON(DB_URL + "/volunteers", (data, status) => {
         if(status === "success"){
-            console.log(data);
             return data;
         }
         else

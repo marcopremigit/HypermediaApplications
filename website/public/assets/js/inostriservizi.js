@@ -36,10 +36,8 @@ $(document).ready(() => {
 
 
 async function loadServices(){
-    //TODO: this has to be replaced with database query information extraction
     return await $.getJSON(DB_URL + "/services", (data, status) => {
         if(status === "success"){
-            console.log(data);
             return data;
         }
         else

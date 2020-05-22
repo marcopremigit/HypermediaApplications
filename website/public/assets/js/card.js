@@ -26,8 +26,6 @@ function loadCardsAndFilters(elements, addFilters, link, querySelector, emptyPos
         h.append(g);
         g.innerText = `${e.name}`;
 
-        
-
         let s = document.createElement('div');
         s.className = 'row card-title text-center align-middle h-100';
         s.append(h);

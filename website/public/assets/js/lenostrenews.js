@@ -35,10 +35,8 @@ $(document).ready(() =>  {
 
 
 async function loadNews(){
-    //TODO: this has to be replaced with database query information extraction
     return await $.getJSON(DB_URL + "/news", (data, status) => {
         if(status === "success"){
-            console.log(data);
             return data;
         }
         else

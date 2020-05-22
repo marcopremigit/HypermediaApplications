@@ -26,7 +26,7 @@ $(document).ready(() => {
          saveInStorage('volunteersElementsOrder', volunteers.map(v => v.id));
         
         //Shuffler handling
-        new Shuffler('#volunteers-card-space', volunteers.map(v => v.category));
+        new Shuffler('#volunteers-card-space', true);
         
         //Spinner handling
         Spinner.letThemComeBack();

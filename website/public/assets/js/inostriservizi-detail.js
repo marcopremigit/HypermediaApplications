@@ -8,16 +8,6 @@ $(document).ready(() => {
     loadService(window.location.href.split('id=')[1]);
 });
 
-// function loadEvents(){
-//     //TODO: this has to be replaced with database query information extraction
-//     return [
-//         {id: 'ICSA', title: 'Vacanza studio Londra', img: 'https://source.unsplash.com/random/1920x1080', category: ["Vacanza studio"]},
-//         {id: 'csaicas', title: 'Cena di Natale', img: 'https://source.unsplash.com/random/1920x1080', category: ["Cena", "Vattelapesca"]},
-//         {id: 'csaiodsa', title: 'Colletta Natalizia', img: 'https://source.unsplash.com/random/1920x1080', category: ["Colletta"]},
-//     ];
-// }
-
-
 function loadNextElement(goRight){
     let elementsOrder = localStorage.getItem('servicesElementsOrder').split(',');
     let indexOfservice = elementsOrder.indexOf(service.id.toString());
@@ -29,8 +19,7 @@ function loadNextElement(goRight){
 function fillElements(){
     document.getElementById('serviceName').innerText = service.name;
     document.getElementById('serviceDescription').innerHTML = service.description;
-    document.getElementById('eventsTitle').innerHTML = `Eventi collegati`;
-    document.getElementById('detail-img').setAttribute("src",service.image);
+    document.getElementById('detail-img').src = service.image;
 }
 
 function loadService(id){
@@ -50,7 +39,6 @@ function loadService(id){
             title: "I nostri servizi"
         },
         {
-            //TODO: mettere in title il nome del volontario
             page: "inostrivolontari-detail.html",
             title: service.name
         }
@@ -64,6 +52,11 @@ function loadService(id){
 
     loadEventsService(id)
     .then(events => {
+        if(events.length==0){
+            Array.from(document.getElementsByClassName("disappear")).map(e => e.classList.add("d-none"));
+        }else{
+            Array.from(document.getElementsByClassName("disappear")).map(e => e.classList.remove("d-none"));
+        }
         loadCardsAndFilters(events, false,"inostrieventi-detail.html", '#events-card-space');
         let eventsJSON = {};
         events.map(e=>{

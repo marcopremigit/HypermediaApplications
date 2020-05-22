@@ -9,7 +9,7 @@ $(document).ready(() => {
             title: "Contattaci"
         }
     ]);
-    let form = document.getElementById("contact-form");
+    let form = $("#contact-form");
 
     form.addEventListener('submit', function(event) {
         if (form.checkValidity() === false) {
@@ -23,8 +23,8 @@ $(document).ready(() => {
 });
 
 function writeAnotherEmail(){
-    document.getElementById("subject").value='';
-    document.getElementById("message").value='';
-    document.getElementById("alert-success").style.display="none";
-    document.getElementById("contact-form").style.display="block";
+    $("#subject").value='';
+    $("#message").value='';
+    $("#alert-success").style.display="none";
+    $("#contact-form").style.display="block";
 }

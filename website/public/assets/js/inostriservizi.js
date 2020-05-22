@@ -25,7 +25,7 @@ $(document).ready(() => {
          saveInStorage('servicesElementsOrder', services.map(v => v.id));
         
         //Shuffler handling
-        new Shuffler('#services-card-space', services.map(v => v.category));
+        new Shuffler('#services-card-space', true);
         
         //Spinner handling
         Spinner.letThemComeBack();

@@ -1,11 +1,11 @@
 let Spinner = {
     letThemComeBack(){
-        let elements = document.getElementsByClassName("invisible");
+        let elements = $(".invisible");
         if(elements === null || elements === undefined) return; 
         Array.from(elements).map(e => {
             e.classList.remove("invisible");
         });
-        Array.from(document.getElementsByClassName("spinner-border")).map(s => {
+        Array.from($(".spinner-border")).map(s => {
             s.classList.add("invisible");
         });  
     }

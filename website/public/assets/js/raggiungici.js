@@ -13,7 +13,7 @@ $(document).ready(() =>  {
 
 function initMap() {
     let coordinates = {lat: 45.468868, lng: 9.206720}
-    let map = new google.maps.Map(document.getElementById('map'), {
+    let map = new google.maps.Map($('#map'), {
         center: coordinates,
         zoom: 18
     });

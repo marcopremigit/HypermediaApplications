@@ -5,18 +5,21 @@ function loadCardsAndFilters(elements, addFilters, link, querySelector, emptyPos
     let col = $width <= 400 ? 'col-12' : $width <= 768 ? 'col-4' : 'col-3';
     elements.map(e => {
         let card = document.createElement('div');
+        let groups = [e.category];
+        if(e.date_start) {
+            let data = new Date(e.date_start);
+            groups.push(`${data.getUTCFullYear()}/${(data.getMonth()+1)}`);
+        }
         card.className = `text-center card mb-3 invisible ${col}`;
-        card.setAttribute('data-groups', `["${e.category/*.join('","')*/}"]`);
+        card.setAttribute('data-groups', `["${groups.join('","')}"]`);
         card.setAttribute('data-title', `${e.name}`);
         card.setAttribute('data-id', `${e.id}`);
-        
         let a = document.createElement('a');
         a.href = `${link}?id=${e.id}`;
 
         let img = document.createElement('img');
         img.className = 'card-img-top';
         img.setAttribute('alt', `${e.name}`);
-        console.log(e)
         img.setAttribute('src', `${e.image}`);
         
         let h = document.createElement('div');
@@ -37,19 +40,18 @@ function loadCardsAndFilters(elements, addFilters, link, querySelector, emptyPos
     });
 
     if(addFilters){
-        let dropdowns = $('.dropdown-menu');
+        let dropdowns = $('.categories');
         [...new Set(elements.map(e => e.category).flat())]
         .map(c => { 
             Array.from(dropdowns).map( d =>{
                 let b = document.createElement('button');
                 b.className = 'dropdown-item';
                 b.setAttribute('type', 'button');
-                b.setAttribute('data-group', `${c}`);
+                b.setAttribute('data-category', `${c}`);
                 b.innerText = c;
                 d.append(b);       
             });
         });
-
     }
 
     $(window).resize(()=>{

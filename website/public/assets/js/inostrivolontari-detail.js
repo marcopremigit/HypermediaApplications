@@ -36,15 +36,12 @@ function loadNextElement(goRight){
 }
 
 function fillElements(){
-    console.log(volunteer);
     document.getElementById('volunteerName').innerText = volunteer.name;
     document.getElementById('whoami').innerHTML = volunteer.description;
     document.getElementById('mycareer').innerHTML = volunteer.career;
     document.getElementById('phone').innerHTML = volunteer.phone;
     document.getElementById('email').innerHTML = volunteer.email;
-    document.getElementById('detail-img').setAttribute("src",volunteer.image );
-
-
+    document.getElementById('detail-img').src = volunteer.image;
     
     document.getElementById('servicesTitle').innerHTML = `I servizi di ${volunteer.name}`;
     document.getElementById('eventsTitle').innerHTML = `I prossimi eventi di ${volunteer.name}`;
@@ -94,6 +91,11 @@ function loadVolunteer(id){
     
     loadVolunteerEvents(id)
     .then(events =>{
+        if(events.length==0){
+            Array.from(document.getElementsByClassName("disappear")).map(e => e.classList.add("d-none"));
+        }else{
+            Array.from(document.getElementsByClassName("disappear")).map(e => e.classList.remove("d-none"));
+        }
         removeAllCards('events-card-space');
         loadCardsAndFilters(events, false, "inostrieventi-detail.html", '#events-card-space');
         let eventsJSON = {};

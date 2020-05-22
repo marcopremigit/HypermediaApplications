@@ -17,7 +17,20 @@ $(document).ready(() => {
     loadEvents()
     .then(events => {
         //Cards and filters handling
+        let dropdowns = $('.months');
+        [...new Set(events.map(e => `${(new Date(e.date_start)).getUTCFullYear()}/${(new Date(e.date_start)).getMonth() + 1}`).flat())]
+        .map(c => { 
+            Array.from(dropdowns).map( d =>{
+                let b = document.createElement('button');
+                b.className = 'dropdown-item';
+                b.setAttribute('type', 'button');
+                b.setAttribute('data-month', c);
+                b.innerText = c;
+                d.append(b);
+            });
+        });
         loadCardsAndFilters(events, true, 'inostrieventi-detail.html', '#events-card-space');
+
         let eventsJSON = {};
         events.map(e => {
             eventsJSON[e.id] = e;
@@ -30,7 +43,7 @@ $(document).ready(() => {
         }));
     
         //Shuffler handling
-        new Shuffler('#events-card-space', events.map(e => e.category));
+        new Shuffler('#events-card-space',true, true);
         
         //Spinner handling
         Spinner.letThemComeBack();

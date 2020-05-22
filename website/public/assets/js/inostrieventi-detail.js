@@ -75,12 +75,12 @@ function loadNextElement(goRight){
 }
 
 function fillElements(){
-    $('#eventName').innerText = event.name;
-    $('#eventDescription').innerHTML = event.description;
-    $('#eventStarts').innerHTML = formatDate(new Date(event.date_start));
-    $('#eventEnds').innerHTML = formatDate(new Date(event.date_end));
-    $('#availableSpots').innerText = event.available_places;
-    $('#detail-img').src = event.image;
+    document.getElementById('eventName').innerText = event.name;
+    document.getElementById('eventDescription').innerHTML = event.description;
+    document.getElementById('eventStarts').innerHTML = formatDate(new Date(event.date_start));
+    document.getElementById('eventEnds').innerHTML = formatDate(new Date(event.date_end));
+    document.getElementById('availableSpots').innerText = event.available_places;
+    document.getElementById('detail-img').src = event.image;
 }
 
 let formatDate = date => `${date.getDate()}-${date.getMonth() + 1}-${date.getUTCFullYear()}`;

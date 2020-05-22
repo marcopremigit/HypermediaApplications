@@ -8,16 +8,6 @@ $(document).ready(() => {
     loadService(window.location.href.split('id=')[1]);
 });
 
-function loadEvents(){
-    //TODO: this has to be replaced with database query information extraction
-    return [
-        {id: 'ICSA', title: 'Vacanza studio Londra', img: 'https://source.unsplash.com/random/1920x1080', category: ["Vacanza studio"]},
-        {id: 'csaicas', title: 'Cena di Natale', img: 'https://source.unsplash.com/random/1920x1080', category: ["Cena", "Vattelapesca"]},
-        {id: 'csaiodsa', title: 'Colletta Natalizia', img: 'https://source.unsplash.com/random/1920x1080', category: ["Colletta"]},
-    ];
-}
-
-
 function loadNextElement(goRight){
     let elementsOrder = localStorage.getItem('servicesElementsOrder').split(',');
     let indexOfservice = elementsOrder.indexOf(service.id.toString());
@@ -27,9 +17,9 @@ function loadNextElement(goRight){
 }
 
 function fillElements(){
-    $('#serviceName').innerText = service.name;
-    $('#serviceDescription').innerHTML = service.description;
-    $('#detail-img').src = service.image;
+    document.getElementById('serviceName').innerText = service.name;
+    document.getElementById('serviceDescription').innerHTML = service.description;
+    document.getElementById('detail-img').src = service.image;
 }
 
 function loadService(id){

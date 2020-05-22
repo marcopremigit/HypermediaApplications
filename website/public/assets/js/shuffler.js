@@ -2,13 +2,15 @@ class Shuffler {
     constructor(idPosition, categories = false, dates = false) {
         this.shuffle = new window.Shuffle($(idPosition), {
             itemSelector: '.card',
-            filterMode: Shuffle.FilterMode.ANY,
+            filterMode: Shuffle.FilterMode.ALL,
             group: Shuffle.ALL_ITEMS,
             speed: 400,
             isCentered: $(window).width()<1400,
         }); 
-        this._activeFilters = [];
-        this.shuffle.filter(this._activeFilters);
+        this._activeFilters = [[], []];
+        this._category = null;
+        this._month = null;
+        this.shuffle.filter(this._activeFilters.flat());
         //add category filter only if needed
         if(categories) {
             Array.from($('.categories').children())
@@ -40,13 +42,13 @@ class Shuffler {
     _handleSearchKeyup(evt) {
         let searchText = evt.target.value.toLowerCase();
         if(searchText === '') {
-            this.shuffle.filter(this._activeFilters);
+            this.shuffle.filter(this._activeFilters.flat());
             return;
         }
         this.shuffle.filter((element, shuffle) => {
             if(shuffle.group !== Shuffle.ALL_ITEMS){
                 let groups = JSON.parse(element.getAttribute("data-groups"));
-                let isElementInCurrentGroup = this._activeFilters.some(e => groups.indexOf(e) !== -1);
+                let isElementInCurrentGroup = this._activeFilters.flat().some(e => groups.indexOf(e) !== -1);
                 if(!isElementInCurrentGroup) return false;
             }
             return element.querySelector('.card-title').textContent.toLowerCase().trim().indexOf(searchText) !== -1;
@@ -60,23 +62,7 @@ class Shuffler {
      * @param {Event} evt Event object.
      */
     _handleCategoryButtonClick(evt) {
-        let button = evt.currentTarget;
-        let group = button.getAttribute('data-group');
-        // If this button is already active, remove it from the list of filters.
-        if (button.classList.contains('active')) {
-            this._activeFilters.splice(this._activeFilters.indexOf(group), 1);
-        } else {
-            this._activeFilters.push(group);
-        }
-
-        button.classList.toggle('active');
-        if(this._activeFilters.isEmpty) this.shuffle.group = Shuffle.ALL_ITEMS;
-        else this.shuffle.group = this._activeFilters.toString();
-
-        // Filter elements
-        this.shuffle.filter(this._activeFilters);
-        
-        if(this._mapExists) this._reloadMarkers();
+        this._handleToggling('data-category', evt, '.categories');
     }
 
     /**
@@ -84,22 +70,24 @@ class Shuffler {
      * @param {Event} evt Event object.
      */
     _handleMonthsButtonClick(evt) {
+        this._handleToggling('data-month', evt, '.months');
+    }
+
+    _handleToggling(attribute, evt, cssClass){
         let button = evt.currentTarget;
-        let month = button.getAttribute('data-month');
-        // If this button is already active, remove it from the list of filters.
-        if (button.classList.contains('active')) {
-            this._activeFilters.splice(this._activeFilters.indexOf(month), 1);
-        } else {
-            this._activeFilters.push(month);
-        }
+        let isActive = button.classList.contains('active');
+        let filter = button.getAttribute(attribute);
+        let index = cssClass === '.months' ? 0 : 1;
 
-        button.classList.toggle('active');
-        if(this._activeFilters.isEmpty) this.shuffle.group = Shuffle.ALL_ITEMS;
-        else this.shuffle.group = this._activeFilters.toString();
+        Array.from($(cssClass).children()).map(e => e.classList.remove('active'));
+        this._activeFilters[index] = (this._activeFilters[index] && this._activeFilters[index][0] === filter) ? null : [filter];
 
-        // Filter elements
-        this.shuffle.filter(this._activeFilters);
+        if(!isActive) button.classList.add('active');
+
+        this.shuffle.group = this._activeFilters.flat().isEmpty ? Shuffle.ALL_ITEMS : this._activeFilters.flat().toString();
         
+        // Filter elements
+        this.shuffle.filter(this._activeFilters.flat().filter(e=>e));
         if(this._mapExists) this._reloadMarkers();
     }
 

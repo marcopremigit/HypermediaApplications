@@ -47,7 +47,7 @@ function loadCardsAndFilters(elements, addFilters, link, querySelector, emptyPos
                 let b = document.createElement('button');
                 b.className = 'dropdown-item';
                 b.setAttribute('type', 'button');
-                b.setAttribute('data-group', `${c}`);
+                b.setAttribute('data-category', `${c}`);
                 b.innerText = c;
                 d.append(b);       
             });

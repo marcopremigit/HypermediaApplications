@@ -80,11 +80,10 @@ function fillElements(){
     $('#eventStarts').innerHTML = formatDate(new Date(event.date_start));
     $('#eventEnds').innerHTML = formatDate(new Date(event.date_end));
     $('#availableSpots').innerText = event.available_places;
-    $('#detail-img').setAttribute("src", event.image);
+    $('#detail-img').src = event.image;
 }
 
 let formatDate = date => `${date.getDate()}-${date.getMonth() + 1}-${date.getUTCFullYear()}`;
-
 
 async function loadEventsService(id_event){
     return await $.getJSON(DB_URL + "/event_service",

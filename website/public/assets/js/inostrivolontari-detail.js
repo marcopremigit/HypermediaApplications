@@ -41,14 +41,14 @@ function fillElements(){
     $('#mycareer').innerHTML = volunteer.career;
     $('#phone').innerHTML = volunteer.phone;
     $('#email').innerHTML = volunteer.email;
-    $('#detail-img').setAttribute("src",volunteer.image );
+    $('#detail-img').src = volunteer.image;
     
     $('#servicesTitle').innerHTML = `I servizi di ${volunteer.name}`;
     $('#eventsTitle').innerHTML = `I prossimi eventi di ${volunteer.name}`;
 }
 
 function loadVolunteer(id){
-    volunteer = volunteers[id];
+    volunteer = (volunteers && volunteers[id]) || JSON.parse(localStorage.getItem('volunteer'))[id];
     
     if(volunteer === null || volunteer === undefined){
         //TODO: something went wrong

@@ -18,7 +18,7 @@ function fillElements(){
     $('#newsName').innerText = news.name;
     $('#news_Name').innerText = news.name;
     $('#newsDescription').innerHTML = news.long_description;
-    $('#detail-img').setAttribute("src",news.image);
+    $('#detail-img').src = news.image;
 }
 
 function loadNews(id){

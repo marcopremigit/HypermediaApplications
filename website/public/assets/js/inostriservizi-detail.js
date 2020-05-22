@@ -29,8 +29,7 @@ function loadNextElement(goRight){
 function fillElements(){
     $('#serviceName').innerText = service.name;
     $('#serviceDescription').innerHTML = service.description;
-    $('#eventsTitle').innerHTML = `Eventi collegati`;
-    $('#detail-img').setAttribute("src",service.image);
+    $('#detail-img').src = service.image;
 }
 
 function loadService(id){
@@ -50,7 +49,6 @@ function loadService(id){
             title: "I nostri servizi"
         },
         {
-            //TODO: mettere in title il nome del volontario
             page: "inostrivolontari-detail.html",
             title: service.name
         }

@@ -47,11 +47,11 @@ exports.volunteer_eventGET = function(limit,id_event,id_volunteer) {
     {
       id_event: id_event
   }) 
-  .limit(limit)
+  // .limit(limit)
   .then(data => {
     return db(id_volunteer ? 'event' : 'volunteers')
     .whereIn('id', data.map(e => id_volunteer ? e.id_event : e.id_volunteer))
-    .limit(limit)
+    // .limit(limit)
     .then(d => d);
   }); 
 }
@@ -79,11 +79,11 @@ exports.volunteer_serviceGET = function(limit,id_volunteer,id_service) {
     {
       id_service: id_service
   }) 
-  .limit(limit)
+  // .limit(limit)
   .then(data => {
     return db(id_volunteer ? 'service' : 'volunteers')
     .whereIn('id', data.map(e => id_volunteer ? e.id_service : e.id_volunteer))
-    .limit(limit)
+    // .limit(limit)
     .then(d => d);
   }); 
 }
@@ -103,7 +103,7 @@ exports.volunteersGET = function(category,limit,offset) {
   if(!offset) offset = 0;
 
   return db('volunteers')
-  .limit(limit)
+  // .limit(limit)
   .offset(offset)
   .then(data => data);
 }

@@ -51,11 +51,11 @@ exports.event_serviceGET = function(limit,id_event,id_service) {
     {
       id_event: id_event
   }) 
-  .limit(limit)
+  //.limit(limit)
   .then(data => {
     return db(id_service ? 'event' : 'service')
     .whereIn('id', data.map(e => id_event ? e.id_service : e.id_event))
-    .limit(limit)
+ //   .limit(limit)
     .then(d => d);
   }); 
 }
@@ -126,7 +126,7 @@ exports.eventsGET = function(category,limit,offset) {
   if(!offset) offset = 0;
 
   return db('event')
-  .limit(limit)
+  //.limit(limit)
   .offset(offset)
   .then(data => data);
 }

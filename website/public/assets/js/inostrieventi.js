@@ -41,7 +41,6 @@ $(document).ready(() => {
 
 async function loadEvents(){
     return await $.getJSON(DB_URL + "/events", (data, status) => {
-        console.log(data);
         if(status === "success") return data;
         else console.error(status);
     })

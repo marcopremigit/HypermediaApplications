@@ -32,7 +32,6 @@ $(document).ready(() => {
 async function loadOpenPositions(){
     return await $.getJSON(DB_URL + "/jobs", (data, status) => {
         if(status === "success"){
-            console.log(data);
             return data;
         }
         else

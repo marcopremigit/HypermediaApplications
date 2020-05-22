@@ -114,7 +114,6 @@ async function loadEventsService(id_event){
     },
     (data, status) => {
         if(status === "success"){
-            console.log(data);
             return data;
         }
         else
@@ -129,7 +128,6 @@ async function loadEventsVolunteer(id_event){
     },
     (data, status) => {
         if(status === "success"){
-            console.log(data);
             return data;
         }
         else

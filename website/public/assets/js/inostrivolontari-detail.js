@@ -36,6 +36,7 @@ function loadNextElement(goRight){
 }
 
 function fillElements(){
+    console.log(volunteer);
     document.getElementById('volunteerName').innerText = volunteer.name;
     document.getElementById('whoami').innerHTML = volunteer.description;
     document.getElementById('mycareer').innerHTML = volunteer.career;
@@ -50,7 +51,7 @@ function fillElements(){
 }
 
 function loadVolunteer(id){
-    volunteer = volunteers[id];
+    volunteer = (volunteers && volunteers[id]) || JSON.parse(localStorage.getItem('volunteer'))[id];
     
     if(volunteer === null || volunteer === undefined){
         //TODO: something went wrong

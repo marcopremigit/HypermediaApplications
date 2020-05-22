@@ -63,21 +63,21 @@ not rendered server side?
 Nello sviluppo del nostro sito abbiamo deciso di considerare alcune pagine che non necessitano dell&#39; interazione con il data base
 (data layer) ma che risiedono soltanto all&#39; interno dell&#39; application e presentation layer, in quanto le informazioni che vi sono contenute
 saranno soggette a poche modifiche nel tempo e non richiedono perciò un caricamento da database.
-Queste pagine sono:
-HomePage
-Chi Siamo
-Raggiungici
-Sostienici
-Contattaci
+Queste pagine sono:</li>
+<li>HomePage</li>
+<li>Chi Siamo</li>
+<li>Raggiungici</li>
+<li>Sostienici</li>
+<li>Contattaci
 Le informazioni relative invece alle pagine che necessitano un caricamento di informazioni
 sono state salvate all&#39; interno del Database (data layer). Le informazioni contenute in queste pagine possono infatti
 cambiare e dover essere aggiornate nel tempo, in quanto possono aggiungersi o cancellarsi o dare una nuova versione di alcuni contenuti.
-Le pagine che appartengono all&#39;application e presentation layer ma che necessitano di un&#39; interazione con il data layer sono:
-Le nostre News
-I nostri volontari (con l&#39;aggiunta delle pagine dettagliate dei volontari singoli)
-I nostri eventi (con l&#39; aggiunta delle pagine dettagliate dei singoli eventi)
-I nostri servizi (con l&#39; aggiunta delle pagine dettagliate dei singoli servizi)
-Lavora con noi<h3 id="api">API</h3>
+Le pagine che appartengono all&#39;application e presentation layer ma che necessitano di un&#39; interazione con il data layer sono:</li>
+<li>Le nostre News</li>
+<li>I nostri volontari (con l&#39;aggiunta delle pagine dettagliate dei volontari singoli)</li>
+<li>I nostri eventi (con l&#39; aggiunta delle pagine dettagliate dei singoli eventi)</li>
+<li>I nostri servizi (con l&#39; aggiunta delle pagine dettagliate dei singoli servizi)</li>
+<li>Lavora con noi<h3 id="api">API</h3>
 <h4 id="rest-compliance">REST compliance</h4>
 Describe here to what extent did you follow REST principles and what are
 the reasons for which you might have decided to diverge. Note, you must
@@ -93,14 +93,15 @@ significativo nello stato della sessione. Questo permetti quindi di effettuare d
 lo stesso risultato.<h3 id="data-model">Data model</h3>
 Describe with an ER diagram the model used in the data layer of your web
 application. How these map to the OpenAPI data model?
+<img src="../../Design Document/resources/images/db.png" width="1000">
 All&#39;interno del data layer, durante la creazione delle tabelle, abbiamo cercato di rimanere coerenti con l&#39; ER rappresentato
 all&#39; interno del documento di design, cercando anche di rispettare i nomi assegnati.
-A ciascuna di queste pagine è stata associata una tabella a Database:
-Lavora con noi (nell&#39; ER viene indicato con Open Position e all&#39; interno del DB come jobs)
-Le nostre News (nell&#39; ER viene indicato con News e all&#39; interno del DB come news)
-I nostri volontari (nell&#39; ER viene indicato con Volunteer e all&#39; interno del DB come voluteers)
-I nostri eventi (nell&#39; ER viene indicato con News e all&#39; interno del DB come news)
-I nostri servizi (nell&#39; ER viene indicato con Service e all&#39; interno del DB come service)
+A ciascuna di queste pagine è stata associata una tabella a Database:</li>
+<li>Lavora con noi (nell&#39; ER viene indicato con Open Position e all&#39; interno del DB come jobs)</li>
+<li>Le nostre News (nell&#39; ER viene indicato con News e all&#39; interno del DB come news)</li>
+<li>I nostri volontari (nell&#39; ER viene indicato con Volunteer e all&#39; interno del DB come voluteers)</li>
+<li>I nostri eventi (nell&#39; ER viene indicato con News e all&#39; interno del DB come news)</li>
+<li>I nostri servizi (nell&#39; ER viene indicato con Service e all&#39; interno del DB come service)
 Le tabelle ponte rappresentate a livello di logical Design , utilizzate per rappresentare le associazioni 0:N,
 e nell&#39;ER come relazioni, sono state rispettate a livello di Database. Con l&#39; unica differenza che abbiamo deciso di dividere 
 Volunteer_Assigned_To in due tabelle che sono volunteerInEvent e volunteerInService.
@@ -140,16 +141,18 @@ stata poi di fatto implementata lato backend.</li>
 <li>Which technology did you use (relational or a no-SQL database) for
 managing the data model?
 La tipologia di database utilizzata nello sviluppo del sito è postgress, un object-relational database. Le struttura utillizata per 
-il salvataggio dei dati sono infatti delle tabelle in cui la prima riga è rappresentata dagli attributi relativi alle informazioni
-dei singoli oggetti.<h2 id="other-information">Other information</h2>
+il salvataggio dei dati sono infatti delle tabelle in cui la prima riga è rappresentata dagli attributi relativi alle informazioni dei singoli oggetti. 
+Le righe successive alla prima rappresentano i dati veri e propri e in quanto tali sono caratterizzati da una chiave primaria. 
+Sono state aggiunte inoltre delle chiavi esterne per tenere conto dei collegamenti che sono presenti nelle tabelle ponte (Service-&gt;Events,
+Events-&gt;Service, Volunteer-&gt;Events, Events-&gt;Volunteer, Volunteer-&gt;Service e Service-&gt;Volunteer)<h2 id="other-information">Other information</h2>
 <h3 id="task-assignment">Task assignment</h3>
 Describe here how development tasks have been subdivided among members
 of the group, e.g.:</li>
 <li>Foo worked on front end (80%) and OpenAPI Spec (20% of the time)</li>
 <li>Bar worked on ....
 Nella suddivisione del lavoro per lo sviluppo del sito abbiamo cercato di organizzarci per lavorare insieme per la maggior parte
-del tempo, cercando di dividere il lavoro affinchè tutti abbiano potuto contribuire alle parti più importanti del progetto e abbiano 
-avuto la possibilità di imparare i passaggi implementativi più importanti.<h3 id="analysis-of-existing-api">Analysis of existing API</h3>
+del tempo, cercando di dividere il lavoro affinchè tutti potessero contribuire alle parti più importanti del progetto e avessero
+la possibilità di imparare i passaggi implementativi più importanti.<h3 id="analysis-of-existing-api">Analysis of existing API</h3>
 Describe here the research of (full or part of) existing APIs that are similar
 in objectives and scope to the one implemented, that have possibly guided
 implementation choices (these should not be necessarily OpenAPI

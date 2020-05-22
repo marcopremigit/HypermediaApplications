@@ -97,7 +97,6 @@ class Shuffler {
         if(this._activeFilters.isEmpty) this.shuffle.group = Shuffle.ALL_ITEMS;
         else this.shuffle.group = this._activeFilters.toString();
 
-        console.log(this._activeFilters.toString());
         // Filter elements
         this.shuffle.filter(this._activeFilters);
         

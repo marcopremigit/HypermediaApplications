@@ -5,14 +5,15 @@ function loadCardsAndFilters(elements, addFilters, link, querySelector, emptyPos
     let col = $width <= 400 ? 'col-12' : $width <= 768 ? 'col-4' : 'col-3';
     elements.map(e => {
         let card = document.createElement('div');
-        card.className = `text-center card mb-3 invisible ${col}`;
-        card.setAttribute('data-groups', `["${e.category}"]`);
-        card.setAttribute('data-title', `${e.name}`);
-        card.setAttribute('data-id', `${e.id}`);
+        let groups = [e.category];
         if(e.date_start) {
             let data = new Date(e.date_start);
-            card.setAttribute('data-months', `["${data.getUTCFullYear()}/${(data.getMonth()+1)}"]`);
+            groups.push(`${data.getUTCFullYear()}/${(data.getMonth()+1)}`);
         }
+        card.className = `text-center card mb-3 invisible ${col}`;
+        card.setAttribute('data-groups', `["${groups.join('","')}"]`);
+        card.setAttribute('data-title', `${e.name}`);
+        card.setAttribute('data-id', `${e.id}`);
         let a = document.createElement('a');
         a.href = `${link}?id=${e.id}`;
 

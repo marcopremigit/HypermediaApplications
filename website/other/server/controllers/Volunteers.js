@@ -26,7 +26,8 @@ module.exports.volunteer_serviceGET = function volunteer_serviceGET (req, res, n
 module.exports.volunteersGET = function volunteersGET (req, res, next, category, limit, offset) {
   Volunteers.volunteersGET(category, limit, offset)
     .then(function (response) {
-      utils.writeJson(res, response);
+      if(Object.keys(response).length > 0) utils.writeJson(res, response);
+      else utils.respondWithCode(404, 'Diobestia');
     })
     .catch(function (response) {
       utils.writeJson(res, response);

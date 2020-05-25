@@ -28,7 +28,7 @@ module.exports.eventsEventIdGET = function eventsEventIdGET (req, res, next, eve
 module.exports.eventsGET = function eventsGET (req, res, next, category, limit, offset) {
   Events.eventsGET(category, limit, offset)
     .then(function (response) {
-      if(Object.keys(response).length === 0) utils.writeJson(res, utils.respondWithCode(404, 'No Entities with specified parameters has been found'));
+      if(Object.keys(response).length === 0) utils.writeJson(res, utils.respondWithCode(404, 'No Entities with specified parameters have been found'));
       else utils.writeJson(res, response);
     })
     .catch(function (response) {

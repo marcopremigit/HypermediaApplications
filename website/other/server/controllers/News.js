@@ -6,7 +6,7 @@ var News = require('../service/NewsService');
 module.exports.newsGET = function newsGET (req, res, next, limit, offset) {
   News.newsGET(limit, offset)
     .then(function (response) {
-      if(Object.keys(response).length === 0) utils.writeJson(res, utils.respondWithCode(404, 'No Entities with specified parameters has been found'));
+      if(Object.keys(response).length === 0) utils.writeJson(res, utils.respondWithCode(404, 'No Entities with specified parameters have been found'));
       else utils.writeJson(res, response);
     })
     .catch(function (response) {

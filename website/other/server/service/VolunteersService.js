@@ -104,6 +104,9 @@ exports.volunteersGET = function(category,limit,offset) {
 
   return db('volunteers')
   // .limit(limit)
+  .where(builder => {
+    if(category) builder.where(category, category);
+  })
   .offset(offset)
   .then(data => data);
 }

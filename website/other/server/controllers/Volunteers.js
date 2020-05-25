@@ -10,7 +10,7 @@ module.exports.volunteer_eventGET = function volunteer_eventGET (req, res, next,
       else utils.writeJson(res, response);
     })
     .catch(function (response) {
-      utils.writeJson(res, response);
+      utils.writeJson(res, utils.respondWithCode(404, 'Something was wrong with your query, please correct it'));
     });
 };
 
@@ -21,7 +21,7 @@ module.exports.volunteer_serviceGET = function volunteer_serviceGET (req, res, n
       else utils.writeJson(res, response);
     })
     .catch(function (response) {
-      utils.writeJson(res, response);
+      utils.writeJson(res, utils.respondWithCode(404, 'Something was wrong with your query, please correct it'));
     });
 };
 
@@ -32,7 +32,7 @@ module.exports.volunteersGET = function volunteersGET (req, res, next, category,
       else utils.writeJson(res, response);
     })
     .catch(function (response) {
-      utils.writeJson(res, response);
+      utils.writeJson(res, utils.respondWithCode(404, 'Something was wrong with your query, please correct it'));
     });
 };
 

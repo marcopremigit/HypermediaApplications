@@ -10,7 +10,7 @@ module.exports.event_serviceGET = function event_serviceGET (req, res, next, lim
       else utils.writeJson(res, response);
     })
     .catch(function (response) {
-      utils.writeJson(res, response);
+      utils.writeJson(res, utils.respondWithCode(404, 'Something was wrong with your query, please correct it'));
     });
 };
 
@@ -32,6 +32,6 @@ module.exports.eventsGET = function eventsGET (req, res, next, category, limit, 
       else utils.writeJson(res, response);
     })
     .catch(function (response) {
-      utils.writeJson(res, response);
+      utils.writeJson(res, utils.respondWithCode(404, 'Something was wrong with your query, please correct it'));
     });
 };

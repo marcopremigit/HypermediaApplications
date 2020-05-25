@@ -10,9 +10,7 @@ module.exports.servicesGET = function servicesGET (req, res, next, category, lim
       else utils.writeJson(res, response);
     })
     .catch(function (response) {
-      console.log('[ERROR]');
-      console.log(response);
-      utils.writeJson(res, response);
+      utils.writeJson(res, utils.respondWithCode(404, 'Something was wrong with your query, please correct it'));
     });
 };
 

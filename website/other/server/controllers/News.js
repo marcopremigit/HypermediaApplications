@@ -10,7 +10,7 @@ module.exports.newsGET = function newsGET (req, res, next, limit, offset) {
       else utils.writeJson(res, response);
     })
     .catch(function (response) {
-      utils.writeJson(res, response);
+      utils.writeJson(res, utils.respondWithCode(404, 'Something was wrong with your query, please correct it'));
     });
 };
 

@@ -36,10 +36,8 @@ module.exports.volunteersGET = function volunteersGET (req, res, next, category,
 module.exports.volunteersVolunteerIdGET = function volunteersVolunteerIdGET (req, res, next, volunteerId) {
   Volunteers.volunteersVolunteerIdGET(volunteerId)
     .then(function (response) {
-      console.log('[VOLUNTEERS GET] - RESPONSE:');
-      console.log(res);
-      console.log(response);
-      utils.writeJson(res, response);
+      if(Object.keys(response).length > 0) utils.writeJson(res, response);
+      else utils.respondWithCode(404, 'Diobestia');
     })
     .catch(function (response) {
       utils.writeJson(res, response);

@@ -2,18 +2,6 @@ const DB_URL = "https://ripe4u.herokuapp.com";
 const MONTHS = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
 
 $(document).ready(() => { 
-    //Breadcrumbs handling
-    Breadcrumbs.loadCrumbs([
-        {
-            page: "../index.html",
-            title: "Home"
-        },
-        {
-            page: "inostrieventi.html",
-            title: "I nostri eventi"
-        }
-    ]);
-
     //Query to database
     loadEvents()
     .then(events => {

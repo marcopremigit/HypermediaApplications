@@ -55,21 +55,7 @@ function loadVolunteer(id){
     }
     
     //Breadcrumbs handling
-    Breadcrumbs.loadCrumbs([
-        {
-            page: "../index.html",
-            title: "Home"
-        },
-        {
-            page: "inostrivolontari.html",
-            title: "I nostri volontari"
-        },
-        {
-            //TODO: mettere in title il nome del volontario
-            page: "inostrivolontari-detail.html",
-            title: volunteer.name
-        }
-    ]);
+    Breadcrumbs.showCrumbs(volunteer.name);
 
     fillElements();
 

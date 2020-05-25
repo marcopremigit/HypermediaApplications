@@ -1,18 +1,6 @@
 const DB_URL = "https://ripe4u.herokuapp.com";
 
 $(document).ready(() => {
-    Breadcrumbs.loadCrumbs([
-        {
-            page: "../index.html",
-            title: "Home"
-        },
-        {
-            page: "inostriservizi.html",
-            title: "I nostri servizi"
-        }
-    ]);
-  
-
     loadServices()
     .then(services => {
         //Cards and filters handling

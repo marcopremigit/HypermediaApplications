@@ -29,20 +29,7 @@ function loadService(id){
     }
     
     //Breadcrumbs handling
-    Breadcrumbs.loadCrumbs([
-        {
-            page: "../index.html",
-            title: "Home"
-        },
-        {
-            page: "inostriservizi.html",
-            title: "I nostri servizi"
-        },
-        {
-            page: "inostrivolontari-detail.html",
-            title: service.name
-        }
-    ]);
+    Breadcrumbs.showCrumbs(service.name);
 
     fillElements();
 

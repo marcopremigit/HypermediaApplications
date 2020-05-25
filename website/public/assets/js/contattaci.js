@@ -1,14 +1,4 @@
 $(document).ready(() => {
-    Breadcrumbs.loadCrumbs([
-        {
-            page: "../index.html",
-            title: "Home"
-        },
-        {
-            page: "contattaci.html",
-            title: "Contattaci"
-        }
-    ]);
     let form = $("#contact-form");
 
     form.addEventListener('submit', function(event) {

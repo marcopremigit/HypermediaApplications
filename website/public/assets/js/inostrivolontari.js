@@ -1,18 +1,6 @@
 const DB_URL = "https://ripe4u.herokuapp.com";
 
 $(document).ready(() => {
-    //Breadcrumbs handling
-    Breadcrumbs.loadCrumbs([
-        {
-            page: "../index.html",
-            title: "Home"
-        },
-        {
-            page: "inostrieventi.html",
-            title: "I nostri volontari" 
-        }
-    ]);
-
     //Query to database
     loadVolunteers()
     .then(volunteers => {

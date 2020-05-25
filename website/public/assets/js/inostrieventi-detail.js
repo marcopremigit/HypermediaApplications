@@ -14,20 +14,7 @@ function loadEvent(id){
     }
     
     //Breadcrumbs handling
-    Breadcrumbs.loadCrumbs([
-        {
-            page: "../index.html",
-            title: "Home"
-        },
-        {
-            page: "inostrieventi.html",
-            title: "I nostri eventi"
-        },
-        {
-            page: "inostrieventi-detail.html",
-            title: event.name
-        }
-    ]);
+    Breadcrumbs.showCrumbs(event.name);
 
     fillElements();
     loadEventsService(id)

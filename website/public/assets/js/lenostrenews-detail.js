@@ -1,8 +1,7 @@
 let news = null;
-let news_ = null;
+let _news = null;
 $(document).ready(() =>  {
-    news_ = JSON.parse(localStorage.getItem('news'));
-    console.log("NEWS: "+news_)
+    _news = JSON.parse(localStorage.getItem('news'));
     loadNews(window.location.href.split('id=')[1]);
 });
 
@@ -22,29 +21,14 @@ function fillElements(){
 }
 
 function loadNews(id){
-    news = news_[id];
+    news = _news[id];
     
     if(news === null || news === undefined){
         //TODO: something went wrong
     }
     
     //Breadcrumbs handling
-    Breadcrumbs.loadCrumbs([
-        {
-            page: "../index.html",
-            title: "Home"
-        },
-        {
-            page: "lenostrenews.html",
-            title: "Le nostre news"
-        },
-        {
-         
-            page: "lenostrenews-detail.html",
-            title: news.name
-        }
-    ]);
-
+    Breadcrumbs.showCrumbs(news.name);
     fillElements();
 
     //Spinner handling

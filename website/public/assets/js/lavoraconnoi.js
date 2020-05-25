@@ -1,17 +1,6 @@
 const DB_URL = "https://ripe4u.herokuapp.com";
 
 $(document).ready(() => {
-    Breadcrumbs.loadCrumbs([
-        {
-            page: "../index.html",
-            title: "Home"
-        },
-        {
-            page: "lavoraconnoi.html",
-            title: "Lavora con noi"
-        }
-    ]);
-    
     //Query to database
     loadOpenPositions()
     .then(jobs => {

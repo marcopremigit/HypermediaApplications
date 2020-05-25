@@ -60,8 +60,10 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Event'
+                  $ref: '#/components/schemas/Volunteer'
                 x-content-type: application/json
+        "400":
+        description: Illegal input for the required operation
         "404":
           description: Entity with specified parameters not found
       x-swagger-router-controller: Volunteers

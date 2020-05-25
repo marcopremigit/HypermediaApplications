@@ -2,8 +2,6 @@ let map = null;
 let markers = [];
 let GMaps = {
     initMap: locations => {
-        
-        //TODO: zoom might need to be fixed or dinamically calculated
         map = new google.maps.Map(document.getElementById('map'));
         _calcCenter(locations);
         _calcBounds(locations);
@@ -29,7 +27,6 @@ let GMaps = {
         });
     },
 
-    //TODO: could be improved, not perfect but it does the trick
     // ? Maybe eliminate clustering ?
     filterMarkers: (activeCards) => {
         let actives = {
@@ -37,8 +34,6 @@ let GMaps = {
             groups: [...new Set(Array.from(activeCards).map(e => e.getAttribute('data-groups')))],
         };
 
-        // ! this does not work with multiple categories !
-        // ! change activeCards.includes(m.category[0]) !
         let visibileMarkers = [];
         markers.map(m => {
             let visible = actives.titles.includes(m.text) || actives.groups.includes(m.category);

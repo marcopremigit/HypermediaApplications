@@ -64,11 +64,11 @@ exports.newsGET = function(limit,offset) {
  * returns List
  **/
 exports.newsGET = function(limit,offset) {
-  if(!limit) limit = 10;
+  if(!limit) limit = 100;
   if(!offset) offset = 0;
 
   return db('news')
-//  .limit(limit)
+  .limit(limit)
   .offset(offset)
   .then(data => data);
 }

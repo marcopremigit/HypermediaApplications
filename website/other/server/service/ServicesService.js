@@ -37,6 +37,9 @@ exports.servicesGET = function(category,limit,offset) {
 
   return db('service')
   // .limit(limit)
+  .where(builder => {
+    if(category) builder.where('category', category);
+  })
   .offset(offset)
   .then(data => data);
 }

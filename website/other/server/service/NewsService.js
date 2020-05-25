@@ -35,7 +35,7 @@ exports.newsGET = function(limit,offset) {
   if(!offset) offset = 0;
 
   return db('news')
-  // .limit(limit)
+  .limit(limit)
   .offset(offset)
   .then(data => data);
 }

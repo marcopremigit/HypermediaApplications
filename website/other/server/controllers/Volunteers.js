@@ -36,6 +36,9 @@ module.exports.volunteersGET = function volunteersGET (req, res, next, category,
 module.exports.volunteersVolunteerIdGET = function volunteersVolunteerIdGET (req, res, next, volunteerId) {
   Volunteers.volunteersVolunteerIdGET(volunteerId)
     .then(function (response) {
+      console.log('[VOLUNTEERS GET] - RESPONSE:');
+      console.log(res);
+      console.log(response);
       utils.writeJson(res, response);
     })
     .catch(function (response) {

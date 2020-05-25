@@ -1,4 +1,3 @@
-let { bookingDbSetup }      = require('./BookingService');
 let { eventDbSetup }        = require('./EventsService');
 let { jobsDbSetup }         = require('./JobsService');
 let { newsDbSetup }         = require('./NewsService');
@@ -16,7 +15,6 @@ let db = dbFactory({
 
 function setupDataLayer(){
     console.log("[Data Layer] - Setting data layer up...\n\n");
-            bookingDbSetup(db);
             eventDbSetup(db);
             jobsDbSetup(db);
             newsDbSetup(db);

@@ -35,16 +35,17 @@ exports.servicesGET = function(category,limit,offset) {
   if(!limit) limit = 10;
   if(!offset) offset = 0;
 
-  let d = db('service')
+  return db('service')
   // .limit(limit)
   .where(builder => {
     if(category) builder.where('category', category);
   })
   .offset(offset)
-  .then(data => data);
-  console.log('[SERVICESSERVICE] - RESPONSE');
-  console.log(d);
-  return d;
+  .then(data => {
+    console.log('[SERVICESSERVICE] - RESPONSE');
+    console.log(data);
+    return data
+  });
 }
 
 

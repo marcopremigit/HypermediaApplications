@@ -59,19 +59,19 @@ give access to the instructors.<h2 id="specification">Specification</h2>
 Describe here, with a diagram, the components of your web application
 and how they interact. Highlight which parts belong to the application
 layer, data layer or presentation layer. How did you ensure that HTML is
-not rendered server side?
+not rendered server side? 
 </br>-->
 <img src="../backend/image/Diagramma_Architecture_Layers.png" alt="Web Architecture" width="1000">
 </br>
 Nel diagramma riportato qui sopra abbiamo cercato di rappresentrare la suddivisione delle diverse componenti, comprese le interazioni (rappresentate tramite
 frecce bidirezionali), del nostro sito, che sono state incluse all&#39; interno delle macroaree principali presentation, application e data layer.
 I collegamenti tra i singoli assets e il browser all' interno del presentation layer non sono stati inclusi e per semplicità di rappresentazione
-è stato incluso un singolo collegamento tra il browser e la cartella che include il gruppo di assets (file html,css,js e jpg).
-All' interno del diagramma non vi è inoltre una suddivisione dei collegamenti tra l' openAPI gateway e i singoli service, in realtà ci sarebbe un collegamento perciò
-ognuno di essi con il gateway ma per semplicità di rappresentazione è stato indicato un singolo collegamento tra l' openAPI gateway ed il gruppo di Service.
+è stato incluso un singolo collegamento tra il browser e la cartella che include il gruppo di assets statici(file html, css,js e jpg).
+All' interno del diagramma non vi è inoltre una suddivisione dei collegamenti tra l' openAPI gateway e i singoli service, in realtà ci sarebbe un collegamento
+ognuno di essi con il gateway, ma per semplicità di rappresentazione è stato indicato un singolo collegamento tra l' openAPI gateway ed il gruppo di Service.
 Nello sviluppo del nostro sito abbiamo deciso di considerare alcune pagine che non necessitano dell&#39; interazione con il data base
-(data layer) ma che risiedono soltanto all&#39; interno del presentation layer, in quanto le informazioni che vi sono contenute
-saranno soggette a poche modifiche nel tempo e non richiedono perciò un caricamento da database.
+(data layer), ma che risiedono soltanto all&#39; interno del presentation layer, in quanto le informazioni che vi sono contenute
+sono soggette a poche modifiche nel tempo e non richiedono perciò un caricamento da database.
 Queste pagine sono:</li>
 <li>HomePage</li>
 <li>Chi Siamo</li>
@@ -96,9 +96,14 @@ Le pagine che appartengono all&#39;application e presentation layer ma che neces
 the reasons for which you might have decided to diverge. Note, you must
 not describe the whole API here, just the design decisions.
 </br>-->
-Durante lo svilluppo del sito ci siamo rifatti ai principi dell&#39; architectura client-server. 
-Abbiamo cercato infatti di separare gli elemnti client che non richiedono collegamenti diretti con il database
+Durante lo svilluppo del sito ci siamo rifatti ai principi dell&#39; architettura client-server REST. 
+Abbiamo cercato infatti di separare gli elementi client che non richiedono collegamenti diretti con il database
 dal server che invece si interfaccia con il database.
+Il server non salva nessuna informazione del client, ma ad ogni richiesta si connette a database e risponde con i dati richiesti.
+Il client fa caching di alcune informazioni per aumentare le performance.
+Sempre seguendo l'architettura REST abbiamo implementato un layering system in quanto il server è l'unico a "vedere" sia il client che il database;
+il database "vede" solo il server, come anche il client.
+
 <h4 id="openapi-resource-models">OpenAPI Resource models</h4>
 <!--Describe here synthetically, which models you have introduced for
 resources.-->
@@ -131,14 +136,16 @@ component chiamato con il medesimo nome. Le tabelle ponte sono associate soltant
 <!--Describe here which tools, languages and frameworks did you use for the
 backend of the application.
 </br>-->
-Per l&#39; implementazione del codice lato backend dell&#39; applicazione abbiamo utilizzato VisualStudio Code come per la parte legata al front-end,
-per la gestione del DB abbiamo utilizzato come piattaforma cloud Heroku. Per la gestione del database abbiamo utilizzato pgAdmin. 
-Per quanto riguarda la generazione del server e la creazione delle API abbiamo utilizzato l&#39; editor di swagger OAS 3.0.<h3 id="discussion">Discussion</h3>
+Per l&#39;implementazione del backend abbiamo utilizzato interfaccia standard le OAS 3.0 per avere una documentazione e un templating per il server.
+Il server si sviluppa sulla libreria open source di NodeJS (svilluppata su Javascript) interfacciandosi con il database PostgreSQL hostato sulla piattaforma Heroku.
+Per la costruzione del database ci siamo avvalsi del tool pgAdmin 4.
+<h3 id="discussion">Discussion</h3>
 <!--Describe here:</li>
 <li><!--How did you make sure your web application adheres to the provided
 OpenAPI specification? Which method did you use to test all APIs
 endpoints against the expected response?
 </br>-->
+<!-- ESPANDERE QUESTA PARTE -->
 Il test delle OpenAPI l&#39; abbiamo fatto tramite l&#39; utilizzo diretto dell&#39; URL, verificando che le risposte caricate, a seguito delle
 query, siano coerenti con quanto scritto sul documento yaml, verificando cioè che i dati caricati siano gli stessi.</li>
 <li><!--Why do you think your web application adheres to common practices to
@@ -178,6 +185,8 @@ of the group, e.g.:</li>
 Nella suddivisione del lavoro per lo sviluppo del sito abbiamo cercato di organizzarci per lavorare insieme per la maggior parte
 del tempo, cercando di dividere il lavoro affinchè tutti potessero contribuire alle parti più importanti del progetto e avessero
 la possibilità di imparare i passaggi implementativi più importanti.
+Il lavoro è stato diviso in maniera tale che tutto il gruppo potesse inizialmente concentrarsi sul frontend per ottenerne una versione stabile e solo successivamente 
+dedicarsi al backend. 
 <h3 id="analysis-of-existing-api">Analysis of existing API</h3>
 <!--Describe here the research of (full or part of) existing APIs that are similar
 in objectives and scope to the one implemented, that have possibly guided
@@ -192,11 +201,9 @@ For the part of the API that manages <ABC> we considered/studied <XYZ>(link)
 because of <REASON> but wasn&#39;t completely fitting to our purpose because of <REASON>
 </br>-->
 Per quanto riguarda lo sviluppo delle API non abbiamo ritenuto necessario prendere come riferimento delle API già esistenti.
-Le openAPI sviluppate sono state sviluppate semplicemente consultando la documentazione disponibile su swagger. In quanto le
-API necessarie per il nostro sito sono solo delle semplici chiamate a Database per ottenere come risposta i dati contenuti,
-non vi è infatti alcuna necessità per il client di aggiornare/inserire delle informazioni a DataBase. Per quanto riguarda invece
-l&#39;implementazione delle query da database, implementate a partire dalle funzioni già generate dal documento Yaml e contenute all&#39;
-interno della cartella Service, abbiamo utilizzato la documentazione contenuta all&#39; interno di knex.js.
+Le openAPI sono state sviluppate semplicemente consultando la documentazione disponibile su swagger. In quanto le
+API necessarie per il nostro sito sono solo delle semplici chiamate a database per ottenere come risposta i dati contenuti,
+non vi è infatti alcuna necessità per il client di aggiornare/inserire delle informazioni a database. 
 <h3 id="learning-outcome">Learning outcome</h3>
 What was the most important thing all the members have learned while
 developing this part of the project, what questions remained unanswered,
@@ -209,7 +216,7 @@ with what she has learned</li>
 to know more about promises for asynchronous code..</li>
 Davide ha imparato l' utilizzo di bootstrap per il frontend e di Javascript ed è interessatto ad approfondire maggiormente le proprie conoscenze per quanto
 riguarda l' utilizzo di framework angular.js.
-Marco....
+Marco.... 
 Fabrizio....
 </ul>
 </blockquote>

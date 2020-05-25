@@ -55,21 +55,21 @@ address</a>.</li>
 is available <a href="https://github.com/marcopremigit/HypermediaApplications">this address</a>. We hereby
 declare that this is a private repository and, upon request, we will
 give access to the instructors.<h2 id="specification">Specification</h2>
-<!--<h3 id="web-architecture">Web Architecture</h3>
-Describe here, with a diagram, the components of your web application
+<h3 id="web-architecture">Web Architecture</h3>
+<!--Describe here, with a diagram, the components of your web application
 and how they interact. Highlight which parts belong to the application
 layer, data layer or presentation layer. How did you ensure that HTML is
 not rendered server side? 
 </br>-->
-<img src="../backend/image/Diagramma_Architecture_Layers.png" alt="Web Architecture" width="1000">
+<img src="../backend/image/Diagramma_Architecure_Layers.png" alt="Web Architecture" width="1000">
 </br>
 Nel diagramma riportato qui sopra abbiamo cercato di rappresentrare la suddivisione delle diverse componenti, comprese le interazioni (rappresentate tramite
-frecce bidirezionali), del nostro sito, che sono state incluse all&#39; interno delle macroaree principali presentation, application e data layer.
+frecce bidirezionali), all&#39; interno e e tra le macroaree principali presentation, application e data layer.
 I collegamenti tra i singoli assets e il browser all' interno del presentation layer non sono stati inclusi e per semplicità di rappresentazione
 è stato incluso un singolo collegamento tra il browser e la cartella che include il gruppo di assets statici(file html, css,js e jpg).
-All' interno del diagramma non vi è inoltre una suddivisione dei collegamenti tra l' openAPI gateway e i singoli service, in realtà ci sarebbe un collegamento
-ognuno di essi con il gateway, ma per semplicità di rappresentazione è stato indicato un singolo collegamento tra l' openAPI gateway ed il gruppo di Service.
-Nello sviluppo del nostro sito abbiamo deciso di considerare alcune pagine che non necessitano dell&#39; interazione con il data base
+All'interno del diagramma non vi è inoltre una suddivisione dei collegamenti tra l'openAPI gateway e i singoli service, in realtà ci sarebbe un collegamento
+per ognuno di essi con il gateway; ma per semplicità di rappresentazione è stato indicato un singolo collegamento tra l' openAPI gateway ed il gruppo di Service.
+Nello sviluppo del nostro sito abbiamo deciso di considerare alcune pagine che non necessitano dell&#39; interazione con il database
 (data layer), ma che risiedono soltanto all&#39; interno del presentation layer, in quanto le informazioni che vi sono contenute
 sono soggette a poche modifiche nel tempo e non richiedono perciò un caricamento da database.
 Queste pagine sono:</li>
@@ -79,7 +79,7 @@ Queste pagine sono:</li>
 <li>Sostienici</li>
 <li>Contattaci</li>
 </br>
-Le informazioni relative a queste pagine nel diagramma sono state rappresentate all'interno di una cartella, per rimanere coerenti con le suddivisioni
+Le informazioni relative a queste pagine, nel diagramma, sono state rappresentate all'interno di una cartella, per rimanere coerenti con le suddivisioni
 che abbiamo fatto anche nella fase di implementazione del sito.
 Le informazioni relative invece alle pagine che necessitano un caricamento di informazioni
 sono state salvate all&#39; interno del Database (data layer). Le informazioni contenute in queste pagine possono infatti
@@ -115,22 +115,23 @@ lo stesso risultato.
 <h3 id="data-model">Data model</h3>
 <!--Describe with an ER diagram the model used in the data layer of your web
 application. How these map to the OpenAPI data model?-->
-<img src="../../Design Document/resources/images/db.png" width="1000" alt="CAMBIARE PERCORSO UNA VOLTA ULTIMATO DOCUMENTO">
+<img src="../" width="1000" alt="DA AGGIUNGERE A CARTELLA MODIFICATA CORRETTAMENTE">
 </br>
 All&#39;interno del data layer, durante la creazione delle tabelle, abbiamo cercato di rimanere coerenti con l&#39; ER rappresentato
-all&#39; interno del documento di design, cercando anche di rispettare i nomi assegnati.
+all&#39; interno del documento di design, cercando quindi di rispettare i nomi assegnati.
 A ciascuna di queste pagine è stata associata una tabella a Database:</li>
 <li>Lavora con noi (nell&#39; ER viene indicato con Open Position e all&#39; interno del DB come jobs)</li>
 <li>Le nostre News (nell&#39; ER viene indicato con News e all&#39; interno del DB come news)</li>
 <li>I nostri volontari (nell&#39; ER viene indicato con Volunteer e all&#39; interno del DB come voluteers)</li>
 <li>I nostri eventi (nell&#39; ER viene indicato con News e all&#39; interno del DB come news)</li>
 <li>I nostri servizi (nell&#39; ER viene indicato con Service e all&#39; interno del DB come service)</Li>
-Le tabelle ponte rappresentate a livello di logical Design , utilizzate per rappresentare le associazioni 0:N,
-e nell&#39;ER come relazioni, sono state rispettate a livello di Database. Con l&#39; unica differenza che abbiamo deciso di dividere 
-Volunteer_Assigned_To in due tabelle che sono volunteerInEvent e volunteerInService.
+Le tabelle ponte mostrate a livello di logical Design sono utilizzate per rappresentare le associazioni 0:N.
+Nell&#39;ER tali tabelle sono indicate come relazioni e in quanto presenti nel diagramma sono state rappresentate coerentemente anche a livello di Database.
+Con l&#39; unica differenza che abbiamo deciso di dividere 
+Volunteer_Assigned_To in due tabelle: volunteerInEvent e volunteerInService.
 Il mapping con le OpenApi è stato fatto rispettando le tabelle e gli attributi contenuti al loro interno, rispettandone quanto
 più possibile anche la nomenclatura. Assegnando quindi a ciascuna tabella del database una corrispondenza con il relativo 
-component chiamato con il medesimo nome. Le tabelle ponte sono associate soltanto 
+component chiamato con il medesimo nome.
 <h2 id="implementation">Implementation</h2>
 <h3 id="tools-used">Tools used</h3>
 <!--Describe here which tools, languages and frameworks did you use for the
@@ -141,7 +142,7 @@ Il server si sviluppa sulla libreria open source di NodeJS (svilluppata su Javas
 Per la costruzione del database ci siamo avvalsi del tool pgAdmin 4.
 <h3 id="discussion">Discussion</h3>
 <!--Describe here:</li>
-<li><!--How did you make sure your web application adheres to the provided
+<li>How did you make sure your web application adheres to the provided
 OpenAPI specification? Which method did you use to test all APIs
 endpoints against the expected response?
 </br>-->

@@ -4,7 +4,7 @@ $(document).ready(() =>  {
     loadNews()
     .then(news => {
         //Cards and filters handling
-        loadCardsAndFilters(news, false,'assets/pages/lenostrenews-detail.html', '#news-card-space');
+        loadCardsAndFilters(news, false,'pages/lenostrenews-detail.html', '#news-card-space');
         let newsJSON = {};
         news.map(e => {
             newsJSON[e.id] = e;

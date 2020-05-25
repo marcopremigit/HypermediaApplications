@@ -11,7 +11,7 @@ const PAGES = {
     "inostrieventi-detail.html": {page: "inostrieventi.html", title: "I nostri eventi"},
     "inostriservizi-detail.html": {page: "inostriservizi.html", title: "I nostri servizi"},
     "inostrivolontari-detail.html": {page: "inostrivolontari.html", title: "I nostri volontari"},
-    "lenostrenews-detail.html": {page: "lenostrenews-detail.html", title: "Le nostre news"},
+    "lenostrenews-detail.html": {page: "lenostrenews.html", title: "Le nostre news"},
 };
 
 $(document).ready(() => {

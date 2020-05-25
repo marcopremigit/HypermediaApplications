@@ -25,7 +25,7 @@ $(document).ready(() =>  {
 async function loadNews(){
     return await $.getJSON(DB_URL + "/news",
         {
-            limit:4
+            limit:3
         },
         (data, status) => {
         if(status === "success"){

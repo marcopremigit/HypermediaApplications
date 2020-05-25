@@ -41,11 +41,7 @@ exports.servicesGET = function(category,limit,offset) {
     if(category) builder.where('category', category);
   })
   .offset(offset)
-  .then(data => {
-    console.log('[SERVICESSERVICE] - RESPONSE');
-    console.log(data);
-    return data
-  });
+  .then(data => data);
 }
 
 

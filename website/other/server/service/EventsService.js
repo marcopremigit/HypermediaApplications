@@ -16,7 +16,6 @@ exports.eventDbSetup = function(s) {
         table.text("title").notNullable();
         table.text("description");
         table.text("place");
-        table.boolean("bookable");
         table.date("date_start");
         table.date("date_end");
         table.integer("available_places");
@@ -61,24 +60,6 @@ exports.event_serviceGET = function(limit,id_event,id_service) {
 }
 
 
-/**
- * Updates the required event by booking one spot and reducing the correct database value
- *
- * eventId String The event ID to query for
- * returns Integer
- **/
-exports.eventsBookSpotEventIdPOST = function(eventId) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = 0;
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
-}
-
 
 /**
  * Returns all the info bound to a event by ID
@@ -91,7 +72,6 @@ exports.eventsEventIdGET = function(eventId) {
     var examples = {};
     examples['application/json'] = {
   "image" : "image",
-  "bookable" : true,
   "date_start" : "date_start",
   "description" : "description",
   "date_end" : "date_end",

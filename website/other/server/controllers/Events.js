@@ -13,15 +13,6 @@ module.exports.event_serviceGET = function event_serviceGET (req, res, next, lim
     });
 };
 
-module.exports.eventsBookSpotEventIdPOST = function eventsBookSpotEventIdPOST (req, res, next, eventId) {
-  Events.eventsBookSpotEventIdPOST(eventId)
-    .then(function (response) {
-      utils.writeJson(res, response);
-    })
-    .catch(function (response) {
-      utils.writeJson(res, response);
-    });
-};
 
 module.exports.eventsEventIdGET = function eventsEventIdGET (req, res, next, eventId) {
   Events.eventsEventIdGET(eventId)

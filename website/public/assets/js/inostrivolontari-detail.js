@@ -14,6 +14,9 @@ function loadNextElement(goRight){
     let indexOfVolunteer = elementsOrder.indexOf(vId);
     let length = elementsOrder.length;
     let nextId = elementsOrder[((indexOfVolunteer + 1*(goRight ? 1 : -1)) % length + length) % length];
+
+    document.getElementById('detail-img').classList.add("invisible");
+    document.getElementById("spinner").classList.remove("invisible")
     loadVolunteer(nextId);
 }
 

@@ -65,7 +65,18 @@
                 </button>
               </div>
               <div class="col-10 align-middle text-center">
-                <img class="rounded-circle z-depth-2 p-0" id="detail-img" alt="volunteer">
+                <div class="row ">
+                  <div class="col align-middle text-center">
+                      <!-- Services Spinner -->
+                      <div class = "row d-flex justify-content-center">
+                        <div class="spinner-border main-text-color" id="spinner" role="status">
+                          <span class="sr-only" alt="Loading"></span>
+                        </div>
+                      </div> 
+                      <!-- Services Spinner -->
+                  </div>
+                </div>
+                <img class="rounded-circle z-depth-2 p-0 invisible" id="detail-img" alt="volunteer">
               </div>
               <div class="col-1">
                 <button class="float-right align-middle border-0 p-0 rounded-circle" style="color: white; background-color: white;" onclick="loadNextElement(true)" aria-label="next">

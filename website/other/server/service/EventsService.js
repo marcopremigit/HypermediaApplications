@@ -36,9 +36,7 @@ exports.eventDbSetup = function(s) {
  * id_service Integer Service id (optional)
  * returns List
  **/
-exports.event_serviceGET = function(limit,id_event,id_service) {
-  if(!limit) limit = 10;
-  
+exports.event_serviceGET = function(id_event,id_service) {
   return db('eventsInService')
   .select(id_service ? 'id_event' : 'id_service')
   .where(
@@ -50,11 +48,9 @@ exports.event_serviceGET = function(limit,id_event,id_service) {
     {
       id_event: id_event
   }) 
-  //.limit(limit)
   .then(data => {
     return db(id_service ? 'event' : 'service')
     .whereIn('id', data.map(e => id_event ? e.id_service : e.id_event))
- //   .limit(limit)
     .then(d => d);
   }); 
 }
@@ -96,20 +92,6 @@ exports.eventsEventIdGET = function(eventId) {
 /**
  * Returns all the events in the database
  *
- * category String the category to filter the objects by (optional)
- * limit Integer the limit of objects to return (optional)
- * offset Integer the offset of the objects to retur (optional)
  * returns List
  **/
-exports.eventsGET = function(category,limit,offset) {
-  if(!limit) limit = 10;
-  if(!offset) offset = 0;
-
-  return db('event')
-  //.limit(limit)
-  .where(builder => {
-    if(category) builder.where('category', category);
-  })
-  .offset(offset)
-  .then(data => data);
-}
+exports.eventsGET = () => db('event').then(data => data);

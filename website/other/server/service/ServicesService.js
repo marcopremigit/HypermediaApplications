@@ -26,23 +26,9 @@ exports.serviceDbSetup = function(s) {
 /**
  * Returns all the services in the database
  *
- * category String the category to filter the objects by (optional)
- * limit Integer the limit of objects to return (optional)
- * offset Integer the offset of the objects to retur (optional)
  * returns List
  **/
-exports.servicesGET = function(category,limit,offset) {
-  if(!limit) limit = 10;
-  if(!offset) offset = 0;
-
-  return db('service')
-  // .limit(limit)
-  .where(builder => {
-    if(category) builder.where('category', category);
-  })
-  .offset(offset)
-  .then(data => data);
-}
+exports.servicesGET = () => db('service').then(data => data);
 
 
 /**

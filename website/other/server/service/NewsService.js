@@ -26,19 +26,9 @@ exports.newsDbSetup = function(s) {
 /**
  * Returns all the news in the database
  *
- * limit Integer the limit of objects to return (optional)
- * offset Integer the offset of the objects to retur (optional)
  * returns List
  **/
-exports.newsGET = function(limit,offset) {
-  if(!limit) limit = 10;
-  if(!offset) offset = 0;
-
-  return db('news')
-  .limit(limit)
-  .offset(offset)
-  .then(data => data);
-}
+exports.newsGET = () => db('news').then(data => data);
 
 
 /**

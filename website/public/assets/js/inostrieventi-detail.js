@@ -45,7 +45,7 @@ function loadEvent(id){
             volunteerJSON[e.id] = e;
         });
         saveInStorage('volunteer',volunteerJSON);
-        saveInStorage('volunteerElementsOrder', volunteer.map(v => v.id));
+        saveInStorage('volunteersElementsOrder', volunteer.map(v => v.id));
         //Spinner handling
         Spinner.letThemComeBack();
     })

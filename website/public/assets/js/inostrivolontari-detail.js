@@ -1,5 +1,5 @@
-let volunteer = null;
 let volunteers = null;
+let vId = null;
 
 const DB_URL = "https://ripe4u.herokuapp.com";
 
@@ -11,13 +11,13 @@ $(document).ready(() => {
 
 function loadNextElement(goRight){
     let elementsOrder = localStorage.getItem('volunteersElementsOrder').split(',');
-    let indexOfVolunteer = elementsOrder.indexOf(volunteer.id.toString());
+    let indexOfVolunteer = elementsOrder.indexOf(vId);
     let length = elementsOrder.length;
     let nextId = elementsOrder[((indexOfVolunteer + 1*(goRight ? 1 : -1)) % length + length) % length];
     loadVolunteer(nextId);
 }
 
-function fillElements(){
+function fillElements(volunteer){
     document.getElementById('volunteerName').innerText = volunteer.name;
     document.getElementById('whoami').innerHTML = volunteer.description;
     document.getElementById('mycareer').innerHTML = volunteer.career;
@@ -30,51 +30,63 @@ function fillElements(){
 }
 
 function loadVolunteer(id){
-    volunteer = getVolunteerFromDatabase(id);
+    getVolunteerFromDatabase(id)
+    .then(v =>  {
+        let volunteer = v[0];
+        //Breadcrumbs handling
+        Breadcrumbs.showCrumbs(volunteer.name);
     
-    if(volunteer === null || volunteer === undefined){
-        //TODO: something went wrong
-    }
+        fillElements(volunteer);
     
-    //Breadcrumbs handling
-    Breadcrumbs.showCrumbs(volunteer.name);
-
-    fillElements();
-
-    //Query to database
-    loadVolunteerServices(id)
-    .then(services => {
-        removeAllCards('services-card-space');
-        loadCardsAndFilters(services, false, "inostriservizi-detail.html", '#services-card-space');
-        let servicesJSON = {};
-             services.map(e=>{
-             servicesJSON[e.id] = e;
+        //Query to database
+        loadVolunteerServices(id)
+        .then(services => {
+            removeAllCards('services-card-space');
+            loadCardsAndFilters(services, false, "inostriservizi-detail.html", '#services-card-space');
+            let servicesJSON = {};
+                    services.map(e=>{
+                    servicesJSON[e.id] = e;
+            });
+            saveInStorage('services',servicesJSON);
+            saveInStorage('servicesElementsOrder', services.map(v => v.id));
+            //Spinner handling
+            Spinner.letThemComeBack();
+        })
+        .catch(err => {
+            //TODO
+            console.error('No services found');
         });
-        saveInStorage('services',servicesJSON);
-        saveInStorage('servicesElementsOrder', services.map(v => v.id));
-        //Spinner handling
-        Spinner.letThemComeBack();
+        
+        
+        loadVolunteerEvents(id)
+        .then(events =>{
+            if(events.length==0){
+                Array.from(document.getElementsByClassName("disappear")).map(e => e.classList.add("d-none"));
+            }else{
+                Array.from(document.getElementsByClassName("disappear")).map(e => e.classList.remove("d-none"));
+            }
+            removeAllCards('events-card-space');
+            loadCardsAndFilters(events, false, "inostrieventi-detail.html", '#events-card-space');
+            let eventsJSON = {};
+            events.map(e=>{
+                eventsJSON[e.id] = e;
+            });
+            saveInStorage('events',eventsJSON);
+            saveInStorage('eventsElementsOrder', events.map(v => v.id));
+            //Spinner handling
+            Spinner.letThemComeBack();
+        })
+        .catch(err => {
+            //TODO
+            console.error('No events found');
+        }); 
+        vId = id;
+    })
+    .catch(err => {
+        //TODO: something went wrong
+        console.error(err);
     });
     
-    
-    loadVolunteerEvents(id)
-    .then(events =>{
-        if(events.length==0){
-            Array.from(document.getElementsByClassName("disappear")).map(e => e.classList.add("d-none"));
-        }else{
-            Array.from(document.getElementsByClassName("disappear")).map(e => e.classList.remove("d-none"));
-        }
-        removeAllCards('events-card-space');
-        loadCardsAndFilters(events, false, "inostrieventi-detail.html", '#events-card-space');
-        let eventsJSON = {};
-        events.map(e=>{
-            eventsJSON[e.id] = e;
-        });
-        saveInStorage('events',eventsJSON);
-        saveInStorage('eventsElementsOrder', events.map(v => v.id));
-        //Spinner handling
-        Spinner.letThemComeBack();
-    })  
 }
 
 async function getVolunteerFromDatabase(id){

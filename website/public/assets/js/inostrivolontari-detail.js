@@ -38,7 +38,6 @@ function loadVolunteer(id){
     
         fillElements(volunteer);
     
-        //Query to database
         loadVolunteerServices(id)
         .then(services => {
             removeAllCards('services-card-space');
@@ -77,8 +76,7 @@ function loadVolunteer(id){
             Spinner.letThemComeBack();
         })
         .catch(err => {
-            //TODO
-            console.error('No events found');
+            Array.from(document.getElementsByClassName("disappear")).map(e => e.classList.add("d-none"));
         }); 
         vId = id;
     })
@@ -97,7 +95,6 @@ async function getVolunteerFromDatabase(id){
         return null;
     });
 }
-
 
 async function loadVolunteerServices(id_volunteer){
     return await $.getJSON(DB_URL + "/volunteer_service",
@@ -118,7 +115,7 @@ async function loadVolunteerEvents(id_volunteer){
     },
     (data, status) => {
         if(status === "success") return data;
-        else console.error(status);
+        else console.error(`Trying to load events for volunteer with ID '${vId}' returned ${status}`);
         return null;
     });
 }

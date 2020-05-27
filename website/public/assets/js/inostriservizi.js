@@ -9,8 +9,8 @@ $(document).ready(() => {
         services.map(e => {
             servicesJSON[e.id] = e;
          })
-         saveInStorage('services', servicesJSON);
-         saveInStorage('servicesElementsOrder', services.map(v => v.id));
+        saveInStorage('services', servicesJSON);
+        saveInStorage('servicesElementsOrder', services.map(v => v.id));
         
         //Shuffler handling
         new Shuffler('#services-card-space', true);
@@ -25,10 +25,8 @@ $(document).ready(() => {
 
 async function loadServices(){
     return await $.getJSON(DB_URL + "/services", (data, status) => {
-        if(status === "success"){
-            return data;
-        }
-        else
-            console.error(status);
+        if(status === "success") return data;
+        else console.error(status);
+        return null;
     });
 }

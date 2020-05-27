@@ -78,7 +78,7 @@ function loadVolunteer(id){
 }
 
 async function getVolunteerFromDatabase(id){
-    return await $.getJSON(DB_URL + `volunteers/${id}`,
+    return await $.getJSON(DB_URL + `/volunteers/${id}`,
     (data, status) => {
         if(status === 'success') return data;
         else console.error(status);

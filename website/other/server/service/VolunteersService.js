@@ -93,4 +93,4 @@ exports.volunteersGET = () => db('volunteers').select('id', 'name', 'category', 
  * volunteerId String The volunteer ID to query for
  * returns Volunteer
  **/
-exports.volunteersVolunteerIdGET = volunteerId => db('volunteers').where({ id_volunteer: volunteerId });
+exports.volunteersVolunteerIdGET = volunteerId => db('volunteers').where({ id: volunteerId });

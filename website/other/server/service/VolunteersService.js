@@ -84,7 +84,7 @@ exports.volunteer_serviceGET = function(id_volunteer,id_service) {
  *
  * returns List
  **/
-exports.volunteersGET = fields => db('volunteers').select(fields).then(data => data);
+exports.volunteersGET = () => db('volunteers').select('id', 'name', 'category', 'image').then(data => data);
 
 
 /**

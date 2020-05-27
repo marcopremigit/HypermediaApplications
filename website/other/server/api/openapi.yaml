@@ -25,16 +25,6 @@ paths:
       - Volunteers
       description: Returns all the volunteers in the database
       operationId: volunteersGET
-      parameters: 
-      - name: fields
-        in: query
-        description: Fields to ask for in SELECT
-        required: true
-        explode: false
-        schema:
-          type: array
-          items:
-            type: string
       responses:
         "200":
           description: OK

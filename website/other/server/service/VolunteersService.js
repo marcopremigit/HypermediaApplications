@@ -94,7 +94,9 @@ exports.volunteersGET = () => db('volunteers').select('id', 'name', 'category', 
  * returns Volunteer
  **/
 exports.volunteersVolunteerIdGET = volunteerId => {
-  let data = db('volunteers').where({ id: volunteerId }).then(d => d);
-  console.log(data);
+  let data = db('volunteers').where({ id: volunteerId }).then(d => {
+    console.log(d);
+    return d;
+  });
   return data;
 }

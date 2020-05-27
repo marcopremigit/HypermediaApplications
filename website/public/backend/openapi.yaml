@@ -25,33 +25,6 @@ paths:
       - Volunteers
       description: Returns all the volunteers in the database
       operationId: volunteersGET
-      parameters:
-      - name: category
-        in: query
-        description: the category to filter the objects by
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: string
-      - name: limit
-        in: query
-        description: the limit of objects to return
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
-      - name: offset
-        in: query
-        description: the offset of the objects to retur
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
       responses:
         "200":
           description: OK
@@ -63,7 +36,7 @@ paths:
                   $ref: '#/components/schemas/Volunteer'
                 x-content-type: application/json
         "400":
-        description: Illegal input for the required operation
+          description: Illegal input for the required operation
         "404":
           description: Entity with specified parameters not found
       x-swagger-router-controller: Volunteers
@@ -100,33 +73,6 @@ paths:
       - Services
       description: Returns all the services in the database
       operationId: servicesGET
-      parameters:
-      - name: category
-        in: query
-        description: the category to filter the objects by
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: string
-      - name: limit
-        in: query
-        description: the limit of objects to return
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
-      - name: offset
-        in: query
-        description: the offset of the objects to retur
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
       responses:
         "200":
           description: OK
@@ -173,33 +119,6 @@ paths:
       - Events
       description: Returns all the events in the database
       operationId: eventsGET
-      parameters:
-      - name: category
-        in: query
-        description: the category to filter the objects by
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: string
-      - name: limit
-        in: query
-        description: the limit of objects to return
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
-      - name: offset
-        in: query
-        description: the offset of the objects to retur
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
       responses:
         "200":
           description: OK
@@ -246,25 +165,6 @@ paths:
       - Jobs
       description: Returns all the jobs in the database
       operationId: jobsGET
-      parameters:
-      - name: limit
-        in: query
-        description: the limit of objects to return
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
-      - name: offset
-        in: query
-        description: the offset of the objects to retur
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
       responses:
         "200":
           description: OK
@@ -311,25 +211,6 @@ paths:
       - News
       description: Returns all the news in the database
       operationId: newsGET
-      parameters:
-      - name: limit
-        in: query
-        description: the limit of objects to return
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
-      - name: offset
-        in: query
-        description: the offset of the objects to retur
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
       responses:
         "200":
           description: OK
@@ -379,15 +260,6 @@ paths:
         id_volunteer is inserted
       operationId: volunteer_serviceGET
       parameters:
-      - name: limit
-        in: query
-        description: the limit of objects to return
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
       - name: id_volunteer
         in: query
         description: Volunteer id
@@ -430,15 +302,6 @@ paths:
         is inserted
       operationId: event_serviceGET
       parameters:
-      - name: limit
-        in: query
-        description: the limit of objects to return
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
       - name: id_event
         in: query
         description: Event id
@@ -481,15 +344,6 @@ paths:
         id_event is inserted
       operationId: volunteer_eventGET
       parameters:
-      - name: limit
-        in: query
-        description: the limit of objects to return
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
       - name: id_event
         in: query
         description: Event id
@@ -673,14 +527,11 @@ components:
           format: int64
         title:
           type: string
-        short_description:
-          type: string
         long_description:
           type: string
         image:
           type: string
       example:
-        short_description: short_description
         image: image
         id: 0
         long_description: long_description
@@ -704,33 +555,3 @@ components:
       description: Entity with specified parameters not found
     IllegalInput:
       description: Illegal input for the required operation
-  parameters:
-    categoryFilter:
-      name: category
-      in: query
-      description: the category to filter the objects by
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: string
-    limitParam:
-      name: limit
-      in: query
-      description: the limit of objects to return
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: integer
-        format: int32
-    offsetParam:
-      name: offset
-      in: query
-      description: the offset of the objects to retur
-      required: false
-      style: form
-      explode: true
-      schema:
-        type: integer
-        format: int32

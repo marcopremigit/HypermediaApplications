@@ -26,19 +26,9 @@ exports.jobsDbSetup = function(s) {
 /**
  * Returns all the jobs in the database
  *
- * limit Integer the limit of objects to return (optional)
- * offset Integer the offset of the objects to retur (optional)
  * returns List
  **/
-exports.jobsGET = function(limit,offset) {
-  if(!limit) limit = 10;
-  if(!offset) offset = 0;
-
-  return db('jobs')
-  //.limit(limit)
-  .offset(offset)
-  .then(data => data);
-}
+exports.jobsGET = () => db('jobs').then(data => data);
 
 /**
  * Returns all the info bound to a job by ID

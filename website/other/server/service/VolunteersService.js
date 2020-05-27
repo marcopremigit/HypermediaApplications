@@ -84,7 +84,7 @@ exports.volunteer_serviceGET = function(id_volunteer,id_service) {
  *
  * returns List
  **/
-exports.volunteersGET = () => db('volunteers').then(data => data);
+exports.volunteersGET = fields => db('volunteers').select(fields).then(data => data);
 
 
 /**
@@ -93,24 +93,4 @@ exports.volunteersGET = () => db('volunteers').then(data => data);
  * volunteerId String The volunteer ID to query for
  * returns Volunteer
  **/
-exports.volunteersVolunteerIdGET = function(volunteerId) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "image" : "image",
-  "career" : "career",
-  "phone" : "phone",
-  "name" : "name",
-  "description" : "description",
-  "id" : 0,
-  "category" : "Professore",
-  "email" : "email"
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
-}
-
+exports.volunteersVolunteerIdGET = volunteerId => db('volunteers').where({ id_volunteer: volunteerId });

@@ -9,24 +9,6 @@ $(document).ready(() => {
     loadVolunteer(window.location.href.split('id=')[1]);
 });
 
-function loadServices(){
-    //TODO: this has to be replaced with database query information extraction
-    return [
-        {id: 'ICSA', title: 'Vacanza studio Londra', image: 'https://source.unsplash.com/random/1920x1080', category: ["Vacanza studio"]},
-        {id: 'csaicas', title: 'Cena di Natale', image: 'https://source.unsplash.com/random/1920x1080', category: ["Cena", "Vattelapesca"]},
-        {id: 'csaiodsa', title: 'Colletta Natalizia', image: 'https://source.unsplash.com/random/1920x1080', category: ["Colletta"]},
-    ];
-}
-
-function loadEvents(){
-    //TODO: this has to be replaced with database query information extraction
-    return [
-        {id: 'ICSA', title: 'Vacanza studio Londra', image: 'https://source.unsplash.com/random/1920x1080', category: ["Vacanza studio"]},
-        {id: 'csaicas', title: 'Cena di Natale', image: 'https://source.unsplash.com/random/1920x1080', category: ["Cena", "Vattelapesca"]},
-        {id: 'csaiodsa', title: 'Colletta Natalizia', image: 'https://source.unsplash.com/random/1920x1080', category: ["Colletta"]},
-    ];
-}
-
 function loadNextElement(goRight){
     let elementsOrder = localStorage.getItem('volunteersElementsOrder').split(',');
     let indexOfVolunteer = elementsOrder.indexOf(volunteer.id.toString());
@@ -48,7 +30,7 @@ function fillElements(){
 }
 
 function loadVolunteer(id){
-    volunteer = (volunteers && volunteers[id]) || JSON.parse(localStorage.getItem('volunteer'))[id];
+    volunteer = getVolunteerFromDatabase(id);
     
     if(volunteer === null || volunteer === undefined){
         //TODO: something went wrong
@@ -92,12 +74,16 @@ function loadVolunteer(id){
         saveInStorage('eventsElementsOrder', events.map(v => v.id));
         //Spinner handling
         Spinner.letThemComeBack();
-    })
-  
+    })  
+}
 
-    
-
-    
+async function getVolunteerFromDatabase(id){
+    return await $.getJSON(DB_URL + `volunteers/${id}`,
+    (data, status) => {
+        if(status === 'success') return data;
+        else console.error(status);
+        return null;
+    });
 }
 
 
@@ -107,11 +93,9 @@ async function loadVolunteerServices(id_volunteer){
         id_volunteer: id_volunteer
     },
     (data, status) => {
-        if(status === "success"){
-            return data;
-        }
-        else
-            console.error(status);
+        if(status === "success") return data;
+        else console.error(status);
+        return null;
     });
 }
 
@@ -121,10 +105,8 @@ async function loadVolunteerEvents(id_volunteer){
         id_volunteer: id_volunteer
     },
     (data, status) => {
-        if(status === "success"){
-            return data;
-        }
-        else
-            console.error(status);
+        if(status === "success") return data;
+        else console.error(status);
+        return null;
     });
 }

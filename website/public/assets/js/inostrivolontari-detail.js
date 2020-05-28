@@ -78,35 +78,15 @@ function loadVolunteer(id){
     
 }
 
-async function getVolunteerFromDatabase(id){
-    return await $.getJSON(DB_URL + `/volunteers/${id}`,
-    (data, status) => {
+let getVolunteerFromDatabase = async id => await callToDb(`/volunteers/${id}`);
+let loadVolunteerServices = async id_volunteer => await callToDb("/volunteer_service",  {id_volunteer: id_volunteer});
+let loadVolunteerEvents = async id_volunteer => await callToDb("/volunteer_event", {id_volunteer: id_volunteer});
+
+function callToDb(api, params){
+    return $.getJSON(DB_URL + api, params, 
+        (data, status) => {
         if(status === 'success') return data;
         else console.error(status);
-        return null;
-    });
-}
-
-async function loadVolunteerServices(id_volunteer){
-    return await $.getJSON(DB_URL + "/volunteer_service",
-    {
-        id_volunteer: id_volunteer
-    },
-    (data, status) => {
-        if(status === "success") return data;
-        else console.error(status);
-        return null;
-    });
-}
-
-async function loadVolunteerEvents(id_volunteer){
-    return await $.getJSON(DB_URL + "/volunteer_event",
-    {
-        id_volunteer: id_volunteer
-    },
-    (data, status) => {
-        if(status === "success") return data;
-        else console.error(`Trying to load events for volunteer with ID '${vId}' returned ${status}`);
         return null;
     });
 }

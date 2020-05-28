@@ -93,10 +93,4 @@ exports.volunteersGET = () => db('volunteers').select('id', 'name', 'category', 
  * volunteerId String The volunteer ID to query for
  * returns Volunteer
  **/
-exports.volunteersVolunteerIdGET = volunteerId => {
-  let data = db('volunteers').where({ id: volunteerId }).then(d => {
-    console.log(d);
-    return d;
-  });
-  return data;
-}
+exports.volunteersVolunteerIdGET = volunteerId => db('volunteers').where({ id: volunteerId }).then(d => d);

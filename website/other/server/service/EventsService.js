@@ -63,30 +63,7 @@ exports.event_serviceGET = function(id_event,id_service) {
  * eventId String The event ID to query for
  * returns Event
  **/
-exports.eventsEventIdGET = function(eventId) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "image" : "image",
-  "date_start" : "date_start",
-  "description" : "description",
-  "date_end" : "date_end",
-  "id" : 0,
-  "place" : {
-    "lng" : 0,
-    "lat" : 0
-  },
-  "available_places" : 0,
-  "title" : "title",
-  "category" : "Vacanza studio"
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
-}
+exports.eventsEventIdGET = eventId => db('event').where({ id: eventId }).then(d => d);
 
 
 /**

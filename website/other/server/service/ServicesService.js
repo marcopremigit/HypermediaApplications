@@ -37,23 +37,7 @@ exports.servicesGET = () => db('service').then(data => data);
  * serviceId String The service ID to query for
  * returns Service
  **/
-exports.servicesServiceIdGET = function(serviceId) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "image" : "image",
-  "description" : "description",
-  "id" : 0,
-  "title" : "title",
-  "category" : "Ripetizione"
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
-}
+exports.servicesServiceIdGET = serviceId => db('services').where({ id: serviceId }).then(d => d);
 
 
 

@@ -28,7 +28,8 @@ exports.serviceDbSetup = function(s) {
  *
  * returns List
  **/
-exports.servicesGET = () => db('service').then(data => data);
+exports.servicesGET = () => db('service').select('id', 'name', 'category', 'image').then(data => data);
+
 
 
 /**

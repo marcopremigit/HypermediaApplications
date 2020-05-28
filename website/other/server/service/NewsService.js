@@ -28,7 +28,8 @@ exports.newsDbSetup = function(s) {
  *
  * returns List
  **/
-exports.newsGET = () => db('news').then(data => data);
+exports.newsGET = () => db('news').select('id', 'name', 'category', 'image').then(data => data);
+
 
 
 /**

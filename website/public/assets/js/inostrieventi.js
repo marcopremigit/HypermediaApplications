@@ -21,11 +21,6 @@ $(document).ready(() => {
 
         loadCardsAndFilters(events, true, 'inostrieventi-detail.html', '#events-card-space');
 
-        let eventsJSON = {};
-        events.map(e => {
-            eventsJSON[e.id] = e;
-        });
-        saveInStorage('events', eventsJSON, true);
         saveInStorage('eventsElementsOrder', events.map(v => v.id));
         GMaps.initMap(events.map(e => {
             let place = JSON.parse(e.place);
@@ -46,5 +41,6 @@ async function loadEvents(){
     return await $.getJSON(DB_URL + "/events", (data, status) => {
         if(status === "success") return data;
         else console.error(status);
+        return null;
     })
 }

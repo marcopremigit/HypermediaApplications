@@ -1,11 +1,9 @@
-let volunteers = null;
 let vId = null;
 
 const DB_URL = "https://ripe4u.herokuapp.com";
 
 
 $(document).ready(() => {
-    volunteers = JSON.parse(localStorage.getItem('volunteers'));
     loadVolunteer(window.location.href.split('id=')[1]);
 });
 

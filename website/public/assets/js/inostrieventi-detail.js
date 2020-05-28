@@ -25,11 +25,6 @@ function loadEvent(id){
             }
             removeAllCards('services-card-space');
             loadCardsAndFilters(services, false, "inostriservizi-detail.html", '#services-card-space');
-            let servicesJSON = {};
-            services.map(e=>{
-                servicesJSON[e.id] = e;
-            });
-            saveInStorage('services',servicesJSON);
             saveInStorage('servicesElementsOrder', services.map(v => v.id));
             //Spinner handling
             Spinner.letThemComeBack();
@@ -39,11 +34,6 @@ function loadEvent(id){
         .then(volunteer =>{
             removeAllCards('volunteer-card-space');
             loadCardsAndFilters(volunteer, false, "inostrivolontari-detail.html", '#volunteer-card-space');
-            let volunteerJSON = {};
-                volunteer.map(e=>{
-                volunteerJSON[e.id] = e;
-            });
-            saveInStorage('volunteer',volunteerJSON);
             saveInStorage('volunteersElementsOrder', volunteer.map(v => v.id));
             //Spinner handling
             Spinner.letThemComeBack();

@@ -15,6 +15,10 @@ module.exports.servicesGET = function servicesGET (req, res, next, category, lim
 };
 
 module.exports.servicesServiceIdGET = function servicesServiceIdGET (req, res, next, serviceId) {
+  if(typeof serviceId !== 'number') {
+    utils.writeJson(res, utils.respondWithCode(400, `ID was not input as a number`));
+    return;
+  }
   Services.servicesServiceIdGET(serviceId)
     .then(function (response) {
       if(Object.keys(response).length === 0) utils.writeJson(res, utils.respondWithCode(404, 'No Entities with specified parameters has been found'));

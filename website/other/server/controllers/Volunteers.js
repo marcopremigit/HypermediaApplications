@@ -37,6 +37,10 @@ module.exports.volunteersGET = function volunteersGET (req, res, next, category,
 };
 
 module.exports.volunteersVolunteerIdGET = function volunteersVolunteerIdGET (req, res, next, volunteerId) {
+  if(typeof volunteerId !== 'number') {
+    utils.writeJson(res, utils.respondWithCode(400, `ID was not input as a number`));
+    return;
+  }
   Volunteers.volunteersVolunteerIdGET(volunteerId)
     .then(function (response) {
       if(Object.keys(response).length === 0) utils.writeJson(res, utils.respondWithCode(404, 'No Entities with specified parameters have been found'));

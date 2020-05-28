@@ -16,6 +16,10 @@ module.exports.event_serviceGET = function event_serviceGET (req, res, next, lim
 
 
 module.exports.eventsEventIdGET = function eventsEventIdGET (req, res, next, eventId) {
+  if(typeof eventId !== 'number') {
+    utils.writeJson(res, utils.respondWithCode(400, `ID was not input as a number`));
+    return;
+  }
   Events.eventsEventIdGET(eventId)
     .then(function (response) {
       if(Object.keys(response).length === 0) utils.writeJson(res, utils.respondWithCode(404, 'No Entities with specified parameters have been found'));

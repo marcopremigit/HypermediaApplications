@@ -15,6 +15,10 @@ module.exports.newsGET = function newsGET (req, res, next, limit, offset) {
 };
 
 module.exports.newsNewsIdGET = function newsNewsIdGET (req, res, next, newsId) {
+  if(typeof newsId !== 'number') {
+    utils.writeJson(res, utils.respondWithCode(400, `ID was not input as a number`));
+    return;
+  }
   News.newsNewsIdGET(newsId)
     .then(function (response) {
       if(Object.keys(response).length === 0) utils.writeJson(res, utils.respondWithCode(404, 'No Entities with specified parameters have been found'));

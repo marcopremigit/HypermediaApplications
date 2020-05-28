@@ -71,4 +71,5 @@ exports.eventsEventIdGET = eventId => db('event').where({ id: eventId }).then(d 
  *
  * returns List
  **/
-exports.eventsGET = () => db('event').then(data => data);
+exports.eventsGET = () => db('event').select('id', 'name', 'category', 'image').then(data => data);
+

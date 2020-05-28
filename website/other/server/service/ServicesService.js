@@ -38,7 +38,7 @@ exports.servicesGET = () => db('service').select('id', 'name', 'category', 'imag
  * serviceId String The service ID to query for
  * returns Service
  **/
-exports.servicesServiceIdGET = serviceId => db('services').where({ id: serviceId }).then(d => d);
+exports.servicesServiceIdGET = serviceId => db('service').where({ id: serviceId }).then(d => d);
 
 
 

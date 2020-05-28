@@ -70,39 +70,15 @@ function loadService(id){
     });
 }
 
-async function loadServiceFromDb(id){
-    return await $.getJSON(DB_URL + `/services/${id}`,
-    (data, status) => {
+let loadServiceFromDb = async id => await callToDb(`/services/${id}`);
+let loadVolunteerServices = async id_service => await callToDb("/volunteer_service", {id_service: id_service});
+let loadEventsService = async id_service => await callToDb("/event_service", {id_service: id_service});
+
+function callToDb(api, params){
+    return $.getJSON(DB_URL + api, params, 
+        (data, status) => {
         if(status === 'success') return data;
-        else console.error(err);
+        else console.error(status);
         return null;
-    });
-}
-
-async function loadVolunteerServices(id_service){
-    return await $.getJSON(DB_URL + "/volunteer_service",
-    {
-        id_service: id_service
-    },
-    (data, status) => {
-        if(status === "success"){
-            return data;
-        }
-        else
-            console.error(status);
-    });
-}
-
-async function loadEventsService(id_service){
-    return await $.getJSON(DB_URL + "/event_service",
-    {
-        id_service: id_service
-    },
-    (data, status) => {
-        if(status === "success"){
-            return data;
-        }
-        else
-            console.error(status);
     });
 }

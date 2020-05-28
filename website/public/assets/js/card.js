@@ -29,9 +29,10 @@ function loadCardsAndFilters(elements, addFilters, link, querySelector, emptyPos
 
         let img = document.createElement('img');
         img.className = 'card-img-top invisible';
-        img.onload = Spinner.letCardSpinnerComeBack(e.id);
-        img.setAttribute('alt', `${e.name}`);
-        img.setAttribute('src', `${e.image}`);
+        img.onload = Spinner.letCardSpinnerComeBack(img, spin);
+        img.setAttribute('alt', e.name);
+        img.setAttribute('src', e.image);
+        img.setAttribute('testing', e.id);
         
         let h = document.createElement('div');
         h.className = 'col-sm-12 my-auto';

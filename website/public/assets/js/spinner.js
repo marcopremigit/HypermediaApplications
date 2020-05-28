@@ -8,5 +8,9 @@ let Spinner = {
         Array.from($(".spinner-border")).map(s => {
             s.classList.add("invisible");
         });  
+    },
+    letCardSpinnerComeBack(img, spinner){
+        img.classList.remove('invisible');
+        spinner.classList.add('invisible');
     }
 };

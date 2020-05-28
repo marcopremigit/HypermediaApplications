@@ -120,15 +120,13 @@ application. How these map to the OpenAPI data model?-->
 All&#39;interno del data layer, durante la creazione delle tabelle, abbiamo cercato di rimanere coerenti con l&#39; ER rappresentato
 all&#39; interno del documento di design, cercando quindi di rispettare i nomi assegnati.
 A ciascuna di queste pagine è stata associata una tabella a Database:</li>
-<li>Lavora con noi (nell&#39; ER viene indicato con Open Position e all&#39; interno del DB come jobs)</li>
-<li>Le nostre News (nell&#39; ER viene indicato con News e all&#39; interno del DB come news)</li>
-<li>I nostri volontari (nell&#39; ER viene indicato con Volunteer e all&#39; interno del DB come voluteers)</li>
-<li>I nostri eventi (nell&#39; ER viene indicato con News e all&#39; interno del DB come news)</li>
-<li>I nostri servizi (nell&#39; ER viene indicato con Service e all&#39; interno del DB come service)</Li>
+<li>jobs</li>
+<li>news</li>
+<li>voluteers</li>
+<li>event</li>
+<li>service</Li>
 Le tabelle ponte mostrate a livello di logical Design sono utilizzate per rappresentare le associazioni 0:N.
 Nell&#39;ER tali tabelle sono indicate come relazioni e in quanto presenti nel diagramma sono state rappresentate coerentemente anche a livello di Database.
-Con l&#39; unica differenza che abbiamo deciso di dividere 
-Volunteer_Assigned_To in due tabelle: volunteerInEvent e volunteerInService.
 Il mapping con le OpenApi è stato fatto rispettando le tabelle e gli attributi contenuti al loro interno, rispettandone quanto
 più possibile anche la nomenclatura. Assegnando quindi a ciascuna tabella del database una corrispondenza con il relativo 
 component chiamato con il medesimo nome.

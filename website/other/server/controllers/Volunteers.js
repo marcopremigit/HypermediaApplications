@@ -37,7 +37,7 @@ module.exports.volunteersGET = function volunteersGET (req, res, next, category,
 };
 
 module.exports.volunteersVolunteerIdGET = function volunteersVolunteerIdGET (req, res, next, volunteerId) {
-  if(parseInt(volunteerId)) {
+  if(!parseInt(volunteerId)) {
     utils.writeJson(res, utils.respondWithCode(400, `ID was not input as a number`));
     return;
   }

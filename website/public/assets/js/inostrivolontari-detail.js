@@ -1,5 +1,4 @@
 let vId = null;
-let cameBack = false;
 const DB_URL = "https://ripe4u.herokuapp.com";
 
 
@@ -31,10 +30,7 @@ function fillElements(volunteer){
 }
 
 function loadedDetailImg(){
-    if(!cameBack) {
-        Spinner.letThemComeBack();
-        cameBack = true;
-    } else cameBack = false;
+    Spinner.letThemComeBack();
 }
 
 function loadVolunteer(id){
@@ -73,10 +69,6 @@ function loadVolunteer(id){
             Array.from(document.getElementsByClassName("disappear")).map(e => e.classList.add("d-none"));
         }); 
         vId = id;
-        if(!cameBack) {
-            Spinner.letThemComeBack();
-            cameBack = true;
-        } else cameBack = false;
     })
     .catch(err => {
         //TODO: something went wrong

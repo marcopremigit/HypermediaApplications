@@ -10,7 +10,7 @@ function loadCardsAndFilters(elements, addFilters, link, querySelector, emptyPos
             let data = new Date(e.date_start);
             groups.push(`${data.getUTCFullYear()}/${(data.getMonth()+1)}`);
         }
-        card.className = `text-center card mb-3 invisible ${col}`;
+        card.className = `text-center card mb-3 ${col}`;
         card.setAttribute('data-groups', `["${groups.join('","')}"]`);
         card.setAttribute('data-title', `${e.name}`);
         card.setAttribute('data-id', `${e.id}`);

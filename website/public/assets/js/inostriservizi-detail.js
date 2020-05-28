@@ -20,6 +20,10 @@ function fillElements(service){
     document.getElementById('detail-img').src = service.image;
 }
 
+function loadedDetailImg(){
+    Spinner.letThemComeBack();
+}
+
 function loadService(id){
 
     loadServiceFromDb(id)
@@ -43,9 +47,6 @@ function loadService(id){
             }
             loadCardsAndFilters(events, false,"inostrieventi-detail.html", '#events-card-space');
             saveInStorage('eventsElementsOrder', events.map(v => v.id));
-                
-            //Spinner handling
-            Spinner.letThemComeBack();
         })
         .catch(err => {
             Array.from(document.getElementsByClassName("disappear")).map(e => e.classList.add("d-none"));
@@ -55,9 +56,6 @@ function loadService(id){
         .then(volunteers => {
             loadCardsAndFilters(volunteers, false, "inostrivolontari-detail.html", '#volunteers-card-space');
             saveInStorage('volunteersElementsOrder', volunteers.map(v => v.id));
-        
-            //Spinner handling
-            Spinner.letThemComeBack();
         })
         .catch(err => {
             //TODO

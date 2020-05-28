@@ -12,13 +12,24 @@ function loadCardsAndFilters(elements, addFilters, link, querySelector, emptyPos
         }
         card.className = `text-center card mb-3 ${col}`;
         card.setAttribute('data-groups', `["${groups.join('","')}"]`);
-        card.setAttribute('data-title', `${e.name}`);
-        card.setAttribute('data-id', `${e.id}`);
+        card.setAttribute('data-title', e.name);
+        card.setAttribute('data-id', e.id);
         let a = document.createElement('a');
         a.href = `${link}?id=${e.id}`;
 
+        let spin = document.createElement('div');
+        spin.className='spinner-border main-text-color';
+        spin.setAttribute('role', "status");
+        let span = document.createElement('span');
+        span.className='sr-only';
+        span.setAttribute('alt', "Loading");
+
+        spin.append(span);
+        a.append(spin);
+
         let img = document.createElement('img');
-        img.className = 'card-img-top';
+        img.className = 'card-img-top invisible';
+        img.onload = Spinner.letCardSpinnerComeBack(e.id);
         img.setAttribute('alt', `${e.name}`);
         img.setAttribute('src', `${e.image}`);
         

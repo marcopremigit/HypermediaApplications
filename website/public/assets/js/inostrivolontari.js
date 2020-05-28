@@ -11,8 +11,8 @@ $(document).ready(() => {
         //Shuffler handling
         new Shuffler('#volunteers-card-space', true);
         
-        //Spinner handling
-        Spinner.letThemComeBack();
+        // //Spinner handling
+        // Spinner.letThemComeBack();
     });
 
 

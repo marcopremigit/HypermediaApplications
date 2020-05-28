@@ -73,39 +73,15 @@ function fillElements(event){
 
 let formatDate = date => `${date.getDate()}-${date.getMonth() + 1}-${date.getUTCFullYear()}`;
 
-async function loadEventFromDb(id){
-    return await $.getJSON(DB_URL + `/events/${id}`,
-    (data, status) => {
+let loadEventFromDb = async id => await callToDb(`/events/${id}`);
+let loadEventsService = async id_event => await callToDb("/event_service", {id_event:id_event});
+let loadEventsVolunteer = async id_event => await callToDb("/volunteer_event", {id_event: id_event});
+
+function callToDb(api, params){
+    return $.getJSON(DB_URL + api, params, 
+        (data, status) => {
         if(status === 'success') return data;
         else console.error(status);
         return null;
-    });
-}
-
-async function loadEventsService(id_event){
-    return await $.getJSON(DB_URL + "/event_service",
-    {
-        id_event: id_event
-    },
-    (data, status) => {
-        if(status === "success"){
-            return data;
-        }
-        else
-            console.error(status);
-    });
-}
-
-async function loadEventsVolunteer(id_event){
-    return await $.getJSON(DB_URL + "/volunteer_event",
-    {
-        id_event: id_event
-    },
-    (data, status) => {
-        if(status === "success"){
-            return data;
-        }
-        else
-            console.error(status);
     });
 }

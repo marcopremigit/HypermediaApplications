@@ -16,7 +16,7 @@ module.exports.event_serviceGET = function event_serviceGET (req, res, next, lim
 
 
 module.exports.eventsEventIdGET = function eventsEventIdGET (req, res, next, eventId) {
-  if(typeof eventId !== 'number') {
+  if(!parseInt(eventId)) {
     utils.writeJson(res, utils.respondWithCode(400, `ID was not input as a number`));
     return;
   }

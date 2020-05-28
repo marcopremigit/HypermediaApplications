@@ -15,7 +15,7 @@ module.exports.servicesGET = function servicesGET (req, res, next, category, lim
 };
 
 module.exports.servicesServiceIdGET = function servicesServiceIdGET (req, res, next, serviceId) {
-  if(typeof serviceId !== 'number') {
+  if(!parseInt(serviceId)) {
     utils.writeJson(res, utils.respondWithCode(400, `ID was not input as a number`));
     return;
   }

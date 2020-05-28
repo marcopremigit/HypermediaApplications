@@ -15,7 +15,7 @@ module.exports.newsGET = function newsGET (req, res, next, limit, offset) {
 };
 
 module.exports.newsNewsIdGET = function newsNewsIdGET (req, res, next, newsId) {
-  if(typeof newsId !== 'number') {
+  if(!parseInt(newsId)) {
     utils.writeJson(res, utils.respondWithCode(400, `ID was not input as a number`));
     return;
   }

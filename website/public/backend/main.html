@@ -44,11 +44,11 @@
 <ul>
 <li>Deliverable D0: the web application is accessible at <a href="https://ripe4u.herokuapp.com/">this
 address</a>.</li>
-<li>Deliverable D2: the YAML or JSON file containing the specification
+<li>Deliverable D2: the YAML file containing the specification
 of the app API can be found at <a href="https://ripe4u.herokuapp.com/backend/openapi.yaml">this
 address</a>.</li>
 <li>Deliverable D3: the SwaggerUI page of the same API is available at
-<a href="https://example.com/backend/swaggerui">this address</a>.</li>
+<a href="https://example.com/docs">this address</a>.</li>
 <li>Deliverable D4: the source code of D0 is available as a zip file at
 <a href="https://example.com/backend/app.zip">this address</a>.</li>
 <li>Deliverable D5: the address of the online source control repository
@@ -115,7 +115,7 @@ lo stesso risultato.
 <h3 id="data-model">Data model</h3>
 <!--Describe with an ER diagram the model used in the data layer of your web
 application. How these map to the OpenAPI data model?-->
-<img src="image/db.png" width="1000" alt="DA AGGIUNGERE A CARTELLA MODIFICATA CORRETTAMENTE">
+<img src="image/db.png" width="1000">
 </br>
 All&#39;interno del data layer, durante la creazione delle tabelle, abbiamo cercato di rimanere coerenti con l&#39; ER rappresentato
 all&#39; interno del documento di design, cercando quindi di rispettare i nomi assegnati.
@@ -145,9 +145,10 @@ OpenAPI specification? Which method did you use to test all APIs
 endpoints against the expected response?
 </br>-->
 <!-- ESPANDERE QUESTA PARTE -->
-Abbiamo testato gli endpoints delle API tramite l' utilizzo del tool Postman, mettiamo qui di seguito i risultati.
-<a href="Ripe4u.postman_collection.json">postman</a>
-Abbiamo inoltre deciso di testare in modo più semplice le openAPI tramite l&#39; utilizzo diretto dell&#39; URL, verificando che le risposte caricate, a seguito delle
+Abbiamo testato gli endpoints delle API tramite l' utilizzo del tool Postman, di mettiamo qui di seguito la collection ed i risultati.
+</br><a href="Ripe4u.postman_collection.json">Collection</a>
+</br><a href="Ripe4u.postman_test_run.json">Risultati</a>
+</br>Abbiamo inoltre deciso di testare in modo più semplice le openAPI tramite l&#39; utilizzo diretto dell&#39; URL, verificando che le risposte caricate, a seguito delle
 query, siano coerenti con quanto scritto sul documento yaml, verificando cioè che i dati caricati siano gli stessi.</li>
 <li><!--Why do you think your web application adheres to common practices to
 partition a REST-based web application (static assets vs.
@@ -168,7 +169,18 @@ i contatti vengono esposti nel sito e una sezione dedicata all&#39; autenticazio
 con il sito che siamo andati a sviluppare. Le API che sono state implementate sono delle GET da Database che hanno
 lo scopo di creare dei modelli per le funzioni, implementate successivamente da backend, per caricare le informazioni 
 contenute all&#39; interno DB. La POST relativa alla prenotazione di un evento specifico è stata pensata a livello di specifiche ma non è
-stata poi di fatto implementata lato backend.</li>
+stata poi di fatto implementata lato backend.
+</li>
+<li>
+Tutto lo sviluppo, testing e debugging è stato effettuato solo ed esclusivamente
+su browser Chrome. Questo ha fatto sorgere l'unico "bug" minore dovuto alla
+libreria utilizzata di Shuffle.js. Questa crea dei conflitti nel momento in cui,
+utilizzando i developer tools, si tenta di cambiare la grandezza del viewport
+(per esempio da 1400 a 400 o viceversa). Facendo questo, la libreria non riesce
+correttamente a fare il resize delle card, le quali rimangono con le grandezze
+della width di partenza, costringendo un reload forzato della pagina. 
+</li>
+</ul>
 <!--<li>Which technology did you use (relational or a no-SQL database) for
 managing the data model?
 </br>-->
@@ -176,7 +188,8 @@ La tipologia di database utilizzata nello sviluppo del sito è postgress, un obj
 il salvataggio dei dati sono infatti delle tabelle in cui la prima riga è rappresentata dagli attributi relativi alle informazioni dei singoli oggetti. 
 Le righe successive alla prima rappresentano i dati veri e propri e in quanto tali sono caratterizzati da una chiave primaria. 
 Sono state aggiunte inoltre delle chiavi esterne per tenere conto dei collegamenti che sono presenti nelle tabelle ponte (Service-&gt;Events,
-Events-&gt;Service, Volunteer-&gt;Events, Events-&gt;Volunteer, Volunteer-&gt;Service e Service-&gt;Volunteer)<h2 id="other-information">Other information</h2>
+Events-&gt;Service, Volunteer-&gt;Events, Events-&gt;Volunteer, Volunteer-&gt;Service e Service-&gt;Volunteer)
+<h2 id="other-information">Other information</h2>
 <h3 id="task-assignment">Task assignment</h3>
 <!--Describe here how development tasks have been subdivided among members
 of the group, e.g.:</li>

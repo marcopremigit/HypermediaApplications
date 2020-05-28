@@ -64,8 +64,17 @@
                   <i class="fa fa-arrow-circle-left" style="font-size:48px;color: #ffc107"></i>
                 </button>
               </div>
-              <div class="col-10 p-0 align-middle text-center">
-                <img class="rounded-circle z-depth-2" id="detail-img" alt="event">
+              <div class="col-10 align-middle text-center">
+                <div class="row ">
+                  <div class="col align-middle text-center">
+                      <div class = "row d-flex justify-content-center">
+                        <div class="spinner-border main-text-color" id="spinner" role="status">
+                          <span class="sr-only" alt="Loading"></span>
+                        </div>
+                      </div> 
+                  </div>
+                </div>
+                <img class="rounded-circle z-depth-2 p-0 invisible" id="detail-img" onload="loadedDetailImg()" alt="volunteer">
               </div>
               <div class="col-1 my-auto">
                 <button class="float-right align-middle border-0 p-0 rounded-circle" style="color: white; background-color: white;" onclick="loadNextElement(true)" aria-label="next-event">

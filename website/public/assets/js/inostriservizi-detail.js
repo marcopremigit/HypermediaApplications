@@ -46,7 +46,9 @@ function loadService(id){
                 
             //Spinner handling
             Spinner.letThemComeBack();
-
+        })
+        .catch(err => {
+            Array.from(document.getElementsByClassName("disappear")).map(e => e.classList.add("d-none"));
         });
     
         loadVolunteerServices(id)
@@ -56,7 +58,13 @@ function loadService(id){
         
             //Spinner handling
             Spinner.letThemComeBack();
+        })
+        .catch(err => {
+            //TODO
+            console.error('No services found');
         });
+
+        sId = id;
     })
     .catch(err => {
         //TODO: something went wrong

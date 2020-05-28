@@ -30,6 +30,10 @@ function fillElements(volunteer){
     document.getElementById('eventsTitle').innerHTML = `I prossimi eventi di ${volunteer.name}`;
 }
 
+function loadedDetailImg(){
+    Spinner.letThemComeBack();
+}
+
 function loadVolunteer(id){
     getVolunteerFromDatabase(id)
     .then(v =>  {
@@ -43,14 +47,7 @@ function loadVolunteer(id){
         .then(services => {
             removeAllCards('services-card-space');
             loadCardsAndFilters(services, false, "inostriservizi-detail.html", '#services-card-space');
-            let servicesJSON = {};
-                    services.map(e=>{
-                    servicesJSON[e.id] = e;
-            });
-            saveInStorage('services',servicesJSON);
             saveInStorage('servicesElementsOrder', services.map(v => v.id));
-            //Spinner handling
-            Spinner.letThemComeBack();
         })
         .catch(err => {
             //TODO
@@ -67,14 +64,7 @@ function loadVolunteer(id){
             }
             removeAllCards('events-card-space');
             loadCardsAndFilters(events, false, "inostrieventi-detail.html", '#events-card-space');
-            let eventsJSON = {};
-            events.map(e=>{
-                eventsJSON[e.id] = e;
-            });
-            saveInStorage('events',eventsJSON);
             saveInStorage('eventsElementsOrder', events.map(v => v.id));
-            //Spinner handling
-            Spinner.letThemComeBack();
         })
         .catch(err => {
             Array.from(document.getElementsByClassName("disappear")).map(e => e.classList.add("d-none"));

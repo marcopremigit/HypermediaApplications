@@ -178,33 +178,6 @@ paths:
         "404":
           description: Entity with specified parameters not found
       x-swagger-router-controller: Jobs
-  /jobs/{jobId}:
-    get:
-      tags:
-      - Jobs
-      description: Returns all the info bound to a job by ID
-      operationId: jobsJobIdGET
-      parameters:
-      - name: jobId
-        in: path
-        description: The job ID to query for
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Job'
-        "400":
-          description: Illegal input for the required operation
-        "404":
-          description: Entity with specified parameters not found
-      x-swagger-router-controller: Jobs
   /news:
     get:
       tags:

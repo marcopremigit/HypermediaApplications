@@ -88,8 +88,6 @@ function loadCardsAndFiltersJobs(elements, addFilters, link, querySelector, empt
         card.setAttribute('data-title', `${e.name}`);
         card.setAttribute('data-id', `${e.id}`);
         
-        let a = document.createElement('a');
-        a.href = `${link}?id=${e.id}`;
 
      
         let h = document.createElement('div');
@@ -122,7 +120,6 @@ function loadCardsAndFiltersJobs(elements, addFilters, link, querySelector, empt
         s.className = 'row card-title text-center align-middle h-100';
         s.append(h);
 
-        card.append(a);
         card.append(s);
         cardSpace.append(card);
     });

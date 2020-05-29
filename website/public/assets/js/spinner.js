@@ -11,6 +11,6 @@ let Spinner = {
     },
     letCardSpinnerComeBack(img, spinner){
         img.classList.remove('invisible');
-        spinner.classList.add('invisible');
+        spinner.classList.add('d-none');
     }
 };

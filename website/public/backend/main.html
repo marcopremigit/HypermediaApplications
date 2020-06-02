@@ -41,14 +41,13 @@
 </tbody>
 </table>
 <h2 id="links-to-other-deliverables">Links to other deliverables</h2>
-<ul>
 <li>Deliverable D0: the web application is accessible at <a href="https://ripe4u.herokuapp.com/">this
 address</a>.</li>
 <li>Deliverable D2: the YAML file containing the specification
 of the app API can be found at <a href="https://ripe4u.herokuapp.com/backend/openapi.yaml">this
 address</a>.</li>
 <li>Deliverable D3: the SwaggerUI page of the same API is available at
-<a href="https://example.com/docs">this address</a>.</li>
+<a href="https://ripe4u.herokuapp.com/docs">this address</a>.</li>
 <li>Deliverable D4: the source code of D0 is available as a zip file at
 <a href="https://example.com/backend/app.zip">this address</a>.</li>
 <li>Deliverable D5: the address of the online source control repository
@@ -56,21 +55,16 @@ is available <a href="https://github.com/marcopremigit/HypermediaApplications">t
 declare that this is a private repository and, upon request, we will
 give access to the instructors.<h2 id="specification">Specification</h2>
 <h3 id="web-architecture">Web Architecture</h3>
-<!--Describe here, with a diagram, the components of your web application
-and how they interact. Highlight which parts belong to the application
-layer, data layer or presentation layer. How did you ensure that HTML is
-not rendered server side? 
-</br>-->
 <img src="../backend/image/Diagramma_Architecure_Layers.png" alt="Web Architecture" width="1000">
 </br>
 Nel diagramma riportato qui sopra abbiamo cercato di rappresentrare la suddivisione delle diverse componenti, comprese le interazioni (rappresentate tramite
-frecce bidirezionali), all&#39; interno e e tra le macroaree principali presentation, application e data layer.
-I collegamenti tra i singoli assets e il browser all' interno del presentation layer non sono stati inclusi e per semplicità di rappresentazione
-è stato incluso un singolo collegamento tra il browser e la cartella che include il gruppo di assets statici(file html, css,js e jpg).
-All'interno del diagramma non vi è inoltre una suddivisione dei collegamenti tra l'openAPI gateway e i singoli service, in realtà ci sarebbe un collegamento
-per ognuno di essi con il gateway; ma per semplicità di rappresentazione è stato indicato un singolo collegamento tra l' openAPI gateway ed il gruppo di Service.
-Nello sviluppo del nostro sito abbiamo deciso di considerare alcune pagine che non necessitano dell&#39; interazione con il database
-(data layer), ma che risiedono soltanto all&#39; interno del presentation layer, in quanto le informazioni che vi sono contenute
+frecce bidirezionali), tra le macroaree principali presentation, application e data layer.
+I collegamenti tra i singoli assets e il browser all&#39;interno del presentation layer non sono stati inclusi e per semplicità di rappresentazione
+è stato adoperato un singolo collegamento tra il browser e la cartella comprendente il gruppo di assets statici(file html, css,js e jpg).
+All&#39;interno del diagramma non vi è inoltre una suddivisione dei collegamenti tra l&#39;openAPI gateway e i singoli service, in realtà ci sarebbe un collegamento
+per ognuno di essi con il gateway. Tuttavia per semplicità di rappresentazione è stato indicato un singolo collegamento tra l&#39;openAPI gateway ed il gruppo di Service.
+Nello sviluppo del nostro sito abbiamo deciso di considerare alcune pagine che non necessitano dell&#39;interazione con il database
+(data layer), ma che risiedono soltanto all&#39;interno del presentation layer, in quanto le informazioni che vi sono contenute
 sono soggette a poche modifiche nel tempo e non richiedono perciò un caricamento da database.
 Queste pagine sono:</li>
 <li>HomePage</li>
@@ -79,12 +73,12 @@ Queste pagine sono:</li>
 <li>Sostienici</li>
 <li>Contattaci</li>
 </br>
-Le informazioni relative a queste pagine, nel diagramma, sono state rappresentate all'interno di una cartella, per rimanere coerenti con le suddivisioni
+Le informazioni relative a queste pagine, nel diagramma, sono state rappresentate all&#39;interno di una cartella, per rimanere coerenti con le suddivisioni
 che abbiamo fatto anche nella fase di implementazione del sito.
 Le informazioni relative invece alle pagine che necessitano un caricamento di informazioni
-sono state salvate all&#39; interno del Database (data layer). Le informazioni contenute in queste pagine possono infatti
+sono state salvate all&#39;interno del Database (data layer). Le informazioni contenute in queste pagine possono infatti
 cambiare e dover essere aggiornate nel tempo, in quanto possono aggiungersi o cancellarsi o dare una nuova versione di alcuni contenuti.
-Le pagine che appartengono all&#39;application e presentation layer ma che necessitano di un&#39; interazione con il data layer sono:</li>
+Le pagine che appartengono all&#39;application e presentation layer ma che necessitano di un&#39;interazione con il data layer sono:</li>
 <li>Le nostre News</li>
 <li>I nostri volontari (con l&#39;aggiunta delle pagine dettagliate dei volontari singoli)</li>
 <li>I nostri eventi (con l&#39; aggiunta delle pagine dettagliate dei singoli eventi)</li>
@@ -92,29 +86,20 @@ Le pagine che appartengono all&#39;application e presentation layer ma che neces
 <li>Lavora con noi</li>
 <h3 id="api">API</h3>
 <h4 id="rest-compliance">REST compliance</h4>
-<!--Describe here to what extent did you follow REST principles and what are
-the reasons for which you might have decided to diverge. Note, you must
-not describe the whole API here, just the design decisions.
-</br>-->
 Durante lo svilluppo del sito ci siamo rifatti ai principi dell&#39; architettura client-server REST. 
 Abbiamo cercato infatti di separare gli elementi client che non richiedono collegamenti diretti con il database
 dal server che invece si interfaccia con il database.
 Il server non salva nessuna informazione del client, ma ad ogni richiesta si connette a database e risponde con i dati richiesti.
 Il client fa caching di alcune informazioni per aumentare le performance.
-Sempre seguendo l'architettura REST abbiamo implementato un layering system in quanto il server è l'unico a "vedere" sia il client che il database;
+Sempre seguendo l&#39;architettura REST abbiamo implementato un layering system in quanto il server è l&#39;unico a "vedere" sia il client che il database;
 il database "vede" solo il server, come anche il client.
-
 <h4 id="openapi-resource-models">OpenAPI Resource models</h4>
-<!--Describe here synthetically, which models you have introduced for
-resources.-->
 </br>
 Nella nostra applicazione abbiamo cercato di rifarci al Richardson maturity model. Di questo modello abbiamo applicato il
 livello 2, in quanto questo ci permetti di definire le GET come delle operazioni sicure che non producono alcun cambiamento
-significativo nello stato della sessione. Questo permetti quindi di effettuare diverse volte tale operazione e ottenere ogni volontari
+significativo nello stato della sessione. Questo permetti quindi di effettuare diverse volte tale operazione e ottenere ogni volta
 lo stesso risultato.
 <h3 id="data-model">Data model</h3>
-<!--Describe with an ER diagram the model used in the data layer of your web
-application. How these map to the OpenAPI data model?-->
 <img src="image/db.png" width="1000">
 </br>
 All&#39;interno del data layer, durante la creazione delle tabelle, abbiamo cercato di rimanere coerenti con l&#39; ER rappresentato
@@ -125,112 +110,66 @@ A ciascuna di queste pagine è stata associata una tabella a Database:</li>
 <li>voluteers</li>
 <li>event</li>
 <li>service</Li>
-Le tabelle ponte mostrate a livello di logical Design sono utilizzate per rappresentare le associazioni 0:N.
+Le tabelle ponte mostrate a livello di logical Design sono utilizzate per rappresentare le associazioni 0(1):N.
 Nell&#39;ER tali tabelle sono indicate come relazioni e in quanto presenti nel diagramma sono state rappresentate coerentemente anche a livello di Database.
 Il mapping con le OpenApi è stato fatto rispettando le tabelle e gli attributi contenuti al loro interno, rispettandone quanto
 più possibile anche la nomenclatura. Assegnando quindi a ciascuna tabella del database una corrispondenza con il relativo 
 component chiamato con il medesimo nome.
 <h2 id="implementation">Implementation</h2>
 <h3 id="tools-used">Tools used</h3>
-<!--Describe here which tools, languages and frameworks did you use for the
-backend of the application.
-</br>-->
 Per l&#39;implementazione del backend abbiamo utilizzato interfaccia standard le OAS 3.0 per avere una documentazione e un templating per il server.
 Il server si sviluppa sulla libreria open source di NodeJS (svilluppata su Javascript) interfacciandosi con il database PostgreSQL hostato sulla piattaforma Heroku.
 Per la costruzione del database ci siamo avvalsi del tool pgAdmin 4.
 <h3 id="discussion">Discussion</h3>
-<!--Describe here:</li>
-<li>How did you make sure your web application adheres to the provided
-OpenAPI specification? Which method did you use to test all APIs
-endpoints against the expected response?
-</br>-->
-<!-- ESPANDERE QUESTA PARTE -->
-Abbiamo testato gli endpoints delle API tramite l' utilizzo del tool Postman, di mettiamo qui di seguito la collection ed i risultati.
+Abbiamo testato gli endpoints delle API tramite l&#39;utilizzo del tool Postman, di mettiamo qui di seguito la collection ed i risultati.
 </br><a href="Ripe4u.postman_collection.json">Collection</a>
 </br><a href="Ripe4u.postman_test_run.json">Risultati</a>
 </br>Abbiamo inoltre deciso di testare in modo più semplice le openAPI tramite l&#39; utilizzo diretto dell&#39; URL, verificando che le risposte caricate, a seguito delle
 query, siano coerenti con quanto scritto sul documento yaml, verificando cioè che i dati caricati siano gli stessi.</li>
-<li><!--Why do you think your web application adheres to common practices to
-partition a REST-based web application (static assets vs.
-application data)
-</br>-->
+<li>
 La nostra applicazione web rispetta le pratiche comuni relative alla partizione del sito e alla conseguente suddivisione delle
 pagine che fanno riferimento ad uno static assets e altre che basano la loro logica sull&#39;application data, al cui interno bisogna considerare
 la suddivisione in openAPI gateway, controller e service. L&#39; applicazione considera infatti i dati relativi ad alcune pagine soggetti
 a variazione nel tempo e di conseguenza l&#39; utilizzo di un&#39; application server risulta essere necessario per poter interfacciarsi e interrogare
 il database. Nel restante caso i dati che non necessitano di query specifiche a database sono stati considerati come static assets.
 Abbiamo considerato opportuna ed efficace questa soluzione per rendere più performante il caricamento delle pagine.</li>
-<li><!--Describe synthetically why and how did you manage session state,
-what are the state change triggering actions (e.g., POST to login
-etc..).
-</br>-->
+<li>
 Nella nostra applicazione non abbiamo ritenuto strettamente necessario l&#39; utilizzo di una sezione di login in quanto tutti
 i contatti vengono esposti nel sito e una sezione dedicata all&#39; autenticazione dell&#39; utente l&#39; abbiamo considerata poco coerente
-con il sito che siamo andati a sviluppare. Le API che sono state implementate sono delle GET da Database che hanno
+con ciò che siamo andati a sviluppare. Le API che sono state implementate sono delle GET da Database che hanno
 lo scopo di creare dei modelli per le funzioni, implementate successivamente da backend, per caricare le informazioni 
-contenute all&#39; interno DB. La POST relativa alla prenotazione di un evento specifico è stata pensata a livello di specifiche ma non è
-stata poi di fatto implementata lato backend.
-</li>
+contenute all&#39; interno DB. 
 <li>
 Tutto lo sviluppo, testing e debugging è stato effettuato solo ed esclusivamente
-su browser Chrome. Questo ha fatto sorgere l'unico "bug" minore dovuto alla
+su browser Chrome. Questo ha fatto sorgere l&#39;unico "bug" minore dovuto alla
 libreria utilizzata di Shuffle.js. Questa crea dei conflitti nel momento in cui,
 utilizzando i developer tools, si tenta di cambiare la grandezza del viewport
 (per esempio da 1400 a 400 o viceversa). Facendo questo, la libreria non riesce
 correttamente a fare il resize delle card, le quali rimangono con le grandezze
 della width di partenza, costringendo un reload forzato della pagina. 
 </li>
-</ul>
-<!--<li>Which technology did you use (relational or a no-SQL database) for
-managing the data model?
-</br>-->
-La tipologia di database utilizzata nello sviluppo del sito è postgress, un object-relational database. Le struttura utillizata per 
-il salvataggio dei dati sono infatti delle tabelle in cui la prima riga è rappresentata dagli attributi relativi alle informazioni dei singoli oggetti. 
-Le righe successive alla prima rappresentano i dati veri e propri e in quanto tali sono caratterizzati da una chiave primaria. 
+La tipologia di database utilizzata nello sviluppo del sito è postgress, un object-relational database. Le strutture utilizzate per 
+il salvataggio dei dati sono infatti delle tabelle in cui la prima riga comprende i nomi dati agli attributi dei singoli oggetti. 
+Le righe successive alla prima rappresentano i dati veri e propri che, in quanto tali, sono caratterizzati da una chiave primaria. 
 Sono state aggiunte inoltre delle chiavi esterne per tenere conto dei collegamenti che sono presenti nelle tabelle ponte (Service-&gt;Events,
 Events-&gt;Service, Volunteer-&gt;Events, Events-&gt;Volunteer, Volunteer-&gt;Service e Service-&gt;Volunteer)
 <h2 id="other-information">Other information</h2>
 <h3 id="task-assignment">Task assignment</h3>
-<!--Describe here how development tasks have been subdivided among members
-of the group, e.g.:</li>
-<li>Foo worked on front end (80%) and OpenAPI Spec (20% of the time)</li>
-<li>Bar worked on ....</li>
-</br>-->
 Nella suddivisione del lavoro per lo sviluppo del sito abbiamo cercato di organizzarci per lavorare insieme per la maggior parte
 del tempo, cercando di dividere il lavoro affinchè tutti potessero contribuire alle parti più importanti del progetto e avessero
 la possibilità di imparare i passaggi implementativi più importanti.
 Il lavoro è stato diviso in maniera tale che tutto il gruppo potesse inizialmente concentrarsi sul frontend per ottenerne una versione stabile e solo successivamente 
 dedicarsi al backend. 
 <h3 id="analysis-of-existing-api">Analysis of existing API</h3>
-<!--Describe here the research of (full or part of) existing APIs that are similar
-in objectives and scope to the one implemented, that have possibly guided
-implementation choices (these should not be necessarily OpenAPI
-implementations). Toy APIs (such as the Swagger&#39;s Pet Store) or the example
-shown during lectures are not a valid response.
-Use TWO or more items of the form:
-We took (full/partial) inspiration from API <XYZ>(link) for the part of the
-API that manages <ABC> because of <REASON>.
-Or
-For the part of the API that manages <ABC> we considered/studied <XYZ>(link)
-because of <REASON> but wasn&#39;t completely fitting to our purpose because of <REASON>
-</br>-->
 Per quanto riguarda lo sviluppo delle API non abbiamo ritenuto necessario prendere come riferimento delle API già esistenti.
 Le openAPI sono state sviluppate semplicemente consultando la documentazione disponibile su swagger. In quanto le
 API necessarie per il nostro sito sono solo delle semplici chiamate a database per ottenere come risposta i dati contenuti,
 non vi è infatti alcuna necessità per il client di aggiornare/inserire delle informazioni a database. 
 <h3 id="learning-outcome">Learning outcome</h3>
-What was the most important thing all the members have learned while
-developing this part of the project, what questions remained unanswered,
-how you will use what you&#39;ve learned in your everyday life?
-Examples:</li>
-<li>Foo learned to write SQL queries and Javascript but wanted to know
-more about caching, he&#39;s probably going to create his own startup
-with what she has learned</li>
-<li>Bar learned how to deploy on a cloud platform, he would have liked
-to know more about promises for asynchronous code..</li>
-Davide ha imparato l' utilizzo di bootstrap per il frontend e di Javascript ed è interessatto ad approfondire maggiormente le proprie conoscenze per quanto
-riguarda l' utilizzo di framework angular.js.
-Marco.... 
-Fabrizio....
-</ul>
+<p>Davide ha imparato l&#39;utilizzo di bootstrap per lo sviluppo del frontend e di Javascript ed è interessatto ad approfondire maggiormente le proprie conoscenze per quanto
+riguarda l&#39;utilizzo del framework AngularJS.</p>
+<p>Marco ha imparato a gestire il database  e a realizzare le query per l&#39;estrapolazione delle informazioni del nostro sito. E&#39; interessato ad 
+integrare le proprie conoscenze per quanto riguardo la gestione di database non relazionali focalizzandosi su MongoDB.</p>
+<p>Fabrizio ha imparato a gestire la piattoforma cloud di heroku e ad integrarla con il database ed il backend del nostro sito. Ha inoltre 
+intenzione di approfondire le proprie conoscenze nell&#39;ambito cloud studiando il funzionamento anche di AWS.</p>
 </blockquote>

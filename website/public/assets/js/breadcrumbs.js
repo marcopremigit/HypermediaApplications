@@ -21,6 +21,7 @@ $(document).ready(() => {
 let Breadcrumbs = {
     loadCrumbs : function(crumbs){
         let crumbsDiv = $("#breadcrumbs");
+        if(crumbs.length === 1) return;
         if(crumbsDiv === undefined || crumbsDiv === null) return;
         crumbsDiv.empty();
         crumbs.map( (c,i) => crumbsDiv.append(createCrumb(c, i === crumbs.length - 1)));
@@ -34,10 +35,6 @@ let Breadcrumbs = {
         if(detail) page = page.slice(0, page.lastIndexOf('?'));
 
         let cs = [
-            {
-                page: "../index.html",
-                title: "Home"
-            },
             {
                 page: PAGES[page].page || page,
                 title: PAGES[page].title || PAGES[page]

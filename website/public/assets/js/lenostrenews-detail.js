@@ -16,7 +16,6 @@ function loadNextElement(goRight){
 
 function fillElements(news){
     document.getElementById('newsName').innerText = news.name;
-    document.getElementById('news_Name').innerText = news.name;
     document.getElementById('newsDescription').innerHTML = news.long_description;
     document.getElementById('detail-img').src = news.image;
 }

@@ -1,14 +1,4 @@
 window.onload = () => {
-    Breadcrumbs.loadCrumbs([
-        {
-            page: "homepage.html",
-            title: "Home"
-        },
-        {
-            page: "contattaci.html",
-            title: "Contattaci"
-        }
-    ]);
     let form = document.getElementById("contact-form");
 
     form.addEventListener('submit', function(event) {

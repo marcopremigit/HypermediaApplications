@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../assets/css/main.css">
+        <title>Ripe4U - I nostri eventi</title>
+    </head>
+    <body class="d-flex flex-column min-vh-100">
+      <div class="wrapper flex-grow-1">
+        <header>
+          <div class="main-bg-color header">
+            <nav class="navbar navbar-expand-lg navbar-light">
+              <a class="navbar-brand" href="../index.html"><h1 style="color: #FFBE0A;">Ripe4U</h1></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headerNavbar" aria-controls="headerNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-caret-down fa-lg" aria-hidden="true"></i>
+              </button>
+            
+              <div class="collapse navbar-collapse" id="headerNavbar">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="inostriservizi.html">I nostri servizi</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="chisiamo.html">Chi siamo</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="lenostrenews.html">Le nostre news</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="inostrivolontari.html">I nostri volontari</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="inostrieventi.html">I nostri eventi</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="sostienici.html">Sostienici</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </header>
+
+        <div class="container pt-3">
+          <div class="row">
+            <div class="col"> 
+              <nav aria-label="breadcrumb">
+                <ol id="breadcrumbs" class="breadcrumb"></ol>
+              </nav>
+              <div class="row">
+                  <div class="header-rectangle mt-1 border col-12 align-middle text-center border-warning shadow-lg p-3 mb-5 bg-white rounded">
+                  <h2 class = "my-2 main-text-color">I nostri eventi</h2>
+                  </div>    
+              </div> 
+              <hr/> 
+              <div class="invisible">
+                <div class = "row d-flex justify-content-center">
+                  <div class="spinner-border main-text-color" role="status">
+                    <span class="sr-only" alt="Loading"></span>
+                  </div>
+                </div> 
+                <div class="row">
+                  <div id="map"></div>
+                </div>
+                <div class="row mobile my-3 mx-auto">
+                  <form class="form-inline justify-content-around" action="javascript:void(0);"> 
+                    <div class="input-group w-100">
+                      <div class="input-group-prepend my-2 w-100">
+                        <div class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></div>
+                        <input id="searchBox-mobile" class="form-control w-100" type="search" placeholder="Cerca" aria-label="Cerca"> 
+                      </div>
+                      <div class="dropdown col-9 mx-auto my-2">
+                        <button class="btn dropdown-toggle main-bg-color w-100" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filtra per categorie</button>
+                        <div id="categoryDropdown" class="dropdown-menu w-100 categories" aria-labelledby="categoryDropdown"></div>
+                      </div>
+                      <div class="dropdown col-9 mx-auto my-2">
+                        <button class="btn dropdown-toggle main-bg-color w-100" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filtra per mesi</button>
+                        <div id="monthsDropdown" class="dropdown-menu w-100 months" aria-labelledby="monthsDropdown"></div>
+                      </div>
+                    </div>
+                  </form> 
+                </div>
+                <div class="row pt-4">
+                  <div class="col">
+                    <div id="events-card-space" class="card-deck three-col mx-auto"></div>
+                  </div>
+                  <div class="col-3 desktop">
+                    <div class="row">
+                      <form class="form-inline w-100" action="javascript:void(0);"> 
+                        <div class="input-group w-100">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></div>
+                          </div>
+                          <input id="searchBox-desktop" class="form-control" type="search" placeholder="Cerca" aria-label="Cerca"> 
+                        </div>
+                      </form> 
+                    </div>
+                    <div class="row my-3">
+                      <div class="dropdown w-100">
+                        <button class="btn dropdown-toggle main-bg-color w-100" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           Filtra per categorie
+                        </button>
+                        <div id="categoryDropdown" class="dropdown-menu categories" aria-labelledby="categoryDropdown"></div>
+                      </div>
+                      <div class="dropdown w-100 my-2">
+                        <button class="btn dropdown-toggle main-bg-color w-100" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           Filtra per mesi
+                        </button>
+                        <div id="monthsDropdown" class="dropdown-menu months" aria-labelledby="monthsDropdown"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer w-100 main-bg-color">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item p-2">
+              <a class="h4 font-weight-light nav-link text-center" href="contattaci.html">Contattaci</a>
+            </li>
+            <li class="nav-item p-2">
+              <a class="h4 font-weight-light nav-link text-center" href="raggiungici.html">Raggiungici</a>
+            </li>
+            <li class="nav-item p-2">
+              <a class="h4 font-weight-light nav-link text-center" href="lavoraconnoi.html">Lavora con noi</a>
+            </li>
+          </ul>
+        </nav>
+      </footer>
+
+      <!-- jQuery first, then Popper.js and then Bootstrap JS -->
+      <script src="../assets/js/jquery-3.5.1.min.js"></script>
+      <script src="../assets/js/popper.min.js"></script>
+      <script src="../assets/js/bootstrap.min.js"></script>
+      <!-- Optional Javascript -->
+      <script src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAPLY7Gso7zCSQlnf6_FL3F6DOR38lqcAY"></script>
+      <script src = "../assets/js/shuffle.min.js"></script>
+      <script src = "../assets/js/card.js"></script>
+      <script src = "../assets/js/breadcrumbs.js"></script>
+      <script src = "../assets/js/maps.js"></script>
+      <script src = "../assets/js/spinner.js"></script>
+      <script src = "../assets/js/shuffler.js"></script>
+      <script src = "../assets/js/inostrieventi.js"></script>
+    </body>
+</html>

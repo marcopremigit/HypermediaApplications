@@ -1,22 +1,5 @@
+UsabilityInspection/
 
-*.log
+Design Document/
 
-*.toc
-
-*.ref
-
-*.fdb_latexmk
-
-*.blg
-
-*.gz
-
-*.out
-
-*.fls
-
-*.bbl
-
-*.aux
-
-UsabilityInspection/report.pdf
+node_modules/

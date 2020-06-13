@@ -1,0 +1,3845 @@
+{
+	"info": {
+		"_postman_id": "dbde34bb-c894-4605-b1f6-46a9d76c83d8",
+		"name": "Ripe4u",
+		"description": "Here are described all the APIs needed for the HTTP requests to the Ripe4U website developed for the Polimi Course \"Hypermedia Applications\" 19/20",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "volunteers",
+			"item": [
+				{
+					"name": "volunteers GET 200 OK",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d586cac7-0d58-4197-b6a4-36c2aed89bd3",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/volunteers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"volunteers"
+							]
+						},
+						"description": "Returns all the volunteers in the database"
+					},
+					"response": [
+						{
+							"name": "Entity with specified parameters not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/volunteers?category=<string>&limit=<integer>&offset=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"volunteers"
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "<string>"
+										},
+										{
+											"key": "limit",
+											"value": "<integer>"
+										},
+										{
+											"key": "offset",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/volunteers?category=<string>&limit=<integer>&offset=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"volunteers"
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "<string>"
+										},
+										{
+											"key": "limit",
+											"value": "<integer>"
+										},
+										{
+											"key": "offset",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"image\": \"image\",\n  \"date_start\": \"date_start\",\n  \"description\": \"description\",\n  \"date_end\": \"date_end\",\n  \"id\": 0,\n  \"place\": {\n   \"lng\": 0,\n   \"lat\": 0\n  },\n  \"available_places\": 0,\n  \"title\": \"title\",\n  \"category\": \"Vacanza studio\"\n },\n {\n  \"image\": \"image\",\n  \"date_start\": \"date_start\",\n  \"description\": \"description\",\n  \"date_end\": \"date_end\",\n  \"id\": 0,\n  \"place\": {\n   \"lng\": 0,\n   \"lat\": 0\n  },\n  \"available_places\": 0,\n  \"title\": \"title\",\n  \"category\": \"Vacanza studio\"\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "volunteers Volunteer Id GET 200 OK",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "94f7a60c-dd65-4e7b-9383-606282eaf459",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/volunteers/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"volunteers",
+								"2"
+							]
+						},
+						"description": "Returns all the info bound to a volunteer by ID"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/volunteers/:volunteerId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"volunteers",
+										":volunteerId"
+									],
+									"variable": [
+										{
+											"key": "volunteerId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"image\": \"image\",\n \"career\": \"career\",\n \"phone\": \"phone\",\n \"name\": \"name\",\n \"description\": \"description\",\n \"id\": 0,\n \"category\": \"Professore\",\n \"email\": \"email\"\n}"
+						},
+						{
+							"name": "Illegal input for the required operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/volunteers/:volunteerId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"volunteers",
+										":volunteerId"
+									],
+									"variable": [
+										{
+											"key": "volunteerId"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Entity with specified parameters not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/volunteers/:volunteerId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"volunteers",
+										":volunteerId"
+									],
+									"variable": [
+										{
+											"key": "volunteerId"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "volunteers Volunteer Id GET 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "242627dc-c389-4073-838b-f0d0732cb7ed",
+								"exec": [
+									"pm.test(\"Status code is 400\", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/volunteers/\"ciao\"",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"volunteers",
+								"\"ciao\""
+							]
+						},
+						"description": "Returns all the info bound to a volunteer by ID"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/volunteers/:volunteerId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"volunteers",
+										":volunteerId"
+									],
+									"variable": [
+										{
+											"key": "volunteerId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"image\": \"image\",\n \"career\": \"career\",\n \"phone\": \"phone\",\n \"name\": \"name\",\n \"description\": \"description\",\n \"id\": 0,\n \"category\": \"Professore\",\n \"email\": \"email\"\n}"
+						},
+						{
+							"name": "Entity with specified parameters not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/volunteers/:volunteerId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"volunteers",
+										":volunteerId"
+									],
+									"variable": [
+										{
+											"key": "volunteerId"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Illegal input for the required operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/volunteers/:volunteerId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"volunteers",
+										":volunteerId"
+									],
+									"variable": [
+										{
+											"key": "volunteerId"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "volunteers Volunteer Id GET 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4d635fd1-9787-43cd-aadc-baf03b497295",
+								"exec": [
+									"pm.test(\"Status code is 404\", function(){\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/volunteers/1254477",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"volunteers",
+								"1254477"
+							]
+						},
+						"description": "Returns all the info bound to a volunteer by ID"
+					},
+					"response": [
+						{
+							"name": "Illegal input for the required operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/volunteers/:volunteerId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"volunteers",
+										":volunteerId"
+									],
+									"variable": [
+										{
+											"key": "volunteerId"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Entity with specified parameters not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/volunteers/:volunteerId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"volunteers",
+										":volunteerId"
+									],
+									"variable": [
+										{
+											"key": "volunteerId"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/volunteers/:volunteerId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"volunteers",
+										":volunteerId"
+									],
+									"variable": [
+										{
+											"key": "volunteerId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"image\": \"image\",\n \"career\": \"career\",\n \"phone\": \"phone\",\n \"name\": \"name\",\n \"description\": \"description\",\n \"id\": 0,\n \"category\": \"Professore\",\n \"email\": \"email\"\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "services",
+			"item": [
+				{
+					"name": "services GET 200 OK",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "55d756f6-21c0-49ac-bb3d-2bde9b8373be",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/services",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"services"
+							]
+						},
+						"description": "Returns all the services in the database"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/services?category=<string>&limit=<integer>&offset=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"services"
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "<string>"
+										},
+										{
+											"key": "limit",
+											"value": "<integer>"
+										},
+										{
+											"key": "offset",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"image\": \"image\",\n  \"description\": \"description\",\n  \"id\": 0,\n  \"title\": \"title\",\n  \"category\": \"Ripetizione\"\n },\n {\n  \"image\": \"image\",\n  \"description\": \"description\",\n  \"id\": 0,\n  \"title\": \"title\",\n  \"category\": \"Ripetizione\"\n }\n]"
+						},
+						{
+							"name": "Entity with specified parameters not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/services?category=<string>&limit=<integer>&offset=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"services"
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "<string>"
+										},
+										{
+											"key": "limit",
+											"value": "<integer>"
+										},
+										{
+											"key": "offset",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "services Service Id GET 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dd44f889-4115-473d-a905-9eb437c137a0",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/services/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"services",
+								"2"
+							]
+						},
+						"description": "Returns all the info bound to a service by ID"
+					},
+					"response": [
+						{
+							"name": "Illegal input for the required operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/services/:serviceId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"services",
+										":serviceId"
+									],
+									"variable": [
+										{
+											"key": "serviceId"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Entity with specified parameters not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/services/:serviceId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"services",
+										":serviceId"
+									],
+									"variable": [
+										{
+											"key": "serviceId"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/services/:serviceId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"services",
+										":serviceId"
+									],
+									"variable": [
+										{
+											"key": "serviceId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"image\": \"image\",\n \"description\": \"description\",\n \"id\": 0,\n \"title\": \"title\",\n \"category\": \"Ripetizione\"\n}"
+						}
+					]
+				},
+				{
+					"name": "services Service Id GET 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3b2c7e01-a920-48d2-87f4-174ce92a685a",
+								"exec": [
+									"pm.test(\"Status code is 400\", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/services/\"ciao\"",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"services",
+								"\"ciao\""
+							]
+						},
+						"description": "Returns all the info bound to a service by ID"
+					},
+					"response": [
+						{
+							"name": "Illegal input for the required operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/services/:serviceId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"services",
+										":serviceId"
+									],
+									"variable": [
+										{
+											"key": "serviceId"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Entity with specified parameters not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/services/:serviceId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"services",
+										":serviceId"
+									],
+									"variable": [
+										{
+											"key": "serviceId"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/services/:serviceId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"services",
+										":serviceId"
+									],
+									"variable": [
+										{
+											"key": "serviceId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"image\": \"image\",\n \"description\": \"description\",\n \"id\": 0,\n \"title\": \"title\",\n \"category\": \"Ripetizione\"\n}"
+						}
+					]
+				},
+				{
+					"name": "services Service Id GET 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a6adedce-17d6-4f14-b3fb-fea013dddbaa",
+								"exec": [
+									"pm.test(\"Status code is 404\", function(){\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/services/1254477",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"services",
+								"1254477"
+							]
+						},
+						"description": "Returns all the info bound to a service by ID"
+					},
+					"response": [
+						{
+							"name": "Entity with specified parameters not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/services/:serviceId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"services",
+										":serviceId"
+									],
+									"variable": [
+										{
+											"key": "serviceId"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/services/:serviceId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"services",
+										":serviceId"
+									],
+									"variable": [
+										{
+											"key": "serviceId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"image\": \"image\",\n \"description\": \"description\",\n \"id\": 0,\n \"title\": \"title\",\n \"category\": \"Ripetizione\"\n}"
+						},
+						{
+							"name": "Illegal input for the required operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/services/:serviceId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"services",
+										":serviceId"
+									],
+									"variable": [
+										{
+											"key": "serviceId"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "events",
+			"item": [
+				{
+					"name": "events GET 200 OK",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "71959e5a-e44f-40c6-b148-e184888f0839",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/events",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"events"
+							]
+						},
+						"description": "Returns all the events in the database"
+					},
+					"response": [
+						{
+							"name": "Entity with specified parameters not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/events?category=<string>&limit=<integer>&offset=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events"
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "<string>"
+										},
+										{
+											"key": "limit",
+											"value": "<integer>"
+										},
+										{
+											"key": "offset",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/events?category=<string>&limit=<integer>&offset=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events"
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "<string>"
+										},
+										{
+											"key": "limit",
+											"value": "<integer>"
+										},
+										{
+											"key": "offset",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"image\": \"image\",\n  \"date_start\": \"date_start\",\n  \"description\": \"description\",\n  \"date_end\": \"date_end\",\n  \"id\": 0,\n  \"place\": {\n   \"lng\": 0,\n   \"lat\": 0\n  },\n  \"available_places\": 0,\n  \"title\": \"title\",\n  \"category\": \"Vacanza studio\"\n },\n {\n  \"image\": \"image\",\n  \"date_start\": \"date_start\",\n  \"description\": \"description\",\n  \"date_end\": \"date_end\",\n  \"id\": 0,\n  \"place\": {\n   \"lng\": 0,\n   \"lat\": 0\n  },\n  \"available_places\": 0,\n  \"title\": \"title\",\n  \"category\": \"Vacanza studio\"\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "events Event Id GET 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "350babdb-2cda-431d-8f67-6673d491afb5",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/events/3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"events",
+								"3"
+							]
+						},
+						"description": "Returns all the info bound to a event by ID"
+					},
+					"response": [
+						{
+							"name": "Entity with specified parameters not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/events/:eventId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events",
+										":eventId"
+									],
+									"variable": [
+										{
+											"key": "eventId"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/events/:eventId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events",
+										":eventId"
+									],
+									"variable": [
+										{
+											"key": "eventId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"image\": \"image\",\n \"date_start\": \"date_start\",\n \"description\": \"description\",\n \"date_end\": \"date_end\",\n \"id\": 0,\n \"place\": {\n  \"lng\": 0,\n  \"lat\": 0\n },\n \"available_places\": 0,\n \"title\": \"title\",\n \"category\": \"Vacanza studio\"\n}"
+						},
+						{
+							"name": "Illegal input for the required operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/events/:eventId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events",
+										":eventId"
+									],
+									"variable": [
+										{
+											"key": "eventId"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "events Event Id GET 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "71343bd6-e546-4fdf-aa39-3dda747e359b",
+								"exec": [
+									"pm.test(\"Status code is 400\", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/events/\"ciao\"",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"events",
+								"\"ciao\""
+							]
+						},
+						"description": "Returns all the info bound to a event by ID"
+					},
+					"response": [
+						{
+							"name": "Illegal input for the required operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/events/:eventId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events",
+										":eventId"
+									],
+									"variable": [
+										{
+											"key": "eventId"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/events/:eventId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events",
+										":eventId"
+									],
+									"variable": [
+										{
+											"key": "eventId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"image\": \"image\",\n \"date_start\": \"date_start\",\n \"description\": \"description\",\n \"date_end\": \"date_end\",\n \"id\": 0,\n \"place\": {\n  \"lng\": 0,\n  \"lat\": 0\n },\n \"available_places\": 0,\n \"title\": \"title\",\n \"category\": \"Vacanza studio\"\n}"
+						},
+						{
+							"name": "Entity with specified parameters not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/events/:eventId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events",
+										":eventId"
+									],
+									"variable": [
+										{
+											"key": "eventId"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "events Event Id GET 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "09fba3fd-1a74-4ff3-bf74-25f07265ab72",
+								"exec": [
+									"pm.test(\"Status code is 404\", function(){\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/events/1254477",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"events",
+								"1254477"
+							]
+						},
+						"description": "Returns all the info bound to a event by ID"
+					},
+					"response": [
+						{
+							"name": "Illegal input for the required operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/events/:eventId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events",
+										":eventId"
+									],
+									"variable": [
+										{
+											"key": "eventId"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/events/:eventId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events",
+										":eventId"
+									],
+									"variable": [
+										{
+											"key": "eventId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"image\": \"image\",\n \"date_start\": \"date_start\",\n \"description\": \"description\",\n \"date_end\": \"date_end\",\n \"id\": 0,\n \"place\": {\n  \"lng\": 0,\n  \"lat\": 0\n },\n \"available_places\": 0,\n \"title\": \"title\",\n \"category\": \"Vacanza studio\"\n}"
+						},
+						{
+							"name": "Entity with specified parameters not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/events/:eventId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events",
+										":eventId"
+									],
+									"variable": [
+										{
+											"key": "eventId"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "jobs",
+			"item": [
+				{
+					"name": "jobs GET 200 OK",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c120910b-5e75-4a5a-932c-4bde3e74e8fc",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/jobs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"jobs"
+							]
+						},
+						"description": "Returns all the jobs in the database"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/jobs?limit=<integer>&offset=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"jobs"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "<integer>"
+										},
+										{
+											"key": "offset",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"requirements\": \"requirements\",\n  \"description\": \"description\",\n  \"closed\": true,\n  \"id\": 0,\n  \"title\": \"title\"\n },\n {\n  \"requirements\": \"requirements\",\n  \"description\": \"description\",\n  \"closed\": true,\n  \"id\": 0,\n  \"title\": \"title\"\n }\n]"
+						},
+						{
+							"name": "Entity with specified parameters not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/jobs?limit=<integer>&offset=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"jobs"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "<integer>"
+										},
+										{
+											"key": "offset",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "news",
+			"item": [
+				{
+					"name": "news GET 200 OK",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "92f2c5a3-94e5-44b9-80e5-9c402a6442cd",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/news",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"news"
+							]
+						},
+						"description": "Returns all the news in the database"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/news?limit=<integer>&offset=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"news"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "<integer>"
+										},
+										{
+											"key": "offset",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"short_description\": \"short_description\",\n  \"image\": \"image\",\n  \"id\": 0,\n  \"long_description\": \"long_description\",\n  \"title\": \"title\"\n },\n {\n  \"short_description\": \"short_description\",\n  \"image\": \"image\",\n  \"id\": 0,\n  \"long_description\": \"long_description\",\n  \"title\": \"title\"\n }\n]"
+						},
+						{
+							"name": "Entity with specified parameters not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/news?limit=<integer>&offset=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"news"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "<integer>"
+										},
+										{
+											"key": "offset",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "news News Id GET",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0b6b2250-efa7-405f-83c1-4fe96a84e5eb",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/news/13",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"news",
+								"13"
+							]
+						},
+						"description": "Returns all the info bound to a news by ID"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/news/:newsId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"news",
+										":newsId"
+									],
+									"variable": [
+										{
+											"key": "newsId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"short_description\": \"short_description\",\n \"image\": \"image\",\n \"id\": 0,\n \"long_description\": \"long_description\",\n \"title\": \"title\"\n}"
+						},
+						{
+							"name": "Entity with specified parameters not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/news/:newsId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"news",
+										":newsId"
+									],
+									"variable": [
+										{
+											"key": "newsId"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Illegal input for the required operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/news/:newsId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"news",
+										":newsId"
+									],
+									"variable": [
+										{
+											"key": "newsId"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "news News Id GET 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "055022dd-87a4-4168-8da3-638fc665cbf8",
+								"exec": [
+									"pm.test(\"Status code is 400\", function(){\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/news/\"ciao\"",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"news",
+								"\"ciao\""
+							]
+						},
+						"description": "Returns all the info bound to a news by ID"
+					},
+					"response": [
+						{
+							"name": "Illegal input for the required operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/news/:newsId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"news",
+										":newsId"
+									],
+									"variable": [
+										{
+											"key": "newsId"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Entity with specified parameters not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/news/:newsId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"news",
+										":newsId"
+									],
+									"variable": [
+										{
+											"key": "newsId"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/news/:newsId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"news",
+										":newsId"
+									],
+									"variable": [
+										{
+											"key": "newsId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"short_description\": \"short_description\",\n \"image\": \"image\",\n \"id\": 0,\n \"long_description\": \"long_description\",\n \"title\": \"title\"\n}"
+						}
+					]
+				},
+				{
+					"name": "news News Id GET 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "896a548a-6d4b-4abf-b63e-f8137b96a0d7",
+								"exec": [
+									"pm.test(\"Status code is 404\", function(){\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/news/1254477",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"news",
+								"1254477"
+							]
+						},
+						"description": "Returns all the info bound to a news by ID"
+					},
+					"response": [
+						{
+							"name": "Illegal input for the required operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/news/:newsId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"news",
+										":newsId"
+									],
+									"variable": [
+										{
+											"key": "newsId"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/news/:newsId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"news",
+										":newsId"
+									],
+									"variable": [
+										{
+											"key": "newsId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"short_description\": \"short_description\",\n \"image\": \"image\",\n \"id\": 0,\n \"long_description\": \"long_description\",\n \"title\": \"title\"\n}"
+						},
+						{
+							"name": "Entity with specified parameters not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/news/:newsId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"news",
+										":newsId"
+									],
+									"variable": [
+										{
+											"key": "newsId"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "volunteer service GET 200 OK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "20323377-c4ed-4463-b7e6-9e357b37e829",
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/volunteer_service?id_service=2",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"volunteer_service"
+					],
+					"query": [
+						{
+							"key": "id_service",
+							"value": "2",
+							"description": "Service id"
+						}
+					]
+				},
+				"description": "Returns id_volunteer if id_service is inserted, or id_service if id_volunteer is inserted"
+			},
+			"response": [
+				{
+					"name": "Illegal input for the required operation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/volunteer_service?limit=<integer>&id_volunteer=<integer>&id_service=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"volunteer_service"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_volunteer",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_service",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Entity with specified parameters not found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/volunteer_service?limit=<integer>&id_volunteer=<integer>&id_service=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"volunteer_service"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_volunteer",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_service",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/volunteer_service?limit=<integer>&id_volunteer=<integer>&id_service=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"volunteer_service"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_volunteer",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_service",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n {\n  \"image\": \"image\",\n  \"career\": \"career\",\n  \"phone\": \"phone\",\n  \"name\": \"name\",\n  \"description\": \"description\",\n  \"id\": 0,\n  \"category\": \"Professore\",\n  \"email\": \"email\"\n },\n {\n  \"image\": \"image\",\n  \"career\": \"career\",\n  \"phone\": \"phone\",\n  \"name\": \"name\",\n  \"description\": \"description\",\n  \"id\": 0,\n  \"category\": \"Professore\",\n  \"email\": \"email\"\n }\n]"
+				}
+			]
+		},
+		{
+			"name": "volunteer service GET 400 BAD REQUEST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "38bbccc1-8eeb-4bbf-a645-4aacf491b8c1",
+						"exec": [
+							"pm.test(\"Status code is 400\", function(){\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/volunteer_service?id_service=<ID>",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"volunteer_service"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "100",
+							"description": "the limit of objects to return",
+							"disabled": true
+						},
+						{
+							"key": "id_volunteer",
+							"value": "2",
+							"description": "Volunteer id",
+							"disabled": true
+						},
+						{
+							"key": "id_service",
+							"value": "<ID>",
+							"description": "Service id"
+						}
+					]
+				},
+				"description": "Returns id_volunteer if id_service is inserted, or id_service if id_volunteer is inserted"
+			},
+			"response": [
+				{
+					"name": "Entity with specified parameters not found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/volunteer_service?limit=<integer>&id_volunteer=<integer>&id_service=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"volunteer_service"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_volunteer",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_service",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Illegal input for the required operation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/volunteer_service?limit=<integer>&id_volunteer=<integer>&id_service=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"volunteer_service"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_volunteer",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_service",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/volunteer_service?limit=<integer>&id_volunteer=<integer>&id_service=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"volunteer_service"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_volunteer",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_service",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n {\n  \"image\": \"image\",\n  \"career\": \"career\",\n  \"phone\": \"phone\",\n  \"name\": \"name\",\n  \"description\": \"description\",\n  \"id\": 0,\n  \"category\": \"Professore\",\n  \"email\": \"email\"\n },\n {\n  \"image\": \"image\",\n  \"career\": \"career\",\n  \"phone\": \"phone\",\n  \"name\": \"name\",\n  \"description\": \"description\",\n  \"id\": 0,\n  \"category\": \"Professore\",\n  \"email\": \"email\"\n }\n]"
+				}
+			]
+		},
+		{
+			"name": "volunteer service GET 404 ENTITY NOT FOUND",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "94968c05-d7fb-4fce-bfad-38a56a053e88",
+						"exec": [
+							"pm.test(\"Status code is 404\", function(){\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/volunteer_service?id_service=32423442",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"volunteer_service"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "100",
+							"description": "the limit of objects to return",
+							"disabled": true
+						},
+						{
+							"key": "id_volunteer",
+							"value": "3425241",
+							"description": "Volunteer id",
+							"disabled": true
+						},
+						{
+							"key": "id_service",
+							"value": "32423442",
+							"description": "Service id"
+						}
+					]
+				},
+				"description": "Returns id_volunteer if id_service is inserted, or id_service if id_volunteer is inserted"
+			},
+			"response": [
+				{
+					"name": "Illegal input for the required operation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/volunteer_service?limit=<integer>&id_volunteer=<integer>&id_service=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"volunteer_service"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_volunteer",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_service",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Entity with specified parameters not found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/volunteer_service?limit=<integer>&id_volunteer=<integer>&id_service=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"volunteer_service"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_volunteer",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_service",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/volunteer_service?limit=<integer>&id_volunteer=<integer>&id_service=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"volunteer_service"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_volunteer",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_service",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n {\n  \"image\": \"image\",\n  \"career\": \"career\",\n  \"phone\": \"phone\",\n  \"name\": \"name\",\n  \"description\": \"description\",\n  \"id\": 0,\n  \"category\": \"Professore\",\n  \"email\": \"email\"\n },\n {\n  \"image\": \"image\",\n  \"career\": \"career\",\n  \"phone\": \"phone\",\n  \"name\": \"name\",\n  \"description\": \"description\",\n  \"id\": 0,\n  \"category\": \"Professore\",\n  \"email\": \"email\"\n }\n]"
+				}
+			]
+		},
+		{
+			"name": "event service GET 200 OK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4fa18f39-db8f-40bd-aa6c-15e2f8904e36",
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/event_service?id_service=3",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"event_service"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "100",
+							"description": "the limit of objects to return",
+							"disabled": true
+						},
+						{
+							"key": "id_event",
+							"value": "2",
+							"description": "Event id",
+							"disabled": true
+						},
+						{
+							"key": "id_service",
+							"value": "3",
+							"description": "Service id"
+						}
+					]
+				},
+				"description": "Returns id_event if id_service is inserted, or id_service if id_event is inserted"
+			},
+			"response": [
+				{
+					"name": "Illegal input for the required operation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/event_service?limit=<integer>&id_event=<integer>&id_service=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"event_service"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_event",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_service",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/event_service?limit=<integer>&id_event=<integer>&id_service=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"event_service"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_event",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_service",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n {\n  \"image\": \"image\",\n  \"date_start\": \"date_start\",\n  \"description\": \"description\",\n  \"date_end\": \"date_end\",\n  \"id\": 0,\n  \"place\": {\n   \"lng\": 0,\n   \"lat\": 0\n  },\n  \"available_places\": 0,\n  \"title\": \"title\",\n  \"category\": \"Vacanza studio\"\n },\n {\n  \"image\": \"image\",\n  \"date_start\": \"date_start\",\n  \"description\": \"description\",\n  \"date_end\": \"date_end\",\n  \"id\": 0,\n  \"place\": {\n   \"lng\": 0,\n   \"lat\": 0\n  },\n  \"available_places\": 0,\n  \"title\": \"title\",\n  \"category\": \"Vacanza studio\"\n }\n]"
+				},
+				{
+					"name": "Entity with specified parameters not found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/event_service?limit=<integer>&id_event=<integer>&id_service=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"event_service"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_event",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_service",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "event service GET 400 BAD REQUEST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "31894ae5-f856-4ec3-8ed4-6a37ab4403b4",
+						"exec": [
+							"pm.test(\"Status code is 400\", function(){\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/event_service?id_service=<ID>",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"event_service"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "100",
+							"description": "the limit of objects to return",
+							"disabled": true
+						},
+						{
+							"key": "id_event",
+							"value": "2",
+							"description": "Event id",
+							"disabled": true
+						},
+						{
+							"key": "id_service",
+							"value": "<ID>",
+							"description": "Service id"
+						}
+					]
+				},
+				"description": "Returns id_event if id_service is inserted, or id_service if id_event is inserted"
+			},
+			"response": [
+				{
+					"name": "Illegal input for the required operation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/event_service?limit=<integer>&id_event=<integer>&id_service=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"event_service"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_event",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_service",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/event_service?limit=<integer>&id_event=<integer>&id_service=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"event_service"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_event",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_service",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n {\n  \"image\": \"image\",\n  \"date_start\": \"date_start\",\n  \"description\": \"description\",\n  \"date_end\": \"date_end\",\n  \"id\": 0,\n  \"place\": {\n   \"lng\": 0,\n   \"lat\": 0\n  },\n  \"available_places\": 0,\n  \"title\": \"title\",\n  \"category\": \"Vacanza studio\"\n },\n {\n  \"image\": \"image\",\n  \"date_start\": \"date_start\",\n  \"description\": \"description\",\n  \"date_end\": \"date_end\",\n  \"id\": 0,\n  \"place\": {\n   \"lng\": 0,\n   \"lat\": 0\n  },\n  \"available_places\": 0,\n  \"title\": \"title\",\n  \"category\": \"Vacanza studio\"\n }\n]"
+				},
+				{
+					"name": "Entity with specified parameters not found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/event_service?limit=<integer>&id_event=<integer>&id_service=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"event_service"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_event",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_service",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "event service GET 404 ENTITY NOT FOUND",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cefbefa2-a068-4ee8-80bf-3c6f589c82ec",
+						"exec": [
+							"pm.test(\"Status code is 404\", function(){\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/event_service?id_service=4323232",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"event_service"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "100",
+							"description": "the limit of objects to return",
+							"disabled": true
+						},
+						{
+							"key": "id_event",
+							"value": "2",
+							"description": "Event id",
+							"disabled": true
+						},
+						{
+							"key": "id_service",
+							"value": "4323232",
+							"description": "Service id"
+						}
+					]
+				},
+				"description": "Returns id_event if id_service is inserted, or id_service if id_event is inserted"
+			},
+			"response": [
+				{
+					"name": "Entity with specified parameters not found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/event_service?limit=<integer>&id_event=<integer>&id_service=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"event_service"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_event",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_service",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/event_service?limit=<integer>&id_event=<integer>&id_service=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"event_service"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_event",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_service",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n {\n  \"image\": \"image\",\n  \"date_start\": \"date_start\",\n  \"description\": \"description\",\n  \"date_end\": \"date_end\",\n  \"id\": 0,\n  \"place\": {\n   \"lng\": 0,\n   \"lat\": 0\n  },\n  \"available_places\": 0,\n  \"title\": \"title\",\n  \"category\": \"Vacanza studio\"\n },\n {\n  \"image\": \"image\",\n  \"date_start\": \"date_start\",\n  \"description\": \"description\",\n  \"date_end\": \"date_end\",\n  \"id\": 0,\n  \"place\": {\n   \"lng\": 0,\n   \"lat\": 0\n  },\n  \"available_places\": 0,\n  \"title\": \"title\",\n  \"category\": \"Vacanza studio\"\n }\n]"
+				},
+				{
+					"name": "Illegal input for the required operation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/event_service?limit=<integer>&id_event=<integer>&id_service=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"event_service"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_event",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_service",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "volunteer event GET 200 OK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3afc8f94-5ab4-4d56-9c1c-321fb94a8761",
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/volunteer_event?id_event=4",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"volunteer_event"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1000",
+							"description": "the limit of objects to return",
+							"disabled": true
+						},
+						{
+							"key": "id_event",
+							"value": "4",
+							"description": "Event id"
+						},
+						{
+							"key": "id_volunteer",
+							"value": "4",
+							"description": "Volunteer id",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Returns id_event if id_volunteer is inserted, or id_volunteer if id_event is inserted"
+			},
+			"response": [
+				{
+					"name": "Illegal input for the required operation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/volunteer_event?limit=<integer>&id_event=<integer>&id_volunteer=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"volunteer_event"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_event",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_volunteer",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/volunteer_event?limit=<integer>&id_event=<integer>&id_volunteer=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"volunteer_event"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_event",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_volunteer",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n {\n  \"image\": \"image\",\n  \"date_start\": \"date_start\",\n  \"description\": \"description\",\n  \"date_end\": \"date_end\",\n  \"id\": 0,\n  \"place\": {\n   \"lng\": 0,\n   \"lat\": 0\n  },\n  \"available_places\": 0,\n  \"title\": \"title\",\n  \"category\": \"Vacanza studio\"\n },\n {\n  \"image\": \"image\",\n  \"date_start\": \"date_start\",\n  \"description\": \"description\",\n  \"date_end\": \"date_end\",\n  \"id\": 0,\n  \"place\": {\n   \"lng\": 0,\n   \"lat\": 0\n  },\n  \"available_places\": 0,\n  \"title\": \"title\",\n  \"category\": \"Vacanza studio\"\n }\n]"
+				},
+				{
+					"name": "Entity with specified parameters not found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/volunteer_event?limit=<integer>&id_event=<integer>&id_volunteer=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"volunteer_event"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_event",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_volunteer",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "volunteer event GET 400 BAD REQUEST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bbef0aec-80dc-469d-9c22-c57123b676e2",
+						"exec": [
+							"pm.test(\"Status code is 400\", function(){\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/volunteer_event?id_volunteer=<ID>",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"volunteer_event"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1000",
+							"description": "the limit of objects to return",
+							"disabled": true
+						},
+						{
+							"key": "id_event",
+							"value": "4",
+							"description": "Event id",
+							"disabled": true
+						},
+						{
+							"key": "id_volunteer",
+							"value": "<ID>",
+							"description": "Volunteer id"
+						}
+					]
+				},
+				"description": "Returns id_event if id_volunteer is inserted, or id_volunteer if id_event is inserted"
+			},
+			"response": [
+				{
+					"name": "Entity with specified parameters not found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/volunteer_event?limit=<integer>&id_event=<integer>&id_volunteer=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"volunteer_event"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_event",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_volunteer",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Illegal input for the required operation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/volunteer_event?limit=<integer>&id_event=<integer>&id_volunteer=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"volunteer_event"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_event",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_volunteer",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/volunteer_event?limit=<integer>&id_event=<integer>&id_volunteer=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"volunteer_event"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_event",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_volunteer",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n {\n  \"image\": \"image\",\n  \"date_start\": \"date_start\",\n  \"description\": \"description\",\n  \"date_end\": \"date_end\",\n  \"id\": 0,\n  \"place\": {\n   \"lng\": 0,\n   \"lat\": 0\n  },\n  \"available_places\": 0,\n  \"title\": \"title\",\n  \"category\": \"Vacanza studio\"\n },\n {\n  \"image\": \"image\",\n  \"date_start\": \"date_start\",\n  \"description\": \"description\",\n  \"date_end\": \"date_end\",\n  \"id\": 0,\n  \"place\": {\n   \"lng\": 0,\n   \"lat\": 0\n  },\n  \"available_places\": 0,\n  \"title\": \"title\",\n  \"category\": \"Vacanza studio\"\n }\n]"
+				}
+			]
+		},
+		{
+			"name": "volunteer event GET 404 ENTITY NOT FOUND",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3e118222-801e-4470-bc03-e2e6724a7574",
+						"exec": [
+							"pm.test(\"Status code is 404\", function(){\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/volunteer_event?id_volunteer=232131",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"volunteer_event"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1000",
+							"description": "the limit of objects to return",
+							"disabled": true
+						},
+						{
+							"key": "id_event",
+							"value": "4",
+							"description": "Event id",
+							"disabled": true
+						},
+						{
+							"key": "id_volunteer",
+							"value": "232131",
+							"description": "Volunteer id"
+						}
+					]
+				},
+				"description": "Returns id_event if id_volunteer is inserted, or id_volunteer if id_event is inserted"
+			},
+			"response": [
+				{
+					"name": "Entity with specified parameters not found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/volunteer_event?limit=<integer>&id_event=<integer>&id_volunteer=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"volunteer_event"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_event",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_volunteer",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/volunteer_event?limit=<integer>&id_event=<integer>&id_volunteer=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"volunteer_event"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_event",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_volunteer",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n {\n  \"image\": \"image\",\n  \"date_start\": \"date_start\",\n  \"description\": \"description\",\n  \"date_end\": \"date_end\",\n  \"id\": 0,\n  \"place\": {\n   \"lng\": 0,\n   \"lat\": 0\n  },\n  \"available_places\": 0,\n  \"title\": \"title\",\n  \"category\": \"Vacanza studio\"\n },\n {\n  \"image\": \"image\",\n  \"date_start\": \"date_start\",\n  \"description\": \"description\",\n  \"date_end\": \"date_end\",\n  \"id\": 0,\n  \"place\": {\n   \"lng\": 0,\n   \"lat\": 0\n  },\n  \"available_places\": 0,\n  \"title\": \"title\",\n  \"category\": \"Vacanza studio\"\n }\n]"
+				},
+				{
+					"name": "Illegal input for the required operation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/volunteer_event?limit=<integer>&id_event=<integer>&id_volunteer=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"volunteer_event"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_event",
+									"value": "<integer>"
+								},
+								{
+									"key": "id_volunteer",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"id": "baseUrl",
+			"key": "baseUrl",
+			"value": "https://ripe4u.herokuapp.com",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

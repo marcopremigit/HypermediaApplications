@@ -1,5 +1,6 @@
 # HypermediaApplications
 
+This is the repository of a responsive static website for a fictious non-profit organization
 
 ## Lucid charts diagrams:
 
